@@ -11,7 +11,7 @@ matrix:
   include:
     - php: 5.4
       env:
-        - ICECAVE_PUBLISH_COVERAGE="false"
+        - secure: "TSF8gSbWBOvyjq/Cs2Gi+TZabbbgAx/gVHmHGIVNaIxNOnzTX/Q61d1B4/Mw\naLriubvsz2Xn5udWrp031/ZZ4zT6rRi/yD84+EKabSLDDvy/ZFgQbcgucW6K\n/ZuF6NsbeqQnolvVJGdSAsKvd2VC8DO0TVRRRq/2m0zwFx9AqRI="
 
   # PHP 5.5 is still in alpha, so ignore build failures.
   allow_failures:
