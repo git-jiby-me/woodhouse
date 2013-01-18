@@ -30,10 +30,10 @@ class PublishCommand extends Command
         );
 
         $this->addOption(
-            'badge',
-            'b',
+            'coverage-image',
+            null,
             InputOption::VALUE_REQUIRED,
-            'Publish a coverage badge to the given location (requires one of the --coverage-* options).'
+            'Publish a coverage badge to the given location (used in conjunction with one of the other --coverage-* options).'
         );
 
         $this->addOption(
