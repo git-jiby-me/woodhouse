@@ -11,7 +11,7 @@ class Application extends SymfonyApplication
 
         parent::__construct('Woodhouse', 'DEV');
 
-        // $this->add(new Command\PublishCommand);
+        $this->add(new Command\PublishCommand);
     }
 
     private $typeCheck;

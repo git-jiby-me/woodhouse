@@ -25,6 +25,9 @@
             "Icecave\\Woodhouse\\TypeCheck": "lib-typhoon"
         }
     },
+    "bin": [
+        "bin/woodhouse"
+    ],
     "extra": {
         "typhoon": {
             "output-path": "lib-typhoon",
