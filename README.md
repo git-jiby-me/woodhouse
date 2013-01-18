@@ -7,7 +7,7 @@
 
 ## Installation
 
-**Woodhouse** requires PHP 5.3.
+**Woodhouse** requires PHP 5.3.3 or newer.
 
 ### With [Composer](http://getcomposer.org/)
 
