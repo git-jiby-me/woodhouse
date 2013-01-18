@@ -1,7 +1,7 @@
 <?php
 namespace Icecave\Woodhouse\TypeCheck\Validator\Icecave\Woodhouse;
 
-class CoverageBadgeSelectorTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractValidator
+class CoverageImageSelectorTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractValidator
 {
     public function validateConstruct(array $arguments)
     {

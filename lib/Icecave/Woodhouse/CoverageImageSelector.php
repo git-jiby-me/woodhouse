@@ -3,7 +3,7 @@ namespace Icecave\Woodhouse;
 
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 
-class CoverageBadgeSelector
+class CoverageImageSelector
 {
     /**
      * @param integer $increments

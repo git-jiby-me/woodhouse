@@ -3,11 +3,11 @@ namespace Icecave\Woodhouse;
 
 use PHPUnit_Framework_TestCase;
 
-class CoverageBadgeSelectorTest extends PHPUnit_Framework_TestCase
+class CoverageImageSelectorTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_selector = new CoverageBadgeSelector;
+        $this->_selector = new CoverageImageSelector;
     }
 
     /**
