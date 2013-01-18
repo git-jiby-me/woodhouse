@@ -1,21 +1,21 @@
 {
-    "hash": "4125c88eba5107896bf91fc1936239ee",
+    "hash": "e074d05e9887d170c997fa3e5a1c2665",
     "packages": [
         {
             "name": "ezzatron/ci-status-images",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezzatron/ci-status-images.git",
-                "reference": "1.0.0"
+                "reference": "1.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ezzatron/ci-status-images/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://github.com/ezzatron/ci-status-images/archive/1.1.1.zip",
+                "reference": "1.1.1",
                 "shasum": ""
             },
-            "time": "2013-01-18 01:56:39",
+            "time": "2013-01-18 04:27:47",
             "type": "library",
             "notification-url": "http://packagist.org/downloads/",
             "license": [
