@@ -6,7 +6,8 @@ use Symfony\Component\Console\Application as SymfonyApplication;
 
 class Application extends SymfonyApplication
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
         parent::__construct('Woodhouse', 'DEV');

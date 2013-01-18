@@ -15,7 +15,7 @@ class ContentPublisher
     public function __construct(Isolator $isolator = null)
     {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
-        
+
         $this->contentPaths = array();
         $this->authToken = null;
         $this->isolator = Isolator::get($isolator);
@@ -38,7 +38,7 @@ class ContentPublisher
     public function remove($sourcePath)
     {
         $this->typeCheck->remove(func_get_args());
-        
+
         unset($this->contentPaths[$sourcePath]);
     }
 
@@ -50,8 +50,8 @@ class ContentPublisher
     }
 
     /**
-     * @param string $repository
-     * @param string $branch
+     * @param string   $repository
+     * @param string   $branch
      * @param callable $outputCallback
      */
     public function publish($repository, $branch = 'gh-pages', $outputCallback)
@@ -67,7 +67,7 @@ class ContentPublisher
         $this->typeCheck->authToken(func_get_args());
 
         return $this->authToken;
-        
+
     }
 
     /**

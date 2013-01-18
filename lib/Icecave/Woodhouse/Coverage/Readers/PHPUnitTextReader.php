@@ -11,10 +11,11 @@ class PHPUnitTextReader implements CoverageReaderInterface
     const PATTERN = '/^\s+Lines:\s+(\d{1,3}\.\d\d)/m';
 
     /**
-     * @param string $reportPath
+     * @param string        $reportPath
      * @param Isolator|null $isolator
      */
-    public function __construct($reportPath, Isolator $isolator = null) {
+    public function __construct($reportPath, Isolator $isolator = null)
+    {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
         $this->reportPath = $reportPath;

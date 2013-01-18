@@ -9,7 +9,8 @@ class CommandLineReader implements CoverageReaderInterface
     /**
      * @param numeric $percentage
      */
-    public function __construct($percentage) {
+    public function __construct($percentage)
+    {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
         $this->percentage = floatval($percentage);

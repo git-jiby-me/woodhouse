@@ -16,10 +16,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 class PublishCommand extends Command
 {
     /**
-     * @param ContentPublisher|null $publisher
+     * @param ContentPublisher|null      $publisher
      * @param CoverageReaderFactory|null $readerFactory
      * @param CoverageImageSelector|null $imageSelector
-     * @param Isolator|null $isolator
+     * @param Isolator|null              $isolator
      */
     public function __construct(
         ContentPublisher $publisher = null,
@@ -147,7 +147,7 @@ class PublishCommand extends Command
             if (null === $coverageOption) {
                 throw new RuntimeException('--coverage-image requires one of the other --coverage-* options.');
             }
-            
+
             $imageRoot = __DIR__ . '/../../../../../vendor/ezzatron/ci-status-images/img/test-coverage';
             if ($input->getOption('fixed-width')) {
                 $imageRoot .= '-fixed-width';

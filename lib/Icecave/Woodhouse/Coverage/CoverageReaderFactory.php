@@ -12,9 +12,10 @@ class CoverageReaderFactory
     /**
      * @param Isolator|null $isolator
      */
-    public function __construct(Isolator $isolator = null) {
+    public function __construct(Isolator $isolator = null)
+    {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
-        
+
         $this->isolator = Isolator::get($isolator);
     }
 
@@ -37,7 +38,8 @@ class CoverageReaderFactory
      *
      * @return CoverageReaderInterface
      */
-    public function create($type, $argument) {
+    public function create($type, $argument)
+    {
         $this->typeCheck->create(func_get_args());
 
         switch ($type) {

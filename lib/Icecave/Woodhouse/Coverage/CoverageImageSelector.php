@@ -8,7 +8,8 @@ class CoverageImageSelector
     /**
      * @param integer $increments
      */
-    public function __construct($increments = 5) {
+    public function __construct($increments = 5)
+    {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
         $this->increments = $increments;
@@ -36,6 +37,7 @@ class CoverageImageSelector
         $this->typeCheck->imageFilename(func_get_args());
 
         $percentage = $this->roundPercentage($percentage);
+
         return sprintf('test-coverage-%03d.png', $percentage);
     }
 
