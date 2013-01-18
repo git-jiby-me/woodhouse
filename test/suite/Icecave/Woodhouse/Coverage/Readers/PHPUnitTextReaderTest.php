@@ -10,10 +10,10 @@ class PHPUnitTestReader extends PHPUnit_Framework_TestCase
     {
         $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
         $this->_path = '/path/to/report.txt';
-        $this->_content = 'Code Coverage Report 
+        $this->_content = 'Code Coverage Report
           2013-01-19 09:21:37
 
-         Summary: 
+         Summary:
           Classes: 42.86% (3/7)
           Methods: 47.62% (10/21)
           Lines:   52.98% (89/168)

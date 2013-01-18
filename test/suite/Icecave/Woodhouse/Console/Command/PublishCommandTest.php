@@ -2,7 +2,6 @@
 namespace Icecave\Woodhouse\Console\Command;
 
 use PHPUnit_Framework_TestCase;
-use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class PublishCommandTest extends PHPUnit_Framework_TestCase
