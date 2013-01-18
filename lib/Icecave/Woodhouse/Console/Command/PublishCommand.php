@@ -2,7 +2,7 @@
 namespace Icecave\Woodhouse\Console\Command;
 
 use Icecave\Isolator\Isolator;
-use Icecave\Woodhouse\ContentPublisher;
+use Icecave\Woodhouse\Publisher\GitHubPublisher;
 use Icecave\Woodhouse\Coverage\CoverageImageSelector;
 use Icecave\Woodhouse\Coverage\CoverageReaderFactory;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
@@ -16,13 +16,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 class PublishCommand extends Command
 {
     /**
-     * @param ContentPublisher|null      $publisher
+     * @param GitHubPublisher|null       $publisher
      * @param CoverageReaderFactory|null $readerFactory
      * @param CoverageImageSelector|null $imageSelector
      * @param Isolator|null              $isolator
      */
     public function __construct(
-        ContentPublisher $publisher = null,
+        GitHubPublisher $publisher = null,
         CoverageReaderFactory $readerFactory = null,
         CoverageImageSelector $imageSelector = null,
         Isolator $isolator = null
@@ -32,7 +32,7 @@ class PublishCommand extends Command
         $this->isolator = Isolator::get($isolator);
 
         if (null === $publisher) {
-            $publisher = new ContentPublisher($this->isolator);
+            $publisher = new GitHubPublisher($this->isolator);
         }
 
         if (null === $readerFactory) {

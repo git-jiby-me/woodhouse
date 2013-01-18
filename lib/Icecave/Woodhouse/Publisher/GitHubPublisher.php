@@ -1,11 +1,11 @@
 <?php
-namespace Icecave\Woodhouse;
+namespace Icecave\Woodhouse\Publisher;
 
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
 use Icecave\Isolator\Isolator;
 
-class ContentPublisher
+class GitHubPublisher extends AbstractPublisher
 {
     const AUTH_TOKEN_PATTERN = '/^[0-9a-f]{40}$/i';
 
@@ -16,49 +16,59 @@ class ContentPublisher
     {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
-        $this->contentPaths = array();
-        $this->authToken = null;
         $this->isolator = Isolator::get($isolator);
+        $this->branch = 'gh-pages';
     }
 
     /**
-     * @param string $sourcePath
-     * @param string $targetPath
-     */
-    public function add($sourcePath, $targetPath)
-    {
-        $this->typeCheck->add(func_get_args());
-
-        $this->contentPaths[$sourcePath] = $targetPath;
-    }
-
-    /**
-     * @param string $sourcePath
-     */
-    public function remove($sourcePath)
-    {
-        $this->typeCheck->remove(func_get_args());
-
-        unset($this->contentPaths[$sourcePath]);
-    }
-
-    public function clear()
-    {
-        $this->typeCheck->clear(func_get_args());
-
-        $this->contentPaths = array();
-    }
-
-    /**
-     * @param string   $repository
-     * @param string   $branch
+     * Publish enqueued content.
+     *
      * @param callable $outputCallback
      */
-    public function publish($repository, $branch = 'gh-pages', $outputCallback)
+    public function publish($outputCallback)
     {
         throw new \Exception('Not implemented!');
     }
 
+    /**
+     * @return string
+     */
+    public function repository()
+    {
+        $this->typeCheck->repository(func_get_args());
+
+        return $this->repository;
+    }
+
+    /**
+     * @param string $repository
+     */
+    public function setRepository($repository)
+    {
+        $this->typeCheck->setRepository(func_get_args());
+
+        $this->repository = $repository;
+    }
+
+    /**
+     * @return string
+     */
+    public function branch()
+    {
+        $this->typeCheck->branch(func_get_args());
+
+        return $this->branch;
+    }
+
+    /**
+     * @param string $branch
+     */
+    public function setBranch($branch)
+    {
+        $this->typeCheck->setBranch(func_get_args());
+
+        $this->branch = $branch;
+    }
     /**
      * @return string|null
      */
@@ -85,6 +95,7 @@ class ContentPublisher
     }
 
     private $typeCheck;
-    private $contentPaths;
+    private $repository;
+    private $branch;
     private $authToken;
 }
