@@ -183,8 +183,10 @@ class PublishCommand extends Command
         }
 
         $this->publisher->setAuthToken($authToken);
+        $this->publisher->setRepository($input->getArgument('repository'));
+        $this->publisher->setBranch($input->getOption('branch'));
 
-        $this->publisher->publish($output);
+        $this->publisher->publish(array($output, 'write'));
     }
 
     private $typeCheck;
