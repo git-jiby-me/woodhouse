@@ -9,7 +9,7 @@ class Application extends SymfonyApplication
     public function __construct() {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
-        parent::__construct('Typhoon', 'DEV');
+        parent::__construct('Woodhouse', 'DEV');
 
         // $this->add(new Command\PublishCommand);
     }

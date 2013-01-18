@@ -1,6 +1,48 @@
 {
-    "hash": "f6f01ed5873f3f63761b3ad9e76a7802",
+    "hash": "d1104146faaef5f7f11a53a101044103",
     "packages": [
+        {
+            "name": "ezzatron/ci-status-images",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezzatron/ci-status-images.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/ezzatron/ci-status-images/archive/1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": ""
+            },
+            "time": "2013-01-18 01:56:39",
+            "type": "library",
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "Test coverage percentage and other useful status images for continuous integration systems.",
+            "homepage": "https://github.com/ezzatron/ci-status-images",
+            "keywords": [
+                "image",
+                "github",
+                "ci",
+                "travis",
+                "integration",
+                "continuous",
+                "status",
+                "icon",
+                "button",
+                "label"
+            ]
+        },
         {
             "name": "symfony/console",
             "version": "v2.1.7",
