@@ -5,8 +5,9 @@ class PublishCommandTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractValid
 {
     public function validateConstruct(array $arguments)
     {
-        if (\count($arguments) > 0) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        $argumentCount = \count($arguments);
+        if ($argumentCount > 4) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(4, $arguments[4]);
         }
     }
 

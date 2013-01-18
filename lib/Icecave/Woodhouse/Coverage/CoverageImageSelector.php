@@ -1,5 +1,5 @@
 <?php
-namespace Icecave\Woodhouse;
+namespace Icecave\Woodhouse\Coverage;
 
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 
