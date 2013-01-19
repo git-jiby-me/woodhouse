@@ -1,12 +1,13 @@
 <?php
 namespace Icecave\Woodhouse\Publisher;
 
+use Icecave\Isolator\Isolator;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
-use Icecave\Isolator\Isolator;
 
 class GitHubPublisher extends AbstractPublisher
 {
+    const REPOSITORY_PATTERN = '/^[a-z0-9_-]+\/[a-z0-9_-]+$/i';
     const AUTH_TOKEN_PATTERN = '/^[0-9a-f]{40}$/i';
 
     /**
@@ -46,6 +47,10 @@ class GitHubPublisher extends AbstractPublisher
     public function setRepository($repository)
     {
         $this->typeCheck->setRepository(func_get_args());
+
+        if (!preg_match(self::REPOSITORY_PATTERN, $repository)) {
+            throw new InvalidArgumentException('Invalid repository name: "' . $repository . '".');
+        }
 
         $this->repository = $repository;
     }
@@ -88,7 +93,9 @@ class GitHubPublisher extends AbstractPublisher
         $this->typeCheck->setAuthToken(func_get_args());
 
         if (!preg_match(self::AUTH_TOKEN_PATTERN, $authToken)) {
-            throw new InvalidArgumentException('The provided authentication token is not valid.');
+            // Note that the provided token is deliberately not included in the exception
+            // message to prevent possible leaks of strings that are very-near to a real token.
+            throw new InvalidArgumentException('Invalid authentication token.');
         }
 
         $this->authToken = strtolower($authToken);
