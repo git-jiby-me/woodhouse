@@ -201,10 +201,11 @@ class GitHubPublisher extends AbstractPublisher
     }
 
     /**
-     * @param string $command
+     * @param string     $command
      * @param stringable $argument,...
      */
-    protected function execute($command) {
+    protected function execute($command)
+    {
         $this->typeCheck->execute(func_get_args());
 
         $result = $this->tryExecuteArray(
@@ -220,7 +221,7 @@ class GitHubPublisher extends AbstractPublisher
     }
 
     /**
-     * @param string $command
+     * @param string     $command
      * @param stringable $argument,...
      */
     protected function tryExecute($command)
@@ -228,11 +229,12 @@ class GitHubPublisher extends AbstractPublisher
         $this->typeCheck->tryExecute(func_get_args());
 
         $arguments = array_slice(func_get_args(), 1);
+
         return $this->tryExecuteArray($command, $arguments);
     }
 
     /**
-     * @param string $command
+     * @param string            $command
      * @param array<stringable> $arguments
      */
     protected function tryExecuteArray($command, array $arguments)
