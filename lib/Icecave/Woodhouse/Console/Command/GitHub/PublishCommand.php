@@ -182,9 +182,17 @@ class PublishCommand extends Command
             if (false === $index) {
                 throw new RuntimeException('Invalid content specifier: "' . $content . '", content must be specified as colon separated pairs of source and destination path.');
             }
+
+            $sourcePath = substr($content, 0, $index);
+            $targetPath = substr($content, $index + 1);
+
+            if (!$this->isolator->file_exists($sourcePath)) {
+                throw new RuntimeException('Content does not exist: "' . $sourcePath . '".');
+            }
+
             $this->publisher->add(
-                substr($content, 0, $index),
-                substr($content, $index + 1)
+                $this->isolator->realpath($sourcePath),
+                $targetPath
             );
         }
 

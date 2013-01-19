@@ -18,6 +18,26 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->realpath(Phake::anyParameters())
             ->thenCallParent();
 
+        Phake::when($this->_isolator)
+            ->realpath('a')
+            ->thenReturn('real/a');
+
+        Phake::when($this->_isolator)
+            ->realpath('c')
+            ->thenReturn('real/c');
+
+        Phake::when($this->_isolator)
+            ->realpath('c:\foo\bar')
+            ->thenReturn('c:\foo\bar');
+
+        Phake::when($this->_isolator)
+            ->realpath('/foo/bar')
+            ->thenReturn('/foo/bar');
+
+        Phake::when($this->_isolator)
+            ->file_exists(Phake::anyParameters())
+            ->thenReturn(true);
+
         $this->_command = new PublishCommand(
             $this->_publisher,
             $this->_readerFactory,
@@ -66,8 +86,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add('a', 'b'),
-            Phake::verify($this->_publisher)->add('c', 'd'),
+            Phake::verify($this->_publisher)->add('real/a', 'b'),
+            Phake::verify($this->_publisher)->add('real/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -85,8 +105,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         Phake::inOrder(
             Phake::verify($this->_publisher)->add($imagePath, 'coverage.png'),
-            Phake::verify($this->_publisher)->add('a', 'b'),
-            Phake::verify($this->_publisher)->add('c', 'd'),
+            Phake::verify($this->_publisher)->add('real/a', 'b'),
+            Phake::verify($this->_publisher)->add('real/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -104,8 +124,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         Phake::inOrder(
             Phake::verify($this->_publisher)->add($imagePath, 'coverage.png'),
-            Phake::verify($this->_publisher)->add('a', 'b'),
-            Phake::verify($this->_publisher)->add('c', 'd'),
+            Phake::verify($this->_publisher)->add('real/a', 'b'),
+            Phake::verify($this->_publisher)->add('real/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -124,8 +144,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add('a', 'b'),
-            Phake::verify($this->_publisher)->add('c', 'd'),
+            Phake::verify($this->_publisher)->add('real/a', 'b'),
+            Phake::verify($this->_publisher)->add('real/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -170,6 +190,18 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $input = new StringInput('foo/bar a:b c:d --auth-token xxx --auth-token-env TOKEN_VAR');
 
         $this->setExpectedException('RuntimeException', '--auth-token-env can not be used with --auth-token.');
+        $this->_command->run($input, $this->_output);
+    }
+
+    public function testExecuteFailureNoContent()
+    {
+        Phake::when($this->_isolator)
+            ->file_exists('a')
+            ->thenReturn(false);
+
+        $input = new StringInput('foo/bar a:b c:d');
+
+        $this->setExpectedException('RuntimeException', 'Content does not exist: "a".');
         $this->_command->run($input, $this->_output);
     }
 
