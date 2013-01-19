@@ -41,31 +41,36 @@ class GitHubPublisher extends AbstractPublisher
 
         // Clone the Git repository ...
         $output = $this->execute(
-            'git', 'clone',
+            'git', 'clone', '--quiet',
             '--branch', $this->branch(),
             '--depth', 0,
             $this->repositoryUrl(),
             $tempDir
         );
 
-        $this->execute('cd', $tempDir);
+        $this->isolator->chdir($tempDir);
 
         // Create the brach if it doesn't exist ...
         if (false !== strpos($output, $this->branch() . ' not found in upstream origin')) {
             $this->execute('git', 'checkout', '--orphan', $this->branch());
-            $this->execute('git', 'rm', '-rf', '.');
+            $this->execute('git', 'rm', '-rf', '--ignore-unmatch', '.');
 
         // Branch does exist ...
         } else {
             // Remove existing content that exists in target paths ...
             foreach ($this->contentPaths() as $sourcePath => $targetPath) {
-                $this->execute('git', 'rm', '-rf', $targetPath);
+                $this->execute('git', 'rm', '-rf', '--ignore-unmatch', $targetPath);
             }
         }
 
         // Copy in published content and add it to the repo ...
         foreach ($this->contentPaths() as $sourcePath => $targetPath) {
-            $this->execute('cp', '-r', $sourcePath, $targetPath);
+            $fullTargetPath = $tempDir . '/' . $targetPath;
+            $fullTargetParentPath = dirname($fullTargetPath);
+            if (!$this->isolator->is_dir($fullTargetParentPath)) {
+                $this->isolator->mkdir($fullTargetParentPath, 0777, true);
+            }
+            $this->execute('cp', '-r', $sourcePath, $fullTargetPath);
             $this->execute('git', 'add', $targetPath);
         }
 
@@ -130,7 +135,7 @@ class GitHubPublisher extends AbstractPublisher
             return sprintf('https://github.com/%s.git', $this->repository);
         }
 
-        return sprintf('https://%s@github.com/%s.git', $this->authToken, $this->repository);
+        return sprintf('https://%s:x-oauth-basic@github.com/%s.git', $this->authToken, $this->repository);
     }
 
     /**
@@ -245,9 +250,11 @@ class GitHubPublisher extends AbstractPublisher
         foreach ($arguments as $arg) {
             $commandLine .= ' ' . escapeshellarg($arg);
         }
+        $commandLine .=  ' 2>&1';
 
         $exitCode = null;
         $output = array();
+
         $this->isolator->exec($commandLine, $output, $exitCode);
 
         if (0 === $exitCode) {

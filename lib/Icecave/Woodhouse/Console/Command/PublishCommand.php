@@ -127,6 +127,8 @@ class PublishCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $output->setVerbosity(OutputInterface::VERBOSITY_VERBOSE);
+
         $coverageReader = null;
         $coverageOption = null;
 
@@ -136,6 +138,7 @@ class PublishCommand extends Command
             if ($value = $input->getOption($optionName)) {
                 if (null === $coverageOption) {
                     $coverageReader = $this->readerFactory->create($type, $value);
+                    $coverageOption = $optionName;
                 } else {
                     throw new RuntimeException('--' . $optionName . ' can not be used with --' . $coverageOption . '.');
                 }
@@ -154,19 +157,19 @@ class PublishCommand extends Command
             }
 
             $percentage = $coverageReader->readPercentage();
-            $imageFilename = $this->coverageImageSelector->imageFilename($percentage);
-            $this->publisher->enqueue($imageRoot . '/' . $imageFilename, $imageTarget);
+            $imageFilename = $this->imageSelector->imageFilename($percentage);
+            $this->publisher->add($imageRoot . '/' . $imageFilename, $imageTarget);
         } elseif ($coverageType) {
             throw new RuntimeException('--coverage-' . $type . ' requires --coverage-image.');
         }
 
         // Enqueue content ...
-        foreach ($this->getArgument('content') as $content) {
+        foreach ($input->getArgument('content') as $content) {
             $index = strrpos($content, ':');
             if (false === $index) {
                 throw new RuntimeException('Content must be specified as colon separated pairs of source/destination path (eg: path/to/source:/path/to/dest).');
             }
-            $this->publisher->enqueue(
+            $this->publisher->add(
                 substr($content, 0, $index),
                 substr($content, $index + 1)
             );
@@ -186,7 +189,9 @@ class PublishCommand extends Command
         $this->publisher->setRepository($input->getArgument('repository'));
         $this->publisher->setBranch($input->getOption('branch'));
 
-        $this->publisher->publish(array($output, 'write'));
+        $this->publisher->publish();
+
+        $output->writeln('Content published successfully.');
     }
 
     private $typeCheck;
