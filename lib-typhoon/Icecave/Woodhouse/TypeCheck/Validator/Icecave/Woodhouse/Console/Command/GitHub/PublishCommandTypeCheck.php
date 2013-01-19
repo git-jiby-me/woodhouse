@@ -1,5 +1,5 @@
 <?php
-namespace Icecave\Woodhouse\TypeCheck\Validator\Icecave\Woodhouse\Console\Command;
+namespace Icecave\Woodhouse\TypeCheck\Validator\Icecave\Woodhouse\Console\Command\GitHub;
 
 class PublishCommandTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractValidator
 {

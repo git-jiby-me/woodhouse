@@ -1,5 +1,5 @@
 <?php
-namespace Icecave\Woodhouse\Console\Command;
+namespace Icecave\Woodhouse\Console\Command\GitHub;
 
 use PHPUnit_Framework_TestCase;
 use Phake;
@@ -36,9 +36,10 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Icecave\Woodhouse\Coverage\CoverageImageSelector', $command->imageSelector());
     }
 
-    public function testName()
+    public function testConfigure()
     {
-        $this->assertSame('publish', $this->_command->getName());
+        $this->assertSame('github:publish', $this->_command->getName());
+        $this->assertSame('Publish content to a GitHub pages branch.', $this->_command->getDescription());
     }
 
     public function testExecute()
@@ -80,7 +81,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         $this->_command->run($input, $this->_output);
 
-        $imagePath = realpath(__DIR__ . '/../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage/test-coverage-050.png');
+        $imagePath = realpath(__DIR__ . '/../../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage/test-coverage-050.png');
 
         Phake::inOrder(
             Phake::verify($this->_publisher)->add($imagePath, 'coverage.png'),
@@ -99,7 +100,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         $this->_command->run($input, $this->_output);
 
-        $imagePath = realpath(__DIR__ . '/../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage-fixed-width/test-coverage-050.png');
+        $imagePath = realpath(__DIR__ . '/../../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage-fixed-width/test-coverage-050.png');
 
         Phake::inOrder(
             Phake::verify($this->_publisher)->add($imagePath, 'coverage.png'),
