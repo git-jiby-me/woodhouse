@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /home/travis/builds/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/Coverage/Readers</title>
+  <title>Dashboard for /home/travis/builds/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/Publisher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -18,8 +18,7 @@
      <div class="span12">
       <ul class="breadcrumb">
         <li><a href="index.html">/home/travis/builds/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse</a> <span class="divider">/</span></li>
-        <li><a href="Coverage.html">Coverage</a> <span class="divider">/</span></li>
-        <li><a href="Coverage_Readers.html">Readers</a></li>
+        <li><a href="Publisher.html">Publisher</a></li>
         <li class="active">(Dashboard)</li>
 
       </ul>
@@ -42,12 +41,14 @@
     <div class="span6">
      <h2>Top Project Risks</h2>
      <ul>
+              <li><a href="Publisher_GitHubPublisher.php.html#8">GitHubPublisher</a> (10)</li>
 
      </ul>
     </div>
     <div class="span6">
      <h2>Least Tested Methods</h2>
      <ul>
+              <li><a href="Publisher_GitHubPublisher.php.html#29">GitHubPublisher::publish</a> (0%)</li>
 
      </ul>
     </div>
@@ -83,7 +84,7 @@
               labels: {style: {fontSize: '8px'}},
           },
           series: [{
-              data: [0,0,0,0,0,0,0,0,0,0,0,2]
+              data: [0,0,0,0,0,0,0,0,0,0,1,1]
           }],
         });
 
@@ -109,7 +110,7 @@
               }
           },
           series: [{
-            data: [[100,2,"<a href=\"Coverage_Readers_CommandLineReader.php.html#7\">CommandLineReader<\/a>"],[100,3,"<a href=\"Coverage_Readers_PHPUnitTextReader.php.html#9\">PHPUnitTextReader<\/a>"]],
+            data: [[100,5,"<a href=\"Publisher_AbstractPublisher.php.html#6\">AbstractPublisher<\/a>"],[95.833333333333,10,"<a href=\"Publisher_GitHubPublisher.php.html#8\">GitHubPublisher<\/a>"]],
             marker: {
                 symbol: 'diamond'
             }
