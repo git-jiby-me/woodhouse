@@ -12,8 +12,8 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "icecave/isolator": "2.*",
         "ezzatron/ci-status-images": "1.*",
+        "icecave/isolator": "2.*",
         "symfony/console": "2.*"
     },
     "require-dev": {

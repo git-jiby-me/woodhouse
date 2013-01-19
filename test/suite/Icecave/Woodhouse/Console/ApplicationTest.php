@@ -17,5 +17,6 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
         $this->assertSame('DEV', $this->_application->getVersion());
 
         Phake::verify($this->_application)->add($this->isInstanceOf(__NAMESPACE__ . '\Command\GitHub\PublishCommand'));
+        Phake::verify($this->_application)->add($this->isInstanceOf(__NAMESPACE__ . '\Command\GitHub\GetTokenCommand'));
     }
 }
