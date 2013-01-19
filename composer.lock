@@ -1,6 +1,57 @@
 {
-    "hash": "1b4021c41f1e8d8ec6a45a79334b9c67",
+    "hash": "8a938ef224a165d595791fe9476d557c",
     "packages": [
+        {
+            "name": "eloquent/asplode",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eloquent/asplode.git",
+                "reference": "1.0.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/eloquent/asplode/zipball/1.0.4",
+                "reference": "1.0.4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "icecave/isolator": "2.*"
+            },
+            "require-dev": {
+                "phake/phake": "1.*"
+            },
+            "time": "2012-08-05 18:24:33",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Eloquent\\Asplode": "src"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "Drop-in exception-based error handling for PHP.",
+            "homepage": "https://github.com/eloquent/asplode",
+            "keywords": [
+                "exception",
+                "error",
+                "handling",
+                "handler",
+                "errorexception",
+                "fault",
+                "failure"
+            ]
+        },
         {
             "name": "ezzatron/ci-status-images",
             "version": "1.2.0",
@@ -135,57 +186,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "eloquent/asplode",
-            "version": "1.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/eloquent/asplode.git",
-                "reference": "1.0.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/eloquent/asplode/zipball/1.0.4",
-                "reference": "1.0.4",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "icecave/isolator": "2.*"
-            },
-            "require-dev": {
-                "phake/phake": "1.*"
-            },
-            "time": "2012-08-05 18:24:33",
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Eloquent\\Asplode": "src"
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Erin Millard",
-                    "email": "ezzatron@gmail.com",
-                    "homepage": "http://ezzatron.com/"
-                }
-            ],
-            "description": "Drop-in exception-based error handling for PHP.",
-            "homepage": "https://github.com/eloquent/asplode",
-            "keywords": [
-                "exception",
-                "error",
-                "handling",
-                "handler",
-                "errorexception",
-                "fault",
-                "failure"
-            ]
-        },
         {
             "name": "eloquent/blox",
             "version": "1.2.0",
