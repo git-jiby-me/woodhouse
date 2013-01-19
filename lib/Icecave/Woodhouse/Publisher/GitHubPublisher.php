@@ -274,6 +274,11 @@ class GitHubPublisher extends AbstractPublisher
 
         if (0 === $exitCode) {
             return implode(PHP_EOL, $output);
+        } else {
+            echo $commandLine . PHP_EOL;
+            echo implode(PHP_EOL, $output);
+            echo PHP_EOL;
+            echo PHP_EOL;
         }
 
         return null;
