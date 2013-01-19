@@ -13,7 +13,7 @@ class Application extends SymfonyApplication
         parent::__construct('Woodhouse', 'DEV');
 
         $this->add(new Command\GitHub\PublishCommand);
-        $this->add(new Command\GitHub\GetTokenCommand);
+        // $this->add(new Command\GitHub\GetTokenCommand);
     }
 
     private $typeCheck;
