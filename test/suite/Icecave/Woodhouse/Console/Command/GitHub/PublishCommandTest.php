@@ -153,6 +153,23 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testExecuteWithCommitMessage()
+    {
+        $input = new StringInput('foo/bar a:b c:d --message "This is the message!"');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::inOrder(
+            Phake::verify($this->_publisher)->add('real/a', 'b'),
+            Phake::verify($this->_publisher)->add('real/c', 'd'),
+            Phake::verify($this->_publisher)->setCommitMessage('This is the message!'),
+            Phake::verify($this->_publisher)->setAuthToken(null),
+            Phake::verify($this->_publisher)->setRepository('foo/bar'),
+            Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_output)->writeln('Content published successfully.')
+        );
+    }
+
     public function testExecuteFailureCoverageWithNoImage()
     {
         $input = new StringInput('foo/bar a:b --coverage-percentage 50');

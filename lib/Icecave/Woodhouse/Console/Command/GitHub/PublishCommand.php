@@ -85,6 +85,13 @@ class PublishCommand extends Command
         );
 
         $this->addOption(
+            'message',
+            'm',
+            InputOption::VALUE_REQUIRED,
+            'The Git commit message.'
+        );
+
+        $this->addOption(
             'branch',
             null,
             InputOption::VALUE_REQUIRED,
@@ -204,6 +211,10 @@ class PublishCommand extends Command
             } else {
                 throw new RuntimeException('--auth-token-env can not be used with --auth-token.');
             }
+        }
+
+        if ($message = $input->getOption('message')) {
+            $this->publisher->setCommitMessage($message);
         }
 
         $this->publisher->setAuthToken($authToken);
