@@ -62,15 +62,64 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'bar-dest'),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_publisher)->execute('git', 'pull'),
             $pushVerifier,
             Phake::verify($this->_publisher)->execute('rm', '-rf', '/tmp/woodhouse-10101')
+        );
+    }
+
+    public function testPublishDirectoryCopyFlags()
+    {
+        Phake::when($this->_publisher)
+            ->execute(Phake::anyParameters())
+            ->thenReturn('');
+
+        Phake::when($this->_publisher)
+            ->tryExecute(Phake::anyParameters())
+            ->thenReturn('');
+
+        Phake::when($this->_publisher)
+            ->tryExecute('git', 'push', 'origin', 'test-branch')
+            ->thenReturn(null)
+            ->thenReturn('');
+
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->add('/source/foo', '/foo-dest');
+
+        Phake::when($this->_isolator)
+            ->is_dir('/source/foo')
+            ->thenReturn(true);
+
+        Phake::when($this->_isolator)
+            ->php_uname('s')
+            ->thenReturn('Linux')
+            ->thenReturn('Darwin')
+            ->thenReturn('FreeBSD')
+            ->thenReturn('Other');
+
+        $this->_publisher->publish();
+        $this->_publisher->publish();
+        $this->_publisher->publish();
+        $this->_publisher->publish();
+
+        $bsdVerifier = Phake::verify($this->_publisher, Phake::times(2))->execute('cp', '-R', '/source/foo/', '/tmp/woodhouse-10101/foo-dest');
+        $isDirVerifier = Phake::verify($this->_isolator, Phake::times(4))->is_dir('/source/foo');
+
+        Phake::inOrder(
+            $isDirVerifier,
+            Phake::verify($this->_publisher)->execute('cp', '-rT', '/source/foo/', '/tmp/woodhouse-10101/foo-dest'),
+            $isDirVerifier,
+            $bsdVerifier,
+            $isDirVerifier,
+            $bsdVerifier,
+            $isDirVerifier,
+            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/foo/', '/tmp/woodhouse-10101/foo-dest')
         );
     }
 
@@ -112,7 +161,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'parent/foo-dest'),
             Phake::verify($this->_isolator)->is_dir('/tmp/woodhouse-10101/parent'),
             Phake::verify($this->_isolator)->mkdir('/tmp/woodhouse-10101/parent', 0777, true),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/foo', '/tmp/woodhouse-10101/parent/foo-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/foo', '/tmp/woodhouse-10101/parent/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'parent/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,
@@ -153,9 +202,9 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_publisher)->execute('git', 'checkout', '--orphan', 'test-branch'),
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', '.'),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             Phake::verify($this->_publisher)->tryExecute('git', 'push', 'origin', 'test-branch'),
@@ -205,9 +254,9 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'bar-dest'),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_publisher)->execute('cp', '-r', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_publisher)->execute('cp', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,

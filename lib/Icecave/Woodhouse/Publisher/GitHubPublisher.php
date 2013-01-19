@@ -83,13 +83,29 @@ class GitHubPublisher extends AbstractPublisher
         }
 
         // Copy in published content and add it to the repo ...
+        $system = $this->isolator->php_uname('s');
+        if ('Linux' === $system) {
+            $copyFlags = '-rT';
+        } elseif ('Darwin' === $system || false !== strpos($system, 'BSD')) {
+            $copyFlags = '-R';
+        } else {
+            $copyFlags = '-r';
+        }
+
         foreach ($this->contentPaths() as $sourcePath => $targetPath) {
             $fullTargetPath = $tempDir . '/' . $targetPath;
             $fullTargetParentPath = dirname($fullTargetPath);
             if (!$this->isolator->is_dir($fullTargetParentPath)) {
                 $this->isolator->mkdir($fullTargetParentPath, 0777, true);
             }
-            $this->execute('cp', '-r', $sourcePath, $fullTargetPath);
+
+            if ($this->isolator->is_dir($sourcePath)) {
+                $sourcePath = rtrim($sourcePath, '/') . '/';
+                $this->execute('cp', $copyFlags, $sourcePath, $fullTargetPath);
+            } else {
+                $this->execute('cp', $sourcePath, $fullTargetPath);
+            }
+
             $this->execute('git', 'add', $targetPath);
         }
 
@@ -274,11 +290,11 @@ class GitHubPublisher extends AbstractPublisher
 
         if (0 === $exitCode) {
             return implode(PHP_EOL, $output);
-        } else {
-            echo $commandLine . PHP_EOL;
-            echo implode(PHP_EOL, $output);
-            echo PHP_EOL;
-            echo PHP_EOL;
+        // } else {
+        //     echo $commandLine . PHP_EOL;
+        //     echo implode(PHP_EOL, $output);
+        //     echo PHP_EOL;
+        //     echo PHP_EOL;
         }
 
         return null;
