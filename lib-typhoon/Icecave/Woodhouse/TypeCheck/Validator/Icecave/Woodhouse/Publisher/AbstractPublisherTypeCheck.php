@@ -67,4 +67,11 @@ class AbstractPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVa
         }
     }
 
+    public function contentPaths(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        }
+    }
+
 }

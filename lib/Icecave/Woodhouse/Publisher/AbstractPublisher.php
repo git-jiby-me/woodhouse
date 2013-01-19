@@ -20,6 +20,8 @@ abstract class AbstractPublisher implements PublisherInterface
      */
     public function add($sourcePath, $targetPath)
     {
+        $this->typeCheck->add(func_get_args());
+
         $this->contentPaths[$sourcePath] = $targetPath;
     }
 
@@ -30,6 +32,8 @@ abstract class AbstractPublisher implements PublisherInterface
      */
     public function remove($sourcePath)
     {
+        $this->typeCheck->remove(func_get_args());
+
         unset($this->contentPaths[$sourcePath]);
     }
 
@@ -38,6 +42,8 @@ abstract class AbstractPublisher implements PublisherInterface
      */
     public function clear()
     {
+        $this->typeCheck->clear(func_get_args());
+
         $this->contentPaths = array();
     }
 
@@ -46,6 +52,8 @@ abstract class AbstractPublisher implements PublisherInterface
      */
     public function contentPaths()
     {
+        $this->typeCheck->contentPaths(func_get_args());
+
         return $this->contentPaths;
     }
 
