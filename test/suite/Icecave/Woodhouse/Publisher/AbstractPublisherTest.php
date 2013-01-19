@@ -25,6 +25,12 @@ class AbstractPublisherTest extends PHPUnit_Framework_TestCase
         $this->assertSame(array('foo' => 'bar', 'spam' => 'doom'), $this->_publisher->contentPaths());
     }
 
+    public function testAddRemovesLeadingSlashes()
+    {
+        $this->_publisher->add('foo', '//bar');
+        $this->assertSame(array('foo' => 'bar'), $this->_publisher->contentPaths());
+    }
+
     public function testRemove()
     {
         $this->_publisher->add('spam', 'doom');

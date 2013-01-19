@@ -4,6 +4,7 @@ namespace Icecave\Woodhouse\Publisher;
 use Icecave\Isolator\Isolator;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
+use RuntimeException;
 
 class GitHubPublisher extends AbstractPublisher
 {
@@ -19,16 +20,64 @@ class GitHubPublisher extends AbstractPublisher
 
         $this->isolator = Isolator::get($isolator);
         $this->branch = 'gh-pages';
+        $this->commitMessage = 'Content published by Woodhouse.';
+        $this->maxPushAttempts = 3;
     }
 
     /**
      * Publish enqueued content.
-     *
-     * @param callable $outputCallback
      */
-    public function publish($outputCallback)
+    public function publish()
     {
-        throw new \Exception('Not implemented!');
+        $tempDir = $this->isolator->sys_get_temp_dir() . '/woodhouse-' . $this->isolator->getmypid();
+
+        // Clone the Git repository ...
+        $output = $this->execute(
+            'git', 'clone',
+            '--branch', $this->branch(),
+            '--depth', 0,
+            $this->repositoryUrl(),
+            $tempDir
+        );
+        
+        // Create the brach if it doesn't exist ...
+        if (false !== strpos($output, $this->branch() . ' not found in upstream origin')) {
+            $this->execute('git', 'checkout', '--orphan', $this->branch());
+            $this->execute('cd', $tempDir);
+            $this->execute('git', 'rm', '-rf', '.');
+        
+        // Branch does exist ...
+        } else {
+            $this->execute('cd', $tempDir);
+        }
+
+        // Remove existing content that exists in target paths ...
+        foreach ($this->contentPaths() as $sourcePath => $targetPath) {
+            $this->execute('git', 'rm', '-rf', $targetPath);
+        }
+
+        // Copy in published content and add it to the repo ...
+        foreach ($this->contentPaths() as $sourcePath => $targetPath) {
+            $this->execute('cp', '-r', $sourcePath, $targetPath);
+            $this->execute('git', 'add', $targetPath);
+        }
+
+        ////////
+        return ;
+        ////////
+
+        // Commit the published content ...
+        $this->execute('git', 'commit', '-m', $this->commitMessage());
+
+        // Make push attempts ...
+        for ($attempt = 1; $attempt <= $this->maxPushAttempts; ++$attempt) {
+            if ($this->tryExecute('git', 'push', 'origin', $this->branch())) {
+                return;
+            }
+            $this->execute('git', 'pull');
+        }
+        
+        throw new RuntimeException('Unable to publish content.');
     }
 
     /**
@@ -74,6 +123,27 @@ class GitHubPublisher extends AbstractPublisher
 
         $this->branch = $branch;
     }
+
+    /**
+     * @return string
+     */
+    public function commitMessage()
+    {
+        $this->typeCheck->commitMessage(func_get_args());
+
+        return $this->commitMessage;
+    }
+
+    /**
+     * @param string $commitMessage
+     */
+    public function setCommitMessage($commitMessage)
+    {
+        $this->typeCheck->setCommitMessage(func_get_args());
+
+        $this->commitMessage = $commitMessage;
+    }
+
     /**
      * @return string|null
      */
@@ -101,8 +171,58 @@ class GitHubPublisher extends AbstractPublisher
         $this->authToken = strtolower($authToken);
     }
 
+    /**
+     * @param string $command
+     * @param string $argument,...
+     */
+    protected function execute($command) {
+        $this->typeCheck->execute(func_get_args());
+
+        $arguments = array_slice(func_get_args(), 1);
+        if (!$this->tryExecuteArray($command, $arguments)) {
+            throw new RuntimeException('Failed executing command: "' . $command . '".');
+        }
+    }
+
+    /**
+     * @param string $command
+     * @param string $argument,...
+     */
+    protected function tryExecute($command)
+    {
+        $this->typeCheck->tryExecute(func_get_args());
+
+        $arguments = array_slice(func_get_args(), 1);
+        return $this->tryExecuteArray($command, $arguments);
+    }
+
+    /**
+     * @param string $command
+     * @param array<string> $arguments
+     */
+    protected function tryExecuteArray($command, array $arguments)
+    {
+        $this->typeCheck->tryExecuteArray(func_get_args());
+
+        $commandLine = '/usr/bin/env ' . escapeshellarg($command);
+        foreach ($arguments as $arg) {
+            $commandLine .= ' ' . escapeshellarg($arg);
+        }
+
+        $exitCode = null;
+        $this->isolator->exec($commandLine, $output, $exitCode);
+
+        if (0 === $exitCode) {
+            return implode(PHP_EOL, $ouptut);
+        }
+
+        return null;
+    }
+
     private $typeCheck;
     private $repository;
     private $branch;
+    private $commitMessage;
     private $authToken;
+    private $maxPushAttempts;
 }

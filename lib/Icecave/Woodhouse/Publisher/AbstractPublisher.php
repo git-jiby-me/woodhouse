@@ -22,7 +22,7 @@ abstract class AbstractPublisher implements PublisherInterface
     {
         $this->typeCheck->add(func_get_args());
 
-        $this->contentPaths[$sourcePath] = $targetPath;
+        $this->contentPaths[$sourcePath] = ltrim($targetPath, '/');
     }
 
     /**

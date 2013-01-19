@@ -25,8 +25,6 @@ interface PublisherInterface
 
     /**
      * Publish enqueued content.
-     *
-     * @param callable $outputCallback
      */
-    public function publish($outputCallback);
+    public function publish();
 }

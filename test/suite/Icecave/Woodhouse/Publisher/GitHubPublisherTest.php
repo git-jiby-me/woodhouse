@@ -42,6 +42,17 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
         $this->assertSame('some-branch', $this->_publisher->branch());
     }
 
+    public function testCommitMessage()
+    {
+        $this->assertSame('Content published by Woodhouse.', $this->_publisher->commitMessage());
+    }
+
+    public function testSetCommitMessage()
+    {
+        $this->_publisher->setCommitMessage('The message.');
+        $this->assertSame('The message.', $this->_publisher->commitMessage());
+    }
+
     public function testAuthToken()
     {
         $this->assertNull($this->_publisher->authToken());
