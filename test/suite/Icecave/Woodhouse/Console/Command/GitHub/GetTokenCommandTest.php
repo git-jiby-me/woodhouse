@@ -4,7 +4,6 @@ namespace Icecave\Woodhouse\Console\Command\GitHub;
 use Icecave\Woodhouse\Console\Application;
 use PHPUnit_Framework_TestCase;
 use Phake;
-use Symfony\Component\Console\Input\StringInput;
 
 class GetTokenCommandTest extends PHPUnit_Framework_TestCase
 {
