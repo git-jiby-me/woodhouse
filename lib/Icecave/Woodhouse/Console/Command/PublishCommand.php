@@ -2,9 +2,9 @@
 namespace Icecave\Woodhouse\Console\Command;
 
 use Icecave\Isolator\Isolator;
-use Icecave\Woodhouse\Publisher\GitHubPublisher;
 use Icecave\Woodhouse\Coverage\CoverageImageSelector;
 use Icecave\Woodhouse\Coverage\CoverageReaderFactory;
+use Icecave\Woodhouse\Publisher\GitHubPublisher;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use RuntimeException;
 use Symfony\Component\Console\Command\Command;
@@ -48,6 +48,21 @@ class PublishCommand extends Command
         $this->imageSelector = $imageSelector;
 
         parent::__construct();
+    }
+
+    public function publisher()
+    {
+        return $this->publisher;
+    }
+
+    public function readerFactory()
+    {
+        return $this->readerFactory;
+    }
+
+    public function imageSelector()
+    {
+        return $this->imageSelector;
     }
 
     protected function configure()
@@ -151,7 +166,7 @@ class PublishCommand extends Command
                 throw new RuntimeException('--coverage-image requires one of the other --coverage-* options.');
             }
 
-            $imageRoot = __DIR__ . '/../../../../../vendor/ezzatron/ci-status-images/img/test-coverage';
+            $imageRoot = $this->isolator->realpath(__DIR__ . '/../../../../../vendor/ezzatron/ci-status-images/img/test-coverage');
             if ($input->getOption('fixed-width')) {
                 $imageRoot .= '-fixed-width';
             }
@@ -159,15 +174,15 @@ class PublishCommand extends Command
             $percentage = $coverageReader->readPercentage();
             $imageFilename = $this->imageSelector->imageFilename($percentage);
             $this->publisher->add($imageRoot . '/' . $imageFilename, $imageTarget);
-        } elseif ($coverageType) {
-            throw new RuntimeException('--coverage-' . $type . ' requires --coverage-image.');
+        } elseif ($coverageOption) {
+            throw new RuntimeException('--' . $coverageOption . ' requires --coverage-image.');
         }
 
         // Enqueue content ...
         foreach ($input->getArgument('content') as $content) {
             $index = strrpos($content, ':');
             if (false === $index) {
-                throw new RuntimeException('Content must be specified as colon separated pairs of source/destination path (eg: path/to/source:/path/to/dest).');
+                throw new RuntimeException('Invalid content specifier: "' . $content . '", content must be specified as colon separated pairs of source and destination path.');
             }
             $this->publisher->add(
                 substr($content, 0, $index),
