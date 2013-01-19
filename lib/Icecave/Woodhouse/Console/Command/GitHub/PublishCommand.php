@@ -171,7 +171,7 @@ class PublishCommand extends Command
                 throw new RuntimeException('--coverage-image requires one of the other --coverage-* options.');
             }
 
-            $imageRoot = __DIR__ . '/../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage';
+            $imageRoot = $this->getApplication()->vendorPath() . '/ezzatron/ci-status-images/img/test-coverage';
             if ($input->getOption('fixed-width')) {
                 $imageRoot .= '-fixed-width';
             }

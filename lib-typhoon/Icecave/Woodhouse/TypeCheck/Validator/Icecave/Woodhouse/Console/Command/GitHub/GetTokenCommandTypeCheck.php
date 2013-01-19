@@ -5,28 +5,6 @@ class GetTokenCommandTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
 {
     public function validateConstruct(array $arguments)
     {
-        $argumentCount = \count($arguments);
-        if ($argumentCount > 4) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(4, $arguments[4]);
-        }
-    }
-
-    public function publisher(array $arguments)
-    {
-        if (\count($arguments) > 0) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
-        }
-    }
-
-    public function readerFactory(array $arguments)
-    {
-        if (\count($arguments) > 0) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
-        }
-    }
-
-    public function imageSelector(array $arguments)
-    {
         if (\count($arguments) > 0) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
         }

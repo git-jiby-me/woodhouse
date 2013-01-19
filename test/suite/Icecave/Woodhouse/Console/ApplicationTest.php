@@ -8,7 +8,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_application = Phake::partialMock(__NAMESPACE__ . '\Application');
+        $this->_application = Phake::partialMock(__NAMESPACE__ . '\Application', '/path/to/vendors');
     }
 
     public function testConstructor()
@@ -18,5 +18,10 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
 
         Phake::verify($this->_application)->add($this->isInstanceOf(__NAMESPACE__ . '\Command\GitHub\PublishCommand'));
         // Phake::verify($this->_application)->add($this->isInstanceOf(__NAMESPACE__ . '\Command\GitHub\GetTokenCommand'));
+    }
+
+    public function testVendorPath()
+    {
+        $this->assertSame('/path/to/vendors', $this->_application->vendorPath());
     }
 }

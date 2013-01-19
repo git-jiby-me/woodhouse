@@ -1,6 +1,7 @@
 <?php
 namespace Icecave\Woodhouse\Console\Command\GitHub;
 
+use Icecave\Woodhouse\Console\Application;
 use PHPUnit_Framework_TestCase;
 use Phake;
 use Symfony\Component\Console\Input\StringInput;
@@ -26,12 +27,16 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->file_exists(Phake::anyParameters())
             ->thenReturn(true);
 
+        $this->_application = new Application('/path/to/vendors');
+
         $this->_command = new PublishCommand(
             $this->_publisher,
             $this->_readerFactory,
             $this->_imageSelector,
             $this->_isolator
         );
+
+        $this->_command->setApplication($this->_application);
 
         $this->_output = Phake::mock('Symfony\Component\Console\Output\OutputInterface');
     }
@@ -53,7 +58,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
     public function testExecute()
     {
         // Double escape backslashes, once for PHP and once for command line parser
-        $input = new StringInput('foo/bar c:\\\\foo\\\\bar:dest-a /foo/bar:dest-b');
+        $input = new StringInput('publish foo/bar c:\\\\foo\\\\bar:dest-a /foo/bar:dest-b');
 
         $this->_command->run($input, $this->_output);
 
@@ -69,7 +74,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteWithAuthToken()
     {
-        $input = new StringInput('foo/bar a:b c:d --auth-token 0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
+        $input = new StringInput('publish foo/bar a:b c:d --auth-token 0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
         $this->_command->run($input, $this->_output);
 
@@ -85,12 +90,12 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteWithCoverageImage()
     {
-        $input = new StringInput('foo/bar a:b c:d --coverage-image coverage.png --coverage-percentage 50');
+        $input = new StringInput('publish foo/bar a:b c:d --coverage-image coverage.png --coverage-percentage 50');
 
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            // Phake::verify($this->_publisher)->add('x', 'coverage.png'),
+            Phake::verify($this->_publisher)->add('/path/to/vendors/ezzatron/ci-status-images/img/test-coverage/test-coverage-050.png', 'coverage.png'),
             Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
             Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken(null),
@@ -102,12 +107,12 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteWithFixedWidthCoverageImage()
     {
-        $input = new StringInput('foo/bar a:b c:d --coverage-image coverage.png --coverage-percentage 50 --fixed-width');
+        $input = new StringInput('publish foo/bar a:b c:d --coverage-image coverage.png --coverage-percentage 50 --fixed-width');
 
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            // Phake::verify($this->_publisher)->add('x', 'coverage.png'),
+            Phake::verify($this->_publisher)->add('/path/to/vendors/ezzatron/ci-status-images/img/test-coverage-fixed-width/test-coverage-050.png', 'coverage.png'),
             Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
             Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken(null),
@@ -123,7 +128,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->getenv('TOKEN_VAR')
             ->thenReturn('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
-        $input = new StringInput('foo/bar a:b c:d --auth-token-env TOKEN_VAR');
+        $input = new StringInput('publish foo/bar a:b c:d --auth-token-env TOKEN_VAR');
 
         $this->_command->run($input, $this->_output);
 
@@ -139,7 +144,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteWithCommitMessage()
     {
-        $input = new StringInput('foo/bar a:b c:d --message "This is the message!"');
+        $input = new StringInput('publish foo/bar a:b c:d --message "This is the message!"');
 
         $this->_command->run($input, $this->_output);
 
@@ -156,7 +161,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailureCoverageWithNoImage()
     {
-        $input = new StringInput('foo/bar a:b --coverage-percentage 50');
+        $input = new StringInput('publish foo/bar a:b --coverage-percentage 50');
 
         $this->setExpectedException('RuntimeException', '--coverage-percentage requires --coverage-image.');
         $this->_command->run($input, $this->_output);
@@ -164,7 +169,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailureCoverageImageWithNoPercentage()
     {
-        $input = new StringInput('foo/bar a:b --coverage-image /foo/bar');
+        $input = new StringInput('publish foo/bar a:b --coverage-image /foo/bar');
 
         $this->setExpectedException('RuntimeException', '--coverage-image requires one of the other --coverage-* options.');
         $this->_command->run($input, $this->_output);
@@ -172,7 +177,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailureMultipleCoveragePercentages()
     {
-        $input = new StringInput('foo/bar a:b --coverage-percentage 50 --coverage-phpunit /foo/bar');
+        $input = new StringInput('publish foo/bar a:b --coverage-percentage 50 --coverage-phpunit /foo/bar');
 
         $this->setExpectedException('RuntimeException', '--coverage-percentage can not be used with --coverage-phpunit.');
         $this->_command->run($input, $this->_output);
@@ -180,7 +185,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailureWithInvalidContentSpecifier()
     {
-        $input = new StringInput('foo/bar a');
+        $input = new StringInput('publish foo/bar a');
 
         $this->setExpectedException('RuntimeException', 'Invalid content specifier: "a", content must be specified as colon separated pairs of source and destination path.');
         $this->_command->run($input, $this->_output);
@@ -188,7 +193,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailureWithAuthTokenAndAuthTokenEnv()
     {
-        $input = new StringInput('foo/bar a:b c:d --auth-token xxx --auth-token-env TOKEN_VAR');
+        $input = new StringInput('publish foo/bar a:b c:d --auth-token xxx --auth-token-env TOKEN_VAR');
 
         $this->setExpectedException('RuntimeException', '--auth-token-env can not be used with --auth-token.');
         $this->_command->run($input, $this->_output);
@@ -200,7 +205,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->file_exists('a')
             ->thenReturn(false);
 
-        $input = new StringInput('foo/bar a:b c:d');
+        $input = new StringInput('publish foo/bar a:b c:d');
 
         $this->setExpectedException('RuntimeException', 'Content does not exist: "a".');
         $this->_command->run($input, $this->_output);
@@ -208,7 +213,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailureNoArguments()
     {
-        $input = new StringInput('');
+        $input = new StringInput('publish');
 
         $this->setExpectedException('RuntimeException', 'Not enough arguments.');
         $this->_command->run($input, $this->_output);
