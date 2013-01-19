@@ -44,6 +44,13 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         }
     }
 
+    public function repositoryUrl(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        }
+    }
+
     public function branch(array $arguments)
     {
         if (\count($arguments) > 0) {
@@ -140,12 +147,22 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         if ($argumentCount > 1) {
             $check = function ($argument, $index) {
                 $value = $argument;
-                if (!\is_string($value)) {
+                $check = function ($value) {
+                    if (\is_string($value) || \is_int($value) || \is_float($value)) {
+                        return true;
+                    }
+                    if (!\is_object($value)) {
+                        return false;
+                    }
+                    $reflector = new \ReflectionObject($value);
+                    return $reflector->hasMethod('__toString');
+                };
+                if (!$check($argument)) {
                     throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
                         'argument',
                         $index,
                         $argument,
-                        'string'
+                        'stringable'
                     );
                 }
             };
@@ -173,12 +190,22 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         if ($argumentCount > 1) {
             $check = function ($argument, $index) {
                 $value = $argument;
-                if (!\is_string($value)) {
+                $check = function ($value) {
+                    if (\is_string($value) || \is_int($value) || \is_float($value)) {
+                        return true;
+                    }
+                    if (!\is_object($value)) {
+                        return false;
+                    }
+                    $reflector = new \ReflectionObject($value);
+                    return $reflector->hasMethod('__toString');
+                };
+                if (!$check($argument)) {
                     throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
                         'argument',
                         $index,
                         $argument,
-                        'string'
+                        'stringable'
                     );
                 }
             };
@@ -195,7 +222,7 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
             if ($argumentCount < 1) {
                 throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('command', 0, 'string');
             }
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('arguments', 1, 'array<string>');
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('arguments', 1, 'array<stringable>');
         } elseif ($argumentCount > 2) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(2, $arguments[2]);
         }
@@ -213,8 +240,18 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
             if (!\is_array($value)) {
                 return false;
             }
+            $valueCheck = function ($subValue) {
+                if (\is_string($subValue) || \is_int($subValue) || \is_float($subValue)) {
+                    return true;
+                }
+                if (!\is_object($subValue)) {
+                    return false;
+                }
+                $reflector = new \ReflectionObject($subValue);
+                return $reflector->hasMethod('__toString');
+            };
             foreach ($value as $key => $subValue) {
-                if (!\is_string($subValue)) {
+                if (!$valueCheck($subValue)) {
                     return false;
                 }
             }
@@ -225,7 +262,7 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
                 'arguments',
                 1,
                 $arguments[1],
-                'array<string>'
+                'array<stringable>'
             );
         }
     }

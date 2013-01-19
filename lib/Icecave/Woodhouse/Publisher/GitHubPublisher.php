@@ -22,6 +22,8 @@ class GitHubPublisher extends AbstractPublisher
         $this->branch = 'gh-pages';
         $this->commitMessage = 'Content published by Woodhouse.';
         $this->maxPushAttempts = 3;
+
+        parent::__construct();
     }
 
     /**
@@ -29,6 +31,12 @@ class GitHubPublisher extends AbstractPublisher
      */
     public function publish()
     {
+        $this->typeCheck->publish(func_get_args());
+
+        if (null === $this->repository) {
+            throw new RuntimeException('No repository set.');
+        }
+
         $tempDir = $this->isolator->sys_get_temp_dir() . '/woodhouse-' . $this->isolator->getmypid();
 
         // Clone the Git repository ...
@@ -39,21 +47,20 @@ class GitHubPublisher extends AbstractPublisher
             $this->repositoryUrl(),
             $tempDir
         );
-        
+
+        $this->execute('cd', $tempDir);
+
         // Create the brach if it doesn't exist ...
         if (false !== strpos($output, $this->branch() . ' not found in upstream origin')) {
             $this->execute('git', 'checkout', '--orphan', $this->branch());
-            $this->execute('cd', $tempDir);
             $this->execute('git', 'rm', '-rf', '.');
-        
+
         // Branch does exist ...
         } else {
-            $this->execute('cd', $tempDir);
-        }
-
-        // Remove existing content that exists in target paths ...
-        foreach ($this->contentPaths() as $sourcePath => $targetPath) {
-            $this->execute('git', 'rm', '-rf', $targetPath);
+            // Remove existing content that exists in target paths ...
+            foreach ($this->contentPaths() as $sourcePath => $targetPath) {
+                $this->execute('git', 'rm', '-rf', $targetPath);
+            }
         }
 
         // Copy in published content and add it to the repo ...
@@ -63,20 +70,24 @@ class GitHubPublisher extends AbstractPublisher
         }
 
         ////////
-        return ;
+        // return ;
         ////////
 
         // Commit the published content ...
         $this->execute('git', 'commit', '-m', $this->commitMessage());
 
         // Make push attempts ...
-        for ($attempt = 1; $attempt <= $this->maxPushAttempts; ++$attempt) {
-            if ($this->tryExecute('git', 'push', 'origin', $this->branch())) {
+        $attemptsRemaining = $this->maxPushAttempts;
+        while (true) {
+            if (null !== $this->tryExecute('git', 'push', 'origin', $this->branch())) {
                 return;
+            } elseif (--$attemptsRemaining) {
+                $this->execute('git', 'pull');
+            } else {
+                break;
             }
-            $this->execute('git', 'pull');
         }
-        
+
         throw new RuntimeException('Unable to publish content.');
     }
 
@@ -102,6 +113,24 @@ class GitHubPublisher extends AbstractPublisher
         }
 
         $this->repository = $repository;
+    }
+
+    /**
+     * @return string
+     */
+    public function repositoryUrl()
+    {
+        $this->typeCheck->repositoryUrl(func_get_args());
+
+        if (null === $this->repository) {
+            return null;
+        }
+
+        if (null === $this->authToken) {
+            return sprintf('https://github.com/%s.git', $this->repository);
+        }
+
+        return sprintf('https://%s@github.com/%s.git', $this->authToken, $this->repository);
     }
 
     /**
@@ -173,20 +202,26 @@ class GitHubPublisher extends AbstractPublisher
 
     /**
      * @param string $command
-     * @param string $argument,...
+     * @param stringable $argument,...
      */
     protected function execute($command) {
         $this->typeCheck->execute(func_get_args());
 
-        $arguments = array_slice(func_get_args(), 1);
-        if (!$this->tryExecuteArray($command, $arguments)) {
+        $result = $this->tryExecuteArray(
+            $command,
+            array_slice(func_get_args(), 1)
+        );
+
+        if (null === $result) {
             throw new RuntimeException('Failed executing command: "' . $command . '".');
         }
+
+        return $result;
     }
 
     /**
      * @param string $command
-     * @param string $argument,...
+     * @param stringable $argument,...
      */
     protected function tryExecute($command)
     {
@@ -198,7 +233,7 @@ class GitHubPublisher extends AbstractPublisher
 
     /**
      * @param string $command
-     * @param array<string> $arguments
+     * @param array<stringable> $arguments
      */
     protected function tryExecuteArray($command, array $arguments)
     {
@@ -210,10 +245,11 @@ class GitHubPublisher extends AbstractPublisher
         }
 
         $exitCode = null;
+        $output = array();
         $this->isolator->exec($commandLine, $output, $exitCode);
 
         if (0 === $exitCode) {
-            return implode(PHP_EOL, $ouptut);
+            return implode(PHP_EOL, $output);
         }
 
         return null;
