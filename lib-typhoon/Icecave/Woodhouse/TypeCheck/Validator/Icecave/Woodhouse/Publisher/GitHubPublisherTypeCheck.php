@@ -18,6 +18,25 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         }
     }
 
+    public function doPublish(array $arguments)
+    {
+        $argumentCount = \count($arguments);
+        if ($argumentCount < 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('tempDir', 0, 'string');
+        } elseif ($argumentCount > 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
+        }
+        $value = $arguments[0];
+        if (!\is_string($value)) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
+                'tempDir',
+                0,
+                $arguments[0],
+                'string'
+            );
+        }
+    }
+
     public function repository(array $arguments)
     {
         if (\count($arguments) > 0) {

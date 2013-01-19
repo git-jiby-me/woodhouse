@@ -1,6 +1,7 @@
 <?php
 namespace Icecave\Woodhouse\Publisher;
 
+use Exception;
 use Icecave\Isolator\Isolator;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
@@ -39,6 +40,24 @@ class GitHubPublisher extends AbstractPublisher
 
         $tempDir = $this->isolator->sys_get_temp_dir() . '/woodhouse-' . $this->isolator->getmypid();
 
+        try {
+            $this->doPublish($tempDir);
+            $this->execute('rm', '-rf', $tempDir);
+        } catch (Exception $e) {
+            $this->execute('rm', '-rf', $tempDir);
+            throw $e;
+        }
+    }
+
+    /**
+     * Publish enqueued content.
+     *
+     * @param string $tempDir
+     */
+    protected function doPublish($tempDir)
+    {
+        $this->typeCheck->doPublish(func_get_args());
+
         // Clone the Git repository ...
         $output = $this->execute(
             'git', 'clone', '--quiet',
@@ -73,10 +92,6 @@ class GitHubPublisher extends AbstractPublisher
             $this->execute('cp', '-r', $sourcePath, $fullTargetPath);
             $this->execute('git', 'add', $targetPath);
         }
-
-        ////////
-        // return ;
-        ////////
 
         // Commit the published content ...
         $this->execute('git', 'commit', '-m', $this->commitMessage());

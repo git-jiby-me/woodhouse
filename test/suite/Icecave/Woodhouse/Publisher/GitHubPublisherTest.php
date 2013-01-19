@@ -69,7 +69,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_publisher)->execute('git', 'pull'),
-            $pushVerifier
+            $pushVerifier,
+            Phake::verify($this->_publisher)->execute('rm', '-rf', '/tmp/woodhouse-10101')
         );
     }
 
@@ -116,7 +117,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_publisher)->execute('git', 'pull'),
-            $pushVerifier
+            $pushVerifier,
+            Phake::verify($this->_publisher)->execute('rm', '-rf', '/tmp/woodhouse-10101')
         );
     }
 
@@ -156,7 +158,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('cp', '-r', '/source/bar', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
-            Phake::verify($this->_publisher)->tryExecute('git', 'push', 'origin', 'test-branch')
+            Phake::verify($this->_publisher)->tryExecute('git', 'push', 'origin', 'test-branch'),
+            Phake::verify($this->_publisher)->execute('rm', '-rf', '/tmp/woodhouse-10101')
         );
     }
 
@@ -211,7 +214,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             $pullVerifier,
             $pushVerifier,
             $pullVerifier,
-            $pushVerifier
+            $pushVerifier,
+            Phake::verify($this->_publisher)->execute('rm', '-rf', '/tmp/woodhouse-10101')
         );
     }
 
