@@ -142,8 +142,6 @@ class PublishCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->setVerbosity(OutputInterface::VERBOSITY_VERBOSE);
-
         $coverageReader = null;
         $coverageOption = null;
 

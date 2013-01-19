@@ -1,17 +1,10 @@
 <?php
 namespace Icecave\Woodhouse\Console\Command\GitHub;
 
-use Github\Client;
-use Icecave\Isolator\Isolator;
-use Icecave\Woodhouse\Coverage\CoverageImageSelector;
-use Icecave\Woodhouse\Coverage\CoverageReaderFactory;
-use Icecave\Woodhouse\Publisher\GitHubPublisher;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
-use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class GetTokenCommand extends Command
@@ -43,6 +36,8 @@ class GetTokenCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $dialog = $this->getHelperSet()->get('dialog');
+
     }
 
     private $typeCheck;
