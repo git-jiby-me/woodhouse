@@ -171,7 +171,7 @@ class PublishCommand extends Command
                 throw new RuntimeException('--coverage-image requires one of the other --coverage-* options.');
             }
 
-            $imageRoot = $this->isolator->realpath(__DIR__ . '/../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage');
+            $imageRoot = __DIR__ . '/../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage';
             if ($input->getOption('fixed-width')) {
                 $imageRoot .= '-fixed-width';
             }
@@ -197,8 +197,12 @@ class PublishCommand extends Command
                 throw new RuntimeException('Content does not exist: "' . $sourcePath . '".');
             }
 
+            if (!preg_match('{^([a-z]:[\\\\/]|/)}i', $sourcePath)) {
+                $sourcePath = $this->isolator->getcwd() . '/' . $sourcePath;
+            }
+
             $this->publisher->add(
-                $this->isolator->realpath($sourcePath),
+                $sourcePath,
                 $targetPath
             );
         }

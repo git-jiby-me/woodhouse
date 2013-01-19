@@ -19,20 +19,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->thenCallParent();
 
         Phake::when($this->_isolator)
-            ->realpath('a')
-            ->thenReturn('real/a');
-
-        Phake::when($this->_isolator)
-            ->realpath('c')
-            ->thenReturn('real/c');
-
-        Phake::when($this->_isolator)
-            ->realpath('c:\foo\bar')
-            ->thenReturn('c:\foo\bar');
-
-        Phake::when($this->_isolator)
-            ->realpath('/foo/bar')
-            ->thenReturn('/foo/bar');
+            ->getcwd()
+            ->thenReturn('/current/dir');
 
         Phake::when($this->_isolator)
             ->file_exists(Phake::anyParameters())
@@ -86,8 +74,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add('real/a', 'b'),
-            Phake::verify($this->_publisher)->add('real/c', 'd'),
+            Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
+            Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -101,12 +89,10 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         $this->_command->run($input, $this->_output);
 
-        $imagePath = realpath(__DIR__ . '/../../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage/test-coverage-050.png');
-
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add($imagePath, 'coverage.png'),
-            Phake::verify($this->_publisher)->add('real/a', 'b'),
-            Phake::verify($this->_publisher)->add('real/c', 'd'),
+            // Phake::verify($this->_publisher)->add('x', 'coverage.png'),
+            Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
+            Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -120,12 +106,10 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         $this->_command->run($input, $this->_output);
 
-        $imagePath = realpath(__DIR__ . '/../../../../../../../vendor/ezzatron/ci-status-images/img/test-coverage-fixed-width/test-coverage-050.png');
-
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add($imagePath, 'coverage.png'),
-            Phake::verify($this->_publisher)->add('real/a', 'b'),
-            Phake::verify($this->_publisher)->add('real/c', 'd'),
+            // Phake::verify($this->_publisher)->add('x', 'coverage.png'),
+            Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
+            Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -144,8 +128,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add('real/a', 'b'),
-            Phake::verify($this->_publisher)->add('real/c', 'd'),
+            Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
+            Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
@@ -160,8 +144,8 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
 
         Phake::inOrder(
-            Phake::verify($this->_publisher)->add('real/a', 'b'),
-            Phake::verify($this->_publisher)->add('real/c', 'd'),
+            Phake::verify($this->_publisher)->add('/current/dir/a', 'b'),
+            Phake::verify($this->_publisher)->add('/current/dir/c', 'd'),
             Phake::verify($this->_publisher)->setCommitMessage('This is the message!'),
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
