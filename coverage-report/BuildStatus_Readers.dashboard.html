@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/Coverage/Readers</title>
+  <title>Dashboard for /home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/BuildStatus/Readers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -18,8 +18,8 @@
      <div class="span12">
       <ul class="breadcrumb">
         <li><a href="index.html">/home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse</a> <span class="divider">/</span></li>
-        <li><a href="Coverage.html">Coverage</a> <span class="divider">/</span></li>
-        <li><a href="Coverage_Readers.html">Readers</a></li>
+        <li><a href="BuildStatus.html">BuildStatus</a> <span class="divider">/</span></li>
+        <li><a href="BuildStatus_Readers.html">Readers</a></li>
         <li class="active">(Dashboard)</li>
 
       </ul>
@@ -83,7 +83,7 @@
               labels: {style: {fontSize: '8px'}},
           },
           series: [{
-              data: [0,0,0,0,0,0,0,0,0,0,0,2]
+              data: [0,0,0,0,0,0,0,0,0,0,0,4]
           }],
         });
 
@@ -109,7 +109,7 @@
               }
           },
           series: [{
-            data: [[100,2,"<a href=\"Coverage_Readers_CommandLineReader.php.html#7\">CommandLineReader<\/a>"],[100,3,"<a href=\"Coverage_Readers_PhpUnitTextReader.php.html#9\">PhpUnitTextReader<\/a>"]],
+            data: [[100,2,"<a href=\"BuildStatus_Readers_CommandLineReader.php.html#8\">CommandLineReader<\/a>"],[100,6,"<a href=\"BuildStatus_Readers_JUnitReader.php.html#11\">JUnitReader<\/a>"],[100,11,"<a href=\"BuildStatus_Readers_PhpUnitJsonReader.php.html#10\">PhpUnitJsonReader<\/a>"],[100,4,"<a href=\"BuildStatus_Readers_TapReader.php.html#10\">TapReader<\/a>"]],
             marker: {
                 symbol: 'diamond'
             }
