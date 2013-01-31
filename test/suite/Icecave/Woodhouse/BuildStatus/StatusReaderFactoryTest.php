@@ -18,6 +18,7 @@ class StatusReaderFactoryTest extends PHPUnit_Framework_TestCase
         $expected = array(
             'junit',
             'phpunit',
+            'result',
             'tap',
         );
 
@@ -40,6 +41,14 @@ class StatusReaderFactoryTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(__NAMESPACE__ . '\Readers\PhpUnitJsonReader', $reader);
         $this->assertSame('/path/to/report.json', Liberator::liberate($reader)->reportPath);
         $this->assertSame($this->_isolator, Liberator::liberate($reader)->isolator);
+    }
+
+    public function testCreateCommandLine()
+    {
+        $reader = $this->_factory->create('result', 'passing');
+
+        $this->assertInstanceOf(__NAMESPACE__ . '\Readers\CommandLineReader', $reader);
+        $this->assertSame('passing', Liberator::liberate($reader)->buildStatus);
     }
 
     public function testCreateTap()

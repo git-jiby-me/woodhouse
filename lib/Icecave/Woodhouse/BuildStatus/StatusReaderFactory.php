@@ -2,9 +2,10 @@
 namespace Icecave\Woodhouse\BuildStatus;
 
 use Icecave\Isolator\Isolator;
+use Icecave\Woodhouse\BuildStatus\Readers\CommandLineReader;
 use Icecave\Woodhouse\BuildStatus\Readers\JUnitReader;
-use Icecave\Woodhouse\BuildStatus\Readers\TapReader;
 use Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReader;
+use Icecave\Woodhouse\BuildStatus\Readers\TapReader;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
 
@@ -30,6 +31,7 @@ class StatusReaderFactory
         return array(
             'junit',
             'phpunit',
+            'result',
             'tap',
         );
     }
@@ -49,6 +51,8 @@ class StatusReaderFactory
                 return new JUnitReader($argument, $this->isolator);
             case 'phpunit':
                 return new PhpUnitJsonReader($argument, $this->isolator);
+            case 'result':
+                return new CommandLineReader($argument);
             case 'tap':
                 return new TapReader($argument, $this->isolator);
         }
