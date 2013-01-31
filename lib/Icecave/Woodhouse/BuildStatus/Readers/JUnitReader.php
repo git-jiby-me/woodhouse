@@ -1,7 +1,9 @@
 <?php
 namespace Icecave\Woodhouse\BuildStatus\Readers;
 
+use Exception;
 use Icecave\Isolator\Isolator;
+use Icecave\Woodhouse\BuildStatus\BuildStatus;
 use Icecave\Woodhouse\BuildStatus\StatusReaderInterface;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use RuntimeException;
@@ -27,7 +29,19 @@ class JUnitReader implements StatusReaderInterface
     {
         $this->typeCheck->readStatus(func_get_args());
 
-        throw new RuntimeException('Unable to parse JUnit test report.');
+        try {
+            $xml = $this->isolator->simplexml_load_file($this->reportPath);
+        } catch (Exception $e) {
+            throw new RuntimeException('Unable to parse JUnit test report.', 0, $e);
+        }
+
+        foreach ($xml as $suite) {
+            if ($suite['failures'] > 0 || $suite['errors'] > 0) {
+                return BuildStatus::FAILING();
+            }
+        }
+
+        return BuildStatus::PASSING();
     }
 
     private $typeCheck;

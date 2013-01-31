@@ -22,7 +22,7 @@ class PhpUnitJsonReaderTest extends PHPUnit_Framework_TestCase
             ->thenCallParent();
     }
 
-    protected function setupStreamFixture($content)
+    public function setupContentFixture($content)
     {
         $stream = fopen('data://text/plain;base64,' . base64_encode($content), 'rb');
 
@@ -50,7 +50,7 @@ class PhpUnitJsonReaderTest extends PHPUnit_Framework_TestCase
     "output": ""
 }
 EOD;
-        $this->setupStreamFixture($content);
+        $this->setupContentFixture($content);
 
         $this->assertSame(BuildStatus::PASSING(), $this->_reader->readStatus());
     }
@@ -71,7 +71,7 @@ EOD;
 }
 EOD;
 
-        $this->setupStreamFixture($content);
+        $this->setupContentFixture($content);
 
         $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
     }
@@ -93,14 +93,14 @@ EOD;
 }
 EOD;
 
-    $this->setupStreamFixture($content);
+    $this->setupContentFixture($content);
 
         $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
     }
 
     public function testReadStatusFailure()
     {
-        $this->setupStreamFixture('<invalid content>');
+        $this->setupContentFixture('<invalid content>');
 
         $this->setExpectedException('RuntimeException', 'Unable to parse PHPUnit test report.');
         $this->_reader->readStatus();
