@@ -15,7 +15,7 @@ class Application extends SymfonyApplication
 
         $this->vendorPath = $vendorPath;
 
-        parent::__construct('Woodhouse', '0.3.0');
+        parent::__construct('Woodhouse', 'DEV');
 
         $this->add(new Command\PublishCommand);
     }
