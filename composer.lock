@@ -1,5 +1,5 @@
 {
-    "hash": "8a938ef224a165d595791fe9476d557c",
+    "hash": "1601e1e90cd67928f6168c26aba15d7f",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -54,21 +54,21 @@
         },
         {
             "name": "ezzatron/ci-status-images",
-            "version": "1.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezzatron/ci-status-images.git",
-                "reference": "1.2.0"
+                "reference": "3.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/ezzatron/ci-status-images/archive/1.2.0.zip",
-                "reference": "1.2.0",
+                "url": "https://api.github.com/repos/ezzatron/ci-status-images/zipball/3.0.0",
+                "reference": "3.0.0",
                 "shasum": ""
             },
-            "time": "2013-01-18 05:57:45",
+            "time": "2013-01-31 08:30:29",
             "type": "library",
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -262,7 +262,7 @@
                     "Eloquent\\Cosmos": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -453,7 +453,7 @@
                     "Eloquent\\Typhax": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -520,7 +520,7 @@
                     "Eloquent\\Typhoon": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -818,7 +818,7 @@
                     "Icecave\\Visita": "lib"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -927,7 +927,7 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "ezzatron/ci-status-images": 20
+    }
 }
