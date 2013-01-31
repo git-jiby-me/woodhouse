@@ -6,7 +6,7 @@ use Icecave\Woodhouse\Coverage\CoverageReaderInterface;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use RuntimeException;
 
-class PHPUnitTextReader implements CoverageReaderInterface
+class PhpUnitTextReader implements CoverageReaderInterface
 {
     const PATTERN = '/^\s+Lines:\s+(\d{1,3}\.\d\d)/m';
 

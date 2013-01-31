@@ -35,7 +35,7 @@ abstract class TypeCheck
 
     protected static function createValidator($className)
     {
-        $validatorClassName = 'Icecave\\Woodhouse\\TypeCheck\\Validator\\' . $className . 'TypeCheck';
+        $validatorClassName = '\\Icecave\\Woodhouse\\TypeCheck\\Validator\\' . $className . 'TypeCheck';
         if (static::runtimeGeneration() && !\class_exists($validatorClassName)) {
             static::$dummyMode = true;
             static::defineValidator($className);
@@ -54,7 +54,7 @@ abstract class TypeCheck
 
     protected static function configuration()
     {
-        return new \Eloquent\Typhoon\Configuration\RuntimeConfiguration('Icecave\\Woodhouse\\TypeCheck', false);
+        return new \Eloquent\Typhoon\Configuration\RuntimeConfiguration(\Eloquent\Cosmos\ClassName::fromString('\\Icecave\\Woodhouse\\TypeCheck'), false);
     }
 
     private static $instances = array();

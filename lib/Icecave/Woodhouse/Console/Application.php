@@ -22,6 +22,8 @@ class Application extends SymfonyApplication
 
     public function vendorPath()
     {
+        $this->typeCheck->vendorPath(func_get_args());
+
         return $this->vendorPath;
     }
 

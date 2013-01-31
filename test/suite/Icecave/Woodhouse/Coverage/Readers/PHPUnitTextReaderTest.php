@@ -4,7 +4,7 @@ namespace Icecave\Woodhouse\Coverage\Readers;
 use Phake;
 use PHPUnit_Framework_TestCase;
 
-class PHPUnitTestReader extends PHPUnit_Framework_TestCase
+class PhpUnitTextReaderTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
@@ -31,7 +31,7 @@ class PHPUnitTestReader extends PHPUnit_Framework_TestCase
             ->file_get_contents($this->_path)
             ->thenReturn($this->_content);
 
-        $this->_reader = new PHPUnitTextReader($this->_path, $this->_isolator);
+        $this->_reader = new PhpUnitTextReader($this->_path, $this->_isolator);
     }
 
     public function testReadPercentage()

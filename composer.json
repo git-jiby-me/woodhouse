@@ -13,13 +13,14 @@
     "require": {
         "php": ">=5.3.3",
         "eloquent/asplode": "1.*",
+        "eloquent/enumeration": "~3",
         "ezzatron/ci-status-images": "dev-master",
         "icecave/isolator": "2.*",
         "symfony/console": "2.*"
     },
     "require-dev": {
-        "eloquent/typhoon": "0.6.*",
         "eloquent/liberator": "1.*",
+        "eloquent/typhoon": "0.8.*",
         "icecave/testing": "1.*"
     },
     "autoload": {

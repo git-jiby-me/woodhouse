@@ -179,7 +179,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
     {
         $input = new StringInput('publish foo/bar a:b --coverage-percentage 50 --coverage-phpunit /foo/bar');
 
-        $this->setExpectedException('RuntimeException', '--coverage-percentage can not be used with --coverage-phpunit.');
+        $this->setExpectedException('RuntimeException', '--coverage-phpunit can not be used with --coverage-percentage.');
         $this->_command->run($input, $this->_output);
     }
 

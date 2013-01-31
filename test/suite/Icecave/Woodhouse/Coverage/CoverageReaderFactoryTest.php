@@ -16,18 +16,18 @@ class CoverageReaderFactoryTest extends PHPUnit_Framework_TestCase
     public function testSupportedTypes()
     {
         $expected = array(
-            'phpunit',
             'percentage',
+            'phpunit',
         );
 
         $this->assertSame($expected, $this->_factory->supportedTypes());
     }
 
-    public function testCreatePHPUnit()
+    public function testCreatePhpUnit()
     {
         $reader = $this->_factory->create('phpunit', '/path/to/report.txt');
 
-        $this->assertInstanceOf(__NAMESPACE__ . '\Readers\PHPUnitTextReader', $reader);
+        $this->assertInstanceOf(__NAMESPACE__ . '\Readers\PhpUnitTextReader', $reader);
         $this->assertSame('/path/to/report.txt', Liberator::liberate($reader)->reportPath);
         $this->assertSame($this->_isolator, Liberator::liberate($reader)->isolator);
     }
@@ -42,7 +42,7 @@ class CoverageReaderFactoryTest extends PHPUnit_Framework_TestCase
 
     public function testCreateFailure()
     {
-        $this->setExpectedException('InvalidArgumentException', 'Unknown coverage type: "garbage".');
+        $this->setExpectedException('InvalidArgumentException', 'Unknown reader type: "garbage".');
         $this->_factory->create('garbage', '');
     }
 }
