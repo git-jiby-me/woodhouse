@@ -1,6 +1,6 @@
 {
     "name": "icecave/woodhouse",
-    "description": "Publish your PHPUnit code coverage reports on your GitHub pages.",
+    "description": "Publish build artifacts and status images to your GitHub pages.",
     "keywords": ["publish", "github", "pages", "phpunit", "code", "coverage", "xdebug"],
     "homepage": "https://github.com/IcecaveStudios/collections",
     "license": "MIT",
