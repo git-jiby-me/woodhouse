@@ -1,5 +1,5 @@
 {
-    "hash": "8d19f2a5d1a212638ae94c8ce034b06f",
+    "hash": "b21a1919a878ae3b66fb2d4b195fcad9",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -29,7 +29,7 @@
                     "Eloquent\\Asplode": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -53,8 +53,55 @@
             ]
         },
         {
+            "name": "eloquent/enumeration",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/eloquent/enumeration.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/eloquent/enumeration/zipball/3.0.1",
+                "reference": "3.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phake/phake": "1.*"
+            },
+            "time": "2012-08-21 01:21:14",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Eloquent\\Enumeration": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "An enumeration implementation for PHP.",
+            "homepage": "https://github.com/eloquent/enumeration",
+            "keywords": [
+                "enum",
+                "enumeration",
+                "set",
+                "class"
+            ]
+        },
+        {
             "name": "ezzatron/ci-status-images",
-            "version": "dev-master",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezzatron/ci-status-images.git",
@@ -121,7 +168,7 @@
                     "Icecave\\Isolator": "lib"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -167,7 +214,7 @@
                     "Symfony\\Component\\Console": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -213,7 +260,7 @@
                     "Eloquent\\Blox": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -291,53 +338,6 @@
             ]
         },
         {
-            "name": "eloquent/enumeration",
-            "version": "3.0.1",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/eloquent/enumeration.git",
-                "reference": "3.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/eloquent/enumeration/zipball/3.0.1",
-                "reference": "3.0.1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phake/phake": "1.*"
-            },
-            "time": "2012-08-21 01:21:14",
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Eloquent\\Enumeration": "src"
-                }
-            },
-            "notification-url": "http://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Erin Millard",
-                    "email": "ezzatron@gmail.com",
-                    "homepage": "http://ezzatron.com/"
-                }
-            ],
-            "description": "An enumeration implementation for PHP.",
-            "homepage": "https://github.com/eloquent/enumeration",
-            "keywords": [
-                "enum",
-                "enumeration",
-                "set",
-                "class"
-            ]
-        },
-        {
             "name": "eloquent/equality",
             "version": "2.1.0",
             "source": {
@@ -410,7 +410,7 @@
                     "Eloquent\\Liberator": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -457,7 +457,7 @@
                     "Eloquent\\Pops": "src"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -631,7 +631,7 @@
                     "Icecave\\Collections\\TypeCheck": "lib-typhoon"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -682,7 +682,7 @@
                     "Icecave\\Pasta\\AST": "lib"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -731,7 +731,7 @@
                     "Icecave\\Rasta": "lib"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -775,7 +775,7 @@
                     "Icecave\\Repr": "lib"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -795,16 +795,16 @@
         },
         {
             "name": "icecave/testing",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/testing.git",
-                "reference": "1.1.4"
+                "reference": "1.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/IcecaveStudios/testing/archive/1.1.4.zip",
-                "reference": "1.1.4",
+                "url": "https://api.github.com/repos/IcecaveStudios/testing/zipball/1.1.5",
+                "reference": "1.1.5",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
                 "eloquent/asplode": "Use the asplode error handler instead of PHPUnit's internal error handler.",
                 "eloquent/liberator": "Use liberator for circumventing PHP access modifier restrictions inside tests."
             },
-            "time": "2013-01-18 02:42:39",
+            "time": "2013-01-31 23:27:12",
             "bin": [
                 "bin/phpunit",
                 "bin/phpunit-coverage",
@@ -822,7 +822,7 @@
                 "bin/travis-build"
             ],
             "type": "library",
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -867,7 +867,7 @@
                     "src"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "include-path": [
                 "src"
             ],
@@ -912,7 +912,7 @@
                     "Symfony\\Component\\Filesystem": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -934,7 +934,7 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "ezzatron/ci-status-images": 20
-    }
+    "stability-flags": [
+
+    ]
 }
