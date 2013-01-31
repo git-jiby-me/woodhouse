@@ -48,7 +48,7 @@ EOD;
         $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
     }
 
-    public function testReadPercentageFailure()
+    public function testReadStatusFailure()
     {
         Phake::when($this->_isolator)
             ->file_get_contents($this->_path)

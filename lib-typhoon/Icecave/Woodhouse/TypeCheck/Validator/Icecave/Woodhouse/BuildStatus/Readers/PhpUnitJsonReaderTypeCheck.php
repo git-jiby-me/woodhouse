@@ -29,4 +29,23 @@ class PhpUnitJsonReaderTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVa
         }
     }
 
+    public function parse(array $arguments)
+    {
+        $argumentCount = \count($arguments);
+        if ($argumentCount < 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('buffer', 0, 'string');
+        } elseif ($argumentCount > 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
+        }
+        $value = $arguments[0];
+        if (!\is_string($value)) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
+                'buffer',
+                0,
+                $arguments[0],
+                'string'
+            );
+        }
+    }
+
 }
