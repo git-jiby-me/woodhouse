@@ -8,22 +8,10 @@ It was originally designed to run in a [Travis CI](http://travis-ci.org) build, 
 
 ## Installation
 
+* [Download executable PHAR](http://icecave.com.au/woodhouse/woodhouse)
+* [Composer](http://getcomposer.org) package [icecave/woodhouse](https://packagist.org/packages/icecave/woodhouse)
+
 **Woodhouse** requires PHP 5.3.3 or later.
-
-### Download executable
-
-* Run `curl http://icecave.com.au/near/near > near` or [download now](http://icecave.com.au/near/near)
-
-### With [Composer](http://getcomposer.org/)
-
-* Add 'icecave/woodhouse' to the project's composer.json dependencies
-* Run `composer install`
-
-### Bare installation
-
-* Clone from GitHub: `git clone git://github.com/IcecaveStudios/woodhouse.git`
-* Use a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
-  compatible autoloader (namespace 'Icecave\Woodhouse' in the 'lib' directory)
 
 ## Features
 
