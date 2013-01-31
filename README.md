@@ -11,8 +11,6 @@ It was originally designed to run in a [Travis CI](http://travis-ci.org) build, 
 * [Download executable PHAR](http://icecave.com.au/woodhouse/woodhouse)
 * [Composer](http://getcomposer.org) package [icecave/woodhouse](https://packagist.org/packages/icecave/woodhouse)
 
-**Woodhouse** requires PHP 5.3.3 or later.
-
 ## Features
 
 ### Publishing artifacts
