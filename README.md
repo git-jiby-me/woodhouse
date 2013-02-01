@@ -17,7 +17,7 @@ It was originally designed to run in a [Travis CI](http://travis-ci.org) build, 
 
 The most basic use of **Woodhouse** is to publish build artifacts.
 
-    $ woodhouse bob/widget report.html:artifacts/tests.html --auth-token 0bee...8a33
+    $ woodhouse publish bob/widget report.html:artifacts/tests.html --auth-token 0bee..8a33
 
 The example above publishes a file called **report.html** in the current directory to
 **artifacts/tests.html** in the **gh-pages** branch of the **bob/widget** GitHub repository.
@@ -30,7 +30,7 @@ The source path may reference individual files or directories.
 and publish an appropriate status image. This image can be used in your GitHub README file or on
 a website to show the current status of the build.
 
-    $ woodhouse bob/widget --build-status-image img/status.png --build-status-junit junit.xml --auth-token 0bee...8a33
+    $ woodhouse publish bob/widget --build-status-image img/status.png --build-status-junit junit.xml --auth-token 0bee..8a33
 
 This example parses **junit.xml** to determine the build status, and then publishes the appropropriate
 status image to **img/status.png**. The images at the top of this document are
@@ -47,7 +47,7 @@ You can also specify the build status directly on the command line using the `--
 
 Much like the build status images, **Woodhouse** can also publish images showing code coverage percentages.
 
-    $ woodhouse bob/widget --coverage-image img/coverage.png --coverage-phpunit coverage.txt --auth-token 0bee...8a33
+    $ woodhouse publish bob/widget --coverage-image img/coverage.png --coverage-phpunit coverage.txt --auth-token 0bee..8a33
 
 This example parses **coverage.txt** (A file created using PHPUnit's `--coverage-text` option) to determine
 the coverage percentage, and then publishes the appropropriate image to **img/coverage.png**.
