@@ -101,19 +101,19 @@
         },
         {
             "name": "ezzatron/ci-status-images",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezzatron/ci-status-images.git",
-                "reference": "3.0.0"
+                "reference": "3.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezzatron/ci-status-images/zipball/3.0.0",
-                "reference": "3.0.0",
+                "url": "https://api.github.com/repos/ezzatron/ci-status-images/zipball/3.0.1",
+                "reference": "3.0.1",
                 "shasum": ""
             },
-            "time": "2013-01-31 08:30:29",
+            "time": "2013-02-01 01:04:18",
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -124,6 +124,10 @@
                     "name": "Erin Millard",
                     "email": "ezzatron@gmail.com",
                     "homepage": "http://ezzatron.com/"
+                },
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au"
                 }
             ],
             "description": "Test coverage percentage and other useful status images for continuous integration systems.",
