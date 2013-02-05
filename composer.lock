@@ -1,5 +1,5 @@
 {
-    "hash": "a029474f6adc908ec56b770ba0ff4366",
+    "hash": "7cd3de000ee21bf3b4daead727562401",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -16,8 +16,8 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "icecave/isolator": "2.*"
+                "icecave/isolator": "2.*",
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "phake/phake": "1.*"
@@ -43,13 +43,13 @@
             "description": "Drop-in exception-based error handling for PHP.",
             "homepage": "https://github.com/eloquent/asplode",
             "keywords": [
-                "exception",
                 "error",
-                "handling",
-                "handler",
                 "errorexception",
+                "exception",
+                "failure",
                 "fault",
-                "failure"
+                "handler",
+                "handling"
             ]
         },
         {
@@ -93,10 +93,10 @@
             "description": "An enumeration implementation for PHP.",
             "homepage": "https://github.com/eloquent/enumeration",
             "keywords": [
+                "class",
                 "enum",
                 "enumeration",
-                "set",
-                "class"
+                "set"
             ]
         },
         {
@@ -133,16 +133,16 @@
             "description": "Test coverage percentage and other useful status images for continuous integration systems.",
             "homepage": "https://github.com/ezzatron/ci-status-images",
             "keywords": [
-                "image",
-                "github",
-                "ci",
-                "travis",
-                "integration",
-                "continuous",
-                "status",
-                "icon",
                 "button",
-                "label"
+                "ci",
+                "continuous",
+                "github",
+                "icon",
+                "image",
+                "integration",
+                "label",
+                "status",
+                "travis"
             ]
         },
         {
@@ -185,12 +185,57 @@
             "description": "Mock out calls to built-in PHP functions.",
             "homepage": "https://github.com/IcecaveStudios/isolator",
             "keywords": [
+                "fake",
+                "mock",
+                "phake",
                 "phpunit",
                 "test",
-                "mock",
-                "fake",
-                "unit",
-                "phake"
+                "unit"
+            ]
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.8",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/kriswallsmith/Buzz.git",
+                "reference": "v0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/v0.8",
+                "reference": "v0.8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "time": "2013-01-14 16:07:06",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Buzz": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
             ]
         },
         {
@@ -204,7 +249,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Console/archive/v2.1.7.zip",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/v2.1.7",
                 "reference": "v2.1.7",
                 "shasum": ""
             },
@@ -320,15 +365,15 @@
             "description": "A parser for block comment documentation.",
             "homepage": "https://github.com/eloquent/blox",
             "keywords": [
-                "documentation",
-                "phpdoc",
-                "comment",
-                "parser",
                 "annotation",
                 "block",
-                "tag",
+                "comment",
+                "docblock",
+                "documentation",
+                "parser",
                 "phpDocumentor",
-                "docblock"
+                "phpdoc",
+                "tag"
             ]
         },
         {
@@ -346,9 +391,9 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
                 "eloquent/equality": ">=2.0,<3.0",
-                "icecave/isolator": ">=2.0,<3.0"
+                "icecave/isolator": ">=2.0,<3.0",
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "icecave/testing": ">=1.0,<2.0"
@@ -374,13 +419,13 @@
             "description": "A library for representing and manipulating PHP class names.",
             "homepage": "https://github.com/eloquent/cosmos",
             "keywords": [
-                "php",
                 "class",
-                "resolver",
-                "solver",
-                "namespace",
+                "classname",
                 "name",
-                "classname"
+                "namespace",
+                "php",
+                "resolver",
+                "solver"
             ]
         },
         {
@@ -424,11 +469,11 @@
             "description": "A better strict comparison for PHP.",
             "homepage": "https://github.com/eloquent/equality",
             "keywords": [
-                "object",
-                "equality",
                 "comparison",
-                "strict",
-                "deep"
+                "deep",
+                "equality",
+                "object",
+                "strict"
             ]
         },
         {
@@ -446,8 +491,8 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "eloquent/pops": "3.*"
+                "eloquent/pops": "3.*",
+                "php": ">=5.3.0"
             },
             "time": "2012-08-02 06:30:51",
             "type": "library",
@@ -470,13 +515,13 @@
             "description": "A proxy for circumventing PHP access modifier restrictions.",
             "homepage": "https://github.com/eloquent/liberator",
             "keywords": [
-                "reflection",
-                "object",
-                "proxy",
                 "access",
                 "modifier",
+                "object",
                 "private",
-                "protected"
+                "protected",
+                "proxy",
+                "reflection"
             ]
         },
         {
@@ -517,9 +562,9 @@
             "description": "PHP object proxy system.",
             "homepage": "https://github.com/eloquent/pops",
             "keywords": [
+                "escaping",
                 "object",
-                "proxy",
-                "escaping"
+                "proxy"
             ]
         },
         {
@@ -537,9 +582,9 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "eloquent/cosmos": ">=2.0,<3.0",
                 "ext-mbstring": "*",
-                "eloquent/cosmos": ">=2.0,<3.0"
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "icecave/testing": ">=1.0,<2.0"
@@ -565,13 +610,13 @@
             "description": "A flexible PHP type hinting syntax.",
             "homepage": "https://github.com/eloquent/typhax",
             "keywords": [
-                "parser",
-                "type",
+                "check",
+                "checking",
                 "hint",
                 "hinting",
+                "parser",
                 "syntax",
-                "check",
-                "checking"
+                "type"
             ]
         },
         {
@@ -589,7 +634,6 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
                 "eloquent/asplode": ">=1.0,<2.0",
                 "eloquent/blox": ">=1.0,<2.0",
                 "eloquent/cosmos": ">=2.0,<3.0",
@@ -598,6 +642,7 @@
                 "icecave/isolator": ">=2.0,<3.0",
                 "icecave/pasta-ast": ">=0.1,<1.0",
                 "icecave/rasta": ">=0.1,<1.0",
+                "php": ">=5.3.0",
                 "symfony/console": ">=2.0,<3.0",
                 "symfony/filesystem": ">=2.0,<3.0"
             },
@@ -632,11 +677,11 @@
             "description": "Simple, flexible type-checking for PHP.",
             "homepage": "https://github.com/eloquent/typhoon",
             "keywords": [
-                "type",
+                "check",
+                "checking",
                 "hint",
                 "hinting",
-                "check",
-                "checking"
+                "type"
             ]
         },
         {
@@ -654,13 +699,13 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "icecave/repr": ">=1.0,<2.0"
+                "icecave/repr": ">=1.0,<2.0",
+                "php": ">=5.3.3"
             },
             "require-dev": {
-                "icecave/testing": ">=2.0,<3.0",
                 "eloquent/liberator": ">=1.0,<2.0",
                 "eloquent/typhoon": ">=0.8,<1.0",
+                "icecave/testing": ">=2.0,<3.0",
                 "icecave/woodhouse": "*"
             },
             "time": "2013-02-07 23:46:30",
@@ -691,13 +736,13 @@
             "description": "A set of PHP collection types loosely inspired by the .NET runtime and the C++ STL.",
             "homepage": "https://github.com/IcecaveStudios/collections",
             "keywords": [
-                "container",
-                "queue",
                 "array",
-                "map",
-                "hash",
-                "sequence",
                 "collection",
+                "container",
+                "hash",
+                "map",
+                "queue",
+                "sequence",
                 "stack"
             ]
         },
@@ -716,8 +761,8 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "eloquent/enumeration": "3.*"
+                "eloquent/enumeration": "3.*",
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "phake/phake": "1.*"
@@ -742,11 +787,11 @@
             "description": "PHP AST implementation.",
             "homepage": "https://github.com/IcecaveStudios/pasta-ast",
             "keywords": [
-                "tree",
+                "abstract",
+                "ast",
                 "parser",
                 "syntax",
-                "abstract",
-                "ast"
+                "tree"
             ]
         },
         {
@@ -764,9 +809,9 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "icecave/collections": "*",
                 "icecave/pasta-ast": "0.1.*",
-                "icecave/collections": "*"
+                "php": ">=5.3.0"
             },
             "require-dev": {
                 "icecave/testing": "1.*"
@@ -791,8 +836,8 @@
             "description": "PHP code generation library.",
             "homepage": "https://github.com/IcecaveStudios/rasta",
             "keywords": [
-                "parser",
-                "ast"
+                "ast",
+                "parser"
             ]
         },
         {
@@ -835,9 +880,9 @@
             "description": "Human readable string representations of everything.",
             "homepage": "https://github.com/IcecaveStudios/repr",
             "keywords": [
-                "string",
+                "repr",
                 "representation",
-                "repr"
+                "string"
             ]
         },
         {
@@ -882,12 +927,12 @@
             "description": "Helper package for testing Icecave projects in a uniform way.",
             "homepage": "https://github.com/IcecaveStudios/testing",
             "keywords": [
-                "testing",
+                "coverage",
+                "phake",
                 "phpunit",
                 "test",
-                "unit",
-                "phake",
-                "coverage"
+                "testing",
+                "unit"
             ]
         },
         {
@@ -930,8 +975,8 @@
             "description": "The Phake mock testing library",
             "homepage": "https://github.com/mlively/Phake",
             "keywords": [
-                "testing",
-                "mock"
+                "mock",
+                "testing"
             ]
         }
     ],
