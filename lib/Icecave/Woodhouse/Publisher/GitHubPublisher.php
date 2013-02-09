@@ -15,7 +15,7 @@ class GitHubPublisher extends AbstractPublisher
 
     /**
      * @param Filesystem|null $fileSystem
-     * @param Isolator|null $isolator
+     * @param Isolator|null   $isolator
      */
     public function __construct(
         Filesystem $fileSystem = null,
@@ -64,6 +64,7 @@ class GitHubPublisher extends AbstractPublisher
         try {
             $result = $this->doPublish($tempDir);
             $this->fileSystem->remove($tempDir);
+
             return $result;
         } catch (Exception $e) {
             $this->fileSystem->remove($tempDir);
@@ -125,7 +126,8 @@ class GitHubPublisher extends AbstractPublisher
         }
 
         // Commit the published content ...
-        if (null === $this->tryExecute('git', 'diff', '--cached', '--exit-code')) {
+        $diff = $this->execute('git', 'diff', '--cached');
+        if (trim($diff) === '') {
             return false;
         }
 

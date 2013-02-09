@@ -22,6 +22,10 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             ->getmypid()
             ->thenReturn('10101');
 
+        Phake::when($this->_isolator)
+            ->is_dir('/source/bar')
+            ->thenReturn(true);
+
         $this->_publisher = Phake::partialMock(
             __NAMESPACE__ . '\GitHubPublisher',
             $this->_fileSystem,
@@ -29,8 +33,21 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
         );
 
         Phake::when($this->_publisher)
-            ->tryExecute('git', 'diff', '--cached', '--exit-code')
-            ->thenReturn(array('output-from-diff'));
+            ->execute(Phake::anyParameters())
+            ->thenReturn('');
+
+        Phake::when($this->_publisher)
+            ->tryExecute(Phake::anyParameters())
+            ->thenReturn('');
+
+        Phake::when($this->_publisher)
+            ->execute('git', 'diff', '--cached')
+            ->thenReturn('<diff output>');
+
+        Phake::when($this->_publisher)
+            ->tryExecute('git', 'push', 'origin', 'test-branch')
+            ->thenReturn(null)
+            ->thenReturn('');
     }
 
     public function testConstructorDefaults()
@@ -42,23 +59,6 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testPublish()
     {
-        Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute('git', 'push', 'origin', 'test-branch')
-            ->thenReturn(null)
-            ->thenReturn('');
-
-        Phake::when($this->_isolator)
-            ->is_dir('/source/bar')
-            ->thenReturn(true);
-
         $this->_publisher->setRepository('foo/bar');
         $this->_publisher->setCommitMessage('Test commit message.');
         $this->_publisher->setBranch('test-branch');
@@ -86,7 +86,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
             Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
-            Phake::verify($this->_publisher)->tryExecute('git', 'diff', '--cached', '--exit-code'),
+            Phake::verify($this->_publisher)->execute('git', 'diff', '--cached'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_publisher)->execute('git', 'pull'),
@@ -100,16 +100,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
     public function testPublishNoChanges()
     {
         Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute('git', 'diff', '--cached', '--exit-code')
-            ->thenReturn(null);
+            ->execute('git', 'diff', '--cached')
+            ->thenReturn('   '); // whitespace only
 
         $this->_publisher->setRepository('foo/bar');
         $this->_publisher->setCommitMessage('Test commit message.');
@@ -132,7 +124,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'foo-dest'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_publisher)->tryExecute('git', 'diff', '--cached', '--exit-code')
+            Phake::verify($this->_publisher)->execute('git', 'diff', '--cached')
         );
 
         $this->assertFalse($result);
@@ -140,19 +132,6 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testPublishMakeContentDirectories()
     {
-        Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute('git', 'push', 'origin', 'test-branch')
-            ->thenReturn(null)
-            ->thenReturn('');
-
         $this->_publisher->setRepository('foo/bar');
         $this->_publisher->setCommitMessage('Test commit message.');
         $this->_publisher->setBranch('test-branch');
@@ -160,7 +139,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
         $this->_publisher->add('/source/foo', '/parent/foo-dest');
 
-        $this->assertTrue($this->_publisher->publish());
+        $result = $this->_publisher->publish();
 
         $pushVerifier = Phake::verify($this->_publisher, Phake::times(2))->tryExecute('git', 'push', 'origin', 'test-branch');
 
@@ -184,17 +163,21 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             $pushVerifier,
             Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
         );
+
+        $this->assertTrue($result);
     }
 
     public function testPublishToNewBranch()
     {
         Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
+            ->execute(
+                'git', 'clone', '--quiet',
+                '--branch', 'test-branch',
+                '--depth', 0,
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                '/tmp/woodhouse-10101'
+            )
             ->thenReturn('... test-branch not found in upstream origin ...');
-
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenReturn('');
 
         $this->_publisher->setRepository('foo/bar');
         $this->_publisher->setCommitMessage('Test commit message.');
@@ -204,7 +187,9 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
         $this->_publisher->add('/source/foo', '/foo-dest');
         $this->_publisher->add('/source/bar', '/bar-dest');
 
-        $this->assertTrue($this->_publisher->publish());
+        $result = $this->_publisher->publish();
+
+        $pushVerifier = Phake::verify($this->_publisher, Phake::times(2))->tryExecute('git', 'push', 'origin', 'test-branch');
 
         Phake::inOrder(
             Phake::verify($this->_publisher)->execute(
@@ -219,24 +204,20 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', '.'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_fileSystem)->copy('/source/bar', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
-            Phake::verify($this->_publisher)->tryExecute('git', 'push', 'origin', 'test-branch'),
+            $pushVerifier,
+            Phake::verify($this->_publisher)->execute('git', 'pull'),
+            $pushVerifier,
             Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
         );
+
+        $this->assertTrue($result);
     }
 
     public function testPublishFailurePushAttemptsExhausted()
     {
-        Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenReturn('');
-
         Phake::when($this->_publisher)
             ->tryExecute('git', 'push', 'origin', 'test-branch')
             ->thenReturn(null);
@@ -271,7 +252,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'bar-dest'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_fileSystem)->copy('/source/bar', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
             Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
             $pushVerifier,
@@ -369,6 +350,14 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testExecute()
     {
+        Phake::when($this->_publisher)
+            ->execute(Phake::anyParameters())
+            ->thenCallParent();
+
+        Phake::when($this->_publisher)
+            ->tryExecute(Phake::anyParameters())
+            ->thenCallParent();
+
         Phake::when($this->_isolator)
             ->exec(
                 $this->anything(),
@@ -386,6 +375,14 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteFailure()
     {
+        Phake::when($this->_publisher)
+            ->execute(Phake::anyParameters())
+            ->thenCallParent();
+
+        Phake::when($this->_publisher)
+            ->tryExecute(Phake::anyParameters())
+            ->thenCallParent();
+
         Phake::when($this->_isolator)
             ->exec(
                 $this->anything(),
@@ -402,6 +399,10 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testTryExecute()
     {
+        Phake::when($this->_publisher)
+            ->tryExecute(Phake::anyParameters())
+            ->thenCallParent();
+
         Phake::when($this->_isolator)
             ->exec(
                 $this->anything(),
@@ -419,6 +420,10 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testTryExecuteFailure()
     {
+        Phake::when($this->_publisher)
+            ->tryExecute(Phake::anyParameters())
+            ->thenCallParent();
+
         Phake::when($this->_isolator)
             ->exec(
                 $this->anything(),
