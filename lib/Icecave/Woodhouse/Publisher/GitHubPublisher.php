@@ -6,6 +6,7 @@ use Icecave\Isolator\Isolator;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
 use RuntimeException;
+use Symfony\Component\Filesystem\Filesystem;
 
 class GitHubPublisher extends AbstractPublisher
 {
@@ -13,22 +14,42 @@ class GitHubPublisher extends AbstractPublisher
     const AUTH_TOKEN_PATTERN = '/^[0-9a-f]{40}$/i';
 
     /**
+     * @param Filesystem|null $fileSystem
      * @param Isolator|null $isolator
      */
-    public function __construct(Isolator $isolator = null)
-    {
+    public function __construct(
+        Filesystem $fileSystem = null,
+        Isolator $isolator = null
+    ) {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
-        $this->isolator = Isolator::get($isolator);
+        if (null === $fileSystem) {
+            $fileSystem = new Filesystem;
+        }
+
         $this->branch = 'gh-pages';
         $this->commitMessage = 'Content published by Woodhouse.';
         $this->maxPushAttempts = 3;
+        $this->fileSystem = $fileSystem;
+        $this->isolator = Isolator::get($isolator);
 
         parent::__construct();
     }
 
     /**
+     * @return Filesystem
+     */
+    public function fileSystem()
+    {
+        $this->typeCheck->fileSystem(func_get_args());
+
+        return $this->fileSystem;
+    }
+
+    /**
      * Publish enqueued content.
+     *
+     * @return boolean True if there were changes published; otherwise false.
      */
     public function publish()
     {
@@ -41,10 +62,11 @@ class GitHubPublisher extends AbstractPublisher
         $tempDir = $this->isolator->sys_get_temp_dir() . '/woodhouse-' . $this->isolator->getmypid();
 
         try {
-            $this->doPublish($tempDir);
-            $this->execute('rm', '-rf', $tempDir);
+            $result = $this->doPublish($tempDir);
+            $this->fileSystem->remove($tempDir);
+            return $result;
         } catch (Exception $e) {
-            $this->execute('rm', '-rf', $tempDir);
+            $this->fileSystem->remove($tempDir);
             throw $e;
         }
     }
@@ -53,6 +75,8 @@ class GitHubPublisher extends AbstractPublisher
      * Publish enqueued content.
      *
      * @param string $tempDir
+     *
+     * @return boolean True if there were changes published; otherwise false.
      */
     protected function doPublish($tempDir)
     {
@@ -83,15 +107,6 @@ class GitHubPublisher extends AbstractPublisher
         }
 
         // Copy in published content and add it to the repo ...
-        $system = $this->isolator->php_uname('s');
-        if ('Linux' === $system) {
-            $copyFlags = '-rT';
-        } elseif ('Darwin' === $system || false !== strpos($system, 'BSD')) {
-            $copyFlags = '-R';
-        } else {
-            $copyFlags = '-r';
-        }
-
         foreach ($this->contentPaths() as $sourcePath => $targetPath) {
             $fullTargetPath = $tempDir . '/' . $targetPath;
             $fullTargetParentPath = dirname($fullTargetPath);
@@ -101,22 +116,26 @@ class GitHubPublisher extends AbstractPublisher
 
             if ($this->isolator->is_dir($sourcePath)) {
                 $sourcePath = rtrim($sourcePath, '/') . '/';
-                $this->execute('cp', $copyFlags, $sourcePath, $fullTargetPath);
+                $this->fileSystem->mirror($sourcePath, $fullTargetPath);
             } else {
-                $this->execute('cp', $sourcePath, $fullTargetPath);
+                $this->fileSystem->copy($sourcePath, $fullTargetPath);
             }
 
             $this->execute('git', 'add', $targetPath);
         }
 
         // Commit the published content ...
+        if (null === $this->tryExecute('git', 'diff', '--cached', '--exit-code')) {
+            return false;
+        }
+
         $this->execute('git', 'commit', '-m', $this->commitMessage());
 
         // Make push attempts ...
         $attemptsRemaining = $this->maxPushAttempts;
         while (true) {
             if (null !== $this->tryExecute('git', 'push', 'origin', $this->branch())) {
-                return;
+                return true;
             } elseif (--$attemptsRemaining) {
                 $this->execute('git', 'pull');
             } else {
@@ -301,4 +320,6 @@ class GitHubPublisher extends AbstractPublisher
     private $commitMessage;
     private $authToken;
     private $maxPushAttempts;
+    private $fileSystem;
+    private $isolator;
 }

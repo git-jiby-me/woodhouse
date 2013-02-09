@@ -34,6 +34,10 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->file_exists(Phake::anyParameters())
             ->thenReturn(true);
 
+        Phake::when($this->_publisher)
+            ->publish()
+            ->thenReturn(true);
+
         $this->_application = new Application('/path/to/vendors');
 
         $this->_command = new PublishCommand(
@@ -81,7 +85,30 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
+        );
+    }
+
+    public function testExecuteNoChanges()
+    {
+        Phake::when($this->_publisher)
+            ->publish()
+            ->thenReturn(false);
+
+        // Double escape backslashes, once for PHP and once for command line parser ...
+        $input = new StringInput('publish foo/bar c:\\\\foo\\\\bar:dest-a /foo/bar:dest-b');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::inOrder(
+            Phake::verify($this->_publisher)->add('c:\foo\bar', 'dest-a'),
+            Phake::verify($this->_publisher)->add('/foo/bar', 'dest-b'),
+            Phake::verify($this->_publisher)->setAuthToken(null),
+            Phake::verify($this->_publisher)->setRepository('foo/bar'),
+            Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
+            Phake::verify($this->_output)->writeln('No changes to publish.')
         );
     }
 
@@ -97,6 +124,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }
@@ -117,6 +145,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }
@@ -142,6 +171,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }
@@ -164,9 +194,6 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         $this->setExpectedException('RuntimeException', 'Not enough arguments.');
         $this->_command->run($input, $this->_output);
-
-        Phake::verify($this->_output)
-            ->writeln('Content published successfully.');
     }
 
     public function testExecuteFailureWithInvalidContentSpecifier()
@@ -202,6 +229,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }
@@ -220,6 +248,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }
@@ -260,6 +289,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }
@@ -278,6 +308,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_publisher)->setAuthToken(null),
             Phake::verify($this->_publisher)->setRepository('foo/bar'),
             Phake::verify($this->_publisher)->setBranch('gh-pages'),
+            Phake::verify($this->_publisher)->publish(),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
     }

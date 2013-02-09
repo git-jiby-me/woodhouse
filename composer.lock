@@ -1,5 +1,5 @@
 {
-    "hash": "b21a1919a878ae3b66fb2d4b195fcad9",
+    "hash": "a029474f6adc908ec56b770ba0ff4366",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -233,6 +233,48 @@
                 }
             ],
             "description": "Symfony Console Component",
+            "homepage": "http://symfony.com"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v2.1.7",
+            "target-dir": "Symfony/Component/Filesystem",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Filesystem",
+                "reference": "v2.1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/symfony/Filesystem/archive/v2.1.7.zip",
+                "reference": "v2.1.7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-09 08:51:07",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Filesystem": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com"
         }
     ],
@@ -599,28 +641,29 @@
         },
         {
             "name": "icecave/collections",
-            "version": "0.5.0",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/collections.git",
-                "reference": "0.5.0"
+                "reference": "0.5.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/IcecaveStudios/collections/archive/0.5.0.zip",
-                "reference": "0.5.0",
+                "url": "https://api.github.com/repos/IcecaveStudios/collections/zipball/0.5.1",
+                "reference": "0.5.1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "icecave/repr": "1.*"
+                "php": ">=5.3.3",
+                "icecave/repr": ">=1.0,<2.0"
             },
             "require-dev": {
-                "icecave/testing": "1.*",
-                "eloquent/liberator": "1.*",
-                "eloquent/typhoon": "0.6.*"
+                "icecave/testing": ">=2.0,<3.0",
+                "eloquent/liberator": ">=1.0,<2.0",
+                "eloquent/typhoon": ">=0.8,<1.0",
+                "icecave/woodhouse": "*"
             },
-            "time": "2013-01-14 04:29:20",
+            "time": "2013-02-07 23:46:30",
             "type": "library",
             "extra": {
                 "typhoon": {
@@ -645,7 +688,7 @@
                     "email": "james.harris@icecave.com.au"
                 }
             ],
-            "description": "PHP collections without leaky abstractions.",
+            "description": "A set of PHP collection types loosely inspired by the .NET runtime and the C++ STL.",
             "homepage": "https://github.com/IcecaveStudios/collections",
             "keywords": [
                 "container",
@@ -890,48 +933,6 @@
                 "testing",
                 "mock"
             ]
-        },
-        {
-            "name": "symfony/filesystem",
-            "version": "v2.1.7",
-            "target-dir": "Symfony/Component/Filesystem",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Filesystem",
-                "reference": "v2.1.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/symfony/Filesystem/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "time": "2013-01-09 08:51:07",
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Filesystem": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Filesystem Component",
-            "homepage": "http://symfony.com"
         }
     ],
     "aliases": [
