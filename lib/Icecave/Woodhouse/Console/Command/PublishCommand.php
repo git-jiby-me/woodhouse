@@ -38,7 +38,7 @@ class PublishCommand extends Command
         $this->isolator = Isolator::get($isolator);
 
         if (null === $publisher) {
-            $publisher = new GitHubPublisher($this->isolator);
+            $publisher = new GitHubPublisher(null, $this->isolator);
         }
 
         if (null === $statusReaderFactory) {
@@ -78,7 +78,7 @@ class PublishCommand extends Command
         $this->addArgument(
             'repository',
             InputArgument::REQUIRED,
-            'The name of the GitHub repository to which content is published(eg: IcecaveStudios/woodhouse).'
+            'The name of the GitHub repository to which content is published (eg: IcecaveStudios/woodhouse).'
         );
 
         $this->addArgument(
@@ -346,9 +346,11 @@ class PublishCommand extends Command
         $this->publisher->setRepository($input->getArgument('repository'));
         $this->publisher->setBranch($input->getOption('branch'));
 
-        $this->publisher->publish();
-
-        $output->writeln('Content published successfully.');
+        if ($this->publisher->publish()) {
+            $output->writeln('Content published successfully.');
+        } else {
+            $output->writeln('No changes to publish.');
+        }
     }
 
     private $typeCheck;

@@ -16,7 +16,8 @@
         "eloquent/enumeration": "~3",
         "ezzatron/ci-status-images": "~3",
         "icecave/isolator": "2.*",
-        "symfony/console": "2.*"
+        "symfony/console": "2.*",
+        "symfony/filesystem": "2.*"
     },
     "require-dev": {
         "eloquent/liberator": "1.*",

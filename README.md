@@ -9,7 +9,7 @@ It was originally designed to run in a [Travis CI](http://travis-ci.org) build, 
 ## Installation
 
 * [Download executable PHAR](http://icecave.com.au/woodhouse/woodhouse)
-* [Composer](http://getcomposer.org) package [icecave/woodhouse](https://packagist.org/packages/icecave/woodhouse)
+* Available as [Composer](http://getcomposer.org) package [icecave/woodhouse](https://packagist.org/packages/icecave/woodhouse)
 
 ## Features
 

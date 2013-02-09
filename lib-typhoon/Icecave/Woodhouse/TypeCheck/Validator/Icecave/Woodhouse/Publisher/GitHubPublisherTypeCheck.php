@@ -6,8 +6,15 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
     public function validateConstruct(array $arguments)
     {
         $argumentCount = \count($arguments);
-        if ($argumentCount > 1) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
+        if ($argumentCount > 2) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(2, $arguments[2]);
+        }
+    }
+
+    public function fileSystem(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
         }
     }
 
