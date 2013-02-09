@@ -1,5 +1,10 @@
 # Woodhouse Changelog
 
+### 0.3.2
+
+* Fixed issue with publishing build-status and coverage images when using woodhouse via PHAR
+* Publish command no-longer produces an error when there are no artifact changes to publish
+
 ### 0.3.1
 
 * Updated to stable ezzatron/ci-status-images (3.0.1)
