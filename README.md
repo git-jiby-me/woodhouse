@@ -1,7 +1,8 @@
-# Woodhouse
-
+![Woodhouse](http://icecave.com.au/assets/img/project-icons/icon-woodhouse.png)<br>&nbsp;&nbsp;
 [![Build Status](https://api.travis-ci.org/IcecaveStudios/woodhouse.png)](http://travis-ci.org/IcecaveStudios/woodhouse)
 [![Test Coverage](http://icecave.com.au/woodhouse/coverage-report/coverage.png)](http://icecave.com.au/woodhouse/coverage-report/index.html)
+
+---
 
 **Woodhouse** is a command line utility (and PHP library) for publishing build artifacts such as test reports and code coverage metrics to a GitHub pages repository.
 It was originally designed to run in a [Travis CI](http://travis-ci.org) build, but can be used in any environment.
