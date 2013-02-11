@@ -17,6 +17,10 @@ class Application extends SymfonyApplication
 
         parent::__construct('Woodhouse', '0.3.2');
 
+        $this->getHelperSet()->set(new Helper\HiddenInputHelper);
+        $this->add(new Command\GitHub\CreateAuthorizationCommand);
+        $this->add(new Command\GitHub\DeleteAuthorizationCommand);
+        $this->add(new Command\GitHub\ListAuthorizationsCommand);
         $this->add(new Command\PublishCommand);
     }
 

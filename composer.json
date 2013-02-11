@@ -12,12 +12,13 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "eloquent/asplode": "1.*",
+        "eloquent/asplode": "~1",
         "eloquent/enumeration": "~3",
         "ezzatron/ci-status-images": "~3",
-        "icecave/isolator": "2.*",
-        "symfony/console": "2.*",
-        "symfony/filesystem": "2.*"
+        "icecave/isolator": "~2",
+        "kriswallsmith/buzz": "~0.8",
+        "symfony/console": "~2",
+        "symfony/filesystem": "~2"
     },
     "require-dev": {
         "eloquent/liberator": "1.*",
