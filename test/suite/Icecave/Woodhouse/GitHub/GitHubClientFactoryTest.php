@@ -4,6 +4,7 @@ namespace Icecave\Woodhouse\GitHub;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 use Buzz\Listener\BasicAuthListener;
+use Phake;
 use PHPUnit_Framework_TestCase;
 
 class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
@@ -14,18 +15,40 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Requires cURL extension.');
         }
 
-        $this->_factory = new GitHubClientFactory;
-
-        $expectedCACertPath = __DIR__;
-        for ($i = 0; $i < 5; $i ++) {
-            $expectedCACertPath = dirname($expectedCACertPath);
-        }
-        $expectedCACertPath .= '/lib/Icecave/Woodhouse/GitHub/../../../../res/cacert/cacert.pem';
-        $this->_expectedClient = new Curl;
-        $this->_expectedClient->setOption(
-            CURLOPT_CAINFO,
-            $expectedCACertPath
+        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->_factory = new GitHubClientFactory(
+            'baz',
+            $this->_isolator
         );
+
+        Phake::when($this->_isolator)
+            ->sys_get_temp_dir(Phake::anyParameters())
+            ->thenReturn('qux')
+        ;
+        Phake::when($this->_isolator)
+            ->uniqid(Phake::anyParameters())
+            ->thenReturn('doom')
+        ;
+
+        $this->_expectedClient = new Curl;
+        $this->_expectedClient->setOption(CURLOPT_CAINFO, 'qux/cacert-doom.pem');
+    }
+
+    public function testConstructor()
+    {
+        $this->assertSame('baz', $this->_factory->caCertificatePath());
+    }
+
+    public function testConstructorDefaults()
+    {
+        $this->_factory = new GitHubClientFactory;
+        $expectedCaCertificatePath = __DIR__;
+        for ($i = 0; $i < 5; $i ++) {
+            $expectedCaCertificatePath = dirname($expectedCaCertificatePath);
+        }
+        $expectedCaCertificatePath .= '/lib/Icecave/Woodhouse/GitHub/../../../../res/cacert/cacert.pem';
+
+        $this->assertSame($expectedCaCertificatePath, $this->_factory->caCertificatePath());
     }
 
     public function testCreate()
@@ -35,6 +58,7 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
         $expected = new GitHubClient(null, $expectedBrowser);
 
         $this->assertEquals($expected, $actual);
+        Phake::verify($this->_isolator)->copy('baz', 'qux/cacert-doom.pem');
     }
 
     public function testCreateWithCredentials()

@@ -17,6 +17,15 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
             $this->_isolator
         );
 
+        Phake::when($this->_isolator)
+            ->sys_get_temp_dir(Phake::anyParameters())
+            ->thenReturn('doom')
+        ;
+        Phake::when($this->_isolator)
+            ->uniqid(Phake::anyParameters())
+            ->thenReturn('splat')
+        ;
+
         $this->_output = Phake::mock(
             'Symfony\Component\Console\Output\OutputInterface'
         );
@@ -137,7 +146,8 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
         Phake::inOrder(
             Phake::verify($this->_isolator)->defined('PHP_WINDOWS_VERSION_BUILD'),
             Phake::verify($this->_output)->write('bar'),
-            Phake::verify($this->_isolator)->shell_exec('foo'),
+            Phake::verify($this->_isolator)->copy('foo', 'doom/hiddeninput-splat.exe'),
+            Phake::verify($this->_isolator)->shell_exec('doom/hiddeninput-splat.exe'),
             Phake::verify($this->_output)->writeln('')
         );
     }

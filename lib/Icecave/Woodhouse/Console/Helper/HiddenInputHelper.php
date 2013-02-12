@@ -75,7 +75,7 @@ class HiddenInputHelper extends Helper
 
         $output->write($question);
         $value = rtrim(
-            $this->execute($this->hiddenInputPath()),
+            $this->execute($this->hiddenInputRealPath()),
             "\r\n"
         );
         $output->writeln('');
@@ -119,6 +119,28 @@ class HiddenInputHelper extends Helper
     }
 
     /**
+     * @return string
+     */
+    protected function hiddenInputRealPath()
+    {
+        $this->typeCheck->hiddenInputRealPath(func_get_args());
+
+        if (null === $this->hiddenInputRealPath) {
+            $this->hiddenInputRealPath = sprintf(
+                '%s/hiddeninput-%s.exe',
+                $this->isolator->sys_get_temp_dir(),
+                $this->isolator->uniqid()
+            );
+            $this->isolator->copy(
+                $this->hiddenInputPath(),
+                $this->hiddenInputRealPath
+            );
+        }
+
+        return $this->hiddenInputRealPath;
+    }
+
+    /**
      * @param string $command
      *
      * @return string
@@ -136,6 +158,7 @@ class HiddenInputHelper extends Helper
     }
 
     private $hiddenInputPath;
+    private $hiddenInputRealPath;
     private $isolator;
     private $hasSttyAvailable;
     private $typeCheck;
