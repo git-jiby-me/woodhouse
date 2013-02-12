@@ -102,6 +102,13 @@ class HiddenInputHelperTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVa
         }
     }
 
+    public function hiddenInputRealPath(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        }
+    }
+
     public function execute(array $arguments)
     {
         $argumentCount = \count($arguments);
