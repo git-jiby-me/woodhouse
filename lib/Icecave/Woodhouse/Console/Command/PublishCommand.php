@@ -200,6 +200,8 @@ class PublishCommand extends Command
      */
     protected function resolveReader($factory, $optionPrefix, InputInterface $input)
     {
+        $this->typeCheck->resolveReader(func_get_args());
+
         $reader = null;
         $option = null;
 
@@ -226,6 +228,8 @@ class PublishCommand extends Command
      */
     public function resolveThemes(InputInterface $input)
     {
+        $this->typeCheck->resolveThemes(func_get_args());
+
         $themesRoot = $this->getApplication()->vendorPath() . '/ezzatron/ci-status-images/img';
         $themes = array();
 
@@ -248,6 +252,8 @@ class PublishCommand extends Command
      */
     public function enqueueImages(array $themes, $targetPath, $category, $filename)
     {
+        $this->typeCheck->enqueueImages(func_get_args());
+
         // If there is only a single theme, publish the image directly to the target path.
         if (count($themes) === 1) {
             $source = current($themes) . '/' . $category . '/' . $filename;
@@ -274,6 +280,8 @@ class PublishCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $this->typeCheck->execute(func_get_args());
+
         list($statusType, $statusReader)     = $this->resolveReader($this->statusReaderFactory, 'build-status', $input);
         list($coverageType, $coverageReader) = $this->resolveReader($this->coverageReaderFactory, 'coverage', $input);
         $imageThemes                         = $this->resolveThemes($input);

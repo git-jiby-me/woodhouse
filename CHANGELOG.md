@@ -1,5 +1,9 @@
 # Woodhouse Changelog
 
+### 0.4.0
+
+* Added GitHub auth token management commands: github:create-auth, github:list-auth and github:delete-auth
+
 ### 0.3.2
 
 * Fixed issue with publishing build-status and coverage images when using woodhouse via PHAR

@@ -14,9 +14,26 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $this->assertSame('Woodhouse', $this->_application->getName());
-        $this->assertSame('0.3.2', $this->_application->getVersion());
+        $this->assertSame('0.4.0', $this->_application->getVersion());
+    }
 
-        Phake::verify($this->_application)->add($this->isInstanceOf(__NAMESPACE__ . '\Command\PublishCommand'));
+    public function testCommands()
+    {
+        $expected = array(
+            'help',
+            'list',
+            'github:create-auth',
+            'github:delete-auth',
+            'github:list-auth',
+            'publish',
+        );
+
+        $this->assertSame($expected, array_keys($this->_application->all()));
+    }
+
+    public function testHelpers()
+    {
+        $this->assertTrue($this->_application->getHelperSet()->has('hidden-input'));
     }
 
     public function testVendorPath()

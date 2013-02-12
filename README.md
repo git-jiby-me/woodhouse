@@ -1,7 +1,8 @@
-# Woodhouse
-
+![Woodhouse](http://icecave.com.au/assets/img/project-icons/icon-woodhouse.png)<br>&nbsp;&nbsp;
 [![Build Status](https://api.travis-ci.org/IcecaveStudios/woodhouse.png)](http://travis-ci.org/IcecaveStudios/woodhouse)
 [![Test Coverage](http://icecave.com.au/woodhouse/coverage-report/coverage.png)](http://icecave.com.au/woodhouse/coverage-report/index.html)
+
+---
 
 **Woodhouse** is a command line utility (and PHP library) for publishing build artifacts such as test reports and code coverage metrics to a GitHub pages repository.
 It was originally designed to run in a [Travis CI](http://travis-ci.org) build, but can be used in any environment.
@@ -27,7 +28,7 @@ The source path may reference individual files or directories.
 ### Build status badges
 
 **Woodhouse** is able to parse several common test report formats to deduce the result of a build
-and publish an appropriate status image. This image can be used in your GitHub README file or on
+and publish an appropriate status image. This image can be used in a GitHub README.md file or on
 a website to show the current status of the build.
 
     $ woodhouse publish bob/widget --build-status-image img/status.png --build-status-junit junit.xml --auth-token 0bee..8a33
@@ -64,27 +65,32 @@ There are several themes and variants available. The desired theme(s) can be cho
 
 **Woodhouse** requires a GitHub OAuth token with write access to publish content.
 
-**This token must be kept secure, anyone with access to this token can masquerade as you on GitHub.**
+**THIS TOKEN MUST BE KEPT SECURE, ANYONE WITH ACCESS TO THIS TOKEN CAN MANIPULATE YOUR GITHUB ACCOUNT**
 
-If you are using [Travis CI](http://travis-ci.org) you can use
-[encrypted environment variables](http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables) to
-store your token such that it can only be decrypted by Travis. To complement this feature, **Woodhouse** provides the
-`--auth-token-env` option to read your token from an environment variable, preventing it from being logged to the console.
+Under [Travis CI](http://travis-ci.org), [encrypted environment variables](http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables)
+can be used to store the token such that it can only be decrypted by Travis. To complement this feature, **Woodhouse** provides the `--auth-token-env`
+option to read the token from an environment variable, preventing it from being logged to the console.
 
-Please note that although it is tempting to create a separate GitHub account for publishing of artifacts, this is explicitly
-prohibited by the [GitHub Terms of Service](https://help.github.com/articles/github-terms-of-service).
+Please note that although it is tempting to create a separate GitHub account solely for publishing of artifacts, this is explicitly
+prohibited by GitHub's [Terms of Service](https://help.github.com/articles/github-terms-of-service).
 
 ### Creating a GitHub token
 
-To acquire a GitHub token you need to create an authorization using the
-[GitHub API](http://developer.github.com/v3/oauth/#create-a-new-authorization). This only needs to be done once for your
-GitHub account (not for each repository). The command below can be used to create such an authorization.
+A GitHub token can be created using the `github:create-auth` command. This only needs to be done once for your GitHub account.
 
-    $ curl -u <github-username> \
-           -d '{"scopes":["repo"],"note":"icecave/woodhouse"}' \
-           https://api.github.com/authorizations
+    $ woodhouse github:create-auth
+
+You will be prompted for your GitHub username and password. These credentials are used to create the authorization via the
+[GitHub API](http://developer.github.com/v3/oauth/#create-a-new-authorization) and are not stored.
 
 ### Revoking a GitHub token
 
-If you suspect your token has been compromised, it can be revoked on the [application settings](https://github.com/settings/applications) page.
+If you suspect your token has been compromised, it can be revoked on the [application settings](https://github.com/settings/applications)
+page, or using the `github:delete-auth` command.
+
+    $ woodhouse github:list-auth # To get a list of authorizations.
+    158534: 0bee..8a33 Woodhouse (API) [repo] https://github.com/IcecaveStudios/woodhouse
+
+    $ woodhouse github:delete-auth 158534 # The authorization ID from above.
+
 You will then need to create a new token as described above.
