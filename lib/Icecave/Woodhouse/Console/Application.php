@@ -15,7 +15,7 @@ class Application extends SymfonyApplication
 
         $this->vendorPath = $vendorPath;
 
-        parent::__construct('Woodhouse', '0.3.2');
+        parent::__construct('Woodhouse', '0.4.0');
 
         $this->getHelperSet()->set(new Helper\HiddenInputHelper);
         $this->add(new Command\GitHub\CreateAuthorizationCommand);
