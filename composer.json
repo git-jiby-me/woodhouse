@@ -2,7 +2,7 @@
     "name": "icecave/woodhouse",
     "description": "Publish build artifacts and status images to your GitHub pages.",
     "keywords": ["publish", "github", "pages", "phpunit", "code", "coverage", "xdebug"],
-    "homepage": "https://github.com/IcecaveStudios/collections",
+    "homepage": "https://github.com/IcecaveStudios/woodhouse",
     "license": "MIT",
     "authors": [
         {
