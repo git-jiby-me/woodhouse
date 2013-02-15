@@ -1,5 +1,5 @@
 {
-    "hash": "7cd3de000ee21bf3b4daead727562401",
+    "hash": "559dd4cfe5c199bcb25c333e00fffd61",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -685,6 +685,66 @@
             ]
         },
         {
+            "name": "icecave/archer",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/archer.git",
+                "reference": "0.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/archer/zipball/0.1.0",
+                "reference": "0.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "phake/phake": ">=1.0,<2.0",
+                "symfony/console": ">=2.0,<3.0",
+                "symfony/process": ">=2.0,<3.0"
+            },
+            "suggest": {
+                "ext-openssl": "OpenSSL is required to encrypt GitHub OAuth tokens for artifact publication."
+            },
+            "time": "2013-02-15 02:09:19",
+            "bin": [
+                "bin/archer",
+                "bin/woodhouse"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Icecave\\Archer": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                },
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au"
+                }
+            ],
+            "description": "PHP testing and continuous integration by convention.",
+            "homepage": "https://github.com/IcecaveStudios/archer",
+            "keywords": [
+                "testing",
+                "phpunit",
+                "test",
+                "unit",
+                "phake",
+                "coverage",
+                "artifacts"
+            ]
+        },
+        {
             "name": "icecave/collections",
             "version": "0.5.1",
             "source": {
@@ -886,56 +946,6 @@
             ]
         },
         {
-            "name": "icecave/testing",
-            "version": "1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/IcecaveStudios/testing.git",
-                "reference": "1.1.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/testing/zipball/1.1.5",
-                "reference": "1.1.5",
-                "shasum": ""
-            },
-            "require": {
-                "phake/phake": "1.*"
-            },
-            "suggest": {
-                "eloquent/asplode": "Use the asplode error handler instead of PHPUnit's internal error handler.",
-                "eloquent/liberator": "Use liberator for circumventing PHP access modifier restrictions inside tests."
-            },
-            "time": "2013-01-31 23:27:12",
-            "bin": [
-                "bin/phpunit",
-                "bin/phpunit-coverage",
-                "bin/travis-init",
-                "bin/travis-build"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Harris",
-                    "email": "james.harris@icecave.com.au"
-                }
-            ],
-            "description": "Helper package for testing Icecave projects in a uniform way.",
-            "homepage": "https://github.com/IcecaveStudios/testing",
-            "keywords": [
-                "coverage",
-                "phake",
-                "phpunit",
-                "test",
-                "testing",
-                "unit"
-            ]
-        },
-        {
             "name": "phake/phake",
             "version": "v1.0.3",
             "source": {
@@ -978,6 +988,48 @@
                 "mock",
                 "testing"
             ]
+        },
+        {
+            "name": "symfony/process",
+            "version": "v2.1.7",
+            "target-dir": "Symfony/Component/Process",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Process",
+                "reference": "v2.1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/v2.1.7",
+                "reference": "v2.1.7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "time": "2013-01-16 09:27:54",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Process": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "http://symfony.com"
         }
     ],
     "aliases": [

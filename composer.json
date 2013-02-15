@@ -23,7 +23,7 @@
     "require-dev": {
         "eloquent/liberator": "1.*",
         "eloquent/typhoon": "0.8.*",
-        "icecave/testing": "1.*"
+        "icecave/archer": "~0.1"
     },
     "autoload": {
         "psr-0": {
