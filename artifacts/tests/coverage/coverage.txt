@@ -1,0 +1,52 @@
+
+
+Code Coverage Report 
+  2013-02-15 10:13:29
+
+ Summary: 
+  Classes: 100.00% (22/22)
+  Methods: 100.00% (94/94)
+  Lines:   100.00% (788/788)
+
+\Icecave\Woodhouse\BuildStatus::StatusImageSelector
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  4/  4)
+\Icecave\Woodhouse\BuildStatus::StatusReaderFactory
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 19/ 19)
+\Icecave\Woodhouse\BuildStatus\Readers::CommandLineReader
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  5/  5)
+\Icecave\Woodhouse\BuildStatus\Readers::JUnitReader
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 13/ 13)
+\Icecave\Woodhouse\BuildStatus\Readers::PhpUnitJsonReader
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 25/ 25)
+\Icecave\Woodhouse\BuildStatus\Readers::TapReader
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 11/ 11)
+\Icecave\Woodhouse\Console::Application
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 11/ 11)
+\Icecave\Woodhouse\Console\Command::PublishCommand
+  Methods: 100.00% ( 6/ 6)   Lines: 100.00% (194/194)
+\Icecave\Woodhouse\Console\Command\GitHub::AbstractGitHubCommand
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 63/ 63)
+\Icecave\Woodhouse\Console\Command\GitHub::CreateAuthorizationCommand
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 41/ 41)
+\Icecave\Woodhouse\Console\Command\GitHub::DeleteAuthorizationCommand
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 19/ 19)
+\Icecave\Woodhouse\Console\Command\GitHub::ListAuthorizationsCommand
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 38/ 38)
+\Icecave\Woodhouse\Console\Helper::HiddenInputHelper
+  Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 54/ 54)
+\Icecave\Woodhouse\Coverage::CoverageImageSelector
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% (  8/  8)
+\Icecave\Woodhouse\Coverage::CoverageReaderFactory
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 13/ 13)
+\Icecave\Woodhouse\Coverage\Readers::CommandLineReader
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  5/  5)
+\Icecave\Woodhouse\Coverage\Readers::PhpUnitTextReader
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 10/ 10)
+\Icecave\Woodhouse\GitHub::GitHubClient
+  Methods: 100.00% (11/11)   Lines: 100.00% ( 91/ 91)
+\Icecave\Woodhouse\GitHub::GitHubClientFactory
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 32/ 32)
+\Icecave\Woodhouse\Publisher::AbstractPublisher
+  Methods: 100.00% ( 5/ 5)   Lines: 100.00% ( 14/ 14)
+\Icecave\Woodhouse\Publisher::GitHubPublisher
+  Methods: 100.00% (16/16)   Lines: 100.00% (118/118)
