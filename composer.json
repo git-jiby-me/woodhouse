@@ -18,7 +18,8 @@
         "icecave/isolator": "~2",
         "kriswallsmith/buzz": "~0.8",
         "symfony/console": "~2",
-        "symfony/filesystem": "~2"
+        "symfony/filesystem": "~2",
+        "symfony/process": "~2"
     },
     "require-dev": {
         "eloquent/liberator": "1.*",

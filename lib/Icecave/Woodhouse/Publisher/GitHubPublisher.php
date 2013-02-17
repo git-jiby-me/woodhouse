@@ -3,6 +3,7 @@ namespace Icecave\Woodhouse\Publisher;
 
 use Exception;
 use Icecave\Isolator\Isolator;
+use Icecave\Woodhouse\Git\Git;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use InvalidArgumentException;
 use RuntimeException;
@@ -14,24 +15,42 @@ class GitHubPublisher extends AbstractPublisher
     const AUTH_TOKEN_PATTERN = '/^[0-9a-f]{40}$/i';
 
     /**
+     * @param Git|null        $git
      * @param Filesystem|null $fileSystem
      * @param Isolator|null   $isolator
      */
     public function __construct(
+        Git $git = null,
         Filesystem $fileSystem = null,
         Isolator $isolator = null
     ) {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
+        if (null === $git) {
+            $git = new Git;
+        }
+
         if (null === $fileSystem) {
             $fileSystem = new Filesystem;
         }
 
+        $this->git = $git;
         $this->branch = 'gh-pages';
         $this->commitMessage = 'Content published by Woodhouse.';
         $this->maxPushAttempts = 3;
         $this->fileSystem = $fileSystem;
         $this->isolator = Isolator::get($isolator);
+
+        // Setup an output filter so that the auth token cannot be leaked ...
+        $self = $this;
+        $filter = function ($buffer) use ($self) {
+            $authToken   = $this->authToken();
+            $replacement = substr($authToken, 0, 4) . str_repeat('*', strlen($authToken) - 8) . substr($authToken, -4);
+
+            return str_ireplace($authToken, $replacement, $buffer);
+        };
+
+        $this->git->setOutputFilter($filter);
 
         parent::__construct();
     }
@@ -44,6 +63,16 @@ class GitHubPublisher extends AbstractPublisher
         $this->typeCheck->fileSystem(func_get_args());
 
         return $this->fileSystem;
+    }
+
+    /**
+     * @return Git
+     */
+    public function git()
+    {
+        $this->typeCheck->git(func_get_args());
+
+        return $this->git;
     }
 
     /**
@@ -64,88 +93,12 @@ class GitHubPublisher extends AbstractPublisher
         try {
             $result = $this->doPublish($tempDir);
             $this->fileSystem->remove($tempDir);
-
-            return $result;
         } catch (Exception $e) {
             $this->fileSystem->remove($tempDir);
             throw $e;
         }
-    }
 
-    /**
-     * Publish enqueued content.
-     *
-     * @param string $tempDir
-     *
-     * @return boolean True if there were changes published; otherwise false.
-     */
-    protected function doPublish($tempDir)
-    {
-        $this->typeCheck->doPublish(func_get_args());
-
-        // Clone the Git repository ...
-        $output = $this->execute(
-            'git', 'clone', '--quiet',
-            '--branch', $this->branch(),
-            '--depth', 0,
-            $this->repositoryUrl(),
-            $tempDir
-        );
-
-        $this->isolator->chdir($tempDir);
-
-        // Create the brach if it doesn't exist ...
-        if (false !== strpos($output, $this->branch() . ' not found in upstream origin')) {
-            $this->execute('git', 'checkout', '--orphan', $this->branch());
-            $this->execute('git', 'rm', '-rf', '--ignore-unmatch', '.');
-
-        // Branch does exist ...
-        } else {
-            // Remove existing content that exists in target paths ...
-            foreach ($this->contentPaths() as $sourcePath => $targetPath) {
-                $this->execute('git', 'rm', '-rf', '--ignore-unmatch', $targetPath);
-            }
-        }
-
-        // Copy in published content and add it to the repo ...
-        foreach ($this->contentPaths() as $sourcePath => $targetPath) {
-            $fullTargetPath = $tempDir . '/' . $targetPath;
-            $fullTargetParentPath = dirname($fullTargetPath);
-            if (!$this->isolator->is_dir($fullTargetParentPath)) {
-                $this->isolator->mkdir($fullTargetParentPath, 0777, true);
-            }
-
-            if ($this->isolator->is_dir($sourcePath)) {
-                $sourcePath = rtrim($sourcePath, '/') . '/';
-                $this->fileSystem->mirror($sourcePath, $fullTargetPath);
-            } else {
-                $this->fileSystem->copy($sourcePath, $fullTargetPath);
-            }
-
-            $this->execute('git', 'add', $targetPath);
-        }
-
-        // Commit the published content ...
-        $diff = $this->execute('git', 'diff', '--cached');
-        if (trim($diff) === '') {
-            return false;
-        }
-
-        $this->execute('git', 'commit', '-m', $this->commitMessage());
-
-        // Make push attempts ...
-        $attemptsRemaining = $this->maxPushAttempts;
-        while (true) {
-            if (null !== $this->tryExecute('git', 'push', 'origin', $this->branch())) {
-                return true;
-            } elseif (--$attemptsRemaining) {
-                $this->execute('git', 'pull');
-            } else {
-                break;
-            }
-        }
-
-        throw new RuntimeException('Unable to publish content.');
+        return $result;
     }
 
     /**
@@ -181,13 +134,11 @@ class GitHubPublisher extends AbstractPublisher
 
         if (null === $this->repository) {
             return null;
-        }
-
-        if (null === $this->authToken) {
+        } elseif (null === $this->authToken) {
             return sprintf('https://github.com/%s.git', $this->repository);
+        } else {
+            return sprintf('https://%s:x-oauth-basic@github.com/%s.git', $this->authToken, $this->repository);
         }
-
-        return sprintf('https://%s:x-oauth-basic@github.com/%s.git', $this->authToken, $this->repository);
     }
 
     /**
@@ -258,65 +209,97 @@ class GitHubPublisher extends AbstractPublisher
     }
 
     /**
-     * @param string     $command
-     * @param stringable $argument,...
-     */
-    protected function execute($command)
-    {
-        $this->typeCheck->execute(func_get_args());
+      * Publish enqueued content.
+      *
+      * @param string $tempDir
+      *
+      * @return boolean True if there were changes published; otherwise false.
+      */
+     protected function doPublish($tempDir)
+     {
+         $this->typeCheck->doPublish(func_get_args());
 
-        $result = $this->tryExecuteArray(
-            $command,
-            array_slice(func_get_args(), 1)
-        );
+         // Clone the Git repository ...
+         $process = $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 0);
+         $this->isolator->chdir($tempDir);
 
-        if (null === $result) {
-            throw new RuntimeException('Failed executing command: "' . $command . '".');
-        }
+         // Create the brach if it doesn't exist ...
+         if (false !== strpos($process->getErrorOutput(), $this->branch() . ' not found in upstream origin')) {
+             $this->git->checkout($this->branch(), true);
+             $this->git->remove('.');
 
-        return $result;
-    }
+         // Branch does exist, remove existing content that exists in target paths ...
+         } else {
+             foreach ($this->contentPaths() as $sourcePath => $targetPath) {
+                 $this->git->remove($targetPath);
+             }
+         }
 
-    /**
-     * @param string     $command
-     * @param stringable $argument,...
-     */
-    protected function tryExecute($command)
-    {
-        $this->typeCheck->tryExecute(func_get_args());
+         $this->stageContent($tempDir);
 
-        $arguments = array_slice(func_get_args(), 1);
+         // Check if there are any changes ...
+         $process = $this->git->diff(true);
+         if (trim($process->getOutput()) === '') {
+             return false;
+         }
 
-        return $this->tryExecuteArray($command, $arguments);
-    }
+         $this->git->commit($this->commitMessage());
 
-    /**
-     * @param string            $command
-     * @param array<stringable> $arguments
-     */
-    protected function tryExecuteArray($command, array $arguments)
-    {
-        $this->typeCheck->tryExecuteArray(func_get_args());
+         $this->push();
 
-        $commandLine = '/usr/bin/env ' . escapeshellarg($command);
-        foreach ($arguments as $arg) {
-            $commandLine .= ' ' . escapeshellarg($arg);
-        }
-        $commandLine .=  ' 2>&1';
+         return true;
+     }
 
-        $exitCode = null;
-        $output = array();
+     /**
+      * @param string $tempDir
+      */
+     protected function stageContent($tempDir)
+     {
+         $this->typeCheck->stageContent(func_get_args());
 
-        $this->isolator->exec($commandLine, $output, $exitCode);
+         foreach ($this->contentPaths() as $sourcePath => $targetPath) {
+             $fullTargetPath = $tempDir . '/' . $targetPath;
+             $fullTargetParentPath = dirname($fullTargetPath);
 
-        if (0 === $exitCode) {
-            return implode(PHP_EOL, $output);
-        }
+             if (!$this->isolator->is_dir($fullTargetParentPath)) {
+                 $this->isolator->mkdir($fullTargetParentPath, 0777, true);
+             }
 
-        return null;
-    }
+             if ($this->isolator->is_dir($sourcePath)) {
+                 $sourcePath = rtrim($sourcePath, '/') . '/';
+                 $this->fileSystem->mirror($sourcePath, $fullTargetPath);
+             } else {
+                 $this->fileSystem->copy($sourcePath, $fullTargetPath);
+             }
+
+             $this->git->add($targetPath);
+         }
+     }
+
+     /**
+      * @return Process
+      */
+     protected function push()
+     {
+         $this->typeCheck->push(func_get_args());
+
+         // Supress exceptions for $max-1 attempts ...
+         $attemptsRemaining = $this->maxPushAttempts;
+
+         while (--$attemptsRemaining) {
+             try {
+                 return $this->git->push('origin', $this->branch());
+             } catch (RuntimeException $e) {
+                 $this->git->pull();
+             }
+         }
+
+         // Final attempt, allow exceptions to propagate ...
+         return $this->git->push('origin', $this->branch());
+     }
 
     private $typeCheck;
+    private $git;
     private $repository;
     private $branch;
     private $commitMessage;

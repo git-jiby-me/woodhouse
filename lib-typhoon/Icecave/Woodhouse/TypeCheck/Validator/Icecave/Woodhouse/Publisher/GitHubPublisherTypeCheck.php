@@ -6,8 +6,8 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
     public function validateConstruct(array $arguments)
     {
         $argumentCount = \count($arguments);
-        if ($argumentCount > 2) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(2, $arguments[2]);
+        if ($argumentCount > 3) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(3, $arguments[3]);
         }
     }
 
@@ -18,29 +18,17 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         }
     }
 
-    public function publish(array $arguments)
+    public function git(array $arguments)
     {
         if (\count($arguments) > 0) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
         }
     }
 
-    public function doPublish(array $arguments)
+    public function publish(array $arguments)
     {
-        $argumentCount = \count($arguments);
-        if ($argumentCount < 1) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('tempDir', 0, 'string');
-        } elseif ($argumentCount > 1) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
-        }
-        $value = $arguments[0];
-        if (!\is_string($value)) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                'tempDir',
-                0,
-                $arguments[0],
-                'string'
-            );
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
         }
     }
 
@@ -155,141 +143,48 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         }
     }
 
-    public function execute(array $arguments)
+    public function doPublish(array $arguments)
     {
         $argumentCount = \count($arguments);
         if ($argumentCount < 1) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('command', 0, 'string');
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('tempDir', 0, 'string');
+        } elseif ($argumentCount > 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
         }
         $value = $arguments[0];
         if (!\is_string($value)) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                'command',
+                'tempDir',
                 0,
                 $arguments[0],
                 'string'
             );
         }
-        if ($argumentCount > 1) {
-            $check = function ($argument, $index) {
-                $value = $argument;
-                $check = function ($value) {
-                    if (\is_string($value) || \is_int($value) || \is_float($value)) {
-                        return true;
-                    }
-                    if (!\is_object($value)) {
-                        return false;
-                    }
-                    $reflector = new \ReflectionObject($value);
-                    return $reflector->hasMethod('__toString');
-                };
-                if (!$check($argument)) {
-                    throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                        'argument',
-                        $index,
-                        $argument,
-                        'stringable'
-                    );
-                }
-            };
-            for ($index = 1; $index < $argumentCount; $index++) {
-                $check($arguments[$index], $index);
-            }
-        }
     }
 
-    public function tryExecute(array $arguments)
+    public function stageContent(array $arguments)
     {
         $argumentCount = \count($arguments);
         if ($argumentCount < 1) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('command', 0, 'string');
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('tempDir', 0, 'string');
+        } elseif ($argumentCount > 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
         }
         $value = $arguments[0];
         if (!\is_string($value)) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                'command',
+                'tempDir',
                 0,
                 $arguments[0],
                 'string'
             );
-        }
-        if ($argumentCount > 1) {
-            $check = function ($argument, $index) {
-                $value = $argument;
-                $check = function ($value) {
-                    if (\is_string($value) || \is_int($value) || \is_float($value)) {
-                        return true;
-                    }
-                    if (!\is_object($value)) {
-                        return false;
-                    }
-                    $reflector = new \ReflectionObject($value);
-                    return $reflector->hasMethod('__toString');
-                };
-                if (!$check($argument)) {
-                    throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                        'argument',
-                        $index,
-                        $argument,
-                        'stringable'
-                    );
-                }
-            };
-            for ($index = 1; $index < $argumentCount; $index++) {
-                $check($arguments[$index], $index);
-            }
         }
     }
 
-    public function tryExecuteArray(array $arguments)
+    public function push(array $arguments)
     {
-        $argumentCount = \count($arguments);
-        if ($argumentCount < 2) {
-            if ($argumentCount < 1) {
-                throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('command', 0, 'string');
-            }
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('arguments', 1, 'array<stringable>');
-        } elseif ($argumentCount > 2) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(2, $arguments[2]);
-        }
-        $value = $arguments[0];
-        if (!\is_string($value)) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                'command',
-                0,
-                $arguments[0],
-                'string'
-            );
-        }
-        $value = $arguments[1];
-        $check = function ($value) {
-            if (!\is_array($value)) {
-                return false;
-            }
-            $valueCheck = function ($subValue) {
-                if (\is_string($subValue) || \is_int($subValue) || \is_float($subValue)) {
-                    return true;
-                }
-                if (!\is_object($subValue)) {
-                    return false;
-                }
-                $reflector = new \ReflectionObject($subValue);
-                return $reflector->hasMethod('__toString');
-            };
-            foreach ($value as $key => $subValue) {
-                if (!$valueCheck($subValue)) {
-                    return false;
-                }
-            }
-            return true;
-        };
-        if (!$check($arguments[1])) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                'arguments',
-                1,
-                $arguments[1],
-                'array<stringable>'
-            );
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
         }
     }
 
