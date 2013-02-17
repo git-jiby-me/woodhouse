@@ -1,7 +1,6 @@
 <?php
 namespace Icecave\Woodhouse\Publisher;
 
-use Eloquent\Liberator\Liberator;
 use PHPUnit_Framework_TestCase;
 use Phake;
 use RuntimeException;
@@ -11,8 +10,12 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
+        $this->_git = Phake::mock('Icecave\Woodhouse\Git\Git');
         $this->_fileSystem = Phake::mock('Symfony\Component\Filesystem\Filesystem');
         $this->_isolator = Phake::mock(get_class(Isolator::get()));
+
+        $this->_diffProcess = Phake::mock('Symfony\Component\Process\Process');
+        $this->_cloneProcess = Phake::mock('Symfony\Component\Process\Process');
 
         Phake::when($this->_isolator)
             ->sys_get_temp_dir()
@@ -26,248 +29,52 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
             ->is_dir('/source/bar')
             ->thenReturn(true);
 
+        Phake::when($this->_git)
+            ->cloneRepo(Phake::anyParameters())
+            ->thenReturn($this->_cloneProcess);
+
+        Phake::when($this->_diffProcess)
+            ->getOutput()
+            ->thenReturn('<diff output>');
+
+        Phake::when($this->_git)
+            ->diff(Phake::anyParameters())
+            ->thenReturn($this->_diffProcess);
+
+        Phake::when($this->_git)
+            ->push(Phake::anyParameters())
+            ->thenThrow(new RuntimeException)
+            ->thenReturn(Phake::mock('Symfony\Component\Process\Process'));
+
         $this->_publisher = Phake::partialMock(
             __NAMESPACE__ . '\GitHubPublisher',
+            $this->_git,
             $this->_fileSystem,
             $this->_isolator
         );
-
-        Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenReturn('');
-
-        Phake::when($this->_publisher)
-            ->execute('git', 'diff', '--cached')
-            ->thenReturn('<diff output>');
-
-        Phake::when($this->_publisher)
-            ->tryExecute('git', 'push', 'origin', 'test-branch')
-            ->thenReturn(null)
-            ->thenReturn('');
     }
 
     public function testConstructorDefaults()
     {
         $publisher = new GitHubPublisher;
 
+        $this->assertInstanceOf('Icecave\Woodhouse\Git\Git', $publisher->git());
         $this->assertInstanceOf('Symfony\Component\Filesystem\Filesystem', $publisher->fileSystem());
     }
 
-    public function testPublish()
+    public function testOutputFilter()
     {
-        $this->_publisher->setRepository('foo/bar');
-        $this->_publisher->setCommitMessage('Test commit message.');
-        $this->_publisher->setBranch('test-branch');
+        $filter = null;
+
+        Phake::verify($this->_git)->setOutputFilter(Phake::capture($filter));
+
+        $this->assertInstanceOf('Closure', $filter);
+
         $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
-        $this->_publisher->add('/source/foo', '/foo-dest');
-        $this->_publisher->add('/source/bar', '/bar-dest');
+        $output = $filter('The auth token 0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33 is in use.');
 
-        $result = $this->_publisher->publish();
-
-        $pushVerifier = Phake::verify($this->_publisher, Phake::times(2))->tryExecute('git', 'push', 'origin', 'test-branch');
-
-        Phake::inOrder(
-            Phake::verify($this->_publisher)->execute(
-                'git', 'clone', '--quiet',
-                '--branch', 'test-branch',
-                '--depth', 0,
-                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
-                '/tmp/woodhouse-10101'
-            ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'bar-dest'),
-            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'diff', '--cached'),
-            Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
-            $pushVerifier,
-            Phake::verify($this->_publisher)->execute('git', 'pull'),
-            $pushVerifier,
-            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
-        );
-
-        $this->assertTrue($result);
-    }
-
-    public function testPublishNoChanges()
-    {
-        Phake::when($this->_publisher)
-            ->execute('git', 'diff', '--cached')
-            ->thenReturn('   '); // whitespace only
-
-        $this->_publisher->setRepository('foo/bar');
-        $this->_publisher->setCommitMessage('Test commit message.');
-        $this->_publisher->setBranch('test-branch');
-        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
-
-        $this->_publisher->add('/source/foo', '/foo-dest');
-
-        $result = $this->_publisher->publish();
-
-        Phake::inOrder(
-            Phake::verify($this->_publisher)->execute(
-                'git', 'clone', '--quiet',
-                '--branch', 'test-branch',
-                '--depth', 0,
-                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
-                '/tmp/woodhouse-10101'
-            ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'foo-dest'),
-            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'diff', '--cached')
-        );
-
-        $this->assertFalse($result);
-    }
-
-    public function testPublishMakeContentDirectories()
-    {
-        $this->_publisher->setRepository('foo/bar');
-        $this->_publisher->setCommitMessage('Test commit message.');
-        $this->_publisher->setBranch('test-branch');
-        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
-
-        $this->_publisher->add('/source/foo', '/parent/foo-dest');
-
-        $result = $this->_publisher->publish();
-
-        $pushVerifier = Phake::verify($this->_publisher, Phake::times(2))->tryExecute('git', 'push', 'origin', 'test-branch');
-
-        Phake::inOrder(
-            Phake::verify($this->_publisher)->execute(
-                'git', 'clone', '--quiet',
-                '--branch', 'test-branch',
-                '--depth', 0,
-                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
-                '/tmp/woodhouse-10101'
-            ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'parent/foo-dest'),
-            Phake::verify($this->_isolator)->is_dir('/tmp/woodhouse-10101/parent'),
-            Phake::verify($this->_isolator)->mkdir('/tmp/woodhouse-10101/parent', 0777, true),
-            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/parent/foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'parent/foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
-            $pushVerifier,
-            Phake::verify($this->_publisher)->execute('git', 'pull'),
-            $pushVerifier,
-            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
-        );
-
-        $this->assertTrue($result);
-    }
-
-    public function testPublishToNewBranch()
-    {
-        Phake::when($this->_publisher)
-            ->execute(
-                'git', 'clone', '--quiet',
-                '--branch', 'test-branch',
-                '--depth', 0,
-                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
-                '/tmp/woodhouse-10101'
-            )
-            ->thenReturn('... test-branch not found in upstream origin ...');
-
-        $this->_publisher->setRepository('foo/bar');
-        $this->_publisher->setCommitMessage('Test commit message.');
-        $this->_publisher->setBranch('test-branch');
-        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
-
-        $this->_publisher->add('/source/foo', '/foo-dest');
-        $this->_publisher->add('/source/bar', '/bar-dest');
-
-        $result = $this->_publisher->publish();
-
-        $pushVerifier = Phake::verify($this->_publisher, Phake::times(2))->tryExecute('git', 'push', 'origin', 'test-branch');
-
-        Phake::inOrder(
-            Phake::verify($this->_publisher)->execute(
-                'git', 'clone', '--quiet',
-                '--branch', 'test-branch',
-                '--depth', 0,
-                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
-                '/tmp/woodhouse-10101'
-            ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
-            Phake::verify($this->_publisher)->execute('git', 'checkout', '--orphan', 'test-branch'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', '.'),
-            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
-            $pushVerifier,
-            Phake::verify($this->_publisher)->execute('git', 'pull'),
-            $pushVerifier,
-            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
-        );
-
-        $this->assertTrue($result);
-    }
-
-    public function testPublishFailurePushAttemptsExhausted()
-    {
-        Phake::when($this->_publisher)
-            ->tryExecute('git', 'push', 'origin', 'test-branch')
-            ->thenReturn(null);
-
-        $this->_publisher->setRepository('foo/bar');
-        $this->_publisher->setCommitMessage('Test commit message.');
-        $this->_publisher->setBranch('test-branch');
-        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
-
-        $this->_publisher->add('/source/foo', '/foo-dest');
-        $this->_publisher->add('/source/bar', '/bar-dest');
-
-        try {
-            $this->_publisher->publish();
-        } catch (RuntimeException $e) {
-            $this->assertSame('Unable to publish content.', $e->getMessage());
-        }
-
-        $pushVerifier = Phake::verify($this->_publisher, Phake::times(3))->tryExecute('git', 'push', 'origin', 'test-branch');
-        $pullVerifier = Phake::verify($this->_publisher, Phake::times(2))->execute('git', 'pull');
-
-        Phake::inOrder(
-            Phake::verify($this->_publisher)->execute(
-                'git', 'clone', '--quiet',
-                '--branch', 'test-branch',
-                '--depth', 0,
-                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
-                '/tmp/woodhouse-10101'
-            ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'rm', '-rf', '--ignore-unmatch', 'bar-dest'),
-            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'foo-dest'),
-            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'add', 'bar-dest'),
-            Phake::verify($this->_publisher)->execute('git', 'commit', '-m', 'Test commit message.'),
-            $pushVerifier,
-            $pullVerifier,
-            $pushVerifier,
-            $pullVerifier,
-            $pushVerifier,
-            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
-        );
-    }
-
-    public function testPublishFailureNoRepository()
-    {
-        $this->setExpectedException('RuntimeException', 'No repository set.');
-        $this->_publisher->publish();
+        $this->assertSame('The auth token 0bee********************************8a33 is in use.', $output);
     }
 
     public function testRepository()
@@ -348,96 +155,257 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
         $this->_publisher->setAuthToken('foo');
     }
 
-    public function testExecute()
+    public function testPublish()
     {
-        Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenCallParent();
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->setCommitMessage('Test commit message.');
+        $this->_publisher->setBranch('test-branch');
+        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenCallParent();
+        $this->_publisher->add('/source/foo', '/foo-dest');
+        $this->_publisher->add('/source/bar', '/bar-dest');
 
-        Phake::when($this->_isolator)
-            ->exec(
-                $this->anything(),
-                Phake::setReference(array('1', '2', '3')),
-                Phake::setReference(0)
-            )
-            ->thenReturn('3');
+        $result = $this->_publisher->publish();
 
-        $liberator = Liberator::liberate($this->_publisher);
-        $result = $liberator->execute('ls', '-la');
-        $this->assertSame(implode(PHP_EOL, array('1', '2', '3')), $result);
+        $pushVerifier = Phake::verify($this->_git, Phake::times(2))->push('origin', 'test-branch');
 
-        Phake::verify($this->_isolator)->exec("/usr/bin/env 'ls' '-la' 2>&1", array(), null);
+        Phake::inOrder(
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                'test-branch',
+                0
+            ),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->remove('foo-dest'),
+            Phake::verify($this->_git)->remove('bar-dest'),
+            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_git)->add('foo-dest'),
+            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_git)->add('bar-dest'),
+            Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->commit('Test commit message.'),
+            $pushVerifier,
+            Phake::verify($this->_git)->pull(),
+            $pushVerifier,
+            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
+        );
+
+        $this->assertTrue($result);
     }
 
-    public function testExecuteFailure()
+    public function testPublishNoChanges()
     {
-        Phake::when($this->_publisher)
-            ->execute(Phake::anyParameters())
-            ->thenCallParent();
+        Phake::when($this->_diffProcess)
+            ->getOutput()
+            ->thenReturn('    '); // whitespace only
 
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenCallParent();
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->setCommitMessage('Test commit message.');
+        $this->_publisher->setBranch('test-branch');
+        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
-        Phake::when($this->_isolator)
-            ->exec(
-                $this->anything(),
-                Phake::setReference(array('1', '2', '3')),
-                Phake::setReference(1)
-            )
-            ->thenReturn('3');
+        $this->_publisher->add('/source/foo', '/foo-dest');
 
-        $liberator = Liberator::liberate($this->_publisher);
+        $result = $this->_publisher->publish();
 
-        $this->setExpectedException('RuntimeException', 'Failed executing command: "ls".');
-        $result = $liberator->execute('ls', '-la');
+        Phake::inOrder(
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                'test-branch',
+                0
+            ),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->remove('foo-dest'),
+            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_git)->add('foo-dest'),
+            Phake::verify($this->_git)->diff(true)
+        );
+
+        $this->assertFalse($result);
     }
 
-    public function testTryExecute()
+    public function testPublishMakeContentDirectories()
     {
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenCallParent();
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->setCommitMessage('Test commit message.');
+        $this->_publisher->setBranch('test-branch');
+        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
-        Phake::when($this->_isolator)
-            ->exec(
-                $this->anything(),
-                Phake::setReference(array('1', '2', '3')),
-                Phake::setReference(0)
-            )
-            ->thenReturn('3');
+        $this->_publisher->add('/source/foo', '/parent/foo-dest');
 
-        $liberator = Liberator::liberate($this->_publisher);
-        $result = $liberator->tryExecute('ls', '-la');
-        $this->assertSame(implode(PHP_EOL, array('1', '2', '3')), $result);
+        $result = $this->_publisher->publish();
 
-        Phake::verify($this->_isolator)->exec("/usr/bin/env 'ls' '-la' 2>&1", array(), null);
+        $pushVerifier = Phake::verify($this->_git, Phake::times(2))->push('origin', 'test-branch');
+
+        Phake::inOrder(
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                'test-branch',
+                0
+            ),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->remove('parent/foo-dest'),
+            Phake::verify($this->_isolator)->is_dir('/tmp/woodhouse-10101/parent'),
+            Phake::verify($this->_isolator)->mkdir('/tmp/woodhouse-10101/parent', 0777, true),
+            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/parent/foo-dest'),
+            Phake::verify($this->_git)->add('parent/foo-dest'),
+            Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->commit('Test commit message.'),
+            $pushVerifier,
+            Phake::verify($this->_git)->pull(),
+            $pushVerifier,
+            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
+        );
+
+        $this->assertTrue($result);
     }
 
-    public function testTryExecuteFailure()
+    public function testPublishToNewBranch()
     {
-        Phake::when($this->_publisher)
-            ->tryExecute(Phake::anyParameters())
-            ->thenCallParent();
+        Phake::when($this->_cloneProcess)
+            ->getErrorOutput()
+            ->thenReturn('... test-branch not found in upstream origin ...');
 
-        Phake::when($this->_isolator)
-            ->exec(
-                $this->anything(),
-                Phake::setReference(array('1', '2', '3')),
-                Phake::setReference(1)
-            )
-            ->thenReturn('3');
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->setCommitMessage('Test commit message.');
+        $this->_publisher->setBranch('test-branch');
+        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
 
-        $liberator = Liberator::liberate($this->_publisher);
+        $this->_publisher->add('/source/foo', '/foo-dest');
+        $this->_publisher->add('/source/bar', '/bar-dest');
 
-        $liberator = Liberator::liberate($this->_publisher);
-        $result = $liberator->tryExecute('ls', '-la');
-        $this->assertNull($result);
+        $result = $this->_publisher->publish();
 
-        Phake::verify($this->_isolator)->exec("/usr/bin/env 'ls' '-la' 2>&1", array(), null);
+        $pushVerifier = Phake::verify($this->_git, Phake::times(2))->push('origin', 'test-branch');
+
+        Phake::inOrder(
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                'test-branch',
+                0
+            ),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->checkout('test-branch', true),
+            Phake::verify($this->_git)->remove('.'),
+            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_git)->add('foo-dest'),
+            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_git)->add('bar-dest'),
+            Phake::verify($this->_git)->commit('Test commit message.'),
+            $pushVerifier,
+            Phake::verify($this->_git)->pull(),
+            $pushVerifier,
+            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
+        );
+
+        $this->assertTrue($result);
+    }
+
+    public function testPublishSuccessPushAttemptsExhausted()
+    {
+        Phake::when($this->_git)
+            ->push(Phake::anyParameters())
+            ->thenThrow(new RuntimeException)
+            ->thenThrow(new RuntimeException)
+            ->thenReturn(Phake::mock('Symfony\Component\Process\Process'));
+
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->setCommitMessage('Test commit message.');
+        $this->_publisher->setBranch('test-branch');
+        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
+
+        $this->_publisher->add('/source/foo', '/foo-dest');
+        $this->_publisher->add('/source/bar', '/bar-dest');
+
+        $this->assertTrue($this->_publisher->publish());
+
+        $pushVerifier = Phake::verify($this->_git, Phake::times(3))->push('origin', 'test-branch');
+        $pullVerifier = Phake::verify($this->_git, Phake::times(2))->pull();
+
+        Phake::inOrder(
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                'test-branch',
+                0
+            ),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->remove('foo-dest'),
+            Phake::verify($this->_git)->remove('bar-dest'),
+            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_git)->add('foo-dest'),
+            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_git)->add('bar-dest'),
+            Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->commit('Test commit message.'),
+            $pushVerifier,
+            $pullVerifier,
+            $pushVerifier,
+            $pullVerifier,
+            $pushVerifier,
+            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
+        );
+    }
+
+    public function testPublishFailurePushAttemptsExhausted()
+    {
+        $exception = new RuntimeException;
+
+        Phake::when($this->_git)
+            ->push(Phake::anyParameters())
+            ->thenThrow($exception);
+
+        $this->_publisher->setRepository('foo/bar');
+        $this->_publisher->setCommitMessage('Test commit message.');
+        $this->_publisher->setBranch('test-branch');
+        $this->_publisher->setAuthToken('0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33');
+
+        $this->_publisher->add('/source/foo', '/foo-dest');
+        $this->_publisher->add('/source/bar', '/bar-dest');
+
+        try {
+            $this->_publisher->publish();
+        } catch (RuntimeException $e) {
+            $this->assertSame($exception, $e);
+        }
+
+        $pushVerifier = Phake::verify($this->_git, Phake::times(3))->push('origin', 'test-branch');
+        $pullVerifier = Phake::verify($this->_git, Phake::times(2))->pull();
+
+        Phake::inOrder(
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                'test-branch',
+                0
+            ),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->remove('foo-dest'),
+            Phake::verify($this->_git)->remove('bar-dest'),
+            Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
+            Phake::verify($this->_git)->add('foo-dest'),
+            Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
+            Phake::verify($this->_git)->add('bar-dest'),
+            Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->commit('Test commit message.'),
+            $pushVerifier,
+            $pullVerifier,
+            $pushVerifier,
+            $pullVerifier,
+            $pushVerifier,
+            Phake::verify($this->_fileSystem)->remove('/tmp/woodhouse-10101')
+        );
+    }
+
+    public function testPublishFailureNoRepository()
+    {
+        $this->setExpectedException('RuntimeException', 'No repository set.');
+        $this->_publisher->publish();
     }
 }

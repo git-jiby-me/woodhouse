@@ -1,6 +1,7 @@
-![Woodhouse](http://icecave.com.au/assets/img/project-icons/icon-woodhouse.png)<br>&nbsp;&nbsp;
-[![Build Status](https://api.travis-ci.org/IcecaveStudios/woodhouse.png)](http://travis-ci.org/IcecaveStudios/woodhouse)
-[![Test Coverage](http://icecave.com.au/woodhouse/coverage-report/coverage.png)](http://icecave.com.au/woodhouse/coverage-report/index.html)
+# ![Woodhouse]
+
+[![Build Status]](http://travis-ci.org/IcecaveStudios/woodhouse)
+[![Test Coverage]](http://icecave.com.au/woodhouse/artifacts/tests/coverage)
 
 ---
 
@@ -18,7 +19,7 @@ It was originally designed to run in a [Travis CI](http://travis-ci.org) build, 
 
 The most basic use of **Woodhouse** is to publish build artifacts.
 
-    $ woodhouse publish bob/widget report.html:artifacts/tests.html --auth-token 0bee..8a33
+    $ woodhouse publish bob/widget report.html:artifacts/tests.html --auth-token 0be..8a3
 
 The example above publishes a file called **report.html** in the current directory to
 **artifacts/tests.html** in the **gh-pages** branch of the **bob/widget** GitHub repository.
@@ -31,7 +32,7 @@ The source path may reference individual files or directories.
 and publish an appropriate status image. This image can be used in a GitHub README.md file or on
 a website to show the current status of the build.
 
-    $ woodhouse publish bob/widget --build-status-image img/status.png --build-status-junit junit.xml --auth-token 0bee..8a33
+    $ woodhouse publish bob/widget --build-status-image img/status.png --build-status-junit junit.xml --auth-token 0be..8a3
 
 This example parses **junit.xml** to determine the build status, and then publishes the appropropriate
 status image to **img/status.png**. The images at the top of this document are
@@ -48,7 +49,7 @@ You can also specify the build status directly on the command line using the `--
 
 Much like the build status images, **Woodhouse** can also publish images showing code coverage percentages.
 
-    $ woodhouse publish bob/widget --coverage-image img/coverage.png --coverage-phpunit coverage.txt --auth-token 0bee..8a33
+    $ woodhouse publish bob/widget --coverage-image img/coverage.png --coverage-phpunit coverage.txt --auth-token 0be..8a3
 
 This example parses **coverage.txt** (A file created using PHPUnit's `--coverage-text` option) to determine
 the coverage percentage, and then publishes the appropropriate image to **img/coverage.png**.
@@ -89,8 +90,13 @@ If you suspect your token has been compromised, it can be revoked on the [applic
 page, or using the `github:delete-auth` command.
 
     $ woodhouse github:list-auth # To get a list of authorizations.
-    158534: 0bee..8a33 Woodhouse (API) [repo] https://github.com/IcecaveStudios/woodhouse
+    158534: 0be..8a3 Woodhouse (API) [repo] https://github.com/IcecaveStudios/woodhouse
 
     $ woodhouse github:delete-auth 158534 # The authorization ID from above.
 
 You will then need to create a new token as described above.
+
+<!-- references -->
+[Woodhouse]: http://icecave.com.au/assets/img/project-icons/icon-woodhouse.png
+[Build Status]: https://raw.github.com/IcecaveStudios/woodhouse/gh-pages/artifacts/images/icecave/regular/build-status.png
+[Test Coverage]: https://raw.github.com/IcecaveStudios/woodhouse/gh-pages/artifacts/images/icecave/regular/coverage.png

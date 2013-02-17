@@ -2,7 +2,7 @@
     "name": "icecave/woodhouse",
     "description": "Publish build artifacts and status images to your GitHub pages.",
     "keywords": ["publish", "github", "pages", "phpunit", "code", "coverage", "xdebug"],
-    "homepage": "https://github.com/IcecaveStudios/collections",
+    "homepage": "https://github.com/IcecaveStudios/woodhouse",
     "license": "MIT",
     "authors": [
         {
@@ -18,12 +18,13 @@
         "icecave/isolator": "~2",
         "kriswallsmith/buzz": "~0.8",
         "symfony/console": "~2",
-        "symfony/filesystem": "~2"
+        "symfony/filesystem": "~2",
+        "symfony/process": "~2"
     },
     "require-dev": {
         "eloquent/liberator": "1.*",
         "eloquent/typhoon": "0.8.*",
-        "icecave/testing": "1.*"
+        "icecave/archer": "~0.1"
     },
     "autoload": {
         "psr-0": {
