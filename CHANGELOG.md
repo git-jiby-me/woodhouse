@@ -1,5 +1,10 @@
 # Woodhouse Changelog
 
+### 0.4.1
+
+* Abstract git execution out of GitHubPublisher for better error reporting
+* Configuration variables user.name and user.email are now used to prevent identity errors
+
 ### 0.4.0
 
 * Added GitHub auth token management commands: github:create-auth, github:list-auth and github:delete-auth
