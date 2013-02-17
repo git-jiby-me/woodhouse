@@ -38,7 +38,7 @@ class PublishCommand extends Command
         $this->isolator = Isolator::get($isolator);
 
         if (null === $publisher) {
-            $publisher = new GitHubPublisher(null, $this->isolator);
+            $publisher = new GitHubPublisher(null, null, $this->isolator);
         }
 
         if (null === $statusReaderFactory) {
