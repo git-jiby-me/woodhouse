@@ -221,6 +221,10 @@ class GitHubPublisher extends AbstractPublisher
 
          // Clone the Git repository ...
          $process = $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 0);
+
+         $this->git->setConfig('user.name', 'Woodhouse');
+         $this->git->setConfig('user.email', 'contact@icecave.com.au');
+
          $this->isolator->chdir($tempDir);
 
          // Create the brach if it doesn't exist ...

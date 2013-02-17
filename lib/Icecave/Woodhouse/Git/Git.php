@@ -177,6 +177,21 @@ class Git
     }
 
     /**
+     * @param string $key
+     * @param stringable $value
+     *
+     * @return Process
+     */
+    public function setConfig($key, $value)
+    {
+        $this->typeCheck->setConfig(func_get_args());
+
+        $arguments = array('config', $key, $value);
+
+        return $this->execute($arguments);
+    }
+
+    /**
      * @return string
      */
     public function executable()

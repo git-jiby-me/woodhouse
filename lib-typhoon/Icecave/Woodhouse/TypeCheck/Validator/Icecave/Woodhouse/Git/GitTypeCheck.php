@@ -248,6 +248,47 @@ class GitTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractValidator
         }
     }
 
+    public function setConfig(array $arguments)
+    {
+        $argumentCount = \count($arguments);
+        if ($argumentCount < 2) {
+            if ($argumentCount < 1) {
+                throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('key', 0, 'string');
+            }
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('value', 1, 'stringable');
+        } elseif ($argumentCount > 2) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(2, $arguments[2]);
+        }
+        $value = $arguments[0];
+        if (!\is_string($value)) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
+                'key',
+                0,
+                $arguments[0],
+                'string'
+            );
+        }
+        $value = $arguments[1];
+        $check = function ($value) {
+            if (\is_string($value) || \is_int($value) || \is_float($value)) {
+                return true;
+            }
+            if (!\is_object($value)) {
+                return false;
+            }
+            $reflector = new \ReflectionObject($value);
+            return $reflector->hasMethod('__toString');
+        };
+        if (!$check($arguments[1])) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
+                'value',
+                1,
+                $arguments[1],
+                'stringable'
+            );
+        }
+    }
+
     public function executable(array $arguments)
     {
         if (\count($arguments) > 0) {

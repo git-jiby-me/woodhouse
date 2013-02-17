@@ -145,6 +145,15 @@ class GitTest extends PHPUnit_Framework_TestCase
         $this->assertSame($this->_process, $process);
     }
 
+    public function testSetConfig()
+    {
+        $process = $this->_git->setConfig('key', 'value');
+
+        Phake::verify($this->_process)->setCommandLine("/opt/local/bin/git 'config' 'key' 'value'");
+
+        $this->assertSame($this->_process, $process);
+    }
+
     public function testExecute()
     {
         Liberator::liberate($this->_git)->workingDirectory = '/path/to/clone';

@@ -176,6 +176,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
             Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_git)->remove('foo-dest'),
             Phake::verify($this->_git)->remove('bar-dest'),
