@@ -44,7 +44,7 @@ class GitHubPublisher extends AbstractPublisher
         // Setup an output filter so that the auth token cannot be leaked ...
         $self = $this;
         $filter = function ($buffer) use ($self) {
-            $authToken   = $this->authToken();
+            $authToken   = $self->authToken();
             $replacement = substr($authToken, 0, 4) . str_repeat('*', strlen($authToken) - 8) . substr($authToken, -4);
 
             return str_ireplace($authToken, $replacement, $buffer);
