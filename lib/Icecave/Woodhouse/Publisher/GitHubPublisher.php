@@ -257,9 +257,9 @@ class GitHubPublisher extends AbstractPublisher
       */
      protected function stageContent($tempDir)
      {
-         $this->isolator->chdir($tempDir);
-
          $this->typeCheck->stageContent(func_get_args());
+
+         $this->isolator->chdir($tempDir);
 
          foreach ($this->contentPaths() as $sourcePath => $targetPath) {
              $fullTargetPath = $tempDir . '/' . $targetPath;
