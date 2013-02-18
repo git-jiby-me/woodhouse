@@ -1,12 +1,12 @@
 
 
 Code Coverage Report 
-  2013-02-17 02:25:31
+  2013-02-18 00:32:20
 
  Summary: 
   Classes: 100.00% (23/23)
   Methods: 100.00% (110/110)
-  Lines:   100.00% (860/860)
+  Lines:   100.00% (865/865)
 
 \Icecave\Woodhouse\BuildStatus::StatusImageSelector
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  4/  4)
@@ -51,4 +51,4 @@ Code Coverage Report
 \Icecave\Woodhouse\Publisher::AbstractPublisher
   Methods: 100.00% ( 5/ 5)   Lines: 100.00% ( 14/ 14)
 \Icecave\Woodhouse\Publisher::GitHubPublisher
-  Methods: 100.00% (17/17)   Lines: 100.00% (111/111)
+  Methods: 100.00% (17/17)   Lines: 100.00% (116/116)

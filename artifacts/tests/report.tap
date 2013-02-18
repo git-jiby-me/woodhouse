@@ -339,4 +339,5 @@ ok 337 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishToNewBranch
 ok 338 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishSuccessPushAttemptsExhausted
 ok 339 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishFailurePushAttemptsExhausted
 ok 340 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishFailureNoRepository
-1..340
+ok 341 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishCloneFailure
+1..341
