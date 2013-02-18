@@ -1,5 +1,9 @@
 # Woodhouse Changelog
 
+### 0.4.2
+
+* Fixed bug that caused publication to fail if the target branch did not already exist
+
 ### 0.4.1
 
 * Abstract git execution out of GitHubPublisher for better error reporting
