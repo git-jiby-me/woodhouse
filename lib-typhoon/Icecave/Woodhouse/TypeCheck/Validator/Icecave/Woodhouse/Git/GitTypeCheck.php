@@ -61,12 +61,12 @@ class GitTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractValidator
         }
         if ($argumentCount > 2) {
             $value = $arguments[2];
-            if (!\is_string($value)) {
+            if (!(\is_string($value) || $value === null)) {
                 throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
                     'branch',
                     2,
                     $arguments[2],
-                    'string'
+                    'string|null'
                 );
             }
         }

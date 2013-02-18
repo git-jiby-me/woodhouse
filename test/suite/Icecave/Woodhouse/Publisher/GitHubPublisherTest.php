@@ -176,16 +176,16 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
-            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
-            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_git)->remove('foo-dest'),
             Phake::verify($this->_git)->remove('bar-dest'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_git)->add('foo-dest'),
             Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_git)->add('bar-dest'),
             Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
             Phake::verify($this->_git)->commit('Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_git)->pull(),
@@ -218,8 +218,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_git)->remove('foo-dest'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_git)->add('foo-dest'),
             Phake::verify($this->_git)->diff(true)
@@ -248,13 +248,15 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_git)->remove('parent/foo-dest'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_isolator)->is_dir('/tmp/woodhouse-10101/parent'),
             Phake::verify($this->_isolator)->mkdir('/tmp/woodhouse-10101/parent', 0777, true),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/parent/foo-dest'),
             Phake::verify($this->_git)->add('parent/foo-dest'),
             Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
             Phake::verify($this->_git)->commit('Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_git)->pull(),
@@ -267,9 +269,10 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testPublishToNewBranch()
     {
-        Phake::when($this->_cloneProcess)
-            ->getErrorOutput()
-            ->thenReturn('... test-branch not found in upstream origin ...');
+        Phake::when($this->_git)
+            ->cloneRepo(Phake::anyParameters())
+            ->thenThrow(new RuntimeException('... test-branch not found in upstream origin ...'))
+            ->thenReturn($this->_cloneProcess);
 
         $this->_publisher->setRepository('foo/bar');
         $this->_publisher->setCommitMessage('Test commit message.');
@@ -290,13 +293,21 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
+            Phake::verify($this->_git)->cloneRepo(
+                '/tmp/woodhouse-10101',
+                'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
+                null,
+                0
+            ),
             Phake::verify($this->_git)->checkout('test-branch', true),
             Phake::verify($this->_git)->remove('.'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_git)->add('foo-dest'),
             Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_git)->add('bar-dest'),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
             Phake::verify($this->_git)->commit('Test commit message.'),
             $pushVerifier,
             Phake::verify($this->_git)->pull(),
@@ -335,14 +346,16 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_git)->remove('foo-dest'),
             Phake::verify($this->_git)->remove('bar-dest'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_git)->add('foo-dest'),
             Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_git)->add('bar-dest'),
             Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
             Phake::verify($this->_git)->commit('Test commit message.'),
             $pushVerifier,
             $pullVerifier,
@@ -385,14 +398,16 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 'test-branch',
                 0
             ),
-            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_git)->remove('foo-dest'),
             Phake::verify($this->_git)->remove('bar-dest'),
+            Phake::verify($this->_isolator)->chdir('/tmp/woodhouse-10101'),
             Phake::verify($this->_fileSystem)->copy('/source/foo', '/tmp/woodhouse-10101/foo-dest'),
             Phake::verify($this->_git)->add('foo-dest'),
             Phake::verify($this->_fileSystem)->mirror('/source/bar/', '/tmp/woodhouse-10101/bar-dest'),
             Phake::verify($this->_git)->add('bar-dest'),
             Phake::verify($this->_git)->diff(true),
+            Phake::verify($this->_git)->setConfig('user.name', 'Woodhouse'),
+            Phake::verify($this->_git)->setConfig('user.email', 'contact@icecave.com.au'),
             Phake::verify($this->_git)->commit('Test commit message.'),
             $pushVerifier,
             $pullVerifier,
@@ -407,5 +422,23 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('RuntimeException', 'No repository set.');
         $this->_publisher->publish();
+    }
+
+    public function testPublishCloneFailure()
+    {
+        $exception = new RuntimeException;
+
+        Phake::when($this->_git)
+            ->cloneRepo(Phake::anyParameters())
+            ->thenThrow($exception);
+
+        $this->_publisher->setRepository('foo/bar');
+
+        try {
+            $this->_publisher->publish();
+            $this->fail('Expected exception did not propagate.');
+        } catch (RuntimeException $e) {
+            $this->assertSame($exception, $e);
+        }
     }
 }

@@ -37,16 +37,22 @@ class Git
     /**
      * @param string       $path
      * @param string       $url
-     * @param string       $branch
+     * @param string|null  $branch
      * @param integer|null $depth
      *
      * @return Process
      */
-    public function cloneRepo($path, $url, $branch = 'master', $depth = null)
+    public function cloneRepo($path, $url, $branch = null, $depth = null)
     {
         $this->typeCheck->cloneRepo(func_get_args());
 
-        $arguments = array('clone', $url, '--branch', $branch);
+        $arguments = array('clone', $url);
+
+        if (null !== $branch) {
+            $arguments[] = '--branch';
+            $arguments[] = $branch;
+        }
+
         if (null !== $depth) {
             $arguments[] = '--depth';
             $arguments[] = $depth;
@@ -177,7 +183,7 @@ class Git
     }
 
     /**
-     * @param string $key
+     * @param string     $key
      * @param stringable $value
      *
      * @return Process
