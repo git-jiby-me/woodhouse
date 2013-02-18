@@ -47,6 +47,16 @@ class GitTest extends PHPUnit_Framework_TestCase
 
     public function testCloneRepo()
     {
+        $process = $this->_git->cloneRepo('/path/to/clone', 'git://url');
+
+        Phake::verify($this->_process)->setCommandLine("/opt/local/bin/git 'clone' 'git://url' '/path/to/clone'");
+
+        $this->assertSame('/path/to/clone', Liberator::liberate($this->_git)->workingDirectory);
+        $this->assertSame($this->_process, $process);
+    }
+
+    public function testCloneRepoWithExplicitBranch()
+    {
         $process = $this->_git->cloneRepo('/path/to/clone', 'git://url', 'develop', 100);
 
         Phake::verify($this->_process)->setCommandLine("/opt/local/bin/git 'clone' 'git://url' '--branch' 'develop' '--depth' '100' '/path/to/clone'");

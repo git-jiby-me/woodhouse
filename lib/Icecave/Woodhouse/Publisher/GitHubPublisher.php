@@ -220,23 +220,19 @@ class GitHubPublisher extends AbstractPublisher
          $this->typeCheck->doPublish(func_get_args());
 
          // Clone the Git repository ...
-         $process = $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 0);
-
-         $this->git->setConfig('user.name', 'Woodhouse');
-         $this->git->setConfig('user.email', 'contact@icecave.com.au');
-
-         $this->isolator->chdir($tempDir);
-
-         // Create the brach if it doesn't exist ...
-         if (false !== strpos($process->getErrorOutput(), $this->branch() . ' not found in upstream origin')) {
-             $this->git->checkout($this->branch(), true);
-             $this->git->remove('.');
-
-         // Branch does exist, remove existing content that exists in target paths ...
-         } else {
+         try {
+             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 0);
              foreach ($this->contentPaths() as $sourcePath => $targetPath) {
                  $this->git->remove($targetPath);
              }
+         } catch (RuntimeException $e) {
+             if (false === strpos($e->getMessage(), $this->branch() . ' not found in upstream origin')) {
+                 throw $e;
+             }
+
+             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), null, 0);
+             $this->git->checkout($this->branch(), true);
+             $this->git->remove('.');
          }
 
          $this->stageContent($tempDir);
@@ -247,6 +243,8 @@ class GitHubPublisher extends AbstractPublisher
              return false;
          }
 
+         $this->git->setConfig('user.name', 'Woodhouse');
+         $this->git->setConfig('user.email', 'contact@icecave.com.au');
          $this->git->commit($this->commitMessage());
 
          $this->push();
@@ -259,6 +257,8 @@ class GitHubPublisher extends AbstractPublisher
       */
      protected function stageContent($tempDir)
      {
+         $this->isolator->chdir($tempDir);
+
          $this->typeCheck->stageContent(func_get_args());
 
          foreach ($this->contentPaths() as $sourcePath => $targetPath) {
