@@ -39,6 +39,12 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
         $this->assertSame('baz', $this->_factory->caCertificatePath());
     }
 
+    public function testSetUserAgent()
+    {
+        $this->_factory->setUserAgent('test-agent');
+        $this->assertSame('test-agent', $this->_factory->userAgent());
+    }
+
     public function testConstructorDefaults()
     {
         $this->_factory = new GitHubClientFactory;
@@ -59,6 +65,17 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $actual);
         Phake::verify($this->_isolator)->copy('baz', 'qux/cacert-doom.pem');
+    }
+
+    public function testCreateWithUserAgent()
+    {
+        $this->_factory->setUserAgent('test-agent');
+        $this->_expectedClient->setOption(CURLOPT_USERAGENT, 'test-agent');
+        $actual = $this->_factory->create();
+        $expectedBrowser = new Browser($this->_expectedClient);
+        $expected = new GitHubClient(null, $expectedBrowser);
+
+        $this->assertEquals($expected, $actual);
     }
 
     public function testCreateWithCredentials()

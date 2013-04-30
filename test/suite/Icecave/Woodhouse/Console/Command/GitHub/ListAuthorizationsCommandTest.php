@@ -107,6 +107,11 @@ EOD;
         );
     }
 
+    public function testClientUserAgent()
+    {
+        Phake::verify($this->_clientFactory)->setUserAgent($this->_application->getName() . '/' . $this->_application->getVersion());
+    }
+
     public function testConfigure()
     {
         $expectedInputDefinition = new InputDefinition;
