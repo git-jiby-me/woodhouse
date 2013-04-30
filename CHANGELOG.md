@@ -1,5 +1,9 @@
 # Woodhouse Changelog
 
+### 0.4.3
+
+* Added User-Agent header to GitHub API client [as required](http://developer.github.com/changes/2013-04-24-user-agent-required)
+
 ### 0.4.2
 
 * Fixed bug that caused publication to fail if the target branch did not already exist

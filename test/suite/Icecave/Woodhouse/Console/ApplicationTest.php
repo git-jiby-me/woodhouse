@@ -14,7 +14,7 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $this->assertSame('Woodhouse', $this->_application->getName());
-        $this->assertSame('0.4.2', $this->_application->getVersion());
+        $this->assertSame('0.4.3', $this->_application->getVersion());
     }
 
     public function testCommands()
