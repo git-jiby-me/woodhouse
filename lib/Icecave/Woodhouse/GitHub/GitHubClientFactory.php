@@ -23,8 +23,29 @@ class GitHubClientFactory
             $caCertificatePath = __DIR__ . '/../../../../res/cacert/cacert.pem';
         }
 
+        $this->userAgent = null;
         $this->caCertificatePath = $caCertificatePath;
         $this->isolator = Isolator::get($isolator);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function userAgent()
+    {
+        $this->typeCheck->userAgent(func_get_args());
+
+        return $this->userAgent;
+    }
+
+    /**
+     * @param string|null $userAgent
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->typeCheck->setUserAgent(func_get_args());
+
+        $this->userAgent = $userAgent;
     }
 
     /**
@@ -49,7 +70,13 @@ class GitHubClientFactory
 
         $client = new Curl;
         $client->setOption(CURLOPT_CAINFO, $this->caCertificateRealPath());
+
+        if ($userAgent = $this->userAgent()) {
+            $client->setOption(CURLOPT_USERAGENT, $userAgent);
+        }
+
         $browser = new Browser($client);
+
         if (null !== $username) {
             $browser->addListener(
                 new BasicAuthListener($username, $password)
@@ -81,6 +108,7 @@ class GitHubClientFactory
         return $this->caCertificateRealPath;
     }
 
+    private $userAgent;
     private $caCertificatePath;
     private $caCertificateRealPath;
     private $typeCheck;

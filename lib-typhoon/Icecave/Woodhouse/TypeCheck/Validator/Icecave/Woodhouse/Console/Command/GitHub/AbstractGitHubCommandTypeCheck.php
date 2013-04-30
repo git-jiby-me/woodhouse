@@ -18,6 +18,14 @@ class AbstractGitHubCommandTypeCheck extends \Icecave\Woodhouse\TypeCheck\Abstra
         }
     }
 
+    public function setApplication(array $arguments)
+    {
+        $argumentCount = \count($arguments);
+        if ($argumentCount > 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
+        }
+    }
+
     public function configure(array $arguments)
     {
         if (\count($arguments) > 0) {

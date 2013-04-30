@@ -4,6 +4,7 @@ namespace Icecave\Woodhouse\Console\Command\GitHub;
 use Icecave\Woodhouse\GitHub\GitHubClientFactory;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use stdClass;
+use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -37,6 +38,22 @@ abstract class AbstractGitHubCommand extends Command
         $this->typeCheck->clientFactory(func_get_args());
 
         return $this->clientFactory;
+    }
+
+    /**
+     * @param Application|null $application
+     */
+    public function setApplication(Application $application = null)
+    {
+        $this->typeCheck->setApplication(func_get_args());
+
+        parent::setApplication($application);
+
+        if ($application) {
+            $this->clientFactory->setUserAgent(
+                $application->getName() . '/' . $application->getVersion()
+            );
+        }
     }
 
     protected function configure()
