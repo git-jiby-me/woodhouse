@@ -50,7 +50,7 @@ class StatusReaderFactory
             case 'junit':
                 return new JUnitReader($argument, $this->isolator);
             case 'phpunit':
-                return new PhpUnitJsonReader($argument, $this->isolator);
+                return new PhpUnitJsonReader($argument, null, $this->isolator);
             case 'result':
                 return new CommandLineReader($argument);
             case 'tap':

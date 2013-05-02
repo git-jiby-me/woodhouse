@@ -8,8 +8,8 @@ class PhpUnitJsonReaderTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVa
         $argumentCount = \count($arguments);
         if ($argumentCount < 1) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('reportPath', 0, 'string');
-        } elseif ($argumentCount > 2) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(2, $arguments[2]);
+        } elseif ($argumentCount > 3) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(3, $arguments[3]);
         }
         $value = $arguments[0];
         if (!\is_string($value)) {
@@ -29,22 +29,13 @@ class PhpUnitJsonReaderTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVa
         }
     }
 
-    public function parse(array $arguments)
+    public function checkResults(array $arguments)
     {
         $argumentCount = \count($arguments);
         if ($argumentCount < 1) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('buffer', 0, 'string');
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('results', 0, 'Icecave\\Collections\\Vector');
         } elseif ($argumentCount > 1) {
             throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
-        }
-        $value = $arguments[0];
-        if (!\is_string($value)) {
-            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
-                'buffer',
-                0,
-                $arguments[0],
-                'string'
-            );
         }
     }
 

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9cac6c60fc1455a5397c579294d97768",
+    "hash": "8c1457ea83b2107eef394bc9ea04c04a",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -150,6 +150,116 @@
             "time": "2013-02-01 01:04:18"
         },
         {
+            "name": "icecave/collections",
+            "version": "0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/collections.git",
+                "reference": "0.6.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/collections/zipball/0.6.0",
+                "reference": "0.6.0",
+                "shasum": ""
+            },
+            "require": {
+                "icecave/repr": ">=1.0,<2.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "eloquent/liberator": ">=1.0,<2.0",
+                "eloquent/typhoon": ">=0.9,<1.0",
+                "icecave/archer": ">=0.2,<1.0"
+            },
+            "type": "library",
+            "extra": {
+                "typhoon": {
+                    "output-path": "lib-typhoon",
+                    "validator-namespace": "Icecave\\Collections\\TypeCheck",
+                    "use-native-callable": false
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Icecave\\Collections": "lib",
+                    "Icecave\\Collections\\TypeCheck": "lib-typhoon"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au"
+                }
+            ],
+            "description": "A set of PHP collection types loosely inspired by the .NET runtime and the C++ STL.",
+            "homepage": "https://github.com/IcecaveStudios/collections",
+            "keywords": [
+                "array",
+                "collection",
+                "container",
+                "hash",
+                "map",
+                "queue",
+                "sequence",
+                "stack"
+            ],
+            "time": "2013-02-26 04:19:11"
+        },
+        {
+            "name": "icecave/duct",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/duct.git",
+                "reference": "0.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/duct/zipball/0.1.0",
+                "reference": "0.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "eloquent/enumeration": ">=3.0,<4.0",
+                "icecave/collections": ">=0.6,<1.0",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": ">=0.3,<1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Icecave\\Duct": "lib",
+                    "Icecave\\Duct\\TypeCheck": "lib-typhoon"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au"
+                }
+            ],
+            "description": "Parse continuous streams of JSON objects.",
+            "homepage": "https://github.com/IcecaveStudios/duct",
+            "keywords": [
+                "json",
+                "parse",
+                "parser",
+                "stream"
+            ],
+            "time": "2013-05-02 23:13:38"
+        },
+        {
             "name": "icecave/isolator",
             "version": "2.1.2",
             "source": {
@@ -196,6 +306,51 @@
                 "unit"
             ],
             "time": "2013-04-05 04:37:02"
+        },
+        {
+            "name": "icecave/repr",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/repr.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/IcecaveStudios/repr/archive/1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phake/phake": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Icecave\\Repr": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au"
+                }
+            ],
+            "description": "Human readable string representations of everything.",
+            "homepage": "https://github.com/IcecaveStudios/repr",
+            "keywords": [
+                "repr",
+                "representation",
+                "string"
+            ],
+            "time": "2013-01-11 00:04:43"
         },
         {
             "name": "kriswallsmith/buzz",
@@ -815,67 +970,6 @@
             "time": "2013-04-30 07:52:53"
         },
         {
-            "name": "icecave/collections",
-            "version": "0.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/IcecaveStudios/collections.git",
-                "reference": "0.6.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/collections/zipball/0.6.0",
-                "reference": "0.6.0",
-                "shasum": ""
-            },
-            "require": {
-                "icecave/repr": ">=1.0,<2.0",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "eloquent/liberator": ">=1.0,<2.0",
-                "eloquent/typhoon": ">=0.9,<1.0",
-                "icecave/archer": ">=0.2,<1.0"
-            },
-            "type": "library",
-            "extra": {
-                "typhoon": {
-                    "output-path": "lib-typhoon",
-                    "validator-namespace": "Icecave\\Collections\\TypeCheck",
-                    "use-native-callable": false
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Icecave\\Collections": "lib",
-                    "Icecave\\Collections\\TypeCheck": "lib-typhoon"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Harris",
-                    "email": "james.harris@icecave.com.au"
-                }
-            ],
-            "description": "A set of PHP collection types loosely inspired by the .NET runtime and the C++ STL.",
-            "homepage": "https://github.com/IcecaveStudios/collections",
-            "keywords": [
-                "array",
-                "collection",
-                "container",
-                "hash",
-                "map",
-                "queue",
-                "sequence",
-                "stack"
-            ],
-            "time": "2013-02-26 04:19:11"
-        },
-        {
             "name": "icecave/pasta-ast",
             "version": "0.1.0",
             "source": {
@@ -968,51 +1062,6 @@
                 "parser"
             ],
             "time": "2013-01-14 14:06:52"
-        },
-        {
-            "name": "icecave/repr",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/IcecaveStudios/repr.git",
-                "reference": "1.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/IcecaveStudios/repr/archive/1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phake/phake": "1.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Icecave\\Repr": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "James Harris",
-                    "email": "james.harris@icecave.com.au"
-                }
-            ],
-            "description": "Human readable string representations of everything.",
-            "homepage": "https://github.com/IcecaveStudios/repr",
-            "keywords": [
-                "repr",
-                "representation",
-                "string"
-            ],
-            "time": "2013-01-11 00:04:43"
         },
         {
             "name": "phake/phake",

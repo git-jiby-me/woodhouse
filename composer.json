@@ -15,6 +15,7 @@
         "eloquent/asplode": "~1",
         "eloquent/enumeration": "~3",
         "ezzatron/ci-status-images": "~3",
+        "icecave/duct": "~0.1",
         "icecave/isolator": "~2",
         "kriswallsmith/buzz": "~0.8",
         "symfony/console": "~2",
