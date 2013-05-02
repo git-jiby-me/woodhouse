@@ -1,12 +1,12 @@
 
 
 Code Coverage Report 
-  2013-04-30 07:58:11
+  2013-05-02 23:33:53
 
  Summary: 
   Classes: 100.00% (23/23)
   Methods: 100.00% (113/113)
-  Lines:   100.00% (883/883)
+  Lines:   100.00% (886/886)
 
 \Icecave\Woodhouse\BuildStatus::StatusImageSelector
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  4/  4)
@@ -17,7 +17,7 @@ Code Coverage Report
 \Icecave\Woodhouse\BuildStatus\Readers::JUnitReader
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 13/ 13)
 \Icecave\Woodhouse\BuildStatus\Readers::PhpUnitJsonReader
-  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 25/ 25)
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 28/ 28)
 \Icecave\Woodhouse\BuildStatus\Readers::TapReader
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 11/ 11)
 \Icecave\Woodhouse\Console::Application
