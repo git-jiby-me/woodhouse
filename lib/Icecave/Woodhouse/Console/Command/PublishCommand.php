@@ -104,6 +104,13 @@ class PublishCommand extends Command
             'gh-pages'
         );
 
+        $this->addOption(
+            'dry-run',
+            null,
+            InputOption::VALUE_NONE,
+            'Prepare for publication but do not make any changes.'
+        );
+
         // GitHub options ...
 
         $this->addOption(
@@ -374,10 +381,18 @@ class PublishCommand extends Command
             }
         }
 
-        if ($this->publisher->publish()) {
-            $output->writeln('Content published successfully.');
+        if ($input->getOption('dry-run')) {
+            if ($this->publisher->dryRun()) {
+                $output->writeln('Content prepared successfully (dry run).');
+            } else {
+                $output->writeln('No changes to publish (dry run).');
+            }
         } else {
-            $output->writeln('No changes to publish.');
+            if ($this->publisher->publish()) {
+                $output->writeln('Content published successfully.');
+            } else {
+                $output->writeln('No changes to publish.');
+            }
         }
     }
 

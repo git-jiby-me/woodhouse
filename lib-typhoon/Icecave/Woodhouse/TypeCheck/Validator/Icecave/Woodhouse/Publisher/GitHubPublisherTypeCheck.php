@@ -32,6 +32,13 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
         }
     }
 
+    public function dryRun(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        }
+    }
+
     public function repository(array $arguments)
     {
         if (\count($arguments) > 0) {
@@ -144,6 +151,25 @@ class GitHubPublisherTypeCheck extends \Icecave\Woodhouse\TypeCheck\AbstractVali
     }
 
     public function doPublish(array $arguments)
+    {
+        $argumentCount = \count($arguments);
+        if ($argumentCount < 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\MissingArgumentException('commit', 0, 'boolean');
+        } elseif ($argumentCount > 1) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(1, $arguments[1]);
+        }
+        $value = $arguments[0];
+        if (!\is_bool($value)) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentValueException(
+                'commit',
+                0,
+                $arguments[0],
+                'boolean'
+            );
+        }
+    }
+
+    public function cloneRepo(array $arguments)
     {
         $argumentCount = \count($arguments);
         if ($argumentCount < 1) {

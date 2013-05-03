@@ -27,4 +27,9 @@ interface PublisherInterface
      * Publish enqueued content.
      */
     public function publish();
+
+    /**
+     * Perform a publication dry-run.
+     */
+    public function dryRun();
 }

@@ -84,21 +84,19 @@ class GitHubPublisher extends AbstractPublisher
     {
         $this->typeCheck->publish(func_get_args());
 
-        if (null === $this->repository) {
-            throw new RuntimeException('No repository set.');
-        }
+        return $this->doPublish(true);
+    }
 
-        $tempDir = $this->isolator->sys_get_temp_dir() . '/woodhouse-' . $this->isolator->getmypid();
+    /**
+     * Perform a publication dry-run.
+     *
+     * @return boolean True if there are changes to publish; otherwise false.
+     */
+    public function dryRun()
+    {
+        $this->typeCheck->dryRun(func_get_args());
 
-        try {
-            $result = $this->doPublish($tempDir);
-            $this->fileSystem->remove($tempDir);
-        } catch (Exception $e) {
-            $this->fileSystem->remove($tempDir);
-            throw $e;
-        }
-
-        return $result;
+        return $this->doPublish(false);
     }
 
     /**
@@ -209,17 +207,57 @@ class GitHubPublisher extends AbstractPublisher
     }
 
     /**
-      * Publish enqueued content.
-      *
-      * @param string $tempDir
-      *
-      * @return boolean True if there were changes published; otherwise false.
-      */
-     protected function doPublish($tempDir)
-     {
-         $this->typeCheck->doPublish(func_get_args());
+     * Publish enqueued content.
+     *
+     * @param boolean $commit
+     *
+     * @return boolean True if there were changes published; otherwise false.
+     */
+    protected function doPublish($commit)
+    {
+        $this->typeCheck->doPublish(func_get_args());
 
-         // Clone the Git repository ...
+        if (null === $this->repository) {
+            throw new RuntimeException('No repository set.');
+        }
+
+        $tempDir = $this->isolator->sys_get_temp_dir() . '/woodhouse-' . $this->isolator->getmypid();
+
+        try {
+            $this->cloneRepo($tempDir);
+            $this->stageContent($tempDir);
+
+            // Check if there are any changes ...
+            $process = $this->git->diff(true);
+            if (trim($process->getOutput()) === '') {
+                return false;
+            }
+
+            if ($commit) {
+                $this->git->setConfig('user.name', 'Woodhouse');
+                $this->git->setConfig('user.email', 'contact@icecave.com.au');
+                $this->git->commit($this->commitMessage());
+
+                $this->push();
+            }
+
+            $this->fileSystem->remove($tempDir);
+
+            return true;
+
+        } catch (Exception $e) {
+            $this->fileSystem->remove($tempDir);
+            throw $e;
+        }
+    }
+
+     /**
+      * @param string $tempDir
+      */
+    protected function cloneRepo($tempDir)
+    {
+         $this->typeCheck->cloneRepo(func_get_args());
+
          try {
              $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 0);
              foreach ($this->contentPaths() as $sourcePath => $targetPath) {
@@ -234,23 +272,7 @@ class GitHubPublisher extends AbstractPublisher
              $this->git->checkout($this->branch(), true);
              $this->git->remove('.');
          }
-
-         $this->stageContent($tempDir);
-
-         // Check if there are any changes ...
-         $process = $this->git->diff(true);
-         if (trim($process->getOutput()) === '') {
-             return false;
-         }
-
-         $this->git->setConfig('user.name', 'Woodhouse');
-         $this->git->setConfig('user.email', 'contact@icecave.com.au');
-         $this->git->commit($this->commitMessage());
-
-         $this->push();
-
-         return true;
-     }
+    }
 
      /**
       * @param string $tempDir

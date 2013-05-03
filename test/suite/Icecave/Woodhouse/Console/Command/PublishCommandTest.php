@@ -39,6 +39,10 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             ->publish()
             ->thenReturn(true);
 
+        Phake::when($this->_publisher)
+            ->dryRun()
+            ->thenReturn(true);
+
         $this->_application = new Application('/path/to/vendors');
 
         $this->_command = new PublishCommand(
@@ -337,7 +341,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
     }
 
-    public function testExecuteWithManifestDisplay()
+    public function testExecuteWithVerbose()
     {
         Phake::when($this->_output)
             ->getVerbosity()
@@ -358,5 +362,31 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
             Phake::verify($this->_output)->writeln(' * <info>/path/to/source</info> -> <info>/path/to/target</info>'),
             Phake::verify($this->_output)->writeln('Content published successfully.')
         );
+    }
+
+    public function testExecuteWithDryRun()
+    {
+        $input = new StringInput('publish foo/bar a:b --dry-run');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::verify($this->_publisher)->dryRun();
+        Phake::verify($this->_publisher, Phake::never())->publish();
+        Phake::verify($this->_output)->writeln('Content prepared successfully (dry run).');
+    }
+
+    public function testExecuteWithDryRunNoChanges()
+    {
+        Phake::when($this->_publisher)
+            ->dryRun()
+            ->thenReturn(false);
+
+        $input = new StringInput('publish foo/bar a:b --dry-run');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::verify($this->_publisher)->dryRun();
+        Phake::verify($this->_publisher, Phake::never())->publish();
+        Phake::verify($this->_output)->writeln('No changes to publish (dry run).');
     }
 }
