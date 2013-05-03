@@ -1,12 +1,12 @@
 
 
 Code Coverage Report 
-  2013-05-02 23:33:53
+  2013-05-03 00:09:46
 
  Summary: 
   Classes: 100.00% (23/23)
   Methods: 100.00% (113/113)
-  Lines:   100.00% (886/886)
+  Lines:   100.00% (903/903)
 
 \Icecave\Woodhouse\BuildStatus::StatusImageSelector
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  4/  4)
@@ -23,7 +23,7 @@ Code Coverage Report
 \Icecave\Woodhouse\Console::Application
   Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 11/ 11)
 \Icecave\Woodhouse\Console\Command::PublishCommand
-  Methods: 100.00% ( 6/ 6)   Lines: 100.00% (194/194)
+  Methods: 100.00% ( 6/ 6)   Lines: 100.00% (211/211)
 \Icecave\Woodhouse\Console\Command\GitHub::AbstractGitHubCommand
   Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 71/ 71)
 \Icecave\Woodhouse\Console\Command\GitHub::CreateAuthorizationCommand

@@ -66,284 +66,285 @@ ok 64 - Icecave\Woodhouse\Console\Command\PublishCommandTest::testExecuteWithCov
 ok 65 - Icecave\Woodhouse\Console\Command\PublishCommandTest::testExecuteFailureMultipleCoveragePercentages
 ok 66 - Icecave\Woodhouse\Console\Command\PublishCommandTest::testExecuteFailureCoverageImageWithNoPercentage
 ok 67 - Icecave\Woodhouse\Console\Command\PublishCommandTest::testExecuteFailureCoverageWithNoImage
-ok 68 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testConstructor
-ok 69 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testConstructorDefaults
-ok 70 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseStty
-ok 71 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseSttyFailureFgets
-ok 72 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseSttyFailureExecute
-ok 73 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseWindows
-ok 74 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseWindowsFailureExecute
-ok 75 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #0 (0, 0)
-ok 76 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #1 (0.5, 0)
-ok 77 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #2 (1, 0)
-ok 78 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #3 (1.5, 0)
-ok 79 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #4 (2, 0)
-ok 80 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #5 (2.5, 0)
-ok 81 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #6 (3, 0)
-ok 82 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #7 (3.5, 0)
-ok 83 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #8 (4, 0)
-ok 84 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #9 (4.5, 0)
-ok 85 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #10 (5, 5)
-ok 86 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #11 (5.5, 5)
-ok 87 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #12 (6, 5)
-ok 88 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #13 (6.5, 5)
-ok 89 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #14 (7, 5)
-ok 90 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #15 (7.5, 5)
-ok 91 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #16 (8, 5)
-ok 92 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #17 (8.5, 5)
-ok 93 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #18 (9, 5)
-ok 94 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #19 (9.5, 5)
-ok 95 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #20 (10, 10)
-ok 96 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #21 (10.5, 10)
-ok 97 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #22 (11, 10)
-ok 98 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #23 (11.5, 10)
-ok 99 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #24 (12, 10)
-ok 100 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #25 (12.5, 10)
-ok 101 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #26 (13, 10)
-ok 102 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #27 (13.5, 10)
-ok 103 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #28 (14, 10)
-ok 104 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #29 (14.5, 10)
-ok 105 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #30 (15, 15)
-ok 106 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #31 (15.5, 15)
-ok 107 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #32 (16, 15)
-ok 108 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #33 (16.5, 15)
-ok 109 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #34 (17, 15)
-ok 110 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #35 (17.5, 15)
-ok 111 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #36 (18, 15)
-ok 112 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #37 (18.5, 15)
-ok 113 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #38 (19, 15)
-ok 114 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #39 (19.5, 15)
-ok 115 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #40 (20, 20)
-ok 116 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #41 (20.5, 20)
-ok 117 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #42 (21, 20)
-ok 118 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #43 (21.5, 20)
-ok 119 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #44 (22, 20)
-ok 120 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #45 (22.5, 20)
-ok 121 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #46 (23, 20)
-ok 122 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #47 (23.5, 20)
-ok 123 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #48 (24, 20)
-ok 124 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #49 (24.5, 20)
-ok 125 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #50 (25, 25)
-ok 126 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #51 (25.5, 25)
-ok 127 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #52 (26, 25)
-ok 128 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #53 (26.5, 25)
-ok 129 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #54 (27, 25)
-ok 130 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #55 (27.5, 25)
-ok 131 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #56 (28, 25)
-ok 132 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #57 (28.5, 25)
-ok 133 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #58 (29, 25)
-ok 134 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #59 (29.5, 25)
-ok 135 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #60 (30, 30)
-ok 136 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #61 (30.5, 30)
-ok 137 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #62 (31, 30)
-ok 138 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #63 (31.5, 30)
-ok 139 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #64 (32, 30)
-ok 140 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #65 (32.5, 30)
-ok 141 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #66 (33, 30)
-ok 142 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #67 (33.5, 30)
-ok 143 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #68 (34, 30)
-ok 144 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #69 (34.5, 30)
-ok 145 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #70 (35, 35)
-ok 146 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #71 (35.5, 35)
-ok 147 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #72 (36, 35)
-ok 148 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #73 (36.5, 35)
-ok 149 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #74 (37, 35)
-ok 150 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #75 (37.5, 35)
-ok 151 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #76 (38, 35)
-ok 152 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #77 (38.5, 35)
-ok 153 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #78 (39, 35)
-ok 154 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #79 (39.5, 35)
-ok 155 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #80 (40, 40)
-ok 156 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #81 (40.5, 40)
-ok 157 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #82 (41, 40)
-ok 158 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #83 (41.5, 40)
-ok 159 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #84 (42, 40)
-ok 160 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #85 (42.5, 40)
-ok 161 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #86 (43, 40)
-ok 162 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #87 (43.5, 40)
-ok 163 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #88 (44, 40)
-ok 164 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #89 (44.5, 40)
-ok 165 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #90 (45, 45)
-ok 166 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #91 (45.5, 45)
-ok 167 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #92 (46, 45)
-ok 168 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #93 (46.5, 45)
-ok 169 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #94 (47, 45)
-ok 170 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #95 (47.5, 45)
-ok 171 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #96 (48, 45)
-ok 172 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #97 (48.5, 45)
-ok 173 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #98 (49, 45)
-ok 174 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #99 (49.5, 45)
-ok 175 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #100 (50, 50)
-ok 176 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #101 (50.5, 50)
-ok 177 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #102 (51, 50)
-ok 178 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #103 (51.5, 50)
-ok 179 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #104 (52, 50)
-ok 180 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #105 (52.5, 50)
-ok 181 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #106 (53, 50)
-ok 182 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #107 (53.5, 50)
-ok 183 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #108 (54, 50)
-ok 184 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #109 (54.5, 50)
-ok 185 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #110 (55, 55)
-ok 186 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #111 (55.5, 55)
-ok 187 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #112 (56, 55)
-ok 188 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #113 (56.5, 55)
-ok 189 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #114 (57, 55)
-ok 190 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #115 (57.5, 55)
-ok 191 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #116 (58, 55)
-ok 192 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #117 (58.5, 55)
-ok 193 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #118 (59, 55)
-ok 194 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #119 (59.5, 55)
-ok 195 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #120 (60, 60)
-ok 196 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #121 (60.5, 60)
-ok 197 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #122 (61, 60)
-ok 198 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #123 (61.5, 60)
-ok 199 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #124 (62, 60)
-ok 200 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #125 (62.5, 60)
-ok 201 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #126 (63, 60)
-ok 202 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #127 (63.5, 60)
-ok 203 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #128 (64, 60)
-ok 204 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #129 (64.5, 60)
-ok 205 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #130 (65, 65)
-ok 206 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #131 (65.5, 65)
-ok 207 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #132 (66, 65)
-ok 208 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #133 (66.5, 65)
-ok 209 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #134 (67, 65)
-ok 210 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #135 (67.5, 65)
-ok 211 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #136 (68, 65)
-ok 212 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #137 (68.5, 65)
-ok 213 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #138 (69, 65)
-ok 214 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #139 (69.5, 65)
-ok 215 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #140 (70, 70)
-ok 216 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #141 (70.5, 70)
-ok 217 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #142 (71, 70)
-ok 218 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #143 (71.5, 70)
-ok 219 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #144 (72, 70)
-ok 220 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #145 (72.5, 70)
-ok 221 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #146 (73, 70)
-ok 222 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #147 (73.5, 70)
-ok 223 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #148 (74, 70)
-ok 224 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #149 (74.5, 70)
-ok 225 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #150 (75, 75)
-ok 226 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #151 (75.5, 75)
-ok 227 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #152 (76, 75)
-ok 228 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #153 (76.5, 75)
-ok 229 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #154 (77, 75)
-ok 230 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #155 (77.5, 75)
-ok 231 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #156 (78, 75)
-ok 232 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #157 (78.5, 75)
-ok 233 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #158 (79, 75)
-ok 234 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #159 (79.5, 75)
-ok 235 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #160 (80, 80)
-ok 236 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #161 (80.5, 80)
-ok 237 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #162 (81, 80)
-ok 238 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #163 (81.5, 80)
-ok 239 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #164 (82, 80)
-ok 240 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #165 (82.5, 80)
-ok 241 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #166 (83, 80)
-ok 242 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #167 (83.5, 80)
-ok 243 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #168 (84, 80)
-ok 244 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #169 (84.5, 80)
-ok 245 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #170 (85, 85)
-ok 246 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #171 (85.5, 85)
-ok 247 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #172 (86, 85)
-ok 248 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #173 (86.5, 85)
-ok 249 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #174 (87, 85)
-ok 250 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #175 (87.5, 85)
-ok 251 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #176 (88, 85)
-ok 252 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #177 (88.5, 85)
-ok 253 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #178 (89, 85)
-ok 254 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #179 (89.5, 85)
-ok 255 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #180 (90, 90)
-ok 256 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #181 (90.5, 90)
-ok 257 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #182 (91, 90)
-ok 258 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #183 (91.5, 90)
-ok 259 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #184 (92, 90)
-ok 260 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #185 (92.5, 90)
-ok 261 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #186 (93, 90)
-ok 262 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #187 (93.5, 90)
-ok 263 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #188 (94, 90)
-ok 264 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #189 (94.5, 90)
-ok 265 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #190 (95, 95)
-ok 266 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #191 (95.5, 95)
-ok 267 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #192 (96, 95)
-ok 268 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #193 (96.5, 95)
-ok 269 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #194 (97, 95)
-ok 270 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #195 (97.5, 95)
-ok 271 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #196 (98, 95)
-ok 272 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #197 (98.5, 95)
-ok 273 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #198 (99, 95)
-ok 274 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #199 (99.5, 95)
-ok 275 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #200 (100, 100)
-ok 276 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testImageFilename
-ok 277 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testSupportedTypes
-ok 278 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testCreatePhpUnit
-ok 279 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testCreateCommandLine
-ok 280 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testCreateFailure
-ok 281 - Icecave\Woodhouse\Coverage\Readers\CommandLineReaderTest::testReadPercentage
-ok 282 - Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest::testReadPercentage
-ok 283 - Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest::testReadPercentageFailure
-ok 284 - Icecave\Woodhouse\Git\GitTest::testConstructorDefaults
-ok 285 - Icecave\Woodhouse\Git\GitTest::testConstructor
-ok 286 - Icecave\Woodhouse\Git\GitTest::testCloneRepo
-ok 287 - Icecave\Woodhouse\Git\GitTest::testCloneRepoWithExplicitBranch
-ok 288 - Icecave\Woodhouse\Git\GitTest::testCheckout
-ok 289 - Icecave\Woodhouse\Git\GitTest::testCheckoutOrphan
-ok 290 - Icecave\Woodhouse\Git\GitTest::testAdd
-ok 291 - Icecave\Woodhouse\Git\GitTest::testRemove
-ok 292 - Icecave\Woodhouse\Git\GitTest::testDiff
-ok 293 - Icecave\Woodhouse\Git\GitTest::testDiffStagedFiles
-ok 294 - Icecave\Woodhouse\Git\GitTest::testCommit
-ok 295 - Icecave\Woodhouse\Git\GitTest::testPush
-ok 296 - Icecave\Woodhouse\Git\GitTest::testPushWithExplicitBranch
-ok 297 - Icecave\Woodhouse\Git\GitTest::testPull
-ok 298 - Icecave\Woodhouse\Git\GitTest::testSetConfig
-ok 299 - Icecave\Woodhouse\Git\GitTest::testExecute
-ok 300 - Icecave\Woodhouse\Git\GitTest::testExecuteFailure
-ok 301 - Icecave\Woodhouse\Git\GitTest::testCreateProcess
-ok 302 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testConstructor
-ok 303 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testSetUserAgent
-ok 304 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testConstructorDefaults
-ok 305 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testCreate
-ok 306 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testCreateWithUserAgent
-ok 307 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testCreateWithCredentials
-ok 308 - Icecave\Woodhouse\GitHub\GitHubClientTest::testConstruct
-ok 309 - Icecave\Woodhouse\GitHub\GitHubClientTest::testConstructDefaults
-ok 310 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizations
-ok 311 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching with data set "Match by name" (array(stdClass, stdClass, stdClass, stdClass, stdClass, stdClass), '/foo/', NULL, array(stdClass, stdClass, stdClass, stdClass))
-ok 312 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching with data set "Match by url" (array(stdClass, stdClass, stdClass, stdClass, stdClass, stdClass), NULL, '/baz/', array(stdClass, stdClass, stdClass, stdClass))
-ok 313 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching with data set "Match by name and url" (array(stdClass, stdClass, stdClass, stdClass, stdClass, stdClass), '/foo/', '/baz/', array(stdClass, stdClass))
-ok 314 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsFailureInvalidJson
-ok 315 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsFailureHTTP
-ok 316 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorization
-ok 317 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorizationAllOptions
-ok 318 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorizationFailureInvalidJson
-ok 319 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorizationFailureHTTP
-ok 320 - Icecave\Woodhouse\GitHub\GitHubClientTest::testDeleteAuthorization
-ok 321 - Icecave\Woodhouse\GitHub\GitHubClientTest::testDeleteAuthorizationFailureHTTP
-ok 322 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testConstruct
-ok 323 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testAdd
-ok 324 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testAddRemovesLeadingSlashes
-ok 325 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testRemove
-ok 326 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testClear
-ok 327 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testConstructorDefaults
-ok 328 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testOutputFilter
-ok 329 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testRepository
-ok 330 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetRepository
-ok 331 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetRepositoryFailure
-ok 332 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testRepositoryUrl
-ok 333 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testBranch
-ok 334 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetBranch
-ok 335 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testCommitMessage
-ok 336 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetCommitMessage
-ok 337 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testAuthToken
-ok 338 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetAuthToken
-ok 339 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetAuthTokenFailure
-ok 340 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublish
-ok 341 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishNoChanges
-ok 342 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishMakeContentDirectories
-ok 343 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishToNewBranch
-ok 344 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishSuccessPushAttemptsExhausted
-ok 345 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishFailurePushAttemptsExhausted
-ok 346 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishFailureNoRepository
-ok 347 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishCloneFailure
-1..347
+ok 68 - Icecave\Woodhouse\Console\Command\PublishCommandTest::testExecuteWithManifestDisplay
+ok 69 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testConstructor
+ok 70 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testConstructorDefaults
+ok 71 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseStty
+ok 72 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseSttyFailureFgets
+ok 73 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseSttyFailureExecute
+ok 74 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseWindows
+ok 75 - Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest::testAskHiddenResponseWindowsFailureExecute
+ok 76 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #0 (0, 0)
+ok 77 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #1 (0.5, 0)
+ok 78 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #2 (1, 0)
+ok 79 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #3 (1.5, 0)
+ok 80 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #4 (2, 0)
+ok 81 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #5 (2.5, 0)
+ok 82 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #6 (3, 0)
+ok 83 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #7 (3.5, 0)
+ok 84 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #8 (4, 0)
+ok 85 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #9 (4.5, 0)
+ok 86 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #10 (5, 5)
+ok 87 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #11 (5.5, 5)
+ok 88 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #12 (6, 5)
+ok 89 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #13 (6.5, 5)
+ok 90 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #14 (7, 5)
+ok 91 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #15 (7.5, 5)
+ok 92 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #16 (8, 5)
+ok 93 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #17 (8.5, 5)
+ok 94 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #18 (9, 5)
+ok 95 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #19 (9.5, 5)
+ok 96 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #20 (10, 10)
+ok 97 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #21 (10.5, 10)
+ok 98 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #22 (11, 10)
+ok 99 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #23 (11.5, 10)
+ok 100 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #24 (12, 10)
+ok 101 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #25 (12.5, 10)
+ok 102 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #26 (13, 10)
+ok 103 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #27 (13.5, 10)
+ok 104 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #28 (14, 10)
+ok 105 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #29 (14.5, 10)
+ok 106 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #30 (15, 15)
+ok 107 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #31 (15.5, 15)
+ok 108 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #32 (16, 15)
+ok 109 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #33 (16.5, 15)
+ok 110 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #34 (17, 15)
+ok 111 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #35 (17.5, 15)
+ok 112 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #36 (18, 15)
+ok 113 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #37 (18.5, 15)
+ok 114 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #38 (19, 15)
+ok 115 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #39 (19.5, 15)
+ok 116 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #40 (20, 20)
+ok 117 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #41 (20.5, 20)
+ok 118 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #42 (21, 20)
+ok 119 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #43 (21.5, 20)
+ok 120 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #44 (22, 20)
+ok 121 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #45 (22.5, 20)
+ok 122 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #46 (23, 20)
+ok 123 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #47 (23.5, 20)
+ok 124 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #48 (24, 20)
+ok 125 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #49 (24.5, 20)
+ok 126 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #50 (25, 25)
+ok 127 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #51 (25.5, 25)
+ok 128 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #52 (26, 25)
+ok 129 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #53 (26.5, 25)
+ok 130 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #54 (27, 25)
+ok 131 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #55 (27.5, 25)
+ok 132 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #56 (28, 25)
+ok 133 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #57 (28.5, 25)
+ok 134 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #58 (29, 25)
+ok 135 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #59 (29.5, 25)
+ok 136 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #60 (30, 30)
+ok 137 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #61 (30.5, 30)
+ok 138 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #62 (31, 30)
+ok 139 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #63 (31.5, 30)
+ok 140 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #64 (32, 30)
+ok 141 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #65 (32.5, 30)
+ok 142 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #66 (33, 30)
+ok 143 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #67 (33.5, 30)
+ok 144 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #68 (34, 30)
+ok 145 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #69 (34.5, 30)
+ok 146 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #70 (35, 35)
+ok 147 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #71 (35.5, 35)
+ok 148 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #72 (36, 35)
+ok 149 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #73 (36.5, 35)
+ok 150 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #74 (37, 35)
+ok 151 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #75 (37.5, 35)
+ok 152 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #76 (38, 35)
+ok 153 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #77 (38.5, 35)
+ok 154 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #78 (39, 35)
+ok 155 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #79 (39.5, 35)
+ok 156 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #80 (40, 40)
+ok 157 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #81 (40.5, 40)
+ok 158 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #82 (41, 40)
+ok 159 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #83 (41.5, 40)
+ok 160 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #84 (42, 40)
+ok 161 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #85 (42.5, 40)
+ok 162 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #86 (43, 40)
+ok 163 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #87 (43.5, 40)
+ok 164 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #88 (44, 40)
+ok 165 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #89 (44.5, 40)
+ok 166 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #90 (45, 45)
+ok 167 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #91 (45.5, 45)
+ok 168 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #92 (46, 45)
+ok 169 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #93 (46.5, 45)
+ok 170 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #94 (47, 45)
+ok 171 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #95 (47.5, 45)
+ok 172 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #96 (48, 45)
+ok 173 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #97 (48.5, 45)
+ok 174 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #98 (49, 45)
+ok 175 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #99 (49.5, 45)
+ok 176 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #100 (50, 50)
+ok 177 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #101 (50.5, 50)
+ok 178 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #102 (51, 50)
+ok 179 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #103 (51.5, 50)
+ok 180 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #104 (52, 50)
+ok 181 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #105 (52.5, 50)
+ok 182 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #106 (53, 50)
+ok 183 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #107 (53.5, 50)
+ok 184 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #108 (54, 50)
+ok 185 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #109 (54.5, 50)
+ok 186 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #110 (55, 55)
+ok 187 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #111 (55.5, 55)
+ok 188 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #112 (56, 55)
+ok 189 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #113 (56.5, 55)
+ok 190 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #114 (57, 55)
+ok 191 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #115 (57.5, 55)
+ok 192 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #116 (58, 55)
+ok 193 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #117 (58.5, 55)
+ok 194 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #118 (59, 55)
+ok 195 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #119 (59.5, 55)
+ok 196 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #120 (60, 60)
+ok 197 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #121 (60.5, 60)
+ok 198 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #122 (61, 60)
+ok 199 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #123 (61.5, 60)
+ok 200 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #124 (62, 60)
+ok 201 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #125 (62.5, 60)
+ok 202 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #126 (63, 60)
+ok 203 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #127 (63.5, 60)
+ok 204 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #128 (64, 60)
+ok 205 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #129 (64.5, 60)
+ok 206 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #130 (65, 65)
+ok 207 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #131 (65.5, 65)
+ok 208 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #132 (66, 65)
+ok 209 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #133 (66.5, 65)
+ok 210 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #134 (67, 65)
+ok 211 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #135 (67.5, 65)
+ok 212 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #136 (68, 65)
+ok 213 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #137 (68.5, 65)
+ok 214 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #138 (69, 65)
+ok 215 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #139 (69.5, 65)
+ok 216 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #140 (70, 70)
+ok 217 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #141 (70.5, 70)
+ok 218 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #142 (71, 70)
+ok 219 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #143 (71.5, 70)
+ok 220 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #144 (72, 70)
+ok 221 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #145 (72.5, 70)
+ok 222 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #146 (73, 70)
+ok 223 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #147 (73.5, 70)
+ok 224 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #148 (74, 70)
+ok 225 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #149 (74.5, 70)
+ok 226 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #150 (75, 75)
+ok 227 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #151 (75.5, 75)
+ok 228 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #152 (76, 75)
+ok 229 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #153 (76.5, 75)
+ok 230 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #154 (77, 75)
+ok 231 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #155 (77.5, 75)
+ok 232 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #156 (78, 75)
+ok 233 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #157 (78.5, 75)
+ok 234 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #158 (79, 75)
+ok 235 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #159 (79.5, 75)
+ok 236 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #160 (80, 80)
+ok 237 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #161 (80.5, 80)
+ok 238 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #162 (81, 80)
+ok 239 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #163 (81.5, 80)
+ok 240 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #164 (82, 80)
+ok 241 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #165 (82.5, 80)
+ok 242 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #166 (83, 80)
+ok 243 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #167 (83.5, 80)
+ok 244 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #168 (84, 80)
+ok 245 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #169 (84.5, 80)
+ok 246 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #170 (85, 85)
+ok 247 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #171 (85.5, 85)
+ok 248 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #172 (86, 85)
+ok 249 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #173 (86.5, 85)
+ok 250 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #174 (87, 85)
+ok 251 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #175 (87.5, 85)
+ok 252 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #176 (88, 85)
+ok 253 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #177 (88.5, 85)
+ok 254 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #178 (89, 85)
+ok 255 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #179 (89.5, 85)
+ok 256 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #180 (90, 90)
+ok 257 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #181 (90.5, 90)
+ok 258 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #182 (91, 90)
+ok 259 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #183 (91.5, 90)
+ok 260 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #184 (92, 90)
+ok 261 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #185 (92.5, 90)
+ok 262 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #186 (93, 90)
+ok 263 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #187 (93.5, 90)
+ok 264 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #188 (94, 90)
+ok 265 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #189 (94.5, 90)
+ok 266 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #190 (95, 95)
+ok 267 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #191 (95.5, 95)
+ok 268 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #192 (96, 95)
+ok 269 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #193 (96.5, 95)
+ok 270 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #194 (97, 95)
+ok 271 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #195 (97.5, 95)
+ok 272 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #196 (98, 95)
+ok 273 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #197 (98.5, 95)
+ok 274 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #198 (99, 95)
+ok 275 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #199 (99.5, 95)
+ok 276 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage with data set #200 (100, 100)
+ok 277 - Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testImageFilename
+ok 278 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testSupportedTypes
+ok 279 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testCreatePhpUnit
+ok 280 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testCreateCommandLine
+ok 281 - Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest::testCreateFailure
+ok 282 - Icecave\Woodhouse\Coverage\Readers\CommandLineReaderTest::testReadPercentage
+ok 283 - Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest::testReadPercentage
+ok 284 - Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest::testReadPercentageFailure
+ok 285 - Icecave\Woodhouse\Git\GitTest::testConstructorDefaults
+ok 286 - Icecave\Woodhouse\Git\GitTest::testConstructor
+ok 287 - Icecave\Woodhouse\Git\GitTest::testCloneRepo
+ok 288 - Icecave\Woodhouse\Git\GitTest::testCloneRepoWithExplicitBranch
+ok 289 - Icecave\Woodhouse\Git\GitTest::testCheckout
+ok 290 - Icecave\Woodhouse\Git\GitTest::testCheckoutOrphan
+ok 291 - Icecave\Woodhouse\Git\GitTest::testAdd
+ok 292 - Icecave\Woodhouse\Git\GitTest::testRemove
+ok 293 - Icecave\Woodhouse\Git\GitTest::testDiff
+ok 294 - Icecave\Woodhouse\Git\GitTest::testDiffStagedFiles
+ok 295 - Icecave\Woodhouse\Git\GitTest::testCommit
+ok 296 - Icecave\Woodhouse\Git\GitTest::testPush
+ok 297 - Icecave\Woodhouse\Git\GitTest::testPushWithExplicitBranch
+ok 298 - Icecave\Woodhouse\Git\GitTest::testPull
+ok 299 - Icecave\Woodhouse\Git\GitTest::testSetConfig
+ok 300 - Icecave\Woodhouse\Git\GitTest::testExecute
+ok 301 - Icecave\Woodhouse\Git\GitTest::testExecuteFailure
+ok 302 - Icecave\Woodhouse\Git\GitTest::testCreateProcess
+ok 303 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testConstructor
+ok 304 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testSetUserAgent
+ok 305 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testConstructorDefaults
+ok 306 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testCreate
+ok 307 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testCreateWithUserAgent
+ok 308 - Icecave\Woodhouse\GitHub\GitHubClientFactoryTest::testCreateWithCredentials
+ok 309 - Icecave\Woodhouse\GitHub\GitHubClientTest::testConstruct
+ok 310 - Icecave\Woodhouse\GitHub\GitHubClientTest::testConstructDefaults
+ok 311 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizations
+ok 312 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching with data set "Match by name" (array(stdClass, stdClass, stdClass, stdClass, stdClass, stdClass), '/foo/', NULL, array(stdClass, stdClass, stdClass, stdClass))
+ok 313 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching with data set "Match by url" (array(stdClass, stdClass, stdClass, stdClass, stdClass, stdClass), NULL, '/baz/', array(stdClass, stdClass, stdClass, stdClass))
+ok 314 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching with data set "Match by name and url" (array(stdClass, stdClass, stdClass, stdClass, stdClass, stdClass), '/foo/', '/baz/', array(stdClass, stdClass))
+ok 315 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsFailureInvalidJson
+ok 316 - Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsFailureHTTP
+ok 317 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorization
+ok 318 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorizationAllOptions
+ok 319 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorizationFailureInvalidJson
+ok 320 - Icecave\Woodhouse\GitHub\GitHubClientTest::testCreateAuthorizationFailureHTTP
+ok 321 - Icecave\Woodhouse\GitHub\GitHubClientTest::testDeleteAuthorization
+ok 322 - Icecave\Woodhouse\GitHub\GitHubClientTest::testDeleteAuthorizationFailureHTTP
+ok 323 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testConstruct
+ok 324 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testAdd
+ok 325 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testAddRemovesLeadingSlashes
+ok 326 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testRemove
+ok 327 - Icecave\Woodhouse\Publisher\AbstractPublisherTest::testClear
+ok 328 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testConstructorDefaults
+ok 329 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testOutputFilter
+ok 330 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testRepository
+ok 331 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetRepository
+ok 332 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetRepositoryFailure
+ok 333 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testRepositoryUrl
+ok 334 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testBranch
+ok 335 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetBranch
+ok 336 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testCommitMessage
+ok 337 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetCommitMessage
+ok 338 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testAuthToken
+ok 339 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetAuthToken
+ok 340 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testSetAuthTokenFailure
+ok 341 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublish
+ok 342 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishNoChanges
+ok 343 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishMakeContentDirectories
+ok 344 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishToNewBranch
+ok 345 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishSuccessPushAttemptsExhausted
+ok 346 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishFailurePushAttemptsExhausted
+ok 347 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishFailureNoRepository
+ok 348 - Icecave\Woodhouse\Publisher\GitHubPublisherTest::testPublishCloneFailure
+1..348
