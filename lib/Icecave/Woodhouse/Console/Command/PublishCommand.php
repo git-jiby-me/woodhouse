@@ -354,6 +354,26 @@ class PublishCommand extends Command
         $this->publisher->setRepository($input->getArgument('repository'));
         $this->publisher->setBranch($input->getOption('branch'));
 
+        if ($output->getVerbosity() === OutputInterface::VERBOSITY_VERBOSE) {
+            $output->writeln(
+                sprintf(
+                    'Publishing to <info>%s</info> at <info>%s</info>:',
+                    $input->getOption('branch'),
+                    $input->getArgument('repository')
+                )
+            );
+
+            foreach ($this->publisher->contentPaths() as $sourcePath => $targetPath) {
+                $output->writeln(
+                    sprintf(
+                        ' * <info>%s</info> -> <info>%s</info>',
+                        $sourcePath,
+                        $targetPath
+                    )
+                );
+            }
+        }
+
         if ($this->publisher->publish()) {
             $output->writeln('Content published successfully.');
         } else {

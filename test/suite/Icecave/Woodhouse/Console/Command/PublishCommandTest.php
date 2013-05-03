@@ -1,11 +1,12 @@
 <?php
 namespace Icecave\Woodhouse\Console\Command;
 
-use Icecave\Woodhouse\Console\Application;
-use PHPUnit_Framework_TestCase;
-use Phake;
-use Symfony\Component\Console\Input\StringInput;
 use Eloquent\Liberator\Liberator;
+use Icecave\Woodhouse\Console\Application;
+use Phake;
+use PHPUnit_Framework_TestCase;
+use Symfony\Component\Console\Input\StringInput;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class PublishCommandTest extends PHPUnit_Framework_TestCase
 {
@@ -334,5 +335,28 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
         $this->setExpectedException('RuntimeException', '--coverage-percentage requires --coverage-image.');
         $this->_command->run($input, $this->_output);
+    }
+
+    public function testExecuteWithManifestDisplay()
+    {
+        Phake::when($this->_output)
+            ->getVerbosity()
+            ->thenReturn(OutputInterface::VERBOSITY_VERBOSE);
+
+        Phake::when($this->_publisher)
+            ->contentPaths()
+            ->thenReturn(
+                array('/path/to/source' => '/path/to/target')
+            );
+
+        $input = new StringInput('publish foo/bar a:b --verbose');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::inOrder(
+            Phake::verify($this->_output)->writeln('Publishing to <info>gh-pages</info> at <info>foo/bar</info>:'),
+            Phake::verify($this->_output)->writeln(' * <info>/path/to/source</info> -> <info>/path/to/target</info>'),
+            Phake::verify($this->_output)->writeln('Content published successfully.')
+        );
     }
 }
