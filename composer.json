@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.3",
         "eloquent/asplode": "~1",
         "eloquent/enumeration": "~3",
         "ezzatron/ci-status-images": "~3",
