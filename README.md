@@ -1,9 +1,7 @@
-# ![Woodhouse]
+# Woodhouse
 
 [![Build Status]](http://travis-ci.org/IcecaveStudios/woodhouse)
 [![Test Coverage]](http://icecave.com.au/woodhouse/artifacts/tests/coverage)
-
----
 
 **Woodhouse** is a command line utility (and PHP library) for publishing build artifacts such as test reports and code coverage metrics to a GitHub pages repository.
 It was originally designed to run in a [Travis CI](http://travis-ci.org) build, but can be used in any environment.
@@ -97,6 +95,5 @@ page, or using the `github:delete-auth` command.
 You will then need to create a new token as described above.
 
 <!-- references -->
-[Woodhouse]: http://icecave.com.au/assets/img/project-icons/icon-woodhouse.png
 [Build Status]: https://raw.github.com/IcecaveStudios/woodhouse/gh-pages/artifacts/images/icecave/regular/build-status.png
 [Test Coverage]: https://raw.github.com/IcecaveStudios/woodhouse/gh-pages/artifacts/images/icecave/regular/coverage.png
