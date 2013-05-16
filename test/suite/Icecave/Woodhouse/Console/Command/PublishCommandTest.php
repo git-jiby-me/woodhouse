@@ -209,7 +209,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         $this->_command->run($input, $this->_output);
     }
 
-    public function testExecuteWithUnknownTHeme()
+    public function testExecuteWithUnknownTheme()
     {
         Phake::when($this->_isolator)
                ->is_dir('/path/to/vendors/ezzatron/ci-status-images/img/travis/variable-width')
@@ -388,5 +388,29 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
         Phake::verify($this->_publisher)->dryRun();
         Phake::verify($this->_publisher, Phake::never())->publish();
         Phake::verify($this->_output)->writeln('No changes to publish (dry run).');
+    }
+
+    public function testExecuteWithErrorBuildStatusWhenNonInteractive()
+    {
+        $input = new StringInput('publish foo/bar a:b --build-status-image status.png --no-interaction');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::verify($this->_publisher)->add(
+            '/path/to/vendors/ezzatron/ci-status-images/img/travis/variable-width/build-status/build-status-error.png',
+            'status.png'
+        );
+    }
+
+    public function testExecuteWithErrorCoverageWhenNonInteractive()
+    {
+        $input = new StringInput('publish foo/bar a:b --coverage-image coverage.png --no-interaction');
+
+        $this->_command->run($input, $this->_output);
+
+        Phake::verify($this->_publisher)->add(
+            '/path/to/vendors/ezzatron/ci-status-images/img/travis/variable-width/test-coverage/test-coverage-error.png',
+            'coverage.png'
+        );
     }
 }
