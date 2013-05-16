@@ -1,403 +1,407 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="352" assertions="659" failures="0" errors="0" time="6.773318">
-    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/CommandLineReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="1" assertions="1" failures="0" errors="0" time="0.008697">
-      <testcase name="testReadPercentage" class="Icecave\Woodhouse\BuildStatus\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/CommandLineReaderTest.php" line="14" assertions="1" time="0.008697"/>
+  <testsuite name="" tests="356" assertions="663" failures="0" errors="0" time="6.899307">
+    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/CommandLineReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="1" assertions="1" failures="0" errors="0" time="0.010389">
+      <testcase name="testReadPercentage" class="Icecave\Woodhouse\BuildStatus\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/CommandLineReaderTest.php" line="14" assertions="1" time="0.010389"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="4" assertions="5" failures="0" errors="0" time="0.025384">
-      <testcase name="testReadStatus" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="25" assertions="1" time="0.007253"/>
-      <testcase name="testReadStatusError" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="42" assertions="1" time="0.005482"/>
-      <testcase name="testReadStatusFail" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="60" assertions="1" time="0.005345"/>
-      <testcase name="testReadStatusFailure" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="78" assertions="2" time="0.007304"/>
+    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="4" assertions="5" failures="0" errors="0" time="0.027054">
+      <testcase name="testReadStatus" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="25" assertions="1" time="0.008163"/>
+      <testcase name="testReadStatusError" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="42" assertions="1" time="0.005616"/>
+      <testcase name="testReadStatusFail" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="60" assertions="1" time="0.005525"/>
+      <testcase name="testReadStatusFailure" class="Icecave\Woodhouse\BuildStatus\Readers\JUnitReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/JUnitReaderTest.php" line="78" assertions="2" time="0.007750"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="4" assertions="5" failures="0" errors="0" time="0.749297">
-      <testcase name="testReadStatus" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="26" assertions="1" time="0.313231"/>
-      <testcase name="testReadStatusError" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="50" assertions="1" time="0.213540"/>
-      <testcase name="testReadStatusFail" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="71" assertions="1" time="0.211443"/>
-      <testcase name="testReadStatusFailure" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="93" assertions="2" time="0.011083"/>
+    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="4" assertions="5" failures="0" errors="0" time="0.792496">
+      <testcase name="testReadStatus" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="26" assertions="1" time="0.330916"/>
+      <testcase name="testReadStatusError" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="50" assertions="1" time="0.226344"/>
+      <testcase name="testReadStatusFail" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="71" assertions="1" time="0.223631"/>
+      <testcase name="testReadStatusFailure" class="Icecave\Woodhouse\BuildStatus\Readers\PhpUnitJsonReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReaderTest.php" line="93" assertions="2" time="0.011605"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="3" assertions="4" failures="0" errors="0" time="0.017106">
-      <testcase name="testReadStatus" class="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" line="17" assertions="1" time="0.006334"/>
-      <testcase name="testReadStatusFailing" class="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" line="34" assertions="1" time="0.005293"/>
-      <testcase name="testReadStatusFailure" class="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" line="51" assertions="2" time="0.005479"/>
+    <testsuite name="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" namespace="Icecave\Woodhouse\BuildStatus\Readers" fullPackage="Icecave.Woodhouse.BuildStatus.Readers" tests="3" assertions="4" failures="0" errors="0" time="0.018004">
+      <testcase name="testReadStatus" class="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" line="17" assertions="1" time="0.006575"/>
+      <testcase name="testReadStatusFailing" class="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" line="34" assertions="1" time="0.005613"/>
+      <testcase name="testReadStatusFailure" class="Icecave\Woodhouse\BuildStatus\Readers\TapReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/Readers/TapReaderTest.php" line="51" assertions="2" time="0.005816"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\BuildStatus\StatusImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusImageSelectorTest.php" namespace="Icecave\Woodhouse\BuildStatus" fullPackage="Icecave.Woodhouse.BuildStatus" tests="1" assertions="5" failures="0" errors="0" time="0.005102">
-      <testcase name="testImageFilename" class="Icecave\Woodhouse\BuildStatus\StatusImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusImageSelectorTest.php" line="13" assertions="5" time="0.005102"/>
+    <testsuite name="Icecave\Woodhouse\BuildStatus\StatusImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusImageSelectorTest.php" namespace="Icecave\Woodhouse\BuildStatus" fullPackage="Icecave.Woodhouse.BuildStatus" tests="1" assertions="5" failures="0" errors="0" time="0.005197">
+      <testcase name="testImageFilename" class="Icecave\Woodhouse\BuildStatus\StatusImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusImageSelectorTest.php" line="13" assertions="5" time="0.005197"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" namespace="Icecave\Woodhouse\BuildStatus" fullPackage="Icecave.Woodhouse.BuildStatus" tests="6" assertions="14" failures="0" errors="0" time="0.030089">
-      <testcase name="testSupportedTypes" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="16" assertions="1" time="0.004463"/>
-      <testcase name="testCreateJUnit" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="28" assertions="3" time="0.007301"/>
-      <testcase name="testCreatePhpUnit" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="37" assertions="3" time="0.005298"/>
-      <testcase name="testCreateCommandLine" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="46" assertions="2" time="0.004257"/>
-      <testcase name="testCreateTap" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="54" assertions="3" time="0.004652"/>
-      <testcase name="testCreateFailure" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="63" assertions="2" time="0.004117"/>
+    <testsuite name="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" namespace="Icecave\Woodhouse\BuildStatus" fullPackage="Icecave.Woodhouse.BuildStatus" tests="6" assertions="14" failures="0" errors="0" time="0.032066">
+      <testcase name="testSupportedTypes" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="16" assertions="1" time="0.004821"/>
+      <testcase name="testCreateJUnit" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="28" assertions="3" time="0.007716"/>
+      <testcase name="testCreatePhpUnit" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="37" assertions="3" time="0.005693"/>
+      <testcase name="testCreateCommandLine" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="46" assertions="2" time="0.004555"/>
+      <testcase name="testCreateTap" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="54" assertions="3" time="0.004907"/>
+      <testcase name="testCreateFailure" class="Icecave\Woodhouse\BuildStatus\StatusReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/BuildStatus/StatusReaderFactoryTest.php" line="63" assertions="2" time="0.004374"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" namespace="Icecave\Woodhouse\Console" fullPackage="Icecave.Woodhouse.Console" tests="4" assertions="5" failures="0" errors="0" time="0.194804">
-      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="14" assertions="2" time="0.076417"/>
-      <testcase name="testCommands" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="20" assertions="1" time="0.039265"/>
-      <testcase name="testHelpers" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="34" assertions="1" time="0.039766"/>
-      <testcase name="testVendorPath" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="39" assertions="1" time="0.039356"/>
+    <testsuite name="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" namespace="Icecave\Woodhouse\Console" fullPackage="Icecave.Woodhouse.Console" tests="4" assertions="5" failures="0" errors="0" time="0.206364">
+      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="14" assertions="2" time="0.081454"/>
+      <testcase name="testCommands" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="20" assertions="1" time="0.041368"/>
+      <testcase name="testHelpers" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="34" assertions="1" time="0.042080"/>
+      <testcase name="testVendorPath" class="Icecave\Woodhouse\Console\ApplicationTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/ApplicationTest.php" line="39" assertions="1" time="0.041462"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" namespace="Icecave\Woodhouse\Console\Command\GitHub" fullPackage="Icecave.Woodhouse.Console.Command.GitHub" tests="8" assertions="22" failures="0" errors="0" time="0.628270">
-      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="81" assertions="1" time="0.084494"/>
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="86" assertions="1" time="0.061011"/>
-      <testcase name="testClientUserAgent" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="96" assertions="1" time="0.060895"/>
-      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="101" assertions="3" time="0.099460"/>
-      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="141" assertions="4" time="0.080470"/>
-      <testcase name="testExecuteInteractiveCredentials" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="158" assertions="4" time="0.084276"/>
-      <testcase name="testExecuteOverrideDetails" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="183" assertions="4" time="0.078596"/>
-      <testcase name="testExecuteDefaultDetails" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="200" assertions="4" time="0.079069"/>
+    <testsuite name="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" namespace="Icecave\Woodhouse\Console\Command\GitHub" fullPackage="Icecave.Woodhouse.Console.Command.GitHub" tests="8" assertions="22" failures="0" errors="0" time="0.639871">
+      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="81" assertions="1" time="0.088273"/>
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="86" assertions="1" time="0.063609"/>
+      <testcase name="testClientUserAgent" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="96" assertions="1" time="0.063635"/>
+      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="101" assertions="3" time="0.101668"/>
+      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="141" assertions="4" time="0.081769"/>
+      <testcase name="testExecuteInteractiveCredentials" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="158" assertions="4" time="0.083501"/>
+      <testcase name="testExecuteOverrideDetails" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="183" assertions="4" time="0.078889"/>
+      <testcase name="testExecuteDefaultDetails" class="Icecave\Woodhouse\Console\Command\GitHub\CreateAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/CreateAuthorizationCommandTest.php" line="200" assertions="4" time="0.078528"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" namespace="Icecave\Woodhouse\Console\Command\GitHub" fullPackage="Icecave.Woodhouse.Console.Command.GitHub" tests="6" assertions="14" failures="0" errors="0" time="0.421754">
-      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="67" assertions="1" time="0.070258"/>
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="72" assertions="1" time="0.058612"/>
-      <testcase name="testClientUserAgent" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="82" assertions="1" time="0.059453"/>
-      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="87" assertions="3" time="0.077254"/>
-      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="113" assertions="4" time="0.073064"/>
-      <testcase name="testExecuteInteractiveCredentials" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="126" assertions="4" time="0.083113"/>
+    <testsuite name="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" namespace="Icecave\Woodhouse\Console\Command\GitHub" fullPackage="Icecave.Woodhouse.Console.Command.GitHub" tests="6" assertions="14" failures="0" errors="0" time="0.419919">
+      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="67" assertions="1" time="0.067201"/>
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="72" assertions="1" time="0.058846"/>
+      <testcase name="testClientUserAgent" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="82" assertions="1" time="0.059617"/>
+      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="87" assertions="3" time="0.077731"/>
+      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="113" assertions="4" time="0.074244"/>
+      <testcase name="testExecuteInteractiveCredentials" class="Icecave\Woodhouse\Console\Command\GitHub\DeleteAuthorizationCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/DeleteAuthorizationCommandTest.php" line="126" assertions="4" time="0.082280"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" namespace="Icecave\Woodhouse\Console\Command\GitHub" fullPackage="Icecave.Woodhouse.Console.Command.GitHub" tests="8" assertions="22" failures="0" errors="0" time="0.596903">
-      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="95" assertions="1" time="0.068966"/>
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="100" assertions="1" time="0.060480"/>
-      <testcase name="testClientUserAgent" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="110" assertions="1" time="0.060891"/>
-      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="115" assertions="3" time="0.084009"/>
-      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="148" assertions="4" time="0.078996"/>
-      <testcase name="testExecuteInteractiveCredentials" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="161" assertions="4" time="0.083102"/>
-      <testcase name="testExecuteOverridePatterns" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="182" assertions="4" time="0.079655"/>
-      <testcase name="testExecuteDefaultPatterns" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="195" assertions="4" time="0.080804"/>
+    <testsuite name="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" namespace="Icecave\Woodhouse\Console\Command\GitHub" fullPackage="Icecave.Woodhouse.Console.Command.GitHub" tests="8" assertions="22" failures="0" errors="0" time="0.597908">
+      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="95" assertions="1" time="0.069364"/>
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="100" assertions="1" time="0.060802"/>
+      <testcase name="testClientUserAgent" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="110" assertions="1" time="0.061424"/>
+      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="115" assertions="3" time="0.084622"/>
+      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="148" assertions="4" time="0.080071"/>
+      <testcase name="testExecuteInteractiveCredentials" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="161" assertions="4" time="0.083624"/>
+      <testcase name="testExecuteOverridePatterns" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="182" assertions="4" time="0.079077"/>
+      <testcase name="testExecuteDefaultPatterns" class="Icecave\Woodhouse\Console\Command\GitHub\ListAuthorizationsCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/GitHub/ListAuthorizationsCommandTest.php" line="195" assertions="4" time="0.078924"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" namespace="Icecave\Woodhouse\Console\Command" fullPackage="Icecave.Woodhouse.Console.Command" tests="25" assertions="108" failures="0" errors="0" time="1.664566">
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="62" assertions="5" time="0.057962"/>
-      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="74" assertions="2" time="0.040641"/>
-      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="80" assertions="7" time="0.074956"/>
-      <testcase name="testExecuteNoChanges" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="98" assertions="7" time="0.076159"/>
-      <testcase name="testExecuteWithAuthToken" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="120" assertions="7" time="0.076948"/>
-      <testcase name="testExecuteWithAuthTokenEnv" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="137" assertions="7" time="0.081425"/>
-      <testcase name="testExecuteFailureWithAuthTokenAndAuthTokenEnv" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="158" assertions="2" time="0.057844"/>
-      <testcase name="testExecuteWithCommitMessage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="166" assertions="8" time="0.086207"/>
-      <testcase name="testExecuteFailureNoContent" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="184" assertions="2" time="0.054924"/>
-      <testcase name="testExecuteFailureNoArguments" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="196" assertions="2" time="0.048180"/>
-      <testcase name="testExecuteFailureWithInvalidContentSpecifier" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="204" assertions="2" time="0.052351"/>
-      <testcase name="testExecuteWithUnknownTHeme" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="212" assertions="2" time="0.055531"/>
-      <testcase name="testExecuteWithBuildStatusImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="224" assertions="8" time="0.101382"/>
-      <testcase name="testExecuteWithBuildStatusImageWithMultipleThemes" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="242" assertions="9" time="0.097509"/>
-      <testcase name="testExecuteFailureMultipleBuildStatuses" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="261" assertions="2" time="0.052238"/>
-      <testcase name="testExecuteFailureBuildStatusImageWithNoStatus" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="268" assertions="2" time="0.052315"/>
-      <testcase name="testExecuteFailureBuildStatusWithNoImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="276" assertions="2" time="0.053464"/>
-      <testcase name="testExecuteWithCoverageImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="284" assertions="8" time="0.090521"/>
-      <testcase name="testExecuteWithCoverageImageWithMultipleThemes" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="302" assertions="9" time="0.098137"/>
-      <testcase name="testExecuteFailureMultipleCoveragePercentages" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="321" assertions="2" time="0.052386"/>
-      <testcase name="testExecuteFailureCoverageImageWithNoPercentage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="328" assertions="2" time="0.052504"/>
-      <testcase name="testExecuteFailureCoverageWithNoImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="336" assertions="2" time="0.053644"/>
-      <testcase name="testExecuteWithVerbose" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="344" assertions="3" time="0.070550"/>
-      <testcase name="testExecuteWithDryRun" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="367" assertions="3" time="0.064438"/>
-      <testcase name="testExecuteWithDryRunNoChanges" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="378" assertions="3" time="0.062351"/>
+    <testsuite name="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" namespace="Icecave\Woodhouse\Console\Command" fullPackage="Icecave.Woodhouse.Console.Command" tests="27" assertions="110" failures="0" errors="0" time="1.721128">
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="62" assertions="5" time="0.059132"/>
+      <testcase name="testConfigure" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="74" assertions="2" time="0.040932"/>
+      <testcase name="testExecute" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="80" assertions="7" time="0.075052"/>
+      <testcase name="testExecuteNoChanges" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="98" assertions="7" time="0.075699"/>
+      <testcase name="testExecuteWithAuthToken" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="120" assertions="7" time="0.076739"/>
+      <testcase name="testExecuteWithAuthTokenEnv" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="137" assertions="7" time="0.078670"/>
+      <testcase name="testExecuteFailureWithAuthTokenAndAuthTokenEnv" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="158" assertions="2" time="0.054663"/>
+      <testcase name="testExecuteWithCommitMessage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="166" assertions="8" time="0.081189"/>
+      <testcase name="testExecuteFailureNoContent" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="184" assertions="2" time="0.051574"/>
+      <testcase name="testExecuteFailureNoArguments" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="196" assertions="2" time="0.045412"/>
+      <testcase name="testExecuteFailureWithInvalidContentSpecifier" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="204" assertions="2" time="0.049873"/>
+      <testcase name="testExecuteWithUnknownTheme" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="212" assertions="2" time="0.052056"/>
+      <testcase name="testExecuteWithBuildStatusImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="224" assertions="8" time="0.092566"/>
+      <testcase name="testExecuteWithBuildStatusImageWithMultipleThemes" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="242" assertions="9" time="0.092779"/>
+      <testcase name="testExecuteFailureMultipleBuildStatuses" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="261" assertions="2" time="0.049397"/>
+      <testcase name="testExecuteFailureBuildStatusImageWithNoStatus" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="268" assertions="2" time="0.050321"/>
+      <testcase name="testExecuteFailureBuildStatusWithNoImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="276" assertions="2" time="0.050721"/>
+      <testcase name="testExecuteWithCoverageImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="284" assertions="8" time="0.086277"/>
+      <testcase name="testExecuteWithCoverageImageWithMultipleThemes" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="302" assertions="9" time="0.093162"/>
+      <testcase name="testExecuteFailureMultipleCoveragePercentages" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="321" assertions="2" time="0.050556"/>
+      <testcase name="testExecuteFailureCoverageImageWithNoPercentage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="328" assertions="2" time="0.050118"/>
+      <testcase name="testExecuteFailureCoverageWithNoImage" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="336" assertions="2" time="0.050816"/>
+      <testcase name="testExecuteWithVerbose" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="344" assertions="3" time="0.066852"/>
+      <testcase name="testExecuteWithDryRun" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="367" assertions="3" time="0.061491"/>
+      <testcase name="testExecuteWithDryRunNoChanges" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="378" assertions="3" time="0.061819"/>
+      <testcase name="testExecuteWithErrorBuildStatusWhenNonInteractive" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="393" assertions="1" time="0.061804"/>
+      <testcase name="testExecuteWithErrorCoverageWhenNonInteractive" class="Icecave\Woodhouse\Console\Command\PublishCommandTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Command/PublishCommandTest.php" line="405" assertions="1" time="0.061457"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" namespace="Icecave\Woodhouse\Console\Helper" fullPackage="Icecave.Woodhouse.Console.Helper" tests="7" assertions="28" failures="0" errors="0" time="0.130096">
-      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="34" assertions="2" time="0.005911"/>
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="40" assertions="1" time="0.005995"/>
-      <testcase name="testAskHiddenResponseStty" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="52" assertions="8" time="0.034343"/>
-      <testcase name="testAskHiddenResponseSttyFailureFgets" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="81" assertions="7" time="0.036363"/>
-      <testcase name="testAskHiddenResponseSttyFailureExecute" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="115" assertions="2" time="0.009318"/>
-      <testcase name="testAskHiddenResponseWindows" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="133" assertions="6" time="0.026432"/>
-      <testcase name="testAskHiddenResponseWindowsFailureExecute" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="155" assertions="2" time="0.011735"/>
+    <testsuite name="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" namespace="Icecave\Woodhouse\Console\Helper" fullPackage="Icecave.Woodhouse.Console.Helper" tests="7" assertions="28" failures="0" errors="0" time="0.131883">
+      <testcase name="testConstructor" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="34" assertions="2" time="0.006142"/>
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="40" assertions="1" time="0.006006"/>
+      <testcase name="testAskHiddenResponseStty" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="52" assertions="8" time="0.034622"/>
+      <testcase name="testAskHiddenResponseSttyFailureFgets" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="81" assertions="7" time="0.036890"/>
+      <testcase name="testAskHiddenResponseSttyFailureExecute" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="115" assertions="2" time="0.009405"/>
+      <testcase name="testAskHiddenResponseWindows" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="133" assertions="6" time="0.027003"/>
+      <testcase name="testAskHiddenResponseWindowsFailureExecute" class="Icecave\Woodhouse\Console\Helper\HiddenInputHelperTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Console/Helper/HiddenInputHelperTest.php" line="155" assertions="2" time="0.011815"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageImageSelectorTest.php" namespace="Icecave\Woodhouse\Coverage" fullPackage="Icecave.Woodhouse.Coverage" tests="202" assertions="204" failures="0" errors="0" time="0.635308">
-      <testsuite name="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage" tests="201" assertions="201" failures="0" errors="0" time="0.631506">
-        <testcase name="testRoundPercentage with data set #0" assertions="1" time="0.003229"/>
-        <testcase name="testRoundPercentage with data set #1" assertions="1" time="0.003191"/>
-        <testcase name="testRoundPercentage with data set #2" assertions="1" time="0.003169"/>
-        <testcase name="testRoundPercentage with data set #3" assertions="1" time="0.003131"/>
-        <testcase name="testRoundPercentage with data set #4" assertions="1" time="0.003067"/>
-        <testcase name="testRoundPercentage with data set #5" assertions="1" time="0.002972"/>
-        <testcase name="testRoundPercentage with data set #6" assertions="1" time="0.002888"/>
-        <testcase name="testRoundPercentage with data set #7" assertions="1" time="0.002999"/>
-        <testcase name="testRoundPercentage with data set #8" assertions="1" time="0.003153"/>
-        <testcase name="testRoundPercentage with data set #9" assertions="1" time="0.003190"/>
-        <testcase name="testRoundPercentage with data set #10" assertions="1" time="0.003198"/>
-        <testcase name="testRoundPercentage with data set #11" assertions="1" time="0.003200"/>
-        <testcase name="testRoundPercentage with data set #12" assertions="1" time="0.003164"/>
-        <testcase name="testRoundPercentage with data set #13" assertions="1" time="0.003123"/>
-        <testcase name="testRoundPercentage with data set #14" assertions="1" time="0.003063"/>
-        <testcase name="testRoundPercentage with data set #15" assertions="1" time="0.002995"/>
-        <testcase name="testRoundPercentage with data set #16" assertions="1" time="0.002904"/>
-        <testcase name="testRoundPercentage with data set #17" assertions="1" time="0.002901"/>
-        <testcase name="testRoundPercentage with data set #18" assertions="1" time="0.002955"/>
-        <testcase name="testRoundPercentage with data set #19" assertions="1" time="0.003042"/>
-        <testcase name="testRoundPercentage with data set #20" assertions="1" time="0.003191"/>
-        <testcase name="testRoundPercentage with data set #21" assertions="1" time="0.003191"/>
-        <testcase name="testRoundPercentage with data set #22" assertions="1" time="0.003183"/>
-        <testcase name="testRoundPercentage with data set #23" assertions="1" time="0.003188"/>
-        <testcase name="testRoundPercentage with data set #24" assertions="1" time="0.003195"/>
-        <testcase name="testRoundPercentage with data set #25" assertions="1" time="0.003196"/>
-        <testcase name="testRoundPercentage with data set #26" assertions="1" time="0.003095"/>
-        <testcase name="testRoundPercentage with data set #27" assertions="1" time="0.003194"/>
-        <testcase name="testRoundPercentage with data set #28" assertions="1" time="0.003193"/>
-        <testcase name="testRoundPercentage with data set #29" assertions="1" time="0.003200"/>
-        <testcase name="testRoundPercentage with data set #30" assertions="1" time="0.003189"/>
-        <testcase name="testRoundPercentage with data set #31" assertions="1" time="0.003190"/>
-        <testcase name="testRoundPercentage with data set #32" assertions="1" time="0.003200"/>
-        <testcase name="testRoundPercentage with data set #33" assertions="1" time="0.003040"/>
-        <testcase name="testRoundPercentage with data set #34" assertions="1" time="0.003004"/>
-        <testcase name="testRoundPercentage with data set #35" assertions="1" time="0.002927"/>
-        <testcase name="testRoundPercentage with data set #36" assertions="1" time="0.003154"/>
-        <testcase name="testRoundPercentage with data set #37" assertions="1" time="0.003185"/>
-        <testcase name="testRoundPercentage with data set #38" assertions="1" time="0.003191"/>
-        <testcase name="testRoundPercentage with data set #39" assertions="1" time="0.003174"/>
-        <testcase name="testRoundPercentage with data set #40" assertions="1" time="0.003114"/>
-        <testcase name="testRoundPercentage with data set #41" assertions="1" time="0.002932"/>
-        <testcase name="testRoundPercentage with data set #42" assertions="1" time="0.002912"/>
-        <testcase name="testRoundPercentage with data set #43" assertions="1" time="0.002996"/>
-        <testcase name="testRoundPercentage with data set #44" assertions="1" time="0.003159"/>
-        <testcase name="testRoundPercentage with data set #45" assertions="1" time="0.003225"/>
-        <testcase name="testRoundPercentage with data set #46" assertions="1" time="0.003260"/>
-        <testcase name="testRoundPercentage with data set #47" assertions="1" time="0.003251"/>
-        <testcase name="testRoundPercentage with data set #48" assertions="1" time="0.003183"/>
-        <testcase name="testRoundPercentage with data set #49" assertions="1" time="0.003154"/>
-        <testcase name="testRoundPercentage with data set #50" assertions="1" time="0.003111"/>
-        <testcase name="testRoundPercentage with data set #51" assertions="1" time="0.003187"/>
-        <testcase name="testRoundPercentage with data set #52" assertions="1" time="0.003193"/>
+    <testsuite name="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageImageSelectorTest.php" namespace="Icecave\Woodhouse\Coverage" fullPackage="Icecave.Woodhouse.Coverage" tests="204" assertions="206" failures="0" errors="0" time="0.662911">
+      <testsuite name="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest::testRoundPercentage" tests="201" assertions="201" failures="0" errors="0" time="0.652630">
+        <testcase name="testRoundPercentage with data set #0" assertions="1" time="0.003372"/>
+        <testcase name="testRoundPercentage with data set #1" assertions="1" time="0.003425"/>
+        <testcase name="testRoundPercentage with data set #2" assertions="1" time="0.003299"/>
+        <testcase name="testRoundPercentage with data set #3" assertions="1" time="0.003184"/>
+        <testcase name="testRoundPercentage with data set #4" assertions="1" time="0.003218"/>
+        <testcase name="testRoundPercentage with data set #5" assertions="1" time="0.003185"/>
+        <testcase name="testRoundPercentage with data set #6" assertions="1" time="0.003243"/>
+        <testcase name="testRoundPercentage with data set #7" assertions="1" time="0.003192"/>
+        <testcase name="testRoundPercentage with data set #8" assertions="1" time="0.003244"/>
+        <testcase name="testRoundPercentage with data set #9" assertions="1" time="0.003415"/>
+        <testcase name="testRoundPercentage with data set #10" assertions="1" time="0.003180"/>
+        <testcase name="testRoundPercentage with data set #11" assertions="1" time="0.003239"/>
+        <testcase name="testRoundPercentage with data set #12" assertions="1" time="0.003130"/>
+        <testcase name="testRoundPercentage with data set #13" assertions="1" time="0.003211"/>
+        <testcase name="testRoundPercentage with data set #14" assertions="1" time="0.003288"/>
+        <testcase name="testRoundPercentage with data set #15" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #16" assertions="1" time="0.003362"/>
+        <testcase name="testRoundPercentage with data set #17" assertions="1" time="0.003198"/>
+        <testcase name="testRoundPercentage with data set #18" assertions="1" time="0.003194"/>
+        <testcase name="testRoundPercentage with data set #19" assertions="1" time="0.003290"/>
+        <testcase name="testRoundPercentage with data set #20" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #21" assertions="1" time="0.003186"/>
+        <testcase name="testRoundPercentage with data set #22" assertions="1" time="0.003303"/>
+        <testcase name="testRoundPercentage with data set #23" assertions="1" time="0.003206"/>
+        <testcase name="testRoundPercentage with data set #24" assertions="1" time="0.003198"/>
+        <testcase name="testRoundPercentage with data set #25" assertions="1" time="0.003186"/>
+        <testcase name="testRoundPercentage with data set #26" assertions="1" time="0.003248"/>
+        <testcase name="testRoundPercentage with data set #27" assertions="1" time="0.003369"/>
+        <testcase name="testRoundPercentage with data set #28" assertions="1" time="0.003270"/>
+        <testcase name="testRoundPercentage with data set #29" assertions="1" time="0.003379"/>
+        <testcase name="testRoundPercentage with data set #30" assertions="1" time="0.003467"/>
+        <testcase name="testRoundPercentage with data set #31" assertions="1" time="0.003200"/>
+        <testcase name="testRoundPercentage with data set #32" assertions="1" time="0.003204"/>
+        <testcase name="testRoundPercentage with data set #33" assertions="1" time="0.003521"/>
+        <testcase name="testRoundPercentage with data set #34" assertions="1" time="0.003229"/>
+        <testcase name="testRoundPercentage with data set #35" assertions="1" time="0.003240"/>
+        <testcase name="testRoundPercentage with data set #36" assertions="1" time="0.003188"/>
+        <testcase name="testRoundPercentage with data set #37" assertions="1" time="0.003222"/>
+        <testcase name="testRoundPercentage with data set #38" assertions="1" time="0.003134"/>
+        <testcase name="testRoundPercentage with data set #39" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #40" assertions="1" time="0.003222"/>
+        <testcase name="testRoundPercentage with data set #41" assertions="1" time="0.003261"/>
+        <testcase name="testRoundPercentage with data set #42" assertions="1" time="0.003201"/>
+        <testcase name="testRoundPercentage with data set #43" assertions="1" time="0.003206"/>
+        <testcase name="testRoundPercentage with data set #44" assertions="1" time="0.003243"/>
+        <testcase name="testRoundPercentage with data set #45" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #46" assertions="1" time="0.003304"/>
+        <testcase name="testRoundPercentage with data set #47" assertions="1" time="0.003215"/>
+        <testcase name="testRoundPercentage with data set #48" assertions="1" time="0.003226"/>
+        <testcase name="testRoundPercentage with data set #49" assertions="1" time="0.003155"/>
+        <testcase name="testRoundPercentage with data set #50" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #51" assertions="1" time="0.003207"/>
+        <testcase name="testRoundPercentage with data set #52" assertions="1" time="0.003209"/>
         <testcase name="testRoundPercentage with data set #53" assertions="1" time="0.003192"/>
-        <testcase name="testRoundPercentage with data set #54" assertions="1" time="0.003190"/>
-        <testcase name="testRoundPercentage with data set #55" assertions="1" time="0.003140"/>
-        <testcase name="testRoundPercentage with data set #56" assertions="1" time="0.003114"/>
-        <testcase name="testRoundPercentage with data set #57" assertions="1" time="0.003023"/>
-        <testcase name="testRoundPercentage with data set #58" assertions="1" time="0.002942"/>
-        <testcase name="testRoundPercentage with data set #59" assertions="1" time="0.002917"/>
-        <testcase name="testRoundPercentage with data set #60" assertions="1" time="0.002935"/>
-        <testcase name="testRoundPercentage with data set #61" assertions="1" time="0.003084"/>
-        <testcase name="testRoundPercentage with data set #62" assertions="1" time="0.003207"/>
-        <testcase name="testRoundPercentage with data set #63" assertions="1" time="0.003191"/>
-        <testcase name="testRoundPercentage with data set #64" assertions="1" time="0.003207"/>
-        <testcase name="testRoundPercentage with data set #65" assertions="1" time="0.003207"/>
-        <testcase name="testRoundPercentage with data set #66" assertions="1" time="0.003195"/>
-        <testcase name="testRoundPercentage with data set #67" assertions="1" time="0.003199"/>
-        <testcase name="testRoundPercentage with data set #68" assertions="1" time="0.003159"/>
-        <testcase name="testRoundPercentage with data set #69" assertions="1" time="0.003103"/>
-        <testcase name="testRoundPercentage with data set #70" assertions="1" time="0.003041"/>
-        <testcase name="testRoundPercentage with data set #71" assertions="1" time="0.002980"/>
-        <testcase name="testRoundPercentage with data set #72" assertions="1" time="0.002901"/>
-        <testcase name="testRoundPercentage with data set #73" assertions="1" time="0.002910"/>
-        <testcase name="testRoundPercentage with data set #74" assertions="1" time="0.003007"/>
-        <testcase name="testRoundPercentage with data set #75" assertions="1" time="0.003145"/>
-        <testcase name="testRoundPercentage with data set #76" assertions="1" time="0.003199"/>
-        <testcase name="testRoundPercentage with data set #77" assertions="1" time="0.003202"/>
-        <testcase name="testRoundPercentage with data set #78" assertions="1" time="0.003213"/>
-        <testcase name="testRoundPercentage with data set #79" assertions="1" time="0.003208"/>
-        <testcase name="testRoundPercentage with data set #80" assertions="1" time="0.003135"/>
-        <testcase name="testRoundPercentage with data set #81" assertions="1" time="0.003121"/>
-        <testcase name="testRoundPercentage with data set #82" assertions="1" time="0.003231"/>
-        <testcase name="testRoundPercentage with data set #83" assertions="1" time="0.003187"/>
-        <testcase name="testRoundPercentage with data set #84" assertions="1" time="0.003129"/>
-        <testcase name="testRoundPercentage with data set #85" assertions="1" time="0.003123"/>
-        <testcase name="testRoundPercentage with data set #86" assertions="1" time="0.002999"/>
-        <testcase name="testRoundPercentage with data set #87" assertions="1" time="0.002920"/>
-        <testcase name="testRoundPercentage with data set #88" assertions="1" time="0.002925"/>
-        <testcase name="testRoundPercentage with data set #89" assertions="1" time="0.003007"/>
-        <testcase name="testRoundPercentage with data set #90" assertions="1" time="0.003127"/>
-        <testcase name="testRoundPercentage with data set #91" assertions="1" time="0.003204"/>
-        <testcase name="testRoundPercentage with data set #92" assertions="1" time="0.003211"/>
-        <testcase name="testRoundPercentage with data set #93" assertions="1" time="0.003209"/>
-        <testcase name="testRoundPercentage with data set #94" assertions="1" time="0.003209"/>
-        <testcase name="testRoundPercentage with data set #95" assertions="1" time="0.003120"/>
-        <testcase name="testRoundPercentage with data set #96" assertions="1" time="0.003088"/>
-        <testcase name="testRoundPercentage with data set #97" assertions="1" time="0.003003"/>
-        <testcase name="testRoundPercentage with data set #98" assertions="1" time="0.002942"/>
-        <testcase name="testRoundPercentage with data set #99" assertions="1" time="0.002919"/>
-        <testcase name="testRoundPercentage with data set #100" assertions="1" time="0.002948"/>
-        <testcase name="testRoundPercentage with data set #101" assertions="1" time="0.003101"/>
-        <testcase name="testRoundPercentage with data set #102" assertions="1" time="0.003209"/>
-        <testcase name="testRoundPercentage with data set #103" assertions="1" time="0.003210"/>
-        <testcase name="testRoundPercentage with data set #104" assertions="1" time="0.003197"/>
-        <testcase name="testRoundPercentage with data set #105" assertions="1" time="0.003206"/>
-        <testcase name="testRoundPercentage with data set #106" assertions="1" time="0.003168"/>
-        <testcase name="testRoundPercentage with data set #107" assertions="1" time="0.003112"/>
-        <testcase name="testRoundPercentage with data set #108" assertions="1" time="0.003221"/>
-        <testcase name="testRoundPercentage with data set #109" assertions="1" time="0.003207"/>
-        <testcase name="testRoundPercentage with data set #110" assertions="1" time="0.003175"/>
-        <testcase name="testRoundPercentage with data set #111" assertions="1" time="0.003177"/>
-        <testcase name="testRoundPercentage with data set #112" assertions="1" time="0.003147"/>
-        <testcase name="testRoundPercentage with data set #113" assertions="1" time="0.003117"/>
-        <testcase name="testRoundPercentage with data set #114" assertions="1" time="0.003098"/>
-        <testcase name="testRoundPercentage with data set #115" assertions="1" time="0.003036"/>
-        <testcase name="testRoundPercentage with data set #116" assertions="1" time="0.002918"/>
-        <testcase name="testRoundPercentage with data set #117" assertions="1" time="0.003068"/>
-        <testcase name="testRoundPercentage with data set #118" assertions="1" time="0.003188"/>
-        <testcase name="testRoundPercentage with data set #119" assertions="1" time="0.003211"/>
-        <testcase name="testRoundPercentage with data set #120" assertions="1" time="0.003206"/>
-        <testcase name="testRoundPercentage with data set #121" assertions="1" time="0.003242"/>
-        <testcase name="testRoundPercentage with data set #122" assertions="1" time="0.003225"/>
-        <testcase name="testRoundPercentage with data set #123" assertions="1" time="0.003218"/>
-        <testcase name="testRoundPercentage with data set #124" assertions="1" time="0.003248"/>
-        <testcase name="testRoundPercentage with data set #125" assertions="1" time="0.003207"/>
-        <testcase name="testRoundPercentage with data set #126" assertions="1" time="0.003081"/>
-        <testcase name="testRoundPercentage with data set #127" assertions="1" time="0.003094"/>
-        <testcase name="testRoundPercentage with data set #128" assertions="1" time="0.003239"/>
-        <testcase name="testRoundPercentage with data set #129" assertions="1" time="0.003202"/>
-        <testcase name="testRoundPercentage with data set #130" assertions="1" time="0.003231"/>
-        <testcase name="testRoundPercentage with data set #131" assertions="1" time="0.003214"/>
-        <testcase name="testRoundPercentage with data set #132" assertions="1" time="0.003199"/>
-        <testcase name="testRoundPercentage with data set #133" assertions="1" time="0.003132"/>
-        <testcase name="testRoundPercentage with data set #134" assertions="1" time="0.003112"/>
-        <testcase name="testRoundPercentage with data set #135" assertions="1" time="0.003101"/>
-        <testcase name="testRoundPercentage with data set #136" assertions="1" time="0.003122"/>
-        <testcase name="testRoundPercentage with data set #137" assertions="1" time="0.003411"/>
-        <testcase name="testRoundPercentage with data set #138" assertions="1" time="0.003214"/>
-        <testcase name="testRoundPercentage with data set #139" assertions="1" time="0.003203"/>
-        <testcase name="testRoundPercentage with data set #140" assertions="1" time="0.003194"/>
-        <testcase name="testRoundPercentage with data set #141" assertions="1" time="0.003205"/>
-        <testcase name="testRoundPercentage with data set #142" assertions="1" time="0.003177"/>
-        <testcase name="testRoundPercentage with data set #143" assertions="1" time="0.003163"/>
-        <testcase name="testRoundPercentage with data set #144" assertions="1" time="0.003142"/>
-        <testcase name="testRoundPercentage with data set #145" assertions="1" time="0.003126"/>
-        <testcase name="testRoundPercentage with data set #146" assertions="1" time="0.003096"/>
-        <testcase name="testRoundPercentage with data set #147" assertions="1" time="0.003062"/>
-        <testcase name="testRoundPercentage with data set #148" assertions="1" time="0.002909"/>
-        <testcase name="testRoundPercentage with data set #149" assertions="1" time="0.003082"/>
-        <testcase name="testRoundPercentage with data set #150" assertions="1" time="0.003204"/>
-        <testcase name="testRoundPercentage with data set #151" assertions="1" time="0.003220"/>
-        <testcase name="testRoundPercentage with data set #152" assertions="1" time="0.003205"/>
-        <testcase name="testRoundPercentage with data set #153" assertions="1" time="0.003189"/>
-        <testcase name="testRoundPercentage with data set #154" assertions="1" time="0.003203"/>
-        <testcase name="testRoundPercentage with data set #155" assertions="1" time="0.003449"/>
-        <testcase name="testRoundPercentage with data set #156" assertions="1" time="0.003209"/>
-        <testcase name="testRoundPercentage with data set #157" assertions="1" time="0.003215"/>
-        <testcase name="testRoundPercentage with data set #158" assertions="1" time="0.003212"/>
-        <testcase name="testRoundPercentage with data set #159" assertions="1" time="0.003207"/>
-        <testcase name="testRoundPercentage with data set #160" assertions="1" time="0.003181"/>
-        <testcase name="testRoundPercentage with data set #161" assertions="1" time="0.003182"/>
-        <testcase name="testRoundPercentage with data set #162" assertions="1" time="0.003221"/>
-        <testcase name="testRoundPercentage with data set #163" assertions="1" time="0.003174"/>
-        <testcase name="testRoundPercentage with data set #164" assertions="1" time="0.003103"/>
-        <testcase name="testRoundPercentage with data set #165" assertions="1" time="0.003120"/>
-        <testcase name="testRoundPercentage with data set #166" assertions="1" time="0.003139"/>
-        <testcase name="testRoundPercentage with data set #167" assertions="1" time="0.003169"/>
-        <testcase name="testRoundPercentage with data set #168" assertions="1" time="0.003211"/>
-        <testcase name="testRoundPercentage with data set #169" assertions="1" time="0.003198"/>
-        <testcase name="testRoundPercentage with data set #170" assertions="1" time="0.003208"/>
-        <testcase name="testRoundPercentage with data set #171" assertions="1" time="0.003191"/>
-        <testcase name="testRoundPercentage with data set #172" assertions="1" time="0.003185"/>
-        <testcase name="testRoundPercentage with data set #173" assertions="1" time="0.003174"/>
-        <testcase name="testRoundPercentage with data set #174" assertions="1" time="0.003116"/>
-        <testcase name="testRoundPercentage with data set #175" assertions="1" time="0.003118"/>
-        <testcase name="testRoundPercentage with data set #176" assertions="1" time="0.003010"/>
-        <testcase name="testRoundPercentage with data set #177" assertions="1" time="0.003005"/>
-        <testcase name="testRoundPercentage with data set #178" assertions="1" time="0.003224"/>
-        <testcase name="testRoundPercentage with data set #179" assertions="1" time="0.003193"/>
-        <testcase name="testRoundPercentage with data set #180" assertions="1" time="0.003166"/>
-        <testcase name="testRoundPercentage with data set #181" assertions="1" time="0.003136"/>
-        <testcase name="testRoundPercentage with data set #182" assertions="1" time="0.003143"/>
-        <testcase name="testRoundPercentage with data set #183" assertions="1" time="0.003108"/>
-        <testcase name="testRoundPercentage with data set #184" assertions="1" time="0.003021"/>
-        <testcase name="testRoundPercentage with data set #185" assertions="1" time="0.003199"/>
-        <testcase name="testRoundPercentage with data set #186" assertions="1" time="0.003209"/>
-        <testcase name="testRoundPercentage with data set #187" assertions="1" time="0.003210"/>
-        <testcase name="testRoundPercentage with data set #188" assertions="1" time="0.003206"/>
-        <testcase name="testRoundPercentage with data set #189" assertions="1" time="0.003185"/>
-        <testcase name="testRoundPercentage with data set #190" assertions="1" time="0.003164"/>
-        <testcase name="testRoundPercentage with data set #191" assertions="1" time="0.003343"/>
-        <testcase name="testRoundPercentage with data set #192" assertions="1" time="0.003296"/>
-        <testcase name="testRoundPercentage with data set #193" assertions="1" time="0.003407"/>
-        <testcase name="testRoundPercentage with data set #194" assertions="1" time="0.003144"/>
-        <testcase name="testRoundPercentage with data set #195" assertions="1" time="0.003131"/>
-        <testcase name="testRoundPercentage with data set #196" assertions="1" time="0.003220"/>
-        <testcase name="testRoundPercentage with data set #197" assertions="1" time="0.003550"/>
-        <testcase name="testRoundPercentage with data set #198" assertions="1" time="0.003021"/>
-        <testcase name="testRoundPercentage with data set #199" assertions="1" time="0.003283"/>
-        <testcase name="testRoundPercentage with data set #200" assertions="1" time="0.003247"/>
+        <testcase name="testRoundPercentage with data set #54" assertions="1" time="0.003236"/>
+        <testcase name="testRoundPercentage with data set #55" assertions="1" time="0.003169"/>
+        <testcase name="testRoundPercentage with data set #56" assertions="1" time="0.003297"/>
+        <testcase name="testRoundPercentage with data set #57" assertions="1" time="0.003214"/>
+        <testcase name="testRoundPercentage with data set #58" assertions="1" time="0.003301"/>
+        <testcase name="testRoundPercentage with data set #59" assertions="1" time="0.003212"/>
+        <testcase name="testRoundPercentage with data set #60" assertions="1" time="0.003187"/>
+        <testcase name="testRoundPercentage with data set #61" assertions="1" time="0.003374"/>
+        <testcase name="testRoundPercentage with data set #62" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #63" assertions="1" time="0.003165"/>
+        <testcase name="testRoundPercentage with data set #64" assertions="1" time="0.003210"/>
+        <testcase name="testRoundPercentage with data set #65" assertions="1" time="0.003225"/>
+        <testcase name="testRoundPercentage with data set #66" assertions="1" time="0.003301"/>
+        <testcase name="testRoundPercentage with data set #67" assertions="1" time="0.003229"/>
+        <testcase name="testRoundPercentage with data set #68" assertions="1" time="0.003332"/>
+        <testcase name="testRoundPercentage with data set #69" assertions="1" time="0.003191"/>
+        <testcase name="testRoundPercentage with data set #70" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #71" assertions="1" time="0.003178"/>
+        <testcase name="testRoundPercentage with data set #72" assertions="1" time="0.003244"/>
+        <testcase name="testRoundPercentage with data set #73" assertions="1" time="0.003219"/>
+        <testcase name="testRoundPercentage with data set #74" assertions="1" time="0.003168"/>
+        <testcase name="testRoundPercentage with data set #75" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #76" assertions="1" time="0.003264"/>
+        <testcase name="testRoundPercentage with data set #77" assertions="1" time="0.003288"/>
+        <testcase name="testRoundPercentage with data set #78" assertions="1" time="0.003204"/>
+        <testcase name="testRoundPercentage with data set #79" assertions="1" time="0.003210"/>
+        <testcase name="testRoundPercentage with data set #80" assertions="1" time="0.003201"/>
+        <testcase name="testRoundPercentage with data set #81" assertions="1" time="0.003218"/>
+        <testcase name="testRoundPercentage with data set #82" assertions="1" time="0.003221"/>
+        <testcase name="testRoundPercentage with data set #83" assertions="1" time="0.003240"/>
+        <testcase name="testRoundPercentage with data set #84" assertions="1" time="0.003230"/>
+        <testcase name="testRoundPercentage with data set #85" assertions="1" time="0.003250"/>
+        <testcase name="testRoundPercentage with data set #86" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #87" assertions="1" time="0.003223"/>
+        <testcase name="testRoundPercentage with data set #88" assertions="1" time="0.003309"/>
+        <testcase name="testRoundPercentage with data set #89" assertions="1" time="0.003232"/>
+        <testcase name="testRoundPercentage with data set #90" assertions="1" time="0.003189"/>
+        <testcase name="testRoundPercentage with data set #91" assertions="1" time="0.003209"/>
+        <testcase name="testRoundPercentage with data set #92" assertions="1" time="0.003213"/>
+        <testcase name="testRoundPercentage with data set #93" assertions="1" time="0.003281"/>
+        <testcase name="testRoundPercentage with data set #94" assertions="1" time="0.003161"/>
+        <testcase name="testRoundPercentage with data set #95" assertions="1" time="0.003213"/>
+        <testcase name="testRoundPercentage with data set #96" assertions="1" time="0.003383"/>
+        <testcase name="testRoundPercentage with data set #97" assertions="1" time="0.003244"/>
+        <testcase name="testRoundPercentage with data set #98" assertions="1" time="0.003257"/>
+        <testcase name="testRoundPercentage with data set #99" assertions="1" time="0.003230"/>
+        <testcase name="testRoundPercentage with data set #100" assertions="1" time="0.003231"/>
+        <testcase name="testRoundPercentage with data set #101" assertions="1" time="0.003205"/>
+        <testcase name="testRoundPercentage with data set #102" assertions="1" time="0.003211"/>
+        <testcase name="testRoundPercentage with data set #103" assertions="1" time="0.003218"/>
+        <testcase name="testRoundPercentage with data set #104" assertions="1" time="0.003296"/>
+        <testcase name="testRoundPercentage with data set #105" assertions="1" time="0.003249"/>
+        <testcase name="testRoundPercentage with data set #106" assertions="1" time="0.003264"/>
+        <testcase name="testRoundPercentage with data set #107" assertions="1" time="0.003241"/>
+        <testcase name="testRoundPercentage with data set #108" assertions="1" time="0.003230"/>
+        <testcase name="testRoundPercentage with data set #109" assertions="1" time="0.003145"/>
+        <testcase name="testRoundPercentage with data set #110" assertions="1" time="0.003227"/>
+        <testcase name="testRoundPercentage with data set #111" assertions="1" time="0.003250"/>
+        <testcase name="testRoundPercentage with data set #112" assertions="1" time="0.003221"/>
+        <testcase name="testRoundPercentage with data set #113" assertions="1" time="0.003211"/>
+        <testcase name="testRoundPercentage with data set #114" assertions="1" time="0.003239"/>
+        <testcase name="testRoundPercentage with data set #115" assertions="1" time="0.003170"/>
+        <testcase name="testRoundPercentage with data set #116" assertions="1" time="0.003212"/>
+        <testcase name="testRoundPercentage with data set #117" assertions="1" time="0.003365"/>
+        <testcase name="testRoundPercentage with data set #118" assertions="1" time="0.003243"/>
+        <testcase name="testRoundPercentage with data set #119" assertions="1" time="0.003319"/>
+        <testcase name="testRoundPercentage with data set #120" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #121" assertions="1" time="0.003220"/>
+        <testcase name="testRoundPercentage with data set #122" assertions="1" time="0.003217"/>
+        <testcase name="testRoundPercentage with data set #123" assertions="1" time="0.003347"/>
+        <testcase name="testRoundPercentage with data set #124" assertions="1" time="0.003226"/>
+        <testcase name="testRoundPercentage with data set #125" assertions="1" time="0.003227"/>
+        <testcase name="testRoundPercentage with data set #126" assertions="1" time="0.003207"/>
+        <testcase name="testRoundPercentage with data set #127" assertions="1" time="0.003225"/>
+        <testcase name="testRoundPercentage with data set #128" assertions="1" time="0.003235"/>
+        <testcase name="testRoundPercentage with data set #129" assertions="1" time="0.003214"/>
+        <testcase name="testRoundPercentage with data set #130" assertions="1" time="0.003221"/>
+        <testcase name="testRoundPercentage with data set #131" assertions="1" time="0.003202"/>
+        <testcase name="testRoundPercentage with data set #132" assertions="1" time="0.003202"/>
+        <testcase name="testRoundPercentage with data set #133" assertions="1" time="0.003199"/>
+        <testcase name="testRoundPercentage with data set #134" assertions="1" time="0.003218"/>
+        <testcase name="testRoundPercentage with data set #135" assertions="1" time="0.003233"/>
+        <testcase name="testRoundPercentage with data set #136" assertions="1" time="0.003150"/>
+        <testcase name="testRoundPercentage with data set #137" assertions="1" time="0.003206"/>
+        <testcase name="testRoundPercentage with data set #138" assertions="1" time="0.003212"/>
+        <testcase name="testRoundPercentage with data set #139" assertions="1" time="0.003204"/>
+        <testcase name="testRoundPercentage with data set #140" assertions="1" time="0.003157"/>
+        <testcase name="testRoundPercentage with data set #141" assertions="1" time="0.003369"/>
+        <testcase name="testRoundPercentage with data set #142" assertions="1" time="0.003247"/>
+        <testcase name="testRoundPercentage with data set #143" assertions="1" time="0.003239"/>
+        <testcase name="testRoundPercentage with data set #144" assertions="1" time="0.003144"/>
+        <testcase name="testRoundPercentage with data set #145" assertions="1" time="0.003230"/>
+        <testcase name="testRoundPercentage with data set #146" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #147" assertions="1" time="0.003268"/>
+        <testcase name="testRoundPercentage with data set #148" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #149" assertions="1" time="0.003269"/>
+        <testcase name="testRoundPercentage with data set #150" assertions="1" time="0.003201"/>
+        <testcase name="testRoundPercentage with data set #151" assertions="1" time="0.003222"/>
+        <testcase name="testRoundPercentage with data set #152" assertions="1" time="0.003231"/>
+        <testcase name="testRoundPercentage with data set #153" assertions="1" time="0.003196"/>
+        <testcase name="testRoundPercentage with data set #154" assertions="1" time="0.003224"/>
+        <testcase name="testRoundPercentage with data set #155" assertions="1" time="0.003244"/>
+        <testcase name="testRoundPercentage with data set #156" assertions="1" time="0.003199"/>
+        <testcase name="testRoundPercentage with data set #157" assertions="1" time="0.003345"/>
+        <testcase name="testRoundPercentage with data set #158" assertions="1" time="0.003197"/>
+        <testcase name="testRoundPercentage with data set #159" assertions="1" time="0.003220"/>
+        <testcase name="testRoundPercentage with data set #160" assertions="1" time="0.003527"/>
+        <testcase name="testRoundPercentage with data set #161" assertions="1" time="0.003523"/>
+        <testcase name="testRoundPercentage with data set #162" assertions="1" time="0.003469"/>
+        <testcase name="testRoundPercentage with data set #163" assertions="1" time="0.003547"/>
+        <testcase name="testRoundPercentage with data set #164" assertions="1" time="0.003478"/>
+        <testcase name="testRoundPercentage with data set #165" assertions="1" time="0.003321"/>
+        <testcase name="testRoundPercentage with data set #166" assertions="1" time="0.003216"/>
+        <testcase name="testRoundPercentage with data set #167" assertions="1" time="0.003227"/>
+        <testcase name="testRoundPercentage with data set #168" assertions="1" time="0.003188"/>
+        <testcase name="testRoundPercentage with data set #169" assertions="1" time="0.003203"/>
+        <testcase name="testRoundPercentage with data set #170" assertions="1" time="0.003228"/>
+        <testcase name="testRoundPercentage with data set #171" assertions="1" time="0.003168"/>
+        <testcase name="testRoundPercentage with data set #172" assertions="1" time="0.003248"/>
+        <testcase name="testRoundPercentage with data set #173" assertions="1" time="0.003223"/>
+        <testcase name="testRoundPercentage with data set #174" assertions="1" time="0.003229"/>
+        <testcase name="testRoundPercentage with data set #175" assertions="1" time="0.003233"/>
+        <testcase name="testRoundPercentage with data set #176" assertions="1" time="0.003261"/>
+        <testcase name="testRoundPercentage with data set #177" assertions="1" time="0.003205"/>
+        <testcase name="testRoundPercentage with data set #178" assertions="1" time="0.003256"/>
+        <testcase name="testRoundPercentage with data set #179" assertions="1" time="0.003375"/>
+        <testcase name="testRoundPercentage with data set #180" assertions="1" time="0.003314"/>
+        <testcase name="testRoundPercentage with data set #181" assertions="1" time="0.003231"/>
+        <testcase name="testRoundPercentage with data set #182" assertions="1" time="0.003359"/>
+        <testcase name="testRoundPercentage with data set #183" assertions="1" time="0.003225"/>
+        <testcase name="testRoundPercentage with data set #184" assertions="1" time="0.003231"/>
+        <testcase name="testRoundPercentage with data set #185" assertions="1" time="0.003196"/>
+        <testcase name="testRoundPercentage with data set #186" assertions="1" time="0.003318"/>
+        <testcase name="testRoundPercentage with data set #187" assertions="1" time="0.003238"/>
+        <testcase name="testRoundPercentage with data set #188" assertions="1" time="0.003304"/>
+        <testcase name="testRoundPercentage with data set #189" assertions="1" time="0.003228"/>
+        <testcase name="testRoundPercentage with data set #190" assertions="1" time="0.003252"/>
+        <testcase name="testRoundPercentage with data set #191" assertions="1" time="0.003230"/>
+        <testcase name="testRoundPercentage with data set #192" assertions="1" time="0.003253"/>
+        <testcase name="testRoundPercentage with data set #193" assertions="1" time="0.003297"/>
+        <testcase name="testRoundPercentage with data set #194" assertions="1" time="0.003249"/>
+        <testcase name="testRoundPercentage with data set #195" assertions="1" time="0.003223"/>
+        <testcase name="testRoundPercentage with data set #196" assertions="1" time="0.003390"/>
+        <testcase name="testRoundPercentage with data set #197" assertions="1" time="0.003255"/>
+        <testcase name="testRoundPercentage with data set #198" assertions="1" time="0.003398"/>
+        <testcase name="testRoundPercentage with data set #199" assertions="1" time="0.003221"/>
+        <testcase name="testRoundPercentage with data set #200" assertions="1" time="0.003283"/>
       </testsuite>
-      <testcase name="testImageFilename" class="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageImageSelectorTest.php" line="21" assertions="3" time="0.003802"/>
+      <testcase name="testImageFilename" class="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageImageSelectorTest.php" line="21" assertions="3" time="0.003827"/>
+      <testcase name="testErrorImageFilename" class="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageImageSelectorTest.php" line="28" assertions="1" time="0.003213"/>
+      <testcase name="testUnknownImageFilename" class="Icecave\Woodhouse\Coverage\CoverageImageSelectorTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageImageSelectorTest.php" line="33" assertions="1" time="0.003241"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" namespace="Icecave\Woodhouse\Coverage" fullPackage="Icecave.Woodhouse.Coverage" tests="4" assertions="8" failures="0" errors="0" time="0.018652">
-      <testcase name="testSupportedTypes" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="16" assertions="1" time="0.003974"/>
-      <testcase name="testCreatePhpUnit" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="26" assertions="3" time="0.005818"/>
-      <testcase name="testCreateCommandLine" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="35" assertions="2" time="0.004436"/>
-      <testcase name="testCreateFailure" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="43" assertions="2" time="0.004424"/>
+    <testsuite name="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" namespace="Icecave\Woodhouse\Coverage" fullPackage="Icecave.Woodhouse.Coverage" tests="4" assertions="8" failures="0" errors="0" time="0.019567">
+      <testcase name="testSupportedTypes" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="16" assertions="1" time="0.004290"/>
+      <testcase name="testCreatePhpUnit" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="26" assertions="3" time="0.006213"/>
+      <testcase name="testCreateCommandLine" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="35" assertions="2" time="0.004596"/>
+      <testcase name="testCreateFailure" class="Icecave\Woodhouse\Coverage\CoverageReaderFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/CoverageReaderFactoryTest.php" line="43" assertions="2" time="0.004468"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Coverage\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/CommandLineReaderTest.php" namespace="Icecave\Woodhouse\Coverage\Readers" fullPackage="Icecave.Woodhouse.Coverage.Readers" tests="1" assertions="1" failures="0" errors="0" time="0.003079">
-      <testcase name="testReadPercentage" class="Icecave\Woodhouse\Coverage\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/CommandLineReaderTest.php" line="13" assertions="1" time="0.003079"/>
+    <testsuite name="Icecave\Woodhouse\Coverage\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/CommandLineReaderTest.php" namespace="Icecave\Woodhouse\Coverage\Readers" fullPackage="Icecave.Woodhouse.Coverage.Readers" tests="1" assertions="1" failures="0" errors="0" time="0.003325">
+      <testcase name="testReadPercentage" class="Icecave\Woodhouse\Coverage\Readers\CommandLineReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/CommandLineReaderTest.php" line="13" assertions="1" time="0.003325"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/PhpUnitTextReaderTest.php" namespace="Icecave\Woodhouse\Coverage\Readers" fullPackage="Icecave.Woodhouse.Coverage.Readers" tests="2" assertions="3" failures="0" errors="0" time="0.012604">
-      <testcase name="testReadPercentage" class="Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/PhpUnitTextReaderTest.php" line="37" assertions="1" time="0.005649"/>
-      <testcase name="testReadPercentageFailure" class="Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/PhpUnitTextReaderTest.php" line="42" assertions="2" time="0.006955"/>
+    <testsuite name="Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/PhpUnitTextReaderTest.php" namespace="Icecave\Woodhouse\Coverage\Readers" fullPackage="Icecave.Woodhouse.Coverage.Readers" tests="2" assertions="3" failures="0" errors="0" time="0.013187">
+      <testcase name="testReadPercentage" class="Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/PhpUnitTextReaderTest.php" line="37" assertions="1" time="0.006047"/>
+      <testcase name="testReadPercentageFailure" class="Icecave\Woodhouse\Coverage\Readers\PhpUnitTextReaderTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Coverage/Readers/PhpUnitTextReaderTest.php" line="42" assertions="2" time="0.007140"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" namespace="Icecave\Woodhouse\Git" fullPackage="Icecave.Woodhouse.Git" tests="18" assertions="39" failures="0" errors="0" time="0.270609">
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="34" assertions="1" time="0.026111"/>
-      <testcase name="testConstructor" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="41" assertions="2" time="0.009968"/>
-      <testcase name="testCloneRepo" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="48" assertions="3" time="0.015388"/>
-      <testcase name="testCloneRepoWithExplicitBranch" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="58" assertions="3" time="0.015449"/>
-      <testcase name="testCheckout" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="68" assertions="2" time="0.014604"/>
-      <testcase name="testCheckoutOrphan" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="77" assertions="2" time="0.014758"/>
-      <testcase name="testAdd" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="86" assertions="2" time="0.014632"/>
-      <testcase name="testRemove" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="95" assertions="2" time="0.014695"/>
-      <testcase name="testDiff" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="104" assertions="2" time="0.014481"/>
-      <testcase name="testDiffStagedFiles" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="113" assertions="2" time="0.014908"/>
-      <testcase name="testCommit" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="122" assertions="2" time="0.014712"/>
-      <testcase name="testPush" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="131" assertions="2" time="0.014792"/>
-      <testcase name="testPushWithExplicitBranch" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="140" assertions="2" time="0.014247"/>
-      <testcase name="testPull" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="149" assertions="2" time="0.014058"/>
-      <testcase name="testSetConfig" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="158" assertions="2" time="0.014831"/>
-      <testcase name="testExecute" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="167" assertions="5" time="0.020193"/>
-      <testcase name="testExecuteFailure" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="183" assertions="2" time="0.013423"/>
-      <testcase name="testCreateProcess" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="208" assertions="1" time="0.009359"/>
+    <testsuite name="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" namespace="Icecave\Woodhouse\Git" fullPackage="Icecave.Woodhouse.Git" tests="18" assertions="39" failures="0" errors="0" time="0.255521">
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="34" assertions="1" time="0.026580"/>
+      <testcase name="testConstructor" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="41" assertions="2" time="0.010029"/>
+      <testcase name="testCloneRepo" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="48" assertions="3" time="0.013978"/>
+      <testcase name="testCloneRepoWithExplicitBranch" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="58" assertions="3" time="0.014227"/>
+      <testcase name="testCheckout" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="68" assertions="2" time="0.013467"/>
+      <testcase name="testCheckoutOrphan" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="77" assertions="2" time="0.013470"/>
+      <testcase name="testAdd" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="86" assertions="2" time="0.013517"/>
+      <testcase name="testRemove" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="95" assertions="2" time="0.013481"/>
+      <testcase name="testDiff" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="104" assertions="2" time="0.013647"/>
+      <testcase name="testDiffStagedFiles" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="113" assertions="2" time="0.013607"/>
+      <testcase name="testCommit" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="122" assertions="2" time="0.013375"/>
+      <testcase name="testPush" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="131" assertions="2" time="0.013453"/>
+      <testcase name="testPushWithExplicitBranch" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="140" assertions="2" time="0.013462"/>
+      <testcase name="testPull" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="149" assertions="2" time="0.013420"/>
+      <testcase name="testSetConfig" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="158" assertions="2" time="0.013481"/>
+      <testcase name="testExecute" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="167" assertions="5" time="0.019539"/>
+      <testcase name="testExecuteFailure" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="183" assertions="2" time="0.013399"/>
+      <testcase name="testCreateProcess" class="Icecave\Woodhouse\Git\GitTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Git/GitTest.php" line="208" assertions="1" time="0.009389"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" namespace="Icecave\Woodhouse\GitHub" fullPackage="Icecave.Woodhouse.GitHub" tests="6" assertions="7" failures="0" errors="0" time="0.086311">
-      <testcase name="testConstructor" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="37" assertions="1" time="0.007031"/>
-      <testcase name="testSetUserAgent" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="42" assertions="1" time="0.005296"/>
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="48" assertions="1" time="0.005262"/>
-      <testcase name="testCreate" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="60" assertions="2" time="0.025388"/>
-      <testcase name="testCreateWithUserAgent" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="70" assertions="1" time="0.020872"/>
-      <testcase name="testCreateWithCredentials" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="81" assertions="1" time="0.022462"/>
+    <testsuite name="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" namespace="Icecave\Woodhouse\GitHub" fullPackage="Icecave.Woodhouse.GitHub" tests="6" assertions="7" failures="0" errors="0" time="0.088124">
+      <testcase name="testConstructor" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="37" assertions="1" time="0.007144"/>
+      <testcase name="testSetUserAgent" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="42" assertions="1" time="0.005377"/>
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="48" assertions="1" time="0.005583"/>
+      <testcase name="testCreate" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="60" assertions="2" time="0.025817"/>
+      <testcase name="testCreateWithUserAgent" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="70" assertions="1" time="0.021305"/>
+      <testcase name="testCreateWithCredentials" class="Icecave\Woodhouse\GitHub\GitHubClientFactoryTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientFactoryTest.php" line="81" assertions="1" time="0.022898"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" namespace="Icecave\Woodhouse\GitHub" fullPackage="Icecave.Woodhouse.GitHub" tests="14" assertions="26" failures="0" errors="0" time="0.180214">
-      <testcase name="testConstruct" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="42" assertions="2" time="0.012726"/>
-      <testcase name="testConstructDefaults" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="48" assertions="1" time="0.005879"/>
-      <testcase name="testAuthorizations" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="55" assertions="2" time="0.024767"/>
-      <testsuite name="Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching" tests="3" assertions="6" failures="0" errors="0" time="0.025177">
-        <testcase name="testAuthorizationsMatching with data set &quot;Match by name&quot;" assertions="2" time="0.008707"/>
-        <testcase name="testAuthorizationsMatching with data set &quot;Match by url&quot;" assertions="2" time="0.008339"/>
-        <testcase name="testAuthorizationsMatching with data set &quot;Match by name and url&quot;" assertions="2" time="0.008131"/>
+    <testsuite name="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" namespace="Icecave\Woodhouse\GitHub" fullPackage="Icecave.Woodhouse.GitHub" tests="14" assertions="26" failures="0" errors="0" time="0.180932">
+      <testcase name="testConstruct" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="42" assertions="2" time="0.012880"/>
+      <testcase name="testConstructDefaults" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="48" assertions="1" time="0.006022"/>
+      <testcase name="testAuthorizations" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="55" assertions="2" time="0.024862"/>
+      <testsuite name="Icecave\Woodhouse\GitHub\GitHubClientTest::testAuthorizationsMatching" tests="3" assertions="6" failures="0" errors="0" time="0.024978">
+        <testcase name="testAuthorizationsMatching with data set &quot;Match by name&quot;" assertions="2" time="0.008222"/>
+        <testcase name="testAuthorizationsMatching with data set &quot;Match by url&quot;" assertions="2" time="0.008341"/>
+        <testcase name="testAuthorizationsMatching with data set &quot;Match by name and url&quot;" assertions="2" time="0.008415"/>
       </testsuite>
-      <testcase name="testAuthorizationsFailureInvalidJson" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="184" assertions="2" time="0.012545"/>
-      <testcase name="testAuthorizationsFailureHTTP" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="198" assertions="2" time="0.011964"/>
-      <testcase name="testCreateAuthorization" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="212" assertions="2" time="0.018518"/>
-      <testcase name="testCreateAuthorizationAllOptions" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="244" assertions="2" time="0.018517"/>
-      <testcase name="testCreateAuthorizationFailureInvalidJson" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="280" assertions="2" time="0.012700"/>
-      <testcase name="testCreateAuthorizationFailureHTTP" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="294" assertions="2" time="0.011913"/>
-      <testcase name="testDeleteAuthorization" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="308" assertions="1" time="0.013486"/>
-      <testcase name="testDeleteAuthorizationFailureHTTP" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="319" assertions="2" time="0.012023"/>
+      <testcase name="testAuthorizationsFailureInvalidJson" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="184" assertions="2" time="0.013045"/>
+      <testcase name="testAuthorizationsFailureHTTP" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="198" assertions="2" time="0.012436"/>
+      <testcase name="testCreateAuthorization" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="212" assertions="2" time="0.018552"/>
+      <testcase name="testCreateAuthorizationAllOptions" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="244" assertions="2" time="0.018607"/>
+      <testcase name="testCreateAuthorizationFailureInvalidJson" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="280" assertions="2" time="0.012871"/>
+      <testcase name="testCreateAuthorizationFailureHTTP" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="294" assertions="2" time="0.012064"/>
+      <testcase name="testDeleteAuthorization" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="308" assertions="1" time="0.012649"/>
+      <testcase name="testDeleteAuthorizationFailureHTTP" class="Icecave\Woodhouse\GitHub\GitHubClientTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/GitHub/GitHubClientTest.php" line="319" assertions="2" time="0.011966"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" namespace="Icecave\Woodhouse\Publisher" fullPackage="Icecave.Woodhouse.Publisher" tests="5" assertions="6" failures="0" errors="0" time="0.033048">
-      <testcase name="testConstruct" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="14" assertions="1" time="0.006473"/>
-      <testcase name="testAdd" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="19" assertions="2" time="0.007054"/>
-      <testcase name="testAddRemovesLeadingSlashes" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="28" assertions="1" time="0.005640"/>
-      <testcase name="testRemove" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="34" assertions="1" time="0.006943"/>
-      <testcase name="testClear" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="42" assertions="1" time="0.006938"/>
+    <testsuite name="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" namespace="Icecave\Woodhouse\Publisher" fullPackage="Icecave.Woodhouse.Publisher" tests="5" assertions="6" failures="0" errors="0" time="0.033576">
+      <testcase name="testConstruct" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="14" assertions="1" time="0.006809"/>
+      <testcase name="testAdd" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="19" assertions="2" time="0.007118"/>
+      <testcase name="testAddRemovesLeadingSlashes" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="28" assertions="1" time="0.005584"/>
+      <testcase name="testRemove" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="34" assertions="1" time="0.006972"/>
+      <testcase name="testClear" class="Icecave\Woodhouse\Publisher\AbstractPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/AbstractPublisherTest.php" line="42" assertions="1" time="0.007093"/>
     </testsuite>
-    <testsuite name="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" namespace="Icecave\Woodhouse\Publisher" fullPackage="Icecave.Woodhouse.Publisher" tests="23" assertions="132" failures="0" errors="0" time="1.061425">
-      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="57" assertions="2" time="0.067667"/>
-      <testcase name="testOutputFilter" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="65" assertions="3" time="0.017366"/>
-      <testcase name="testRepository" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="80" assertions="1" time="0.014308"/>
-      <testcase name="testSetRepository" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="85" assertions="1" time="0.015855"/>
-      <testcase name="testSetRepositoryFailure" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="91" assertions="3" time="0.014924"/>
-      <testcase name="testRepositoryUrl" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="99" assertions="3" time="0.017192"/>
-      <testcase name="testBranch" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="118" assertions="1" time="0.013819"/>
-      <testcase name="testSetBranch" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="123" assertions="1" time="0.014443"/>
-      <testcase name="testCommitMessage" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="129" assertions="1" time="0.014263"/>
-      <testcase name="testSetCommitMessage" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="134" assertions="1" time="0.014752"/>
-      <testcase name="testAuthToken" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="140" assertions="1" time="0.013865"/>
-      <testcase name="testSetAuthToken" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="145" assertions="1" time="0.014710"/>
-      <testcase name="testSetAuthTokenFailure" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="152" assertions="2" time="0.014202"/>
-      <testcase name="testPublish" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="158" assertions="16" time="0.114962"/>
-      <testcase name="testPublishNoChanges" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="199" assertions="7" time="0.051497"/>
-      <testcase name="testPublishMakeContentDirectories" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="231" assertions="15" time="0.097636"/>
-      <testcase name="testPublishToNewBranch" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="270" assertions="16" time="0.116670"/>
-      <testcase name="testPublishSuccessPushAttemptsExhausted" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="321" assertions="16" time="0.120793"/>
-      <testcase name="testPublishFailurePushAttemptsExhausted" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="369" assertions="16" time="0.118052"/>
-      <testcase name="testPublishFailureNoRepository" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="421" assertions="2" time="0.015180"/>
-      <testcase name="testPublishCloneFailure" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="427" assertions="1" time="0.043153"/>
-      <testcase name="testDryRun" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="445" assertions="13" time="0.080813"/>
-      <testcase name="testDryRunNoChanges" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="481" assertions="9" time="0.055303"/>
+    <testsuite name="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" namespace="Icecave\Woodhouse\Publisher" fullPackage="Icecave.Woodhouse.Publisher" tests="23" assertions="132" failures="0" errors="0" time="1.039887">
+      <testcase name="testConstructorDefaults" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="57" assertions="2" time="0.067210"/>
+      <testcase name="testOutputFilter" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="65" assertions="3" time="0.016884"/>
+      <testcase name="testRepository" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="80" assertions="1" time="0.015173"/>
+      <testcase name="testSetRepository" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="85" assertions="1" time="0.015154"/>
+      <testcase name="testSetRepositoryFailure" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="91" assertions="3" time="0.015841"/>
+      <testcase name="testRepositoryUrl" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="99" assertions="3" time="0.017654"/>
+      <testcase name="testBranch" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="118" assertions="1" time="0.014451"/>
+      <testcase name="testSetBranch" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="123" assertions="1" time="0.015088"/>
+      <testcase name="testCommitMessage" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="129" assertions="1" time="0.014510"/>
+      <testcase name="testSetCommitMessage" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="134" assertions="1" time="0.015110"/>
+      <testcase name="testAuthToken" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="140" assertions="1" time="0.014436"/>
+      <testcase name="testSetAuthToken" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="145" assertions="1" time="0.015162"/>
+      <testcase name="testSetAuthTokenFailure" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="152" assertions="2" time="0.014926"/>
+      <testcase name="testPublish" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="158" assertions="16" time="0.109915"/>
+      <testcase name="testPublishNoChanges" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="199" assertions="7" time="0.050747"/>
+      <testcase name="testPublishMakeContentDirectories" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="231" assertions="15" time="0.093353"/>
+      <testcase name="testPublishToNewBranch" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="270" assertions="16" time="0.114369"/>
+      <testcase name="testPublishSuccessPushAttemptsExhausted" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="321" assertions="16" time="0.137763"/>
+      <testcase name="testPublishFailurePushAttemptsExhausted" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="369" assertions="16" time="0.115031"/>
+      <testcase name="testPublishFailureNoRepository" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="421" assertions="2" time="0.015095"/>
+      <testcase name="testPublishCloneFailure" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="427" assertions="1" time="0.021586"/>
+      <testcase name="testDryRun" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="445" assertions="13" time="0.075316"/>
+      <testcase name="testDryRunNoChanges" class="Icecave\Woodhouse\Publisher\GitHubPublisherTest" file="/home/travis/build/IcecaveStudios/woodhouse/test/suite/Icecave/Woodhouse/Publisher/GitHubPublisherTest.php" line="481" assertions="9" time="0.055112"/>
     </testsuite>
   </testsuite>
 </testsuites>
