@@ -1,17 +1,14 @@
-# ![Woodhouse]
+# Woodhouse
 
-[![Build Status]](http://travis-ci.org/IcecaveStudios/woodhouse)
-[![Test Coverage]](http://icecave.com.au/woodhouse/artifacts/tests/coverage)
-
----
+[![Build Status]](https://travis-ci.org/IcecaveStudios/woodhouse)
+[![Test Coverage]](https://coveralls.io/r/IcecaveStudios/woodhouse?branch=develop)
+[![SemVer]](http://semver.org)
 
 **Woodhouse** is a command line utility (and PHP library) for publishing build artifacts such as test reports and code coverage metrics to a GitHub pages repository.
 It was originally designed to run in a [Travis CI](http://travis-ci.org) build, but can be used in any environment.
 
-## Installation
-
-* [Download executable PHAR](http://icecave.com.au/woodhouse/woodhouse)
-* Available as [Composer](http://getcomposer.org) package [icecave/woodhouse](https://packagist.org/packages/icecave/woodhouse)
+* [Download executable PHAR](http://icecavestudios.github.io/woodhouse/woodhouse)
+* Install via [Composer](http://getcomposer.org) package [icecave/woodhouse](https://packagist.org/packages/icecave/woodhouse)
 
 ## Features
 
@@ -97,6 +94,6 @@ page, or using the `github:delete-auth` command.
 You will then need to create a new token as described above.
 
 <!-- references -->
-[Woodhouse]: http://icecave.com.au/assets/img/project-icons/icon-woodhouse.png
-[Build Status]: https://raw.github.com/IcecaveStudios/woodhouse/gh-pages/artifacts/images/icecave/regular/build-status.png
-[Test Coverage]: https://raw.github.com/IcecaveStudios/woodhouse/gh-pages/artifacts/images/icecave/regular/coverage.png
+[Build Status]: https://travis-ci.org/IcecaveStudios/woodhouse.png?branch=develop
+[Test Coverage]: https://coveralls.io/repos/IcecaveStudios/woodhouse/badge.png?branch=develop
+[SemVer]: http://calm-shore-6115.herokuapp.com/?label=semver&value=0.5.0&color=yellow

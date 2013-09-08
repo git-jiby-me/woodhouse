@@ -41,6 +41,26 @@ class CoverageImageSelector
         return sprintf('test-coverage-%03d.png', $percentage);
     }
 
+    /**
+     * @return string The filename of the "error" image.
+     */
+    public function errorImageFilename()
+    {
+        $this->typeCheck->errorImageFilename(func_get_args());
+
+        return 'test-coverage-error.png';
+    }
+
+    /**
+     * @return string The filename of the "unknown" image.
+     */
+    public function unknownImageFilename()
+    {
+        $this->typeCheck->unknownImageFilename(func_get_args());
+
+        return 'test-coverage-unknown.png';
+    }
+
     private $typeCheck;
     private $increments;
 }

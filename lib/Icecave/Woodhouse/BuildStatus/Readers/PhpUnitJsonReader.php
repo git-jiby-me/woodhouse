@@ -1,6 +1,9 @@
 <?php
 namespace Icecave\Woodhouse\BuildStatus\Readers;
 
+use Icecave\Collections\Vector;
+use Icecave\Duct\Exception\SyntaxExceptionInterface;
+use Icecave\Duct\Parser;
 use Icecave\Isolator\Isolator;
 use Icecave\Woodhouse\BuildStatus\BuildStatus;
 use Icecave\Woodhouse\BuildStatus\StatusReaderInterface;
@@ -11,13 +14,19 @@ class PhpUnitJsonReader implements StatusReaderInterface
 {
     /**
      * @param string        $reportPath
+     * @param Parser|null   $parser
      * @param Isolator|null $isolator
      */
-    public function __construct($reportPath, Isolator $isolator = null)
+    public function __construct($reportPath, Parser $parser = null, Isolator $isolator = null)
     {
         $this->typeCheck = TypeCheck::get(__CLASS__, func_get_args());
 
+        if (null === $parser) {
+            $parser = new Parser;
+        }
+
         $this->reportPath = $reportPath;
+        $this->parser = $parser;
         $this->isolator = Isolator::get($isolator);
     }
 
@@ -30,49 +39,39 @@ class PhpUnitJsonReader implements StatusReaderInterface
 
         $fp = $this->isolator->fopen($this->reportPath, 'r');
 
-        $buffer = '';
+        $this->parser->reset();
 
-        // THe PHPUnit JSON output is not actually valid JSON.
-        // It contains sequential JSON objects, so we read the
-        // file line by line looking for the termination of those
-        // objects before dispatching to a standard json_decode call.
-        while ($line = $this->isolator->fgets($fp)) {
+        try {
+            while (!$this->isolator->feof($fp)) {
+                $this->parser->feed(
+                    $this->isolator->fread($fp, 1024)
+                );
 
-            // The object ended ...
-            if ('}' === $line[0]) {
-                $buffer .= '}';
-
-                if ($buildStatus = $this->parse($buffer)) {
+                if ($buildStatus = $this->checkResults($this->parser->values())) {
                     return $buildStatus;
                 }
-
-                $buffer = substr($line, 1) ?: '';
-
-            // Midway through an object ...
-            } elseif (false !== $line) {
-                $buffer .= $line;
             }
-        }
-
-        // There was some un-ended object in the buffer ...
-        if ('' !== $buffer) {
-            throw new RuntimeException('Unable to parse PHPUnit test report.');
+            $this->parser->finalize();
+        } catch (SyntaxExceptionInterface $e) {
+            throw new RuntimeException('Unable to parse PHPUnit test report.', 0, $e);
         }
 
         return BuildStatus::PASSING();
     }
 
     /**
-     * @param string $buffer
+     * @param Vector $results
+     *
+     * @return BuildStatus|null
      */
-    protected function parse($buffer)
+    protected function checkResults(Vector $results)
     {
-        $this->typeCheck->parse(func_get_args());
+        $this->typeCheck->checkResults(func_get_args());
 
-        $object = json_decode($buffer);
-
-        if (isset($object->status) && $object->status !== "pass") {
-            return BuildStatus::FAILING();
+        foreach ($results as $result) {
+            if (isset($result->status) && $result->status !== "pass") {
+                return BuildStatus::FAILING();
+            }
         }
 
         return null;
@@ -80,5 +79,6 @@ class PhpUnitJsonReader implements StatusReaderInterface
 
     private $typeCheck;
     private $reportPath;
+    private $parser;
     private $isolator;
 }

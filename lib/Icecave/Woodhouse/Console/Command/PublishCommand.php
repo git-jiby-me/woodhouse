@@ -2,6 +2,7 @@
 namespace Icecave\Woodhouse\Console\Command;
 
 use Icecave\Isolator\Isolator;
+use Icecave\Woodhouse\BuildStatus\BuildStatus;
 use Icecave\Woodhouse\BuildStatus\StatusImageSelector;
 use Icecave\Woodhouse\BuildStatus\StatusReaderFactory;
 use Icecave\Woodhouse\Coverage\CoverageImageSelector;
@@ -104,6 +105,13 @@ class PublishCommand extends Command
             'gh-pages'
         );
 
+        $this->addOption(
+            'dry-run',
+            null,
+            InputOption::VALUE_NONE,
+            'Prepare for publication but do not make any changes.'
+        );
+
         // GitHub options ...
 
         $this->addOption(
@@ -126,7 +134,7 @@ class PublishCommand extends Command
             'build-status-image',
             's',
             InputOption::VALUE_REQUIRED,
-            'Publish a coverage badge to the given location (requires one of the other --coverage-* options).'
+            'Publish a coverage badge to the given location (requires one of the other --build-status-* options).'
         );
 
         $this->addOption(
@@ -288,11 +296,13 @@ class PublishCommand extends Command
 
         // Enqueue build status images for publication ...
         if ($statusImageTarget = $input->getOption('build-status-image')) {
-            if (null === $statusType) {
+            if (null !== $statusType) {
+                $status = $statusReader->readStatus();
+            } elseif ($input->getOption('no-interaction')) {
+                $status = BuildStatus::ERROR();
+            } else {
                 throw new RuntimeException('--build-status-image requires one of the other --build-status-* options.');
             }
-
-            $status = $statusReader->readStatus();
             $filename = $this->statusImageSelector->imageFilename($status);
             $this->enqueueImages($imageThemes, $statusImageTarget, 'build-status', $filename);
         } elseif ($statusType) {
@@ -301,12 +311,15 @@ class PublishCommand extends Command
 
         // Enqueue test coverage images for publication ...
         if ($coverageImageTarget = $input->getOption('coverage-image')) {
-            if (null === $coverageType) {
+            if (null !== $coverageType) {
+                $percentage = $coverageReader->readPercentage();
+                $filename = $this->coverageImageSelector->imageFilename($percentage);
+            } elseif ($input->getOption('no-interaction')) {
+                $filename = $this->coverageImageSelector->errorImageFilename();
+            } else {
                 throw new RuntimeException('--coverage-image requires one of the other --coverage-* options.');
             }
 
-            $percentage = $coverageReader->readPercentage();
-            $filename = $this->coverageImageSelector->imageFilename($percentage);
             $this->enqueueImages($imageThemes, $coverageImageTarget, 'test-coverage', $filename);
         } elseif ($coverageType) {
             throw new RuntimeException('--' . $coverageType . ' requires --coverage-image.');
@@ -354,10 +367,38 @@ class PublishCommand extends Command
         $this->publisher->setRepository($input->getArgument('repository'));
         $this->publisher->setBranch($input->getOption('branch'));
 
-        if ($this->publisher->publish()) {
-            $output->writeln('Content published successfully.');
+        if ($output->getVerbosity() === OutputInterface::VERBOSITY_VERBOSE) {
+            $output->writeln(
+                sprintf(
+                    'Publishing to <info>%s</info> at <info>%s</info>:',
+                    $input->getOption('branch'),
+                    $input->getArgument('repository')
+                )
+            );
+
+            foreach ($this->publisher->contentPaths() as $sourcePath => $targetPath) {
+                $output->writeln(
+                    sprintf(
+                        ' * <info>%s</info> -> <info>%s</info>',
+                        $sourcePath,
+                        $targetPath
+                    )
+                );
+            }
+        }
+
+        if ($input->getOption('dry-run')) {
+            if ($this->publisher->dryRun()) {
+                $output->writeln('Content prepared successfully (dry run).');
+            } else {
+                $output->writeln('No changes to publish (dry run).');
+            }
         } else {
-            $output->writeln('No changes to publish.');
+            if ($this->publisher->publish()) {
+                $output->writeln('Content published successfully.');
+            } else {
+                $output->writeln('No changes to publish.');
+            }
         }
     }
 

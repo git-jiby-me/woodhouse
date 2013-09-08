@@ -9,17 +9,9 @@ class PhpUnitJsonReaderTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->_isolator = Phake::partialMock('Icecave\Isolator\Isolator');
         $this->_path = '/path/to/report.json';
-        $this->_reader = new PhpUnitJsonReader($this->_path, $this->_isolator);
-
-        Phake::when($this->_isolator)
-            ->fgets(Phake::anyParameters())
-            ->thenCallParent();
-
-        Phake::when($this->_isolator)
-            ->fclose(Phake::anyParameters())
-            ->thenCallParent();
+        $this->_reader = new PhpUnitJsonReader($this->_path, null, $this->_isolator);
     }
 
     public function setupContentFixture($content)
@@ -93,7 +85,7 @@ EOD;
 }
 EOD;
 
-    $this->setupContentFixture($content);
+        $this->setupContentFixture($content);
 
         $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
     }

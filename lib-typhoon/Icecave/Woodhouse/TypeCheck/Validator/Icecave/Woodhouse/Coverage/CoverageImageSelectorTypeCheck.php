@@ -60,4 +60,18 @@ class CoverageImageSelectorTypeCheck extends \Icecave\Woodhouse\TypeCheck\Abstra
         }
     }
 
+    public function errorImageFilename(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        }
+    }
+
+    public function unknownImageFilename(array $arguments)
+    {
+        if (\count($arguments) > 0) {
+            throw new \Icecave\Woodhouse\TypeCheck\Exception\UnexpectedArgumentException(0, $arguments[0]);
+        }
+    }
+
 }
