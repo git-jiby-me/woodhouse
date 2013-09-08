@@ -105,16 +105,16 @@
         },
         {
             "name": "ezzatron/ci-status-images",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezzatron/ci-status-images.git",
-                "reference": "1dce912985c0222850b8c060c7ea62789a1b5949"
+                "reference": "9e0cec35d09a75c73732bac9352f342172a1e3cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezzatron/ci-status-images/zipball/1dce912985c0222850b8c060c7ea62789a1b5949",
-                "reference": "1dce912985c0222850b8c060c7ea62789a1b5949",
+                "url": "https://api.github.com/repos/ezzatron/ci-status-images/zipball/9e0cec35d09a75c73732bac9352f342172a1e3cc",
+                "reference": "9e0cec35d09a75c73732bac9352f342172a1e3cc",
                 "shasum": ""
             },
             "type": "library",
@@ -148,7 +148,7 @@
                 "status",
                 "travis"
             ],
-            "time": "2013-09-08 11:29:55"
+            "time": "2013-09-08 11:40:38"
         },
         {
             "name": "icecave/collections",
