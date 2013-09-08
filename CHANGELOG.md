@@ -1,5 +1,13 @@
 # Woodhouse Changelog
 
+### 0.5.0 (2013-09-08)
+
+* **[NEW]** Added `--dry-run` option to `publish` command
+* **[NEW]** Added `--verbose` option to `publish` command
+* **[IMPROVED]** The publish command will now publish "error" images when there is a minor usage failure and the `--no-interaction` option is enabled
+* **[IMPROVED]** Bundled status images [3.1.1](https://github.com/ezzatron/ci-status-images/releases/tag/3.1.1)
+* **[IMPROVED]** [Duct](https://github.com/IcecaveStudios/duct) is now used to parse PHPUnit JSON streams
+
 ### 0.4.3 (2013-04-30)
 
 * **[FIXED]** Added User-Agent header to GitHub API client [as required](http://developer.github.com/changes/2013-04-24-user-agent-required)
