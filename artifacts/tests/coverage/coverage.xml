@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1375357205">
-  <project timestamp="1375357205">
+<coverage generated="1378640661">
+  <project timestamp="1378640661">
     <package name="Icecave\Woodhouse\BuildStatus">
       <file name="/home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/BuildStatus/BuildStatus.php">
         <class name="BuildStatus" namespace="Icecave\Woodhouse\BuildStatus">
@@ -91,7 +91,7 @@
       </file>
       <file name="/home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/BuildStatus/Readers/PhpUnitJsonReader.php">
         <class name="PhpUnitJsonReader" namespace="Icecave\Woodhouse\BuildStatus\Readers">
-          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="32" coveredelements="32"/>
+          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="28" elements="31" coveredelements="31"/>
         </class>
         <line num="0" type="stmt" count="0"/>
         <line num="20" type="method" name="__construct" crap="2" count="4"/>
@@ -118,7 +118,6 @@
         <line num="55" type="stmt" count="2"/>
         <line num="56" type="stmt" count="1"/>
         <line num="59" type="stmt" count="1"/>
-        <line num="60" type="stmt" count="3"/>
         <line num="67" type="method" name="checkResults" crap="4" count="3"/>
         <line num="69" type="stmt" count="3"/>
         <line num="71" type="stmt" count="3"/>
@@ -127,7 +126,7 @@
         <line num="75" type="stmt" count="1"/>
         <line num="77" type="stmt" count="1"/>
         <line num="85" type="stmt" count="0"/>
-        <metrics loc="84" ncloc="71" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="32" coveredelements="32"/>
+        <metrics loc="84" ncloc="71" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="28" elements="31" coveredelements="31"/>
       </file>
       <file name="/home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/BuildStatus/Readers/TapReader.php">
         <class name="TapReader" namespace="Icecave\Woodhouse\BuildStatus\Readers">
@@ -1247,6 +1246,6 @@
       <line num="36" type="stmt" count="0"/>
       <metrics loc="35" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="26" loc="2575" ncloc="2065" classes="23" methods="117" coveredmethods="117" conditionals="0" coveredconditionals="0" statements="931" coveredstatements="931" elements="1048" coveredelements="1048"/>
+    <metrics files="26" loc="2575" ncloc="2065" classes="23" methods="117" coveredmethods="117" conditionals="0" coveredconditionals="0" statements="930" coveredstatements="930" elements="1047" coveredelements="1047"/>
   </project>
 </coverage>
