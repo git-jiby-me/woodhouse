@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1378640661">
-  <project timestamp="1378640661">
+<coverage generated="1378640775">
+  <project timestamp="1378640775">
     <package name="Icecave\Woodhouse\BuildStatus">
       <file name="/home/travis/build/IcecaveStudios/woodhouse/lib/Icecave/Woodhouse/BuildStatus/BuildStatus.php">
         <class name="BuildStatus" namespace="Icecave\Woodhouse\BuildStatus">
