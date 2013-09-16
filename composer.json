@@ -29,8 +29,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Icecave\\Woodhouse": "lib",
-            "Icecave\\Woodhouse\\TypeCheck": "lib-typhoon"
+            "Icecave\\Woodhouse": "src",
+            "Icecave\\Woodhouse\\TypeCheck": "src-typhoon"
         }
     },
     "bin": [
@@ -38,7 +38,7 @@
     ],
     "extra": {
         "typhoon": {
-            "output-path": "lib-typhoon",
+            "output-path": "src-typhoon",
             "validator-namespace": "Icecave\\Woodhouse\\TypeCheck",
             "use-native-callable": false
         }

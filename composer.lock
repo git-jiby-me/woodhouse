@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a0e9df9b37144a065f080c6644cc97bf",
+    "hash": "28db9966b0563e707e1c0fb9fb0d4847",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/asplode.git",
-                "reference": "1.1.1"
+                "reference": "34591a5919625bc49f86ac4b7a473593c2b8e95e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/asplode/zipball/1.1.1",
-                "reference": "1.1.1",
+                "url": "https://api.github.com/repos/eloquent/asplode/zipball/34591a5919625bc49f86ac4b7a473593c2b8e95e",
+                "reference": "34591a5919625bc49f86ac4b7a473593c2b8e95e",
                 "shasum": ""
             },
             "require": {
@@ -62,19 +62,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/enumeration.git",
-                "reference": "3.0.2"
+                "reference": "ee87a3062d71a00cb61167f2d59dd479a129caf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/enumeration/zipball/3.0.2",
-                "reference": "3.0.2",
+                "url": "https://api.github.com/repos/eloquent/enumeration/zipball/ee87a3062d71a00cb61167f2d59dd479a129caf6",
+                "reference": "ee87a3062d71a00cb61167f2d59dd479a129caf6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "icecave/archer": ">=0.2,<1.0"
+                "icecave/archer": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -271,19 +271,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/isolator.git",
-                "reference": "2.2.0"
+                "reference": "2f3fbfcee90790fb3ddde9d4288a2a927cdf6dd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/isolator/zipball/2.2.0",
-                "reference": "2.2.0",
+                "url": "https://api.github.com/repos/IcecaveStudios/isolator/zipball/2f3fbfcee90790fb3ddde9d4288a2a927cdf6dd6",
+                "reference": "2f3fbfcee90790fb3ddde9d4288a2a927cdf6dd6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
             "require-dev": {
-                "icecave/archer": ">=0.4,<1.0"
+                "icecave/archer": "~0.4"
             },
             "type": "library",
             "autoload": {
@@ -381,12 +381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/repr.git",
-                "reference": "1.0.0"
+                "reference": "9a78b2b12dbb6fbf46d995f7255ee1f1118bfd8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/IcecaveStudios/repr/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/IcecaveStudios/repr/zipball/9a78b2b12dbb6fbf46d995f7255ee1f1118bfd8b",
+                "reference": "9a78b2b12dbb6fbf46d995f7255ee1f1118bfd8b",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,8 @@
             "authors": [
                 {
                     "name": "James Harris",
-                    "email": "james.harris@icecave.com.au"
+                    "email": "james.harris@icecave.com.au",
+                    "homepage": "https://github.com/jmalloc"
                 }
             ],
             "description": "Human readable string representations of everything.",
@@ -674,12 +675,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/blox.git",
-                "reference": "1.2.0"
+                "reference": "d3e51e6fc6fb1e722f17418eeb19ba674b267cf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/eloquent/blox/zipball/1.2.0",
-                "reference": "1.2.0",
+                "url": "https://api.github.com/repos/eloquent/blox/zipball/d3e51e6fc6fb1e722f17418eeb19ba674b267cf1",
+                "reference": "d3e51e6fc6fb1e722f17418eeb19ba674b267cf1",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +719,7 @@
                 "phpdoc",
                 "tag"
             ],
-            "time": "2012-08-04 23:40:35"
+            "time": "2012-08-05 06:40:35"
         },
         {
             "name": "eloquent/cosmos",
@@ -726,21 +727,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/cosmos.git",
-                "reference": "2.3.1"
+                "reference": "0226b7aa39c629cdbb41bde759adff59d932d16d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/cosmos/zipball/2.3.1",
-                "reference": "2.3.1",
+                "url": "https://api.github.com/repos/eloquent/cosmos/zipball/0226b7aa39c629cdbb41bde759adff59d932d16d",
+                "reference": "0226b7aa39c629cdbb41bde759adff59d932d16d",
                 "shasum": ""
             },
             "require": {
-                "eloquent/equality": ">=2.0,<3.0",
-                "icecave/isolator": ">=2.0,<3.0",
+                "eloquent/equality": "~2",
+                "icecave/isolator": "~2",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "icecave/archer": ">=0.2,<1.0"
+                "icecave/archer": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -778,19 +779,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/equality.git",
-                "reference": "2.1.1"
+                "reference": "83ee596b89786d320470e0ac825df8d0e20d906f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/equality/zipball/2.1.1",
-                "reference": "2.1.1",
+                "url": "https://api.github.com/repos/eloquent/equality/zipball/83ee596b89786d320470e0ac825df8d0e20d906f",
+                "reference": "83ee596b89786d320470e0ac825df8d0e20d906f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "icecave/archer": ">=0.2,<1.0"
+                "icecave/archer": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -826,20 +827,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/liberator.git",
-                "reference": "1.1.1"
+                "reference": "a85435066850ab47acc61296c5d20732ff4c9655"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/liberator/zipball/1.1.1",
-                "reference": "1.1.1",
+                "url": "https://api.github.com/repos/eloquent/liberator/zipball/a85435066850ab47acc61296c5d20732ff4c9655",
+                "reference": "a85435066850ab47acc61296c5d20732ff4c9655",
                 "shasum": ""
             },
             "require": {
-                "eloquent/pops": ">=3.0,<4.0",
+                "eloquent/pops": "~3",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "icecave/archer": ">=0.2,<1.0"
+                "icecave/archer": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -877,19 +878,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/pops.git",
-                "reference": "3.1.1"
+                "reference": "b14090a3478f544d1b3a3b9389cb03415cf4f37f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/pops/zipball/3.1.1",
-                "reference": "3.1.1",
+                "url": "https://api.github.com/repos/eloquent/pops/zipball/b14090a3478f544d1b3a3b9389cb03415cf4f37f",
+                "reference": "b14090a3478f544d1b3a3b9389cb03415cf4f37f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "icecave/archer": ">=0.2,<1.0"
+                "icecave/archer": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -923,21 +924,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/typhax.git",
-                "reference": "0.9.1"
+                "reference": "5ef82d0c72ad9a0bd1a3c3e624f67dc8c6c870ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/typhax/zipball/0.9.1",
-                "reference": "0.9.1",
+                "url": "https://api.github.com/repos/eloquent/typhax/zipball/5ef82d0c72ad9a0bd1a3c3e624f67dc8c6c870ef",
+                "reference": "5ef82d0c72ad9a0bd1a3c3e624f67dc8c6c870ef",
                 "shasum": ""
             },
             "require": {
-                "eloquent/cosmos": ">=2.0,<3.0",
+                "eloquent/cosmos": "~2",
                 "ext-mbstring": "*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "icecave/archer": ">=0.2,<1.0"
+                "icecave/archer": "~0.2"
             },
             "type": "library",
             "autoload": {
@@ -975,31 +976,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/typhoon.git",
-                "reference": "0.9.0"
+                "reference": "12c32df4138229d8add4211da4adfc611e3b1f54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/typhoon/zipball/0.9.0",
-                "reference": "0.9.0",
+                "url": "https://api.github.com/repos/eloquent/typhoon/zipball/12c32df4138229d8add4211da4adfc611e3b1f54",
+                "reference": "12c32df4138229d8add4211da4adfc611e3b1f54",
                 "shasum": ""
             },
             "require": {
-                "eloquent/asplode": ">=1.0,<2.0",
-                "eloquent/blox": ">=1.0,<2.0",
-                "eloquent/cosmos": ">=2.0,<3.0",
-                "eloquent/enumeration": ">=3.0,<4.0",
-                "eloquent/typhax": ">=0.9,<1.0",
-                "icecave/isolator": ">=2.0,<3.0",
-                "icecave/pasta-ast": ">=0.1,<1.0",
-                "icecave/rasta": ">=0.1,<1.0",
+                "eloquent/asplode": "~1",
+                "eloquent/blox": "~1",
+                "eloquent/cosmos": "~2",
+                "eloquent/enumeration": "~3",
+                "eloquent/typhax": "~0.9",
+                "icecave/isolator": "~2",
+                "icecave/pasta-ast": "~0.1",
+                "icecave/rasta": "~0.1",
                 "php": ">=5.3.0",
-                "symfony/console": ">=2.0,<3.0",
-                "symfony/filesystem": ">=2.0,<3.0"
+                "symfony/console": "~2",
+                "symfony/filesystem": "~2"
             },
             "require-dev": {
-                "eloquent/liberator": ">=1.0,<2.0",
-                "ezzatron/phpunit-extensions": ">=1.0,<2.0",
-                "icecave/archer": ">=0.1,<1.0"
+                "eloquent/liberator": "~1",
+                "ezzatron/phpunit-extensions": "~1",
+                "icecave/archer": "~0.1"
             },
             "bin": [
                 "bin/typhoon"
@@ -1203,12 +1204,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/pasta-ast.git",
-                "reference": "0.1.0"
+                "reference": "e60498ac26189a50990b190d34a61b3677a14a69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/IcecaveStudios/pasta-ast/archive/0.1.0.zip",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/IcecaveStudios/pasta-ast/zipball/e60498ac26189a50990b190d34a61b3677a14a69",
+                "reference": "e60498ac26189a50990b190d34a61b3677a14a69",
                 "shasum": ""
             },
             "require": {
@@ -1231,7 +1232,8 @@
             "authors": [
                 {
                     "name": "James Harris",
-                    "email": "james.harris@icecave.com.au"
+                    "email": "james.harris@icecave.com.au",
+                    "homepage": "https://github.com/jmalloc"
                 }
             ],
             "description": "PHP AST implementation.",
@@ -1251,12 +1253,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/rasta.git",
-                "reference": "0.1.4"
+                "reference": "aa384531bcab779af0fc25552287866b470ece00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/IcecaveStudios/rasta/archive/0.1.4.zip",
-                "reference": "0.1.4",
+                "url": "https://api.github.com/repos/IcecaveStudios/rasta/zipball/aa384531bcab779af0fc25552287866b470ece00",
+                "reference": "aa384531bcab779af0fc25552287866b470ece00",
                 "shasum": ""
             },
             "require": {
@@ -1280,7 +1282,8 @@
             "authors": [
                 {
                     "name": "James Harris",
-                    "email": "james.harris@icecave.com.au"
+                    "email": "james.harris@icecave.com.au",
+                    "homepage": "https://github.com/jmalloc"
                 }
             ],
             "description": "PHP code generation library.",
@@ -1340,13 +1343,13 @@
             "version": "v1.0.3",
             "source": {
                 "type": "git",
-                "url": "git://github.com/mlively/Phake.git",
-                "reference": "v1.0.3"
+                "url": "https://github.com/mlively/Phake.git",
+                "reference": "4d822246b401f4dc609500d47e42dac8df645f4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/mlively/Phake/zipball/v1.0.3",
-                "reference": "v1.0.3",
+                "url": "https://api.github.com/repos/mlively/Phake/zipball/4d822246b401f4dc609500d47e42dac8df645f4f",
+                "reference": "4d822246b401f4dc609500d47e42dac8df645f4f",
                 "shasum": ""
             },
             "require": {
@@ -1377,7 +1380,7 @@
                 "mock",
                 "testing"
             ],
-            "time": "2012-05-14 08:06:51"
+            "time": "2012-05-14 15:06:51"
         },
         {
             "name": "pimple/pimple",
@@ -1385,12 +1388,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Pimple.git",
-                "reference": "v1.0.2"
+                "reference": "ae11e57e8c2bb414b2ff93396dbbfc0eb92feb94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/v1.0.2",
-                "reference": "v1.0.2",
+                "url": "https://api.github.com/repos/fabpot/Pimple/zipball/ae11e57e8c2bb414b2ff93396dbbfc0eb92feb94",
+                "reference": "ae11e57e8c2bb414b2ff93396dbbfc0eb92feb94",
                 "shasum": ""
             },
             "require": {
@@ -1430,13 +1433,13 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-fig/log",
-                "reference": "1.0.0"
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/php-fig/log/archive/1.0.0.zip",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
@@ -1526,12 +1529,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/satooshi/php-coveralls.git",
-                "reference": "v0.6.1"
+                "reference": "dd0df95bd37a7cf5c5c50304dfe260ffe4b50760"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/satooshi/php-coveralls/zipball/v0.6.1",
-                "reference": "v0.6.1",
+                "url": "https://api.github.com/repos/satooshi/php-coveralls/zipball/dd0df95bd37a7cf5c5c50304dfe260ffe4b50760",
+                "reference": "dd0df95bd37a7cf5c5c50304dfe260ffe4b50760",
                 "shasum": ""
             },
             "require": {

@@ -52,7 +52,7 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
         for ($i = 0; $i < 5; $i ++) {
             $expectedCaCertificatePath = dirname($expectedCaCertificatePath);
         }
-        $expectedCaCertificatePath .= '/lib/Icecave/Woodhouse/GitHub/../../../../res/cacert/cacert.pem';
+        $expectedCaCertificatePath .= '/src/Icecave/Woodhouse/GitHub/../../../../res/cacert/cacert.pem';
 
         $this->assertSame($expectedCaCertificatePath, $this->_factory->caCertificatePath());
     }

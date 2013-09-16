@@ -44,7 +44,7 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
         for ($i = 0; $i < 6; $i ++) {
             $expectedHiddenInputPath = dirname($expectedHiddenInputPath);
         }
-        $expectedHiddenInputPath .= '/lib/Icecave/Woodhouse/Console/Helper/../../../../../res/bin/hiddeninput.exe';
+        $expectedHiddenInputPath .= '/src/Icecave/Woodhouse/Console/Helper/../../../../../res/bin/hiddeninput.exe';
 
         $this->assertSame($expectedHiddenInputPath, $this->_helper->hiddenInputPath());
     }
