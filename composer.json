@@ -15,17 +15,17 @@
         "eloquent/asplode": "~1",
         "eloquent/enumeration": "~3",
         "ezzatron/ci-status-images": "~3",
-        "icecave/duct": "0.1.*",
+        "icecave/duct": "~0.1.0",
         "icecave/isolator": "~2",
-        "kriswallsmith/buzz": "0.8.*",
+        "kriswallsmith/buzz": "~0.8.0",
         "symfony/console": "~2",
         "symfony/filesystem": "~2",
         "symfony/process": "~2"
     },
     "require-dev": {
         "eloquent/liberator": "~1",
-        "eloquent/typhoon": "0.9.*",
-        "icecave/archer": "1.0.0-alpha.2"
+        "eloquent/typhoon": "~0.9.0",
+        "icecave/archer": "~1"
     },
     "autoload": {
         "psr-0": {
