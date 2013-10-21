@@ -9,9 +9,9 @@ class TapReaderTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
-        $this->_path = '/path/to/report.tap';
-        $this->_reader = new TapReader($this->_path, $this->_isolator);
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->path = '/path/to/report.tap';
+        $this->reader = new TapReader($this->path, $this->isolator);
     }
 
     public function testReadStatus()
@@ -24,11 +24,11 @@ ok 3 - Icecave\Woodhouse\Console\Command\GitHub\PublishCommandTest::testExecute
 1..3
 EOD;
 
-        Phake::when($this->_isolator)
-            ->file_get_contents($this->_path)
+        Phake::when($this->isolator)
+            ->file_get_contents($this->path)
             ->thenReturn($content);
 
-        $this->assertSame(BuildStatus::PASSING(), $this->_reader->readStatus());
+        $this->assertSame(BuildStatus::PASSING(), $this->reader->readStatus());
     }
 
     public function testReadStatusFailing()
@@ -41,20 +41,20 @@ ok 3 - Icecave\Woodhouse\Console\Command\GitHub\PublishCommandTest::testExecute
 1..3
 EOD;
 
-        Phake::when($this->_isolator)
-            ->file_get_contents($this->_path)
+        Phake::when($this->isolator)
+            ->file_get_contents($this->path)
             ->thenReturn($content);
 
-        $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
+        $this->assertSame(BuildStatus::FAILING(), $this->reader->readStatus());
     }
 
     public function testReadStatusFailure()
     {
-        Phake::when($this->_isolator)
-            ->file_get_contents($this->_path)
+        Phake::when($this->isolator)
+            ->file_get_contents($this->path)
             ->thenReturn('<invalid content>');
 
         $this->setExpectedException('RuntimeException', 'Unable to parse TAP test report.');
-        $this->_reader->readStatus();
+        $this->reader->readStatus();
     }
 }

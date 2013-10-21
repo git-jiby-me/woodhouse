@@ -7,7 +7,7 @@ class CoverageImageSelectorTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_selector = new CoverageImageSelector;
+        $this->selector = new CoverageImageSelector;
     }
 
     /**
@@ -15,24 +15,24 @@ class CoverageImageSelectorTest extends PHPUnit_Framework_TestCase
      */
     public function testRoundPercentage($percentage, $expected)
     {
-        $this->assertSame($expected, $this->_selector->roundPercentage($percentage));
+        $this->assertSame($expected, $this->selector->roundPercentage($percentage));
     }
 
     public function testImageFilename()
     {
-        $this->assertSame('test-coverage-000.png', $this->_selector->imageFilename(0.0));
-        $this->assertSame('test-coverage-070.png', $this->_selector->imageFilename(72.1));
-        $this->assertSame('test-coverage-100.png', $this->_selector->imageFilename(100.0));
+        $this->assertSame('test-coverage-000.png', $this->selector->imageFilename(0.0));
+        $this->assertSame('test-coverage-070.png', $this->selector->imageFilename(72.1));
+        $this->assertSame('test-coverage-100.png', $this->selector->imageFilename(100.0));
     }
 
     public function testErrorImageFilename()
     {
-        $this->assertSame('test-coverage-error.png', $this->_selector->errorImageFilename());
+        $this->assertSame('test-coverage-error.png', $this->selector->errorImageFilename());
     }
 
     public function testUnknownImageFilename()
     {
-        $this->assertSame('test-coverage-unknown.png', $this->_selector->unknownImageFilename());
+        $this->assertSame('test-coverage-unknown.png', $this->selector->unknownImageFilename());
     }
 
     public function getPercentages()

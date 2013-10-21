@@ -10,15 +10,15 @@ class JUnitReaderTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
-        $this->_path = '/path/to/report.xml';
-        $this->_reader = new JUnitReader($this->_path, $this->_isolator);
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->path = '/path/to/report.xml';
+        $this->reader = new JUnitReader($this->path, $this->isolator);
     }
 
     public function setupContentFixture($content)
     {
-        Phake::when($this->_isolator)
-            ->simplexml_load_file($this->_path)
+        Phake::when($this->isolator)
+            ->simplexml_load_file($this->path)
             ->thenReturn(simplexml_load_string($content));
     }
 
@@ -36,7 +36,7 @@ class JUnitReaderTest extends PHPUnit_Framework_TestCase
 EOD;
         $this->setupContentFixture($content);
 
-        $this->assertSame(BuildStatus::PASSING(), $this->_reader->readStatus());
+        $this->assertSame(BuildStatus::PASSING(), $this->reader->readStatus());
     }
 
     public function testReadStatusError()
@@ -54,7 +54,7 @@ EOD;
 
         $this->setupContentFixture($content);
 
-        $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
+        $this->assertSame(BuildStatus::FAILING(), $this->reader->readStatus());
     }
 
     public function testReadStatusFail()
@@ -72,16 +72,16 @@ EOD;
 
         $this->setupContentFixture($content);
 
-        $this->assertSame(BuildStatus::FAILING(), $this->_reader->readStatus());
+        $this->assertSame(BuildStatus::FAILING(), $this->reader->readStatus());
     }
 
     public function testReadStatusFailure()
     {
-        Phake::when($this->_isolator)
-            ->simplexml_load_file($this->_path)
+        Phake::when($this->isolator)
+            ->simplexml_load_file($this->path)
             ->thenThrow(new Exception);
 
         $this->setExpectedException('RuntimeException', 'Unable to parse JUnit test report.');
-        $this->_reader->readStatus();
+        $this->reader->readStatus();
     }
 }

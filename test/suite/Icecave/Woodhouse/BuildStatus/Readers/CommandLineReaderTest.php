@@ -8,11 +8,11 @@ class CommandLineReaderTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_reader = new CommandLineReader('passing');
+        $this->reader = new CommandLineReader('passing');
     }
 
     public function testReadPercentage()
     {
-        $this->assertSame(BuildStatus::PASSING(), $this->_reader->readStatus());
+        $this->assertSame(BuildStatus::PASSING(), $this->reader->readStatus());
     }
 }
