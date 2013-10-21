@@ -1,5 +1,5 @@
 var tree = [["Icecave",,"",
-                [["Woodhouse",,"",
+                [["Woodhouse","Icecave\/Woodhouse.html","",
                 [["BuildStatus","Icecave\/Woodhouse\/BuildStatus.html","",
                 [["Readers","Icecave\/Woodhouse\/BuildStatus\/Readers.html","",
                 [["CommandLineReader","Icecave\/Woodhouse\/BuildStatus\/Readers\/CommandLineReader.html","",
@@ -37,5 +37,6 @@ var tree = [["Icecave",,"",
                 [["AbstractPublisher","Icecave\/Woodhouse\/Publisher\/AbstractPublisher.html","",
                 [        ]],["GitHubPublisher","Icecave\/Woodhouse\/Publisher\/GitHubPublisher.html"," < AbstractPublisher",
                 [        ]],["PublisherInterface","Icecave\/Woodhouse\/Publisher\/PublisherInterface.html","",
-                [        ]]        ]]        ]]        ]]        ]
+                [        ]]        ]],["PackageInfo","Icecave\/Woodhouse\/PackageInfo.html","",
+                [        ]]        ]]        ]]        ]
 
