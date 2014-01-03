@@ -87,7 +87,7 @@ class GitTest extends PHPUnit_Framework_TestCase
     {
         $process = $this->git->add('foo');
 
-        Phake::verify($this->process)->setCommandLine("/opt/local/bin/git 'add' 'foo'");
+        Phake::verify($this->process)->setCommandLine("/opt/local/bin/git 'add' '--force' 'foo'");
 
         $this->assertSame($this->process, $process);
     }
