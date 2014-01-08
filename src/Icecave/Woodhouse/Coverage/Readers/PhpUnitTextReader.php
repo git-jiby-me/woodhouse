@@ -8,7 +8,7 @@ use RuntimeException;
 
 class PhpUnitTextReader implements CoverageReaderInterface
 {
-    const PATTERN = '/^\s+Lines:\s+(\d{1,3}\.\d\d)/m';
+    const PATTERN = '{^\s+Lines:.+\((\d+)/(\d+)\)$}m';
 
     /**
      * @param string        $reportPath
@@ -33,7 +33,11 @@ class PhpUnitTextReader implements CoverageReaderInterface
 
         $matches = array();
         if (preg_match(self::PATTERN, $content, $matches)) {
-            return floatval($matches[1]);
+            if ($matches[1] === $matches[2]) {
+                return 100.00; // Handle 0/0
+            }
+
+            return round(100.00 * ($matches[1] / $matches[2]), 2);
         }
 
         throw new RuntimeException('Unable to parse PHPUnit coverage report.');

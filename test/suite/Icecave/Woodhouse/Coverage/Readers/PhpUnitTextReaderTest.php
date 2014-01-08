@@ -48,4 +48,21 @@ class PhpUnitTextReaderTest extends PHPUnit_Framework_TestCase
         $this->setExpectedException('RuntimeException', 'Unable to parse PHPUnit coverage report.');
         $this->reader->readPercentage();
     }
+
+    public function testWithZeroExecutableLines()
+    {
+        $content = 'Code Coverage Report
+          2014-01-08 10:46:01
+
+         Summary:
+          Classes: 100.00% (1/1)
+          Methods:  (0/0)
+          Lines:    (0/0)';
+
+        Phake::when($this->isolator)
+            ->file_get_contents($this->path)
+            ->thenReturn($content);
+
+        $this->assertSame(100.00, $this->reader->readPercentage());
+    }
 }
