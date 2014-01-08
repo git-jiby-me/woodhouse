@@ -96,7 +96,7 @@ class Git
     {
         $this->typeCheck->add(func_get_args());
 
-        $arguments = array('add', $path);
+        $arguments = array('add', '--force', $path);
 
         return $this->execute($arguments);
     }

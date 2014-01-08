@@ -9,8 +9,8 @@ class CoverageReaderFactoryTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
-        $this->_factory = new CoverageReaderFactory($this->_isolator);
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->factory = new CoverageReaderFactory($this->isolator);
     }
 
     public function testSupportedTypes()
@@ -20,21 +20,21 @@ class CoverageReaderFactoryTest extends PHPUnit_Framework_TestCase
             'phpunit',
         );
 
-        $this->assertSame($expected, $this->_factory->supportedTypes());
+        $this->assertSame($expected, $this->factory->supportedTypes());
     }
 
     public function testCreatePhpUnit()
     {
-        $reader = $this->_factory->create('phpunit', '/path/to/report.txt');
+        $reader = $this->factory->create('phpunit', '/path/to/report.txt');
 
         $this->assertInstanceOf(__NAMESPACE__ . '\Readers\PhpUnitTextReader', $reader);
         $this->assertSame('/path/to/report.txt', Liberator::liberate($reader)->reportPath);
-        $this->assertSame($this->_isolator, Liberator::liberate($reader)->isolator);
+        $this->assertSame($this->isolator, Liberator::liberate($reader)->isolator);
     }
 
     public function testCreateCommandLine()
     {
-        $reader = $this->_factory->create('percentage', '23.5');
+        $reader = $this->factory->create('percentage', '23.5');
 
         $this->assertInstanceOf(__NAMESPACE__ . '\Readers\CommandLineReader', $reader);
         $this->assertSame(23.5, $reader->readPercentage());
@@ -43,6 +43,6 @@ class CoverageReaderFactoryTest extends PHPUnit_Framework_TestCase
     public function testCreateFailure()
     {
         $this->setExpectedException('InvalidArgumentException', 'Unknown reader type: "garbage".');
-        $this->_factory->create('garbage', '');
+        $this->factory->create('garbage', '');
     }
 }

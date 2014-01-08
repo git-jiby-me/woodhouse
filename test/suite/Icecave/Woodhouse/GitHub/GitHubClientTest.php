@@ -9,11 +9,11 @@ class GitHubClientTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        $this->_browser = Phake::mock('Buzz\Browser');
-        $this->_client = Phake::partialMock(
+        $this->browser = Phake::mock('Buzz\Browser');
+        $this->client = Phake::partialMock(
             __NAMESPACE__ . '\GitHubClient',
             'foo/',
-            $this->_browser
+            $this->browser
         );
     }
 
@@ -41,15 +41,15 @@ class GitHubClientTest extends PHPUnit_Framework_TestCase
 
     public function testConstruct()
     {
-        $this->assertSame('foo/', $this->_client->url());
-        $this->assertSame($this->_browser, $this->_client->browser());
+        $this->assertSame('foo/', $this->client->url());
+        $this->assertSame($this->browser, $this->client->browser());
     }
 
     public function testConstructDefaults()
     {
-        $this->_client = new GitHubClient;
+        $this->client = new GitHubClient;
 
-        $this->assertInstanceOf('Buzz\Browser', $this->_client->browser());
+        $this->assertInstanceOf('Buzz\Browser', $this->client->browser());
     }
 
     public function testAuthorizations()
@@ -68,14 +68,14 @@ EOD;
         $expected0->note = 'baz';
         $expected0->note_url = 'qux';
         $expected = array($expected0);
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->get(Phake::anyParameters())
             ->thenReturn($this->responseFixture($json))
         ;
-        $actual = $this->_client->authorizations();
+        $actual = $this->client->authorizations();
 
         $this->assertEquals($expected, $actual);
-        Phake::verify($this->_browser)
+        Phake::verify($this->browser)
             ->get('foo/authorizations')
         ;
     }
@@ -171,19 +171,19 @@ EOD;
      */
     public function testAuthorizationsMatching(array $authorizations, $namePattern, $urlPattern, array $expected)
     {
-        Phake::when($this->_client)
+        Phake::when($this->client)
             ->authorizations(Phake::anyParameters())
             ->thenReturn($authorizations)
         ;
-        $actual = $this->_client->authorizationsMatching($namePattern, $urlPattern);
+        $actual = $this->client->authorizationsMatching($namePattern, $urlPattern);
 
         $this->assertSame($expected, $actual);
-        Phake::verify($this->_client)->authorizations();
+        Phake::verify($this->client)->authorizations();
     }
 
     public function testAuthorizationsFailureInvalidJson()
     {
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->get(Phake::anyParameters())
             ->thenReturn($this->responseFixture('['))
         ;
@@ -192,12 +192,12 @@ EOD;
             'RuntimeException',
             'Unable to decode response from server.'
         );
-        $this->_client->authorizations();
+        $this->client->authorizations();
     }
 
     public function testAuthorizationsFailureHTTP()
     {
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->get(Phake::anyParameters())
             ->thenReturn($this->responseFixture('bar', false))
         ;
@@ -206,7 +206,7 @@ EOD;
             'RuntimeException',
             "Unable to get 'foo/authorizations'. Server returned 'bar'."
         );
-        $this->_client->authorizations();
+        $this->client->authorizations();
     }
 
     public function testCreateAuthorization()
@@ -225,14 +225,14 @@ EOD;
         $expected0->note = 'baz';
         $expected0->note_url = 'qux';
         $expected = array($expected0);
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->post(Phake::anyParameters())
             ->thenReturn($this->responseFixture($json))
         ;
-        $actual = $this->_client->createAuthorization();
+        $actual = $this->client->createAuthorization();
 
         $this->assertEquals($expected, $actual);
-        Phake::verify($this->_browser)
+        Phake::verify($this->browser)
             ->post(
                 'foo/authorizations',
                 array(),
@@ -257,18 +257,18 @@ EOD;
         $expected0->note = 'baz';
         $expected0->note_url = 'qux';
         $expected = array($expected0);
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->post(Phake::anyParameters())
             ->thenReturn($this->responseFixture($json))
         ;
-        $actual = $this->_client->createAuthorization(
+        $actual = $this->client->createAuthorization(
             array('doom', 'splat'),
             'ping',
             'pong'
         );
 
         $this->assertEquals($expected, $actual);
-        Phake::verify($this->_browser)
+        Phake::verify($this->browser)
             ->post(
                 'foo/authorizations',
                 array(),
@@ -279,7 +279,7 @@ EOD;
 
     public function testCreateAuthorizationFailureInvalidJson()
     {
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->post(Phake::anyParameters())
             ->thenReturn($this->responseFixture('{'))
         ;
@@ -288,12 +288,12 @@ EOD;
             'RuntimeException',
             'Unable to decode response from server.'
         );
-        $this->_client->createAuthorization();
+        $this->client->createAuthorization();
     }
 
     public function testCreateAuthorizationFailureHTTP()
     {
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->post(Phake::anyParameters())
             ->thenReturn($this->responseFixture('bar', false))
         ;
@@ -302,23 +302,23 @@ EOD;
             'RuntimeException',
             "Unable to post to 'foo/authorizations'. Server returned 'bar'."
         );
-        $this->_client->createAuthorization();
+        $this->client->createAuthorization();
     }
 
     public function testDeleteAuthorization()
     {
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->delete(Phake::anyParameters())
             ->thenReturn($this->responseFixture(''))
         ;
-        $this->_client->deleteAuthorization(111);
+        $this->client->deleteAuthorization(111);
 
-        Phake::verify($this->_browser)->delete('foo/authorizations/111');
+        Phake::verify($this->browser)->delete('foo/authorizations/111');
     }
 
     public function testDeleteAuthorizationFailureHTTP()
     {
-        Phake::when($this->_browser)
+        Phake::when($this->browser)
             ->delete(Phake::anyParameters())
             ->thenReturn($this->responseFixture('bar', false))
         ;
@@ -327,6 +327,6 @@ EOD;
             'RuntimeException',
             "Unable to delete 'foo/authorizations/111'. Server returned 'bar'."
         );
-        $this->_client->deleteAuthorization(111);
+        $this->client->deleteAuthorization(111);
     }
 }

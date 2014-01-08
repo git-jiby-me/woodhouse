@@ -15,64 +15,64 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Requires cURL extension.');
         }
 
-        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
-        $this->_factory = new GitHubClientFactory(
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->factory = new GitHubClientFactory(
             'baz',
-            $this->_isolator
+            $this->isolator
         );
 
-        Phake::when($this->_isolator)
+        Phake::when($this->isolator)
             ->sys_get_temp_dir(Phake::anyParameters())
             ->thenReturn('qux')
         ;
-        Phake::when($this->_isolator)
+        Phake::when($this->isolator)
             ->uniqid(Phake::anyParameters())
             ->thenReturn('doom')
         ;
 
-        $this->_expectedClient = new Curl;
-        $this->_expectedClient->setOption(CURLOPT_CAINFO, 'qux/cacert-doom.pem');
+        $this->expectedClient = new Curl;
+        $this->expectedClient->setOption(CURLOPT_CAINFO, 'qux/cacert-doom.pem');
     }
 
     public function testConstructor()
     {
-        $this->assertSame('baz', $this->_factory->caCertificatePath());
+        $this->assertSame('baz', $this->factory->caCertificatePath());
     }
 
     public function testSetUserAgent()
     {
-        $this->_factory->setUserAgent('test-agent');
-        $this->assertSame('test-agent', $this->_factory->userAgent());
+        $this->factory->setUserAgent('test-agent');
+        $this->assertSame('test-agent', $this->factory->userAgent());
     }
 
     public function testConstructorDefaults()
     {
-        $this->_factory = new GitHubClientFactory;
+        $this->factory = new GitHubClientFactory;
         $expectedCaCertificatePath = __DIR__;
         for ($i = 0; $i < 5; $i ++) {
             $expectedCaCertificatePath = dirname($expectedCaCertificatePath);
         }
-        $expectedCaCertificatePath .= '/lib/Icecave/Woodhouse/GitHub/../../../../res/cacert/cacert.pem';
+        $expectedCaCertificatePath .= '/src/Icecave/Woodhouse/GitHub/../../../../res/cacert/cacert.pem';
 
-        $this->assertSame($expectedCaCertificatePath, $this->_factory->caCertificatePath());
+        $this->assertSame($expectedCaCertificatePath, $this->factory->caCertificatePath());
     }
 
     public function testCreate()
     {
-        $actual = $this->_factory->create();
-        $expectedBrowser = new Browser($this->_expectedClient);
+        $actual = $this->factory->create();
+        $expectedBrowser = new Browser($this->expectedClient);
         $expected = new GitHubClient(null, $expectedBrowser);
 
         $this->assertEquals($expected, $actual);
-        Phake::verify($this->_isolator)->copy('baz', 'qux/cacert-doom.pem');
+        Phake::verify($this->isolator)->copy('baz', 'qux/cacert-doom.pem');
     }
 
     public function testCreateWithUserAgent()
     {
-        $this->_factory->setUserAgent('test-agent');
-        $this->_expectedClient->setOption(CURLOPT_USERAGENT, 'test-agent');
-        $actual = $this->_factory->create();
-        $expectedBrowser = new Browser($this->_expectedClient);
+        $this->factory->setUserAgent('test-agent');
+        $this->expectedClient->setOption(CURLOPT_USERAGENT, 'test-agent');
+        $actual = $this->factory->create();
+        $expectedBrowser = new Browser($this->expectedClient);
         $expected = new GitHubClient(null, $expectedBrowser);
 
         $this->assertEquals($expected, $actual);
@@ -80,8 +80,8 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
 
     public function testCreateWithCredentials()
     {
-        $actual = $this->_factory->create('foo', 'bar');
-        $expectedBrowser = new Browser($this->_expectedClient);
+        $actual = $this->factory->create('foo', 'bar');
+        $expectedBrowser = new Browser($this->expectedClient);
         $expectedBrowser->addListener(
             new BasicAuthListener('foo', 'bar')
         );

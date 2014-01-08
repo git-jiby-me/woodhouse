@@ -17,48 +17,49 @@ class DeleteAuthorizationCommandTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->_clientFactory = Phake::mock('Icecave\Woodhouse\GitHub\GitHubClientFactory');
-        $this->_client = Phake::mock('Icecave\Woodhouse\GitHub\GitHubClient');
-        $this->_command = Phake::partialMock(
+        $this->clientFactory = Phake::mock('Icecave\Woodhouse\GitHub\GitHubClientFactory');
+        $this->client = Phake::mock('Icecave\Woodhouse\GitHub\GitHubClient');
+        $this->command = Phake::partialMock(
             __NAMESPACE__ . '\DeleteAuthorizationCommand',
-            $this->_clientFactory
+            $this->clientFactory
         );
 
-        $this->_application = Phake::partialMock(
+        $this->application = Phake::partialMock(
             'Icecave\Woodhouse\Console\Application',
             '/path/to/vendors'
         );
-        $this->_command->setApplication($this->_application);
+        $this->command->setApplication($this->application);
 
-        $this->_helperSet = Phake::mock('Symfony\Component\Console\Helper\HelperSet');
-        $this->_dialogHelper = Phake::mock('Symfony\Component\Console\Helper\DialogHelper');
-        $this->_hiddenInputHelper = Phake::mock('Icecave\Woodhouse\Console\Helper\HiddenInputHelper');
-        Phake::when($this->_helperSet)
+        $this->helperSet = Phake::mock('Symfony\Component\Console\Helper\HelperSet');
+        $this->dialogHelper = Phake::mock('Symfony\Component\Console\Helper\DialogHelper');
+        $this->hiddenInputHelper = Phake::mock('Icecave\Woodhouse\Console\Helper\HiddenInputHelper');
+        Phake::when($this->helperSet)
             ->get('dialog')
-            ->thenReturn($this->_dialogHelper)
+            ->thenReturn($this->dialogHelper)
         ;
-        Phake::when($this->_helperSet)
+        Phake::when($this->helperSet)
             ->get('hidden-input')
-            ->thenReturn($this->_hiddenInputHelper)
+            ->thenReturn($this->hiddenInputHelper)
         ;
-        $this->_command->setHelperSet($this->_helperSet);
+        $this->command->setHelperSet($this->helperSet);
 
-        Phake::when($this->_clientFactory)
+        Phake::when($this->clientFactory)
             ->create(Phake::anyParameters())
-            ->thenReturn($this->_client)
+            ->thenReturn($this->client)
         ;
 
-        $this->_output = '';
-        $this->_outputInterface = Phake::mock('Symfony\Component\Console\Output\OutputInterface');
+        $this->output = '';
+        $this->outputInterface = Phake::mock('Symfony\Component\Console\Output\OutputInterface');
         $that = $this;
-        Phake::when($this->_outputInterface)
+        Phake::when($this->outputInterface)
             ->writeln(Phake::anyParameters())
-            ->thenGetReturnByLambda(function ($data) use ($that) {
-                $that->_output .= $data . "\n";
-            })
-        ;
+            ->thenGetReturnByLambda(
+                function ($data) use ($that) {
+                    $that->output .= $data . "\n";
+                }
+            );
 
-        $this->_expectedOutput = <<<'EOD'
+        $this->expectedOutput = <<<'EOD'
 Authorization deleted.
 
 EOD;
@@ -66,22 +67,22 @@ EOD;
 
     public function testConstructor()
     {
-        $this->assertSame($this->_clientFactory, $this->_command->clientFactory());
+        $this->assertSame($this->clientFactory, $this->command->clientFactory());
     }
 
     public function testConstructorDefaults()
     {
-        $this->_command = new DeleteAuthorizationCommand;
+        $this->command = new DeleteAuthorizationCommand;
 
         $this->assertInstanceOf(
             'Icecave\Woodhouse\GitHub\GitHubClientFactory',
-            $this->_command->clientFactory()
+            $this->command->clientFactory()
         );
     }
 
     public function testClientUserAgent()
     {
-        Phake::verify($this->_clientFactory)->setUserAgent($this->_application->getName() . '/' . $this->_application->getVersion());
+        Phake::verify($this->clientFactory)->setUserAgent($this->application->getName() . '/' . $this->application->getVersion());
     }
 
     public function testConfigure()
@@ -105,42 +106,42 @@ EOD;
             'The ID of the authorization to delete.'
         ));
 
-        $this->assertSame('github:delete-auth', $this->_command->getName());
-        $this->assertSame('Delete a GitHub authorization.', $this->_command->getDescription());
-        $this->assertEquals($expectedInputDefinition, $this->_command->getDefinition());
+        $this->assertSame('github:delete-auth', $this->command->getName());
+        $this->assertSame('Delete a GitHub authorization.', $this->command->getDescription());
+        $this->assertEquals($expectedInputDefinition, $this->command->getDefinition());
     }
 
     public function testExecute()
     {
         $input = new StringInput('github:delete-auth 111 --username ping --password pong');
-        $exitCode = $this->_command->run($input, $this->_outputInterface);
+        $exitCode = $this->command->run($input, $this->outputInterface);
 
         $this->assertSame(0, $exitCode);
-        $this->assertSame($this->_expectedOutput, $this->_output);
+        $this->assertSame($this->expectedOutput, $this->output);
         Phake::inOrder(
-            Phake::verify($this->_clientFactory)->create('ping', 'pong'),
-            Phake::verify($this->_client)->deleteAuthorization(111)
+            Phake::verify($this->clientFactory)->create('ping', 'pong'),
+            Phake::verify($this->client)->deleteAuthorization(111)
         );
     }
 
     public function testExecuteInteractiveCredentials()
     {
-        Phake::when($this->_dialogHelper)
+        Phake::when($this->dialogHelper)
             ->ask(Phake::anyParameters())
             ->thenReturn('ping')
         ;
-        Phake::when($this->_hiddenInputHelper)
+        Phake::when($this->hiddenInputHelper)
             ->askHiddenResponse(Phake::anyParameters())
             ->thenReturn('pong')
         ;
         $input = new StringInput('github:delete-auth 111');
-        $exitCode = $this->_command->run($input, $this->_outputInterface);
+        $exitCode = $this->command->run($input, $this->outputInterface);
 
         $this->assertSame(0, $exitCode);
-        $this->assertSame($this->_expectedOutput, $this->_output);
+        $this->assertSame($this->expectedOutput, $this->output);
         Phake::inOrder(
-            Phake::verify($this->_clientFactory)->create('ping', 'pong'),
-            Phake::verify($this->_client)->deleteAuthorization(111)
+            Phake::verify($this->clientFactory)->create('ping', 'pong'),
+            Phake::verify($this->client)->deleteAuthorization(111)
         );
     }
 }
