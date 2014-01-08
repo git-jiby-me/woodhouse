@@ -1,5 +1,10 @@
 # Woodhouse Changelog
 
+### 0.5.1 (2014-01-08)
+
+* **[FIXED]** Parsing coverage reports for codebases with zero executable lines no longer produces an error
+* **[FIXED]** Explicitly publishing content that is in `.gitignore` no longer produces an error
+
 ### 0.5.0 (2013-09-08)
 
 * **[NEW]** Added `--dry-run` option to `publish` command
