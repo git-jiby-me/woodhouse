@@ -1,6 +1,7 @@
 <?php
 namespace Icecave\Woodhouse\Console;
 
+use Icecave\Woodhouse\PackageInfo;
 use Icecave\Woodhouse\TypeCheck\TypeCheck;
 use Symfony\Component\Console\Application as SymfonyApplication;
 
@@ -15,7 +16,7 @@ class Application extends SymfonyApplication
 
         $this->vendorPath = $vendorPath;
 
-        parent::__construct('Woodhouse', '0.5.0');
+        parent::__construct(PackageInfo::NAME, PackageInfo::VERSION);
 
         $this->getHelperSet()->set(new Helper\HiddenInputHelper);
         $this->add(new Command\GitHub\CreateAuthorizationCommand);

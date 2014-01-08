@@ -4,5 +4,5 @@ namespace Icecave\Woodhouse;
 class PackageInfo
 {
     const NAME = 'Woodhouse';
-    const VERSION = '0.5.0';
+    const VERSION = '0.5.1';
 }
