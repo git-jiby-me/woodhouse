@@ -29,19 +29,11 @@
         "icecave/archer": "~1"
     },
     "autoload": {
-        "psr-0": {
-            "Icecave\\Woodhouse": "src",
-            "Icecave\\Woodhouse\\TypeCheck": "src-typhoon"
+        "psr-4": {
+            "Icecave\\Woodhouse\\": "src"
         }
     },
     "bin": [
         "bin/woodhouse"
-    ],
-    "extra": {
-        "typhoon": {
-            "output-path": "src-typhoon",
-            "validator-namespace": "Icecave\\Woodhouse\\TypeCheck",
-            "use-native-callable": false
-        }
-    }
+    ]
 }
