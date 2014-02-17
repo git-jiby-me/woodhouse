@@ -1,5 +1,10 @@
 # Woodhouse Changelog
 
+### 0.5.2 (2014-02-17)
+
+* **[FIXED]** Publishing to GitHub no longer produces errors regarding repository clone depth.
+* **[IMPROVED]** Updated autoloader to [PSR-4](http://www.php-fig.org/psr/psr-4/)
+
 ### 0.5.1 (2014-01-08)
 
 * **[FIXED]** Parsing coverage reports for codebases with zero executable lines no longer produces an error
