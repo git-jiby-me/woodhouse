@@ -259,7 +259,7 @@ class GitHubPublisher extends AbstractPublisher
          $this->typeCheck->cloneRepo(func_get_args());
 
          try {
-             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 0);
+             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 1);
              foreach ($this->contentPaths() as $sourcePath => $targetPath) {
                  $this->git->remove($targetPath);
              }
@@ -268,7 +268,7 @@ class GitHubPublisher extends AbstractPublisher
                  throw $e;
              }
 
-             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), null, 0);
+             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), null, 1);
              $this->git->checkout($this->branch(), true);
              $this->git->remove('.');
          }

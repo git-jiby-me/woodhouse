@@ -174,7 +174,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('foo-dest'),
             Phake::verify($this->git)->remove('bar-dest'),
@@ -216,7 +216,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('foo-dest'),
             Phake::verify($this->isolator)->chdir('/tmp/woodhouse-10101'),
@@ -246,7 +246,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('parent/foo-dest'),
             Phake::verify($this->isolator)->chdir('/tmp/woodhouse-10101'),
@@ -291,13 +291,13 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->cloneRepo(
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 null,
-                0
+                1
             ),
             Phake::verify($this->git)->checkout('test-branch', true),
             Phake::verify($this->git)->remove('.'),
@@ -344,7 +344,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('foo-dest'),
             Phake::verify($this->git)->remove('bar-dest'),
@@ -396,7 +396,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('foo-dest'),
             Phake::verify($this->git)->remove('bar-dest'),
@@ -459,7 +459,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('foo-dest'),
             Phake::verify($this->git)->remove('bar-dest'),
@@ -498,7 +498,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
                 '/tmp/woodhouse-10101',
                 'https://0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33:x-oauth-basic@github.com/foo/bar.git',
                 'test-branch',
-                0
+                1
             ),
             Phake::verify($this->git)->remove('foo-dest'),
             Phake::verify($this->isolator)->chdir('/tmp/woodhouse-10101'),
