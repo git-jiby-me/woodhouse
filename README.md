@@ -97,6 +97,6 @@ page, or using the `github:delete-auth` command.
 You will then need to create a new token as described above.
 
 <!-- references -->
-[Build Status]: https://travis-ci.org/IcecaveStudios/woodhouse.png?branch=develop
-[Test Coverage]: https://coveralls.io/repos/IcecaveStudios/woodhouse/badge.png?branch=develop
-[SemVer]: http://calm-shore-6115.herokuapp.com/?label=semver&value=0.5.1&color=yellow
+[Build Status]: http://img.shields.io/travis/IcecaveStudios/woodhouse/develop.svg
+[Test Coverage]: http://img.shields.io/coveralls/IcecaveStudios/woodhouse/develop.svg
+[SemVer]: http://img.shields.io/:semver-0.5.2-yellow.svg
