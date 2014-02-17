@@ -1,7 +1,6 @@
 <?php
 namespace Icecave\Woodhouse\BuildStatus\Readers;
 
-use Icecave\Collections\Vector;
 use Icecave\Duct\Exception\SyntaxExceptionInterface;
 use Icecave\Duct\Parser;
 use Icecave\Isolator\Isolator;
@@ -55,11 +54,11 @@ class PhpUnitJsonReader implements StatusReaderInterface
     }
 
     /**
-     * @param Vector $results
+     * @param array $results
      *
      * @return BuildStatus|null
      */
-    protected function checkResults(Vector $results)
+    protected function checkResults(array $results)
     {
         foreach ($results as $result) {
             if (isset($result->status) && $result->status !== "pass") {
