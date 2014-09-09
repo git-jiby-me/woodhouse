@@ -1,5 +1,9 @@
 # Woodhouse Changelog
 
+### 1.0.0 (2014-09-09)
+
+* No API changes
+
 ### 0.5.2 (2014-02-17)
 
 * **[FIXED]** Publishing to GitHub no longer produces errors regarding repository clone depth.
