@@ -1,7 +1,15 @@
 {
     "name": "icecave/woodhouse",
     "description": "Command line tools for automated publication to GitHub Pages.",
-    "keywords": ["publish", "github", "pages", "phpunit", "code", "coverage", "xdebug"],
+    "keywords": [
+        "publish",
+        "github",
+        "pages",
+        "phpunit",
+        "code",
+        "coverage",
+        "xdebug"
+    ],
     "homepage": "https://github.com/IcecaveStudios/woodhouse",
     "license": "MIT",
     "authors": [
@@ -34,5 +42,10 @@
     },
     "bin": [
         "bin/woodhouse"
-    ]
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
+    }
 }

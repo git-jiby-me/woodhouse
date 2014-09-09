@@ -99,4 +99,4 @@ You will then need to create a new token as described above.
 <!-- references -->
 [Build Status]: http://img.shields.io/travis/IcecaveStudios/woodhouse/develop.svg
 [Test Coverage]: http://img.shields.io/coveralls/IcecaveStudios/woodhouse/develop.svg
-[SemVer]: http://img.shields.io/:semver-0.5.2-yellow.svg
+[SemVer]: http://img.shields.io/:semver-1.0.0-green.svg
