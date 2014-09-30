@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d8ee39cd28cc19d105071143859ede7b",
+    "hash": "cbc48bccc70ec45473402179bdb5d016",
     "packages": [
         {
             "name": "eloquent/asplode",
@@ -193,16 +193,16 @@
         },
         {
             "name": "icecave/duct",
-            "version": "0.4.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/duct.git",
-                "reference": "a6f8a086194486a8c92147760c865c4645869908"
+                "reference": "8380414e9f603ede7e4fc67a77d51ba8c95a6901"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/duct/zipball/a6f8a086194486a8c92147760c865c4645869908",
-                "reference": "a6f8a086194486a8c92147760c865c4645869908",
+                "url": "https://api.github.com/repos/IcecaveStudios/duct/zipball/8380414e9f603ede7e4fc67a77d51ba8c95a6901",
+                "reference": "8380414e9f603ede7e4fc67a77d51ba8c95a6901",
                 "shasum": ""
             },
             "require": {
@@ -213,10 +213,12 @@
             "require-dev": {
                 "icecave/archer": "~1"
             },
-            "suggest": {
-                "eloquent/asplode": "Drop-in exception-based error handling."
-            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Icecave\\Duct\\": "src"
@@ -244,7 +246,7 @@
                 "react",
                 "stream"
             ],
-            "time": "2014-02-07 01:24:06"
+            "time": "2014-09-30 05:38:09"
         },
         {
             "name": "icecave/isolator",
