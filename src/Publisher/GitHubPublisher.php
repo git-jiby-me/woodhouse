@@ -24,11 +24,11 @@ class GitHubPublisher extends AbstractPublisher
         Isolator $isolator = null
     ) {
         if (null === $git) {
-            $git = new Git;
+            $git = new Git();
         }
 
         if (null === $fileSystem) {
-            $fileSystem = new Filesystem;
+            $fileSystem = new Filesystem();
         }
 
         $this->git = $git;

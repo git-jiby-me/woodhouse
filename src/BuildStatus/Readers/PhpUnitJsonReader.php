@@ -18,7 +18,7 @@ class PhpUnitJsonReader implements StatusReaderInterface
     public function __construct($reportPath, Parser $parser = null, Isolator $isolator = null)
     {
         if (null === $parser) {
-            $parser = new Parser;
+            $parser = new Parser();
         }
 
         $this->reportPath = $reportPath;

@@ -79,7 +79,7 @@ EOD;
     {
         Phake::when($this->isolator)
             ->simplexml_load_file($this->path)
-            ->thenThrow(new Exception);
+            ->thenThrow(new Exception());
 
         $this->setExpectedException('RuntimeException', 'Unable to parse JUnit test report.');
         $this->reader->readStatus();

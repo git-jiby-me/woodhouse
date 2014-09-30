@@ -30,7 +30,7 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
             ->thenReturn('doom')
         ;
 
-        $this->expectedClient = new Curl;
+        $this->expectedClient = new Curl();
         $this->expectedClient->setOption(CURLOPT_CAINFO, 'qux/cacert-doom.pem');
     }
 
@@ -51,7 +51,7 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue(file_exists($expectedCaCertificatePath));
 
-        $this->factory = new GitHubClientFactory;
+        $this->factory = new GitHubClientFactory();
 
         $this->assertSame(
             realpath($expectedCaCertificatePath),

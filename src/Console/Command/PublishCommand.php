@@ -44,7 +44,7 @@ class PublishCommand extends Command
         }
 
         if (null === $statusImageSelector) {
-            $statusImageSelector = new StatusImageSelector;
+            $statusImageSelector = new StatusImageSelector();
         }
 
         if (null === $coverageReaderFactory) {
@@ -52,7 +52,7 @@ class PublishCommand extends Command
         }
 
         if (null === $coverageImageSelector) {
-            $coverageImageSelector = new CoverageImageSelector;
+            $coverageImageSelector = new CoverageImageSelector();
         }
 
         $this->publisher = $publisher;

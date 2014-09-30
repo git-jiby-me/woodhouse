@@ -43,7 +43,7 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue(file_exists($expectedHiddenInputPath));
 
-        $this->helper = new HiddenInputHelper;
+        $this->helper = new HiddenInputHelper();
 
         $this->assertSame(
             realPath($expectedHiddenInputPath),

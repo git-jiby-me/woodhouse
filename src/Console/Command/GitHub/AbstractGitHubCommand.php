@@ -20,7 +20,7 @@ abstract class AbstractGitHubCommand extends Command
     public function __construct(GitHubClientFactory $clientFactory = null)
     {
         if (null === $clientFactory) {
-            $clientFactory = new GitHubClientFactory;
+            $clientFactory = new GitHubClientFactory();
         }
         $this->clientFactory = $clientFactory;
 

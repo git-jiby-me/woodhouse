@@ -43,20 +43,20 @@ class ListAuthorizationsCommandTest extends PHPUnit_Framework_TestCase
         ;
         $this->command->setHelperSet($this->helperSet);
 
-        $this->authorization0 = new stdClass;
+        $this->authorization0 = new stdClass();
         $this->authorization0->id = 111;
         $this->authorization0->token = 'a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1';
         $this->authorization0->scopes = array('pip', 'pop');
-        $this->authorization0->app = new stdClass;
+        $this->authorization0->app = new stdClass();
         $this->authorization0->app->name = 'foo';
         $this->authorization0->app->url = 'bar';
         $this->authorization0->note = null;
         $this->authorization0->note_url = null;
-        $this->authorization1 = new stdClass;
+        $this->authorization1 = new stdClass();
         $this->authorization1->id = 222;
         $this->authorization1->token = 'b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2';
         $this->authorization1->scopes = array();
-        $this->authorization1->app = new stdClass;
+        $this->authorization1->app = new stdClass();
         $this->authorization1->app->name = 'baz';
         $this->authorization1->app->url = 'qux';
         $this->authorization1->note = 'doom';
@@ -100,7 +100,7 @@ EOD;
 
     public function testConstructorDefaults()
     {
-        $this->command = new ListAuthorizationsCommand;
+        $this->command = new ListAuthorizationsCommand();
 
         $this->assertInstanceOf(
             'Icecave\Woodhouse\GitHub\GitHubClientFactory',
@@ -115,7 +115,7 @@ EOD;
 
     public function testConfigure()
     {
-        $expectedInputDefinition = new InputDefinition;
+        $expectedInputDefinition = new InputDefinition();
         $expectedInputDefinition->addOption(new InputOption(
             'username',
             'u',

@@ -72,7 +72,7 @@ EOD;
 
     public function testConstructorDefaults()
     {
-        $this->command = new DeleteAuthorizationCommand;
+        $this->command = new DeleteAuthorizationCommand();
 
         $this->assertInstanceOf(
             'Icecave\Woodhouse\GitHub\GitHubClientFactory',
@@ -87,7 +87,7 @@ EOD;
 
     public function testConfigure()
     {
-        $expectedInputDefinition = new InputDefinition;
+        $expectedInputDefinition = new InputDefinition();
         $expectedInputDefinition->addOption(new InputOption(
             'username',
             'u',

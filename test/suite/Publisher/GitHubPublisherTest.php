@@ -43,7 +43,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
         Phake::when($this->git)
             ->push(Phake::anyParameters())
-            ->thenThrow(new RuntimeException)
+            ->thenThrow(new RuntimeException())
             ->thenReturn(Phake::mock('Symfony\Component\Process\Process'));
 
         $this->publisher = Phake::partialMock(
@@ -56,7 +56,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testConstructorDefaults()
     {
-        $publisher = new GitHubPublisher;
+        $publisher = new GitHubPublisher();
 
         $this->assertInstanceOf('Icecave\Woodhouse\Git\Git', $publisher->git());
         $this->assertInstanceOf('Symfony\Component\Filesystem\Filesystem', $publisher->fileSystem());
@@ -322,8 +322,8 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
     {
         Phake::when($this->git)
             ->push(Phake::anyParameters())
-            ->thenThrow(new RuntimeException)
-            ->thenThrow(new RuntimeException)
+            ->thenThrow(new RuntimeException())
+            ->thenThrow(new RuntimeException())
             ->thenReturn(Phake::mock('Symfony\Component\Process\Process'));
 
         $this->publisher->setRepository('foo/bar');
@@ -368,7 +368,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testPublishFailurePushAttemptsExhausted()
     {
-        $exception = new RuntimeException;
+        $exception = new RuntimeException();
 
         Phake::when($this->git)
             ->push(Phake::anyParameters())
@@ -426,7 +426,7 @@ class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 
     public function testPublishCloneFailure()
     {
-        $exception = new RuntimeException;
+        $exception = new RuntimeException();
 
         Phake::when($this->git)
             ->cloneRepo(Phake::anyParameters())

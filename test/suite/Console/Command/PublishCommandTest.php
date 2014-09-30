@@ -61,7 +61,7 @@ class PublishCommandTest extends PHPUnit_Framework_TestCase
 
     public function testConstructorDefaults()
     {
-        $command = new PublishCommand;
+        $command = new PublishCommand();
         $command = Liberator::liberate($command);
 
         $this->assertInstanceOf('Icecave\Woodhouse\Publisher\GitHubPublisher', $command->publisher);

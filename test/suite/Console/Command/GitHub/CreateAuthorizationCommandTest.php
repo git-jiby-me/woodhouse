@@ -43,11 +43,11 @@ class CreateAuthorizationCommandTest extends PHPUnit_Framework_TestCase
         ;
         $this->command->setHelperSet($this->helperSet);
 
-        $this->authorization = new stdClass;
+        $this->authorization = new stdClass();
         $this->authorization->id = 111;
         $this->authorization->token = 'a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1';
         $this->authorization->scopes = array('pip', 'pop');
-        $this->authorization->app = new stdClass;
+        $this->authorization->app = new stdClass();
         $this->authorization->app->name = 'foo';
         $this->authorization->app->url = 'bar';
         $this->authorization->note = null;
@@ -86,7 +86,7 @@ EOD;
 
     public function testConstructorDefaults()
     {
-        $this->command = new CreateAuthorizationCommand;
+        $this->command = new CreateAuthorizationCommand();
 
         $this->assertInstanceOf(
             'Icecave\Woodhouse\GitHub\GitHubClientFactory',
@@ -101,7 +101,7 @@ EOD;
 
     public function testConfigure()
     {
-        $expectedInputDefinition = new InputDefinition;
+        $expectedInputDefinition = new InputDefinition();
         $expectedInputDefinition->addOption(new InputOption(
             'username',
             'u',

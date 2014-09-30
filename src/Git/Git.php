@@ -14,7 +14,7 @@ class Git
         ExecutableFinder $executableFinder = null
     ) {
         if (null === $executableFinder) {
-            $executableFinder = new ExecutableFinder;
+            $executableFinder = new ExecutableFinder();
         }
 
         $this->executable = $executableFinder->find('git');

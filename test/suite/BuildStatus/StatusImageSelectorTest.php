@@ -7,7 +7,7 @@ class StatusImageSelectorTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->selector = new StatusImageSelector;
+        $this->selector = new StatusImageSelector();
     }
 
     public function testImageFilename()

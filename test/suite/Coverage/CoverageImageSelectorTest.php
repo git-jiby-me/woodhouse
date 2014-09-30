@@ -7,7 +7,7 @@ class CoverageImageSelectorTest extends PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-        $this->selector = new CoverageImageSelector;
+        $this->selector = new CoverageImageSelector();
     }
 
     /**

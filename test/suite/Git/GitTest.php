@@ -33,7 +33,7 @@ class GitTest extends PHPUnit_Framework_TestCase
 
     public function testConstructorDefaults()
     {
-        $git = new Git;
+        $git = new Git();
 
         $this->assertContains('git', $this->git->executable());
     }

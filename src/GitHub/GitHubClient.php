@@ -19,7 +19,7 @@ class GitHubClient
             $url = 'https://api.github.com/';
         }
         if (null === $browser) {
-            $browser = new Browser;
+            $browser = new Browser();
         }
 
         $this->url = $url;
@@ -98,7 +98,7 @@ class GitHubClient
         $note = null,
         $noteUrl = null
     ) {
-        $data = new stdClass;
+        $data = new stdClass();
         if (array() !== $scopes) {
             $data->scopes = $scopes;
         }

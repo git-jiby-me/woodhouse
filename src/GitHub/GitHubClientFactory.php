@@ -57,7 +57,7 @@ class GitHubClientFactory
      */
     public function create($username = null, $password = null)
     {
-        $client = new Curl;
+        $client = new Curl();
         $client->setOption(CURLOPT_CAINFO, $this->caCertificateRealPath());
 
         if ($userAgent = $this->userAgent()) {

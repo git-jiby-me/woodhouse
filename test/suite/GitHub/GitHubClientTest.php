@@ -47,7 +47,7 @@ class GitHubClientTest extends PHPUnit_Framework_TestCase
 
     public function testConstructDefaults()
     {
-        $this->client = new GitHubClient;
+        $this->client = new GitHubClient();
 
         $this->assertInstanceOf('Buzz\Browser', $this->client->browser());
     }
@@ -63,7 +63,7 @@ class GitHubClientTest extends PHPUnit_Framework_TestCase
   }
 ]
 EOD;
-        $expected0 = new stdClass;
+        $expected0 = new stdClass();
         $expected0->token = 'bar';
         $expected0->note = 'baz';
         $expected0->note_url = 'qux';
@@ -82,38 +82,38 @@ EOD;
 
     public function authorizationsMatchingData()
     {
-        $authorization0 = new stdClass;
-        $authorization0->app = new stdClass;
+        $authorization0 = new stdClass();
+        $authorization0->app = new stdClass();
         $authorization0->app->name = 'foo';
         $authorization0->app->url = 'bar';
         $authorization0->note = null;
         $authorization0->note_url = null;
-        $authorization1 = new stdClass;
-        $authorization1->app = new stdClass;
+        $authorization1 = new stdClass();
+        $authorization1->app = new stdClass();
         $authorization1->app->name = 'bar';
         $authorization1->app->url = 'baz';
         $authorization1->note = null;
         $authorization1->note_url = null;
-        $authorization2 = new stdClass;
-        $authorization2->app = new stdClass;
+        $authorization2 = new stdClass();
+        $authorization2->app = new stdClass();
         $authorization2->app->name = 'foobar';
         $authorization2->app->url = 'barbaz';
         $authorization2->note = null;
         $authorization2->note_url = null;
-        $authorization3 = new stdClass;
-        $authorization3->app = new stdClass;
+        $authorization3 = new stdClass();
+        $authorization3->app = new stdClass();
         $authorization3->app->name = 'foo (API)';
         $authorization3->app->url = 'qux';
         $authorization3->note = 'foo';
         $authorization3->note_url = 'bar';
-        $authorization4 = new stdClass;
-        $authorization4->app = new stdClass;
+        $authorization4 = new stdClass();
+        $authorization4->app = new stdClass();
         $authorization4->app->name = 'bar (API)';
         $authorization4->app->url = 'doom';
         $authorization4->note = 'bar';
         $authorization4->note_url = 'baz';
-        $authorization5 = new stdClass;
-        $authorization5->app = new stdClass;
+        $authorization5 = new stdClass();
+        $authorization5->app = new stdClass();
         $authorization5->app->name = 'foobar (API)';
         $authorization5->app->url = 'splat';
         $authorization5->note = 'foobar';
@@ -220,7 +220,7 @@ EOD;
   }
 ]
 EOD;
-        $expected0 = new stdClass;
+        $expected0 = new stdClass();
         $expected0->token = 'bar';
         $expected0->note = 'baz';
         $expected0->note_url = 'qux';
@@ -252,7 +252,7 @@ EOD;
   }
 ]
 EOD;
-        $expected0 = new stdClass;
+        $expected0 = new stdClass();
         $expected0->token = 'bar';
         $expected0->note = 'baz';
         $expected0->note_url = 'qux';
