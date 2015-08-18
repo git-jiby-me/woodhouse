@@ -1,9 +1,9 @@
 <?php
 namespace Icecave\Woodhouse\BuildStatus;
 
-use Eloquent\Enumeration\Enumeration;
+use Eloquent\Enumeration\AbstractEnumeration;
 
-class BuildStatus extends Enumeration
+class BuildStatus extends AbstractEnumeration
 {
     const PASSING = 'passing';
     const FAILING = 'failing';

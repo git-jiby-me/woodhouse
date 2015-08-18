@@ -19,7 +19,7 @@ class CommandLineReader implements StatusReaderInterface
      */
     public function readStatus()
     {
-        return BuildStatus::instanceByValue($this->buildStatus);
+        return BuildStatus::memberByValue($this->buildStatus);
     }
 
     private $buildStatus;

@@ -19,7 +19,7 @@ if (is_file($standaloneAutoloadPath)) {
     );
 }
 
-Eloquent\Asplode\Asplode::instance()->install();
+Eloquent\Asplode\Asplode::install();
 
 $application = new Icecave\Woodhouse\Console\Application($vendorPath);
 $application->run();

@@ -67,7 +67,7 @@ class CreateAuthorizationCommandTest extends PHPUnit_Framework_TestCase
         $that = $this;
         Phake::when($this->outputInterface)
             ->writeln(Phake::anyParameters())
-            ->thenGetReturnByLambda(
+            ->thenReturnCallback(
                 function ($data) use ($that) {
                     $that->output .= $data . "\n";
                 }
