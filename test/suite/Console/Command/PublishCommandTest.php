@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Command;
 
 use Eloquent\Liberator\Liberator;

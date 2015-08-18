@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console;
 
 use Icecave\Woodhouse\PackageInfo;

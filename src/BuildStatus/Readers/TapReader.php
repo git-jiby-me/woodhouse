@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\BuildStatus\Readers;
 
 use Icecave\Isolator\Isolator;

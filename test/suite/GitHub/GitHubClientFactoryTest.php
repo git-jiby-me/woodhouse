@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\GitHub;
 
 use Buzz\Browser;
@@ -23,12 +24,10 @@ class GitHubClientFactoryTest extends PHPUnit_Framework_TestCase
 
         Phake::when($this->isolator)
             ->sys_get_temp_dir(Phake::anyParameters())
-            ->thenReturn('qux')
-        ;
+            ->thenReturn('qux');
         Phake::when($this->isolator)
             ->uniqid(Phake::anyParameters())
-            ->thenReturn('doom')
-        ;
+            ->thenReturn('doom');
 
         $this->expectedClient = new Curl();
         $this->expectedClient->setOption(CURLOPT_CAINFO, 'qux/cacert-doom.pem');

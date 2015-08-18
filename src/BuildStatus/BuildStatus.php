@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\BuildStatus;
 
 use Eloquent\Enumeration\AbstractEnumeration;

@@ -1,10 +1,11 @@
 <?php
+
 namespace Icecave\Woodhouse\Publisher;
 
-use PHPUnit_Framework_TestCase;
-use Phake;
-use RuntimeException;
 use Icecave\Isolator\Isolator;
+use Phake;
+use PHPUnit_Framework_TestCase;
+use RuntimeException;
 
 class GitHubPublisherTest extends PHPUnit_Framework_TestCase
 {

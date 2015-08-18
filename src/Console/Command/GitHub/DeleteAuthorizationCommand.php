@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Command\GitHub;
 
 use Icecave\Woodhouse\GitHub\GitHubClientFactory;
@@ -43,5 +44,4 @@ class DeleteAuthorizationCommand extends AbstractGitHubCommand
 
         $output->writeln('Authorization deleted.');
     }
-
-    }
+}

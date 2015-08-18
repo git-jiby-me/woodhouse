@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\GitHub;
 
 use Buzz\Browser;
@@ -98,4 +99,4 @@ class GitHubClientFactory
     private $userAgent;
     private $caCertificatePath;
     private $caCertificateRealPath;
-    }
+}

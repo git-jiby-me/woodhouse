@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Coverage\Readers;
 
 use Icecave\Isolator\Isolator;
@@ -38,6 +39,6 @@ class PhpUnitTextReader implements CoverageReaderInterface
         throw new RuntimeException('Unable to parse PHPUnit coverage report.');
     }
 
-        private $reportPath;
+    private $reportPath;
     private $isolator;
 }

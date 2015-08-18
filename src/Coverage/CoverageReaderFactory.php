@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Coverage;
 
 use Icecave\Isolator\Isolator;
@@ -45,5 +46,5 @@ class CoverageReaderFactory
         throw new InvalidArgumentException('Unknown reader type: "' . $type . '".');
     }
 
-        private $isolator;
+    private $isolator;
 }

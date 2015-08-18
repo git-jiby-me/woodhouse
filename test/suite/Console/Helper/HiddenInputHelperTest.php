@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Helper;
 
 use Phake;
@@ -19,12 +20,10 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
 
         Phake::when($this->isolator)
             ->sys_get_temp_dir(Phake::anyParameters())
-            ->thenReturn('doom')
-        ;
+            ->thenReturn('doom');
         Phake::when($this->isolator)
             ->uniqid(Phake::anyParameters())
-            ->thenReturn('splat')
-        ;
+            ->thenReturn('splat');
 
         $this->output = Phake::mock(
             'Symfony\Component\Console\Output\OutputInterface'
@@ -55,17 +54,14 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
     {
         Phake::when($this->isolator)
             ->defined(Phake::anyParameters())
-            ->thenReturn(false)
-        ;
+            ->thenReturn(false);
         Phake::when($this->isolator)
             ->shell_exec(Phake::anyParameters())
             ->thenReturn('baz')
-            ->thenReturn('')
-        ;
+            ->thenReturn('');
         Phake::when($this->isolator)
             ->fgets(Phake::anyParameters())
-            ->thenReturn('qux')
-        ;
+            ->thenReturn('qux');
         $actual = $this->helper->askHiddenResponse($this->output, 'bar');
 
         $this->assertSame('qux', $actual);
@@ -85,17 +81,14 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
         $errorException = Phake::mock('ErrorException');
         Phake::when($this->isolator)
             ->defined(Phake::anyParameters())
-            ->thenReturn(false)
-        ;
+            ->thenReturn(false);
         Phake::when($this->isolator)
             ->shell_exec(Phake::anyParameters())
             ->thenReturn('baz')
-            ->thenReturn('')
-        ;
+            ->thenReturn('');
         Phake::when($this->isolator)
             ->fgets(Phake::anyParameters())
-            ->thenThrow($errorException)
-        ;
+            ->thenThrow($errorException);
         $actual = null;
         try {
             $this->helper->askHiddenResponse($this->output, 'bar');
@@ -118,12 +111,10 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
     {
         Phake::when($this->isolator)
             ->defined(Phake::anyParameters())
-            ->thenReturn(false)
-        ;
+            ->thenReturn(false);
         Phake::when($this->isolator)
             ->shell_exec(Phake::anyParameters())
-            ->thenReturn(false)
-        ;
+            ->thenReturn(false);
 
         $this->setExpectedException(
             'RuntimeException',
@@ -136,12 +127,10 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
     {
         Phake::when($this->isolator)
             ->defined(Phake::anyParameters())
-            ->thenReturn(true)
-        ;
+            ->thenReturn(true);
         Phake::when($this->isolator)
             ->shell_exec(Phake::anyParameters())
-            ->thenReturn('baz')
-        ;
+            ->thenReturn('baz');
         $actual = $this->helper->askHiddenResponse($this->output, 'bar');
 
         $this->assertSame('baz', $actual);
@@ -158,12 +147,10 @@ class HiddenInputHelperTest extends PHPUnit_Framework_TestCase
     {
         Phake::when($this->isolator)
             ->defined(Phake::anyParameters())
-            ->thenReturn(true)
-        ;
+            ->thenReturn(true);
         Phake::when($this->isolator)
             ->shell_exec(Phake::anyParameters())
-            ->thenReturn(false)
-        ;
+            ->thenReturn(false);
 
         $this->setExpectedException(
             'RuntimeException',

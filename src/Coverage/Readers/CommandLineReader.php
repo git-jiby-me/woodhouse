@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Coverage\Readers;
 
 use Icecave\Woodhouse\Coverage\CoverageReaderInterface;
@@ -21,5 +22,5 @@ class CommandLineReader implements CoverageReaderInterface
         return $this->percentage;
     }
 
-        private $percentage;
+    private $percentage;
 }

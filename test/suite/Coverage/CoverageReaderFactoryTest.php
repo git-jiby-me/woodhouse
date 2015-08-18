@@ -1,9 +1,10 @@
 <?php
+
 namespace Icecave\Woodhouse\Coverage;
 
+use Eloquent\Liberator\Liberator;
 use Phake;
 use PHPUnit_Framework_TestCase;
-use Eloquent\Liberator\Liberator;
 
 class CoverageReaderFactoryTest extends PHPUnit_Framework_TestCase
 {

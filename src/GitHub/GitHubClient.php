@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\GitHub;
 
 use Buzz\Browser;
@@ -197,4 +198,4 @@ class GitHubClient
 
     private $url;
     private $browser;
-    }
+}

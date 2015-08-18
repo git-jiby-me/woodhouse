@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Publisher;
 
 use Exception;
@@ -160,7 +161,6 @@ class GitHubPublisher extends AbstractPublisher
     public function authToken()
     {
         return $this->authToken;
-
     }
 
     /**
@@ -213,32 +213,31 @@ class GitHubPublisher extends AbstractPublisher
             $this->fileSystem->remove($tempDir);
 
             return true;
-
         } catch (Exception $e) {
             $this->fileSystem->remove($tempDir);
             throw $e;
         }
     }
 
-     /**
-      * @param string $tempDir
-      */
+    /**
+     * @param string $tempDir
+     */
     protected function cloneRepo($tempDir)
     {
-         try {
-             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 1);
-             foreach ($this->contentPaths() as $sourcePath => $targetPath) {
-                 $this->git->remove($targetPath);
-             }
-         } catch (RuntimeException $e) {
-             if (false === strpos($e->getMessage(), $this->branch() . ' not found in upstream origin')) {
-                 throw $e;
-             }
+        try {
+            $this->git->cloneRepo($tempDir, $this->repositoryUrl(), $this->branch(), 1);
+            foreach ($this->contentPaths() as $sourcePath => $targetPath) {
+                $this->git->remove($targetPath);
+            }
+        } catch (RuntimeException $e) {
+            if (false === strpos($e->getMessage(), $this->branch() . ' not found in upstream origin')) {
+                throw $e;
+            }
 
-             $this->git->cloneRepo($tempDir, $this->repositoryUrl(), null, 1);
-             $this->git->checkout($this->branch(), true);
-             $this->git->remove('.');
-         }
+            $this->git->cloneRepo($tempDir, $this->repositoryUrl(), null, 1);
+            $this->git->checkout($this->branch(), true);
+            $this->git->remove('.');
+        }
     }
 
      /**
@@ -287,7 +286,7 @@ class GitHubPublisher extends AbstractPublisher
          return $this->git->push('origin', $this->branch());
      }
 
-        private $git;
+    private $git;
     private $repository;
     private $branch;
     private $commitMessage;

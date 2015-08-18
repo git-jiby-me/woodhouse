@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Helper;
 
 use ErrorException;
@@ -144,4 +145,4 @@ class HiddenInputHelper extends Helper
     private $hiddenInputRealPath;
     private $isolator;
     private $hasSttyAvailable;
-    }
+}

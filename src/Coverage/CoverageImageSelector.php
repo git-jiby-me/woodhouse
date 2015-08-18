@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Coverage;
 
 class CoverageImageSelector
@@ -49,5 +50,5 @@ class CoverageImageSelector
         return 'test-coverage-unknown.png';
     }
 
-        private $increments;
+    private $increments;
 }

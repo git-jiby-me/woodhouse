@@ -1,9 +1,10 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Command\GitHub;
 
 use Icecave\Woodhouse\Console\Application;
-use PHPUnit_Framework_TestCase;
 use Phake;
+use PHPUnit_Framework_TestCase;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputOption;
@@ -35,18 +36,15 @@ class DeleteAuthorizationCommandTest extends PHPUnit_Framework_TestCase
         $this->hiddenInputHelper = Phake::mock('Icecave\Woodhouse\Console\Helper\HiddenInputHelper');
         Phake::when($this->helperSet)
             ->get('dialog')
-            ->thenReturn($this->dialogHelper)
-        ;
+            ->thenReturn($this->dialogHelper);
         Phake::when($this->helperSet)
             ->get('hidden-input')
-            ->thenReturn($this->hiddenInputHelper)
-        ;
+            ->thenReturn($this->hiddenInputHelper);
         $this->command->setHelperSet($this->helperSet);
 
         Phake::when($this->clientFactory)
             ->create(Phake::anyParameters())
-            ->thenReturn($this->client)
-        ;
+            ->thenReturn($this->client);
 
         $this->output = '';
         $this->outputInterface = Phake::mock('Symfony\Component\Console\Output\OutputInterface');
@@ -128,12 +126,10 @@ EOD;
     {
         Phake::when($this->dialogHelper)
             ->ask(Phake::anyParameters())
-            ->thenReturn('ping')
-        ;
+            ->thenReturn('ping');
         Phake::when($this->hiddenInputHelper)
             ->askHiddenResponse(Phake::anyParameters())
-            ->thenReturn('pong')
-        ;
+            ->thenReturn('pong');
         $input = new StringInput('github:delete-auth 111');
         $exitCode = $this->command->run($input, $this->outputInterface);
 

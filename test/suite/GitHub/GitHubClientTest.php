@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\GitHub;
 
 use Phake;
@@ -22,18 +23,15 @@ class GitHubClientTest extends PHPUnit_Framework_TestCase
         $response = Phake::mock('Buzz\Message\Response');
         Phake::when($response)
             ->isSuccessful(Phake::anyParameters())
-            ->thenReturn($isSuccessful)
-        ;
+            ->thenReturn($isSuccessful);
         if ($isSuccessful) {
             Phake::when($response)
                 ->getContent(Phake::anyParameters())
-                ->thenReturn($content)
-            ;
+                ->thenReturn($content);
         } else {
             Phake::when($response)
                 ->getReasonPhrase(Phake::anyParameters())
-                ->thenReturn($content)
-            ;
+                ->thenReturn($content);
         }
 
         return $response;
@@ -70,14 +68,12 @@ EOD;
         $expected = array($expected0);
         Phake::when($this->browser)
             ->get(Phake::anyParameters())
-            ->thenReturn($this->responseFixture($json))
-        ;
+            ->thenReturn($this->responseFixture($json));
         $actual = $this->client->authorizations();
 
         $this->assertEquals($expected, $actual);
         Phake::verify($this->browser)
-            ->get('foo/authorizations')
-        ;
+            ->get('foo/authorizations');
     }
 
     public function authorizationsMatchingData()
@@ -138,7 +134,7 @@ EOD;
                 $authorization2,
                 $authorization3,
                 $authorization5,
-            )
+            ),
         );
 
         $data['Match by url'] = array(
@@ -150,7 +146,7 @@ EOD;
                 $authorization2,
                 $authorization4,
                 $authorization5,
-            )
+            ),
         );
 
         $data['Match by name and url'] = array(
@@ -160,7 +156,7 @@ EOD;
             array(
                 $authorization2,
                 $authorization5,
-            )
+            ),
         );
 
         return $data;
@@ -173,8 +169,7 @@ EOD;
     {
         Phake::when($this->client)
             ->authorizations(Phake::anyParameters())
-            ->thenReturn($authorizations)
-        ;
+            ->thenReturn($authorizations);
         $actual = $this->client->authorizationsMatching($namePattern, $urlPattern);
 
         $this->assertSame($expected, $actual);
@@ -185,8 +180,7 @@ EOD;
     {
         Phake::when($this->browser)
             ->get(Phake::anyParameters())
-            ->thenReturn($this->responseFixture('['))
-        ;
+            ->thenReturn($this->responseFixture('['));
 
         $this->setExpectedException(
             'RuntimeException',
@@ -199,8 +193,7 @@ EOD;
     {
         Phake::when($this->browser)
             ->get(Phake::anyParameters())
-            ->thenReturn($this->responseFixture('bar', false))
-        ;
+            ->thenReturn($this->responseFixture('bar', false));
 
         $this->setExpectedException(
             'RuntimeException',
@@ -227,8 +220,7 @@ EOD;
         $expected = array($expected0);
         Phake::when($this->browser)
             ->post(Phake::anyParameters())
-            ->thenReturn($this->responseFixture($json))
-        ;
+            ->thenReturn($this->responseFixture($json));
         $actual = $this->client->createAuthorization();
 
         $this->assertEquals($expected, $actual);
@@ -237,8 +229,7 @@ EOD;
                 'foo/authorizations',
                 array(),
                 '{}'
-            )
-        ;
+            );
     }
 
     public function testCreateAuthorizationAllOptions()
@@ -259,8 +250,7 @@ EOD;
         $expected = array($expected0);
         Phake::when($this->browser)
             ->post(Phake::anyParameters())
-            ->thenReturn($this->responseFixture($json))
-        ;
+            ->thenReturn($this->responseFixture($json));
         $actual = $this->client->createAuthorization(
             array('doom', 'splat'),
             'ping',
@@ -273,16 +263,14 @@ EOD;
                 'foo/authorizations',
                 array(),
                 '{"scopes":["doom","splat"],"note":"ping","note_url":"pong"}'
-            )
-        ;
+            );
     }
 
     public function testCreateAuthorizationFailureInvalidJson()
     {
         Phake::when($this->browser)
             ->post(Phake::anyParameters())
-            ->thenReturn($this->responseFixture('{'))
-        ;
+            ->thenReturn($this->responseFixture('{'));
 
         $this->setExpectedException(
             'RuntimeException',
@@ -295,8 +283,7 @@ EOD;
     {
         Phake::when($this->browser)
             ->post(Phake::anyParameters())
-            ->thenReturn($this->responseFixture('bar', false))
-        ;
+            ->thenReturn($this->responseFixture('bar', false));
 
         $this->setExpectedException(
             'RuntimeException',
@@ -309,8 +296,7 @@ EOD;
     {
         Phake::when($this->browser)
             ->delete(Phake::anyParameters())
-            ->thenReturn($this->responseFixture(''))
-        ;
+            ->thenReturn($this->responseFixture(''));
         $this->client->deleteAuthorization(111);
 
         Phake::verify($this->browser)->delete('foo/authorizations/111');
@@ -320,8 +306,7 @@ EOD;
     {
         Phake::when($this->browser)
             ->delete(Phake::anyParameters())
-            ->thenReturn($this->responseFixture('bar', false))
-        ;
+            ->thenReturn($this->responseFixture('bar', false));
 
         $this->setExpectedException(
             'RuntimeException',

@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Publisher;
 
 abstract class AbstractPublisher implements PublisherInterface
@@ -45,5 +46,5 @@ abstract class AbstractPublisher implements PublisherInterface
         return $this->contentPaths;
     }
 
-        private $contentPaths;
+    private $contentPaths;
 }

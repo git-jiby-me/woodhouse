@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\BuildStatus\Readers;
 
 use Icecave\Duct\Exception\SyntaxExceptionInterface;
@@ -61,7 +62,7 @@ class PhpUnitJsonReader implements StatusReaderInterface
     protected function checkResults(array $results)
     {
         foreach ($results as $result) {
-            if (isset($result->status) && $result->status !== "pass") {
+            if (isset($result->status) && $result->status !== 'pass') {
                 return BuildStatus::FAILING();
             }
         }

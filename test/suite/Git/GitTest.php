@@ -1,9 +1,10 @@
 <?php
+
 namespace Icecave\Woodhouse\Git;
 
 use Eloquent\Liberator\Liberator;
-use PHPUnit_Framework_TestCase;
 use Phake;
+use PHPUnit_Framework_TestCase;
 use RuntimeException;
 
 class GitTest extends PHPUnit_Framework_TestCase

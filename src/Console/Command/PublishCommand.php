@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Command;
 
 use Icecave\Isolator\Isolator;
@@ -389,7 +390,7 @@ class PublishCommand extends Command
         }
     }
 
-        private $publisher;
+    private $publisher;
     private $statusReaderFactory;
     private $statusImageSelector;
     private $coverageReaderFactory;

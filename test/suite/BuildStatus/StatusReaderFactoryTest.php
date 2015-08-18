@@ -1,9 +1,10 @@
 <?php
+
 namespace Icecave\Woodhouse\BuildStatus;
 
+use Eloquent\Liberator\Liberator;
 use Phake;
 use PHPUnit_Framework_TestCase;
-use Eloquent\Liberator\Liberator;
 
 class StatusReaderFactoryTest extends PHPUnit_Framework_TestCase
 {

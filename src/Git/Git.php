@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Git;
 
 use RuntimeException;
@@ -225,7 +226,7 @@ class Git
         return new Process('');
     }
 
-        private $outputFilter;
+    private $outputFilter;
     private $executable;
     private $workingDirectory;
 }

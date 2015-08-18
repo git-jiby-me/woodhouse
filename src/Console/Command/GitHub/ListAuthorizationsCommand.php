@@ -1,4 +1,5 @@
 <?php
+
 namespace Icecave\Woodhouse\Console\Command\GitHub;
 
 use Icecave\Woodhouse\GitHub\GitHubClientFactory;
@@ -74,5 +75,4 @@ class ListAuthorizationsCommand extends AbstractGitHubCommand
 
         return array($namePattern, $urlPattern);
     }
-
-    }
+}
